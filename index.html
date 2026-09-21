@@ -2,669 +2,120 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>GitHub Intelligence Briefings</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitHub Intelligence Briefing — 2026-09-20</title>
 <style>
-  :root{
-    --bg:#0f172a; --card:#1e293b; --card2:#172033; --line:#334155;
-    --link:#38bdf8; --neon:#00f2fe; --txt:#e2e8f0; --muted:#94a3b8;
-    --sky:#38bdf8; --violet:#a78bfa; --rose:#f43f5e; --orange:#fb923c;
-    --amber:#facc15; --emerald:#34d399; --cyan:#22d3ee;
+  :root {
+    --bg: #0f172a; --card: #1e293b; --line: #334155; --link: #38bdf8; --neon: #00f2fe;
   }
-  *{box-sizing:border-box}
-  body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,rgba(0,242,254,.08),transparent),var(--bg);
-    color:var(--txt);font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
-  .wrap{max-width:1320px;margin:0 auto;padding:32px 22px 64px}
-  header.hero{border:1px solid var(--line);border-radius:16px;padding:28px;
-    background:linear-gradient(135deg,rgba(0,242,254,.07),rgba(56,189,248,.03));
-    box-shadow:0 0 40px rgba(0,242,254,.08)}
-  .kicker{letter-spacing:.28em;font-size:12px;color:var(--neon);text-transform:uppercase}
-  h1{margin:6px 0 4px;font-size:30px;background:linear-gradient(90deg,#fff,#7dd3fc);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .meta{color:var(--muted);font-size:13px;margin-top:10px;display:flex;flex-wrap:wrap;gap:18px}
-  .meta b{color:var(--txt)}
-  .cat{margin-top:42px}
-  .cat-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;
-    border-bottom:1px solid var(--line);padding-bottom:10px}
-  .cat-dot{width:12px;height:12px;border-radius:50%;box-shadow:0 0 12px currentColor}
-  .cat h2{font-size:20px;margin:0;letter-spacing:.02em}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
-    transition:transform .15s ease,box-shadow .15s ease,border-color .15s}
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,242,254,.10);border-color:#475569}
-  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  .repo{font-size:16px;font-weight:700;color:#fff;text-decoration:none}
-  .repo:hover{color:var(--link)}
-  .repo .owner{color:var(--muted);font-weight:400;font-size:13px}
-  .stars{flex:0 0 auto;background:#0b1220;border:1px solid var(--line);color:#fde68a;
-    font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
-  .stars::before{content:"\2605  "}
-  .tagline{color:var(--muted);font-size:12.5px;margin:6px 0 12px}
-  .section{margin:10px 0}
-  .section .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--neon);margin-bottom:4px}
-  .section p{margin:0;font-size:13.5px;color:#cbd5e1}
-  ul.aud{margin:4px 0 0;padding-left:16px}
-  ul.aud li{font-size:13px;color:#cbd5e1;margin:2px 0}
-  .osint{margin-top:12px;background:linear-gradient(180deg,rgba(0,242,254,.06),rgba(56,189,248,.03));
-    border-left:3px solid var(--neon);border-radius:0 10px 10px 0;padding:10px 12px}
-  .osint .lbl{color:var(--neon)}
-  .osint p{margin:0;font-size:12.5px;color:#bae6fd}
-  .pill{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);
-    color:var(--muted);margin:2px 4px 0 0;background:#0b1220}
-  footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-  a{color:var(--link)}
-  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-  .legend span{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+  body, html {
+    margin: 0; padding: 0; height: 100vh; overflow: hidden; 
+    background: var(--bg); font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  .top-bar {
+    height: 60px; background: var(--card); border-bottom: 1px solid var(--line); 
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+  }
+  .btn {
+    background: var(--bg); color: var(--neon); border: 1px solid var(--line); 
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px;
+  }
+  .btn:hover { border-color: var(--neon); }
+  select {
+    background: var(--bg); color: var(--link); border: 1px solid var(--line); 
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; outline: none; font-size: 13px;
+  }
+  iframe {
+    width: 100%; height: calc(100vh - 60px); border: none; display: block;
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+  <!-- Minimal Top Navigation -->
+  <div class="top-bar">
+    <button class="btn" onclick="loadLatest()">🏠 Home (Latest)</button>
+    <select id="historySelect" onchange="loadReport(this.value)">
+      <option value="">📂 View History...</option>
+      <option value="archive/intel_briefing_2026-09-20.html">2026-09-20</option>
+      <option value="archive/intel_briefing_2026-09-19.html">2026-09-19</option>
+      <option value="archive/intel_briefing_2026-09-17.html">2026-09-17</option>
+      <option value="archive/intel_briefing_2026-09-16.html">2026-09-16</option>
+      <option value="archive/intel_briefing_2026-09-15.html">2026-09-15</option>
+      <option value="archive/intel_briefing_2026-09-14.html">2026-09-14</option>
+      <option value="archive/intel_briefing_2026-09-13.html">2026-09-13</option>
+      <option value="archive/intel_briefing_2026-09-12.html">2026-09-12</option>
+      <option value="archive/intel_briefing_2026-09-11.html">2026-09-11</option>
+      <option value="archive/intel_briefing_2026-09-10.html">2026-09-10</option>
+      <option value="archive/intel_briefing_2026-09-09.html">2026-09-09</option>
+      <option value="archive/intel_briefing_2026-09-08.html">2026-09-08</option>
+      <option value="archive/intel_briefing_2026-09-07.html">2026-09-07</option>
+      <option value="archive/intel_briefing_2026-09-06.html">2026-09-06</option>
+      <option value="archive/intel_briefing_2026-09-05.html">2026-09-05</option>
+      <option value="archive/intel_briefing_2026-09-04.html">2026-09-04</option>
+      <option value="archive/intel_briefing_2026-09-03.html">2026-09-03</option>
+      <option value="archive/intel_briefing_2026-09-02.html">2026-09-02</option>
+      <option value="archive/intel_briefing_2026-09-01.html">2026-09-01</option>
+      <option value="archive/intel_briefing_2026-08-31.html">2026-08-31</option>
+      <option value="archive/intel_briefing_2026-08-30.html">2026-08-30</option>
+      <option value="archive/intel_briefing_2026-08-29.html">2026-08-29</option>
+      <option value="archive/intel_briefing_2026-08-28.html">2026-08-28</option>
+      <option value="archive/intel_briefing_2026-08-27.html">2026-08-27</option>
+      <option value="archive/intel_briefing_2026-08-26.html">2026-08-26</option>
+      <option value="archive/intel_briefing_2026-08-25.html">2026-08-25</option>
+      <option value="archive/intel_briefing_2026-08-24.html">2026-08-24</option>
+      <option value="archive/intel_briefing_2026-08-23.html">2026-08-23</option>
+      <option value="archive/intel_briefing_2026-08-22.html">2026-08-22</option>
+      <option value="archive/intel_briefing_2026-08-20.html">2026-08-20</option>
+      <option value="archive/intel_briefing_2026-08-19.html">2026-08-19</option>
+      <option value="archive/intel_briefing_2026-08-18.html">2026-08-18</option>
+      <option value="archive/intel_briefing_2026-08-17.html">2026-08-17</option>
+      <option value="archive/intel_briefing_2026-08-16.html">2026-08-16</option>
+      <option value="archive/intel_briefing_2026-08-15.html">2026-08-15</option>
+      <option value="archive/intel_briefing_2026-08-14.html">2026-08-14</option>
+      <option value="archive/intel_briefing_2026-08-13.html">2026-08-13</option>
+      <option value="archive/intel_briefing_2026-08-12.html">2026-08-12</option>
+      <option value="archive/intel_briefing_2026-08-11.html">2026-08-11</option>
+      <option value="archive/intel_briefing_2026-08-10.html">2026-08-10</option>
+      <option value="archive/intel_briefing_2026-08-09.html">2026-08-09</option>
+      <option value="archive/intel_briefing_2026-08-08.html">2026-08-08</option>
+      <option value="archive/intel_briefing_2026-08-07.html">2026-08-07</option>
+      <option value="archive/intel_briefing_2026-08-06.html">2026-08-06</option>
+      <option value="archive/intel_briefing_2026-08-05.html">2026-08-05</option>
+      <option value="archive/intel_briefing_2026-08-04.html">2026-08-04</option>
+      <option value="archive/intel_briefing_2026-08-03.html">2026-08-03</option>
+      <option value="archive/intel_briefing_2026-08-02.html">2026-08-02</option>
+      <option value="archive/intel_briefing_2026-08-01.html">2026-08-01</option>
+      <option value="archive/intel_briefing_2026-07-31.html">2026-07-31</option>
+      <option value="archive/intel_briefing_2026-07-30.html">2026-07-30</option>
+      <option value="archive/intel_briefing_2026-07-29.html">2026-07-29</option>
+      <option value="archive/intel_briefing_2026-07-28.html">2026-07-28</option>
+      <option value="archive/intel_briefing_2026-07-27.html">2026-07-27</option>
+      <option value="archive/intel_briefing_2026-07-26.html">2026-07-26</option>
+      <option value="archive/intel_briefing_2026-07-25.html">2026-07-25</option>
+      <option value="archive/intel_briefing_2026-07-24.html">2026-07-24</option>
+      <option value="archive/intel_briefing_2026-07-23.html">2026-07-23</option>
+      <option value="archive/intel_briefing_2026-07-22.html">2026-07-22</option>
+      <option value="archive/intel_briefing_2026-07-21.html">2026-07-21</option>
 
-
-    <div id="dynamic-nav" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <a href="../index.html" style="background: var(--card); color: var(--neon); text-decoration: none; border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: bold; box-shadow: 0 0 10px rgba(0,242,254,0.1); transition: transform 0.15s ease;">
-        🏠 Home (Latest)
-      </a>
-      <select onchange="if(this.value) window.location.href=this.value" 
-              style="background: var(--card); color: var(--link); border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-family: inherit; font-size: 13px; cursor: pointer; outline: none;">
-        <option value="">📂 View History...</option>
-            <option value="intel_briefing_2026-09-20.html">2026-09-20</option>
-        <option value="intel_briefing_2026-09-19.html">2026-09-19</option>
-        <option value="intel_briefing_2026-09-17.html">2026-09-17</option>
-        <option value="intel_briefing_2026-09-16.html">2026-09-16</option>
-        <option value="intel_briefing_2026-09-15.html">2026-09-15</option>
-        <option value="intel_briefing_2026-09-14.html">2026-09-14</option>
-        <option value="intel_briefing_2026-09-13.html">2026-09-13</option>
-        <option value="intel_briefing_2026-09-12.html">2026-09-12</option>
-        <option value="intel_briefing_2026-09-11.html">2026-09-11</option>
-        <option value="intel_briefing_2026-09-10.html">2026-09-10</option>
-        <option value="intel_briefing_2026-09-09.html">2026-09-09</option>
-        <option value="intel_briefing_2026-09-08.html">2026-09-08</option>
-        <option value="intel_briefing_2026-09-07.html">2026-09-07</option>
-        <option value="intel_briefing_2026-09-06.html">2026-09-06</option>
-        <option value="intel_briefing_2026-09-05.html">2026-09-05</option>
-        <option value="intel_briefing_2026-09-04.html">2026-09-04</option>
-        <option value="intel_briefing_2026-09-03.html">2026-09-03</option>
-        <option value="intel_briefing_2026-09-02.html">2026-09-02</option>
-        <option value="intel_briefing_2026-09-01.html">2026-09-01</option>
-        <option value="intel_briefing_2026-08-31.html">2026-08-31</option>
-        <option value="intel_briefing_2026-08-30.html">2026-08-30</option>
-        <option value="intel_briefing_2026-08-29.html">2026-08-29</option>
-        <option value="intel_briefing_2026-08-28.html">2026-08-28</option>
-        <option value="intel_briefing_2026-08-27.html">2026-08-27</option>
-        <option value="intel_briefing_2026-08-26.html">2026-08-26</option>
-        <option value="intel_briefing_2026-08-25.html">2026-08-25</option>
-        <option value="intel_briefing_2026-08-24.html">2026-08-24</option>
-        <option value="intel_briefing_2026-08-23.html">2026-08-23</option>
-        <option value="intel_briefing_2026-08-22.html">2026-08-22</option>
-        <option value="intel_briefing_2026-08-20.html">2026-08-20</option>
-        <option value="intel_briefing_2026-08-19.html">2026-08-19</option>
-        <option value="intel_briefing_2026-08-18.html">2026-08-18</option>
-        <option value="intel_briefing_2026-08-17.html">2026-08-17</option>
-        <option value="intel_briefing_2026-08-16.html">2026-08-16</option>
-        <option value="intel_briefing_2026-08-15.html">2026-08-15</option>
-        <option value="intel_briefing_2026-08-14.html">2026-08-14</option>
-        <option value="intel_briefing_2026-08-13.html">2026-08-13</option>
-        <option value="intel_briefing_2026-08-12.html">2026-08-12</option>
-        <option value="intel_briefing_2026-08-11.html">2026-08-11</option>
-        <option value="intel_briefing_2026-08-10.html">2026-08-10</option>
-        <option value="intel_briefing_2026-08-09.html">2026-08-09</option>
-        <option value="intel_briefing_2026-08-08.html">2026-08-08</option>
-        <option value="intel_briefing_2026-08-07.html">2026-08-07</option>
-        <option value="intel_briefing_2026-08-06.html">2026-08-06</option>
-        <option value="intel_briefing_2026-08-05.html">2026-08-05</option>
-        <option value="intel_briefing_2026-08-04.html">2026-08-04</option>
-        <option value="intel_briefing_2026-08-03.html">2026-08-03</option>
-        <option value="intel_briefing_2026-08-02.html">2026-08-02</option>
-        <option value="intel_briefing_2026-08-01.html">2026-08-01</option>
-        <option value="intel_briefing_2026-07-31.html">2026-07-31</option>
-        <option value="intel_briefing_2026-07-30.html">2026-07-30</option>
-        <option value="intel_briefing_2026-07-29.html">2026-07-29</option>
-        <option value="intel_briefing_2026-07-28.html">2026-07-28</option>
-        <option value="intel_briefing_2026-07-27.html">2026-07-27</option>
-        <option value="intel_briefing_2026-07-26.html">2026-07-26</option>
-        <option value="intel_briefing_2026-07-25.html">2026-07-25</option>
-        <option value="intel_briefing_2026-07-24.html">2026-07-24</option>
-        <option value="intel_briefing_2026-07-23.html">2026-07-23</option>
-        <option value="intel_briefing_2026-07-22.html">2026-07-22</option>
-        <option value="intel_briefing_2026-07-21.html">2026-07-21</option>
-      </select>
-    </div>
-
-    <div id="dynamic-nav" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <a href="../index.html" style="background: var(--card); color: var(--neon); text-decoration: none; border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: bold; box-shadow: 0 0 10px rgba(0,242,254,0.1); transition: transform 0.15s ease;">
-        🏠 Home (Latest)
-      </a>
-      <select onchange="if(this.value) window.location.href=this.value" 
-              style="background: var(--card); color: var(--link); border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-family: inherit; font-size: 13px; cursor: pointer; outline: none;">
-        <option value="">📂 View History...</option>
-            <option value="intel_briefing_2026-09-20.html">2026-09-20</option>
-        <option value="intel_briefing_2026-09-19.html">2026-09-19</option>
-        <option value="intel_briefing_2026-09-17.html">2026-09-17</option>
-        <option value="intel_briefing_2026-09-16.html">2026-09-16</option>
-        <option value="intel_briefing_2026-09-15.html">2026-09-15</option>
-        <option value="intel_briefing_2026-09-14.html">2026-09-14</option>
-        <option value="intel_briefing_2026-09-13.html">2026-09-13</option>
-        <option value="intel_briefing_2026-09-12.html">2026-09-12</option>
-        <option value="intel_briefing_2026-09-11.html">2026-09-11</option>
-        <option value="intel_briefing_2026-09-10.html">2026-09-10</option>
-        <option value="intel_briefing_2026-09-09.html">2026-09-09</option>
-        <option value="intel_briefing_2026-09-08.html">2026-09-08</option>
-        <option value="intel_briefing_2026-09-07.html">2026-09-07</option>
-        <option value="intel_briefing_2026-09-06.html">2026-09-06</option>
-        <option value="intel_briefing_2026-09-05.html">2026-09-05</option>
-        <option value="intel_briefing_2026-09-04.html">2026-09-04</option>
-        <option value="intel_briefing_2026-09-03.html">2026-09-03</option>
-        <option value="intel_briefing_2026-09-02.html">2026-09-02</option>
-        <option value="intel_briefing_2026-09-01.html">2026-09-01</option>
-        <option value="intel_briefing_2026-08-31.html">2026-08-31</option>
-        <option value="intel_briefing_2026-08-30.html">2026-08-30</option>
-        <option value="intel_briefing_2026-08-29.html">2026-08-29</option>
-        <option value="intel_briefing_2026-08-28.html">2026-08-28</option>
-        <option value="intel_briefing_2026-08-27.html">2026-08-27</option>
-        <option value="intel_briefing_2026-08-26.html">2026-08-26</option>
-        <option value="intel_briefing_2026-08-25.html">2026-08-25</option>
-        <option value="intel_briefing_2026-08-24.html">2026-08-24</option>
-        <option value="intel_briefing_2026-08-23.html">2026-08-23</option>
-        <option value="intel_briefing_2026-08-22.html">2026-08-22</option>
-        <option value="intel_briefing_2026-08-20.html">2026-08-20</option>
-        <option value="intel_briefing_2026-08-19.html">2026-08-19</option>
-        <option value="intel_briefing_2026-08-18.html">2026-08-18</option>
-        <option value="intel_briefing_2026-08-17.html">2026-08-17</option>
-        <option value="intel_briefing_2026-08-16.html">2026-08-16</option>
-        <option value="intel_briefing_2026-08-15.html">2026-08-15</option>
-        <option value="intel_briefing_2026-08-14.html">2026-08-14</option>
-        <option value="intel_briefing_2026-08-13.html">2026-08-13</option>
-        <option value="intel_briefing_2026-08-12.html">2026-08-12</option>
-        <option value="intel_briefing_2026-08-11.html">2026-08-11</option>
-        <option value="intel_briefing_2026-08-10.html">2026-08-10</option>
-        <option value="intel_briefing_2026-08-09.html">2026-08-09</option>
-        <option value="intel_briefing_2026-08-08.html">2026-08-08</option>
-        <option value="intel_briefing_2026-08-07.html">2026-08-07</option>
-        <option value="intel_briefing_2026-08-06.html">2026-08-06</option>
-        <option value="intel_briefing_2026-08-05.html">2026-08-05</option>
-        <option value="intel_briefing_2026-08-04.html">2026-08-04</option>
-        <option value="intel_briefing_2026-08-03.html">2026-08-03</option>
-        <option value="intel_briefing_2026-08-02.html">2026-08-02</option>
-        <option value="intel_briefing_2026-08-01.html">2026-08-01</option>
-        <option value="intel_briefing_2026-07-31.html">2026-07-31</option>
-        <option value="intel_briefing_2026-07-30.html">2026-07-30</option>
-        <option value="intel_briefing_2026-07-29.html">2026-07-29</option>
-        <option value="intel_briefing_2026-07-28.html">2026-07-28</option>
-        <option value="intel_briefing_2026-07-27.html">2026-07-27</option>
-        <option value="intel_briefing_2026-07-26.html">2026-07-26</option>
-        <option value="intel_briefing_2026-07-25.html">2026-07-25</option>
-        <option value="intel_briefing_2026-07-24.html">2026-07-24</option>
-        <option value="intel_briefing_2026-07-23.html">2026-07-23</option>
-        <option value="intel_briefing_2026-07-22.html">2026-07-22</option>
-        <option value="intel_briefing_2026-07-21.html">2026-07-21</option>
-      </select>
-    </div>
-
-    <div id="dynamic-nav" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <a href="index.html" style="background: var(--card); color: var(--neon); text-decoration: none; border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: bold; box-shadow: 0 0 10px rgba(0,242,254,0.1); transition: transform 0.15s ease;">
-        🏠 Home (Latest)
-      </a>
-      <select onchange="if(this.value) window.location.href=this.value" 
-              style="background: var(--card); color: var(--link); border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-family: inherit; font-size: 13px; cursor: pointer; outline: none;">
-        <option value="">📂 View History...</option>
-            <option value="archive/intel_briefing_2026-09-20.html">2026-09-20</option>
-        <option value="archive/intel_briefing_2026-09-19.html">2026-09-19</option>
-        <option value="archive/intel_briefing_2026-09-17.html">2026-09-17</option>
-        <option value="archive/intel_briefing_2026-09-16.html">2026-09-16</option>
-        <option value="archive/intel_briefing_2026-09-15.html">2026-09-15</option>
-        <option value="archive/intel_briefing_2026-09-14.html">2026-09-14</option>
-        <option value="archive/intel_briefing_2026-09-13.html">2026-09-13</option>
-        <option value="archive/intel_briefing_2026-09-12.html">2026-09-12</option>
-        <option value="archive/intel_briefing_2026-09-11.html">2026-09-11</option>
-        <option value="archive/intel_briefing_2026-09-10.html">2026-09-10</option>
-        <option value="archive/intel_briefing_2026-09-09.html">2026-09-09</option>
-        <option value="archive/intel_briefing_2026-09-08.html">2026-09-08</option>
-        <option value="archive/intel_briefing_2026-09-07.html">2026-09-07</option>
-        <option value="archive/intel_briefing_2026-09-06.html">2026-09-06</option>
-        <option value="archive/intel_briefing_2026-09-05.html">2026-09-05</option>
-        <option value="archive/intel_briefing_2026-09-04.html">2026-09-04</option>
-        <option value="archive/intel_briefing_2026-09-03.html">2026-09-03</option>
-        <option value="archive/intel_briefing_2026-09-02.html">2026-09-02</option>
-        <option value="archive/intel_briefing_2026-09-01.html">2026-09-01</option>
-        <option value="archive/intel_briefing_2026-08-31.html">2026-08-31</option>
-        <option value="archive/intel_briefing_2026-08-30.html">2026-08-30</option>
-        <option value="archive/intel_briefing_2026-08-29.html">2026-08-29</option>
-        <option value="archive/intel_briefing_2026-08-28.html">2026-08-28</option>
-        <option value="archive/intel_briefing_2026-08-27.html">2026-08-27</option>
-        <option value="archive/intel_briefing_2026-08-26.html">2026-08-26</option>
-        <option value="archive/intel_briefing_2026-08-25.html">2026-08-25</option>
-        <option value="archive/intel_briefing_2026-08-24.html">2026-08-24</option>
-        <option value="archive/intel_briefing_2026-08-23.html">2026-08-23</option>
-        <option value="archive/intel_briefing_2026-08-22.html">2026-08-22</option>
-        <option value="archive/intel_briefing_2026-08-20.html">2026-08-20</option>
-        <option value="archive/intel_briefing_2026-08-19.html">2026-08-19</option>
-        <option value="archive/intel_briefing_2026-08-18.html">2026-08-18</option>
-        <option value="archive/intel_briefing_2026-08-17.html">2026-08-17</option>
-        <option value="archive/intel_briefing_2026-08-16.html">2026-08-16</option>
-        <option value="archive/intel_briefing_2026-08-15.html">2026-08-15</option>
-        <option value="archive/intel_briefing_2026-08-14.html">2026-08-14</option>
-        <option value="archive/intel_briefing_2026-08-13.html">2026-08-13</option>
-        <option value="archive/intel_briefing_2026-08-12.html">2026-08-12</option>
-        <option value="archive/intel_briefing_2026-08-11.html">2026-08-11</option>
-        <option value="archive/intel_briefing_2026-08-10.html">2026-08-10</option>
-        <option value="archive/intel_briefing_2026-08-09.html">2026-08-09</option>
-        <option value="archive/intel_briefing_2026-08-08.html">2026-08-08</option>
-        <option value="archive/intel_briefing_2026-08-07.html">2026-08-07</option>
-        <option value="archive/intel_briefing_2026-08-06.html">2026-08-06</option>
-        <option value="archive/intel_briefing_2026-08-05.html">2026-08-05</option>
-        <option value="archive/intel_briefing_2026-08-04.html">2026-08-04</option>
-        <option value="archive/intel_briefing_2026-08-03.html">2026-08-03</option>
-        <option value="archive/intel_briefing_2026-08-02.html">2026-08-02</option>
-        <option value="archive/intel_briefing_2026-08-01.html">2026-08-01</option>
-        <option value="archive/intel_briefing_2026-07-31.html">2026-07-31</option>
-        <option value="archive/intel_briefing_2026-07-30.html">2026-07-30</option>
-        <option value="archive/intel_briefing_2026-07-29.html">2026-07-29</option>
-        <option value="archive/intel_briefing_2026-07-28.html">2026-07-28</option>
-        <option value="archive/intel_briefing_2026-07-27.html">2026-07-27</option>
-        <option value="archive/intel_briefing_2026-07-26.html">2026-07-26</option>
-        <option value="archive/intel_briefing_2026-07-25.html">2026-07-25</option>
-        <option value="archive/intel_briefing_2026-07-24.html">2026-07-24</option>
-        <option value="archive/intel_briefing_2026-07-23.html">2026-07-23</option>
-        <option value="archive/intel_briefing_2026-07-22.html">2026-07-22</option>
-        <option value="archive/intel_briefing_2026-07-21.html">2026-07-21</option>
-      </select>
-    </div>
-<header class="hero">
-  <div class="kicker">Executive Intelligence Briefing &middot; Principal Security Architecture</div>
-  <h1>GitHub Trending Repository Intelligence</h1>
-  <div class="meta">
-    <span><b>Date:</b> 2026-09-20</span>
-    <span><b>Window:</b> 24–48h star velocity &amp; commit activity</span>
-    <span><b>Generated by:</b> Mr Delly Bot (Hermes Agent)</span>
-    <span><b>Model:</b> tencent/hy3-preview (OpenRouter)</span>
-    <span><b>Coverage:</b> 7 sectors &middot; 26 repositories</span>
+    </select>
   </div>
-  <div class="legend">
-    <span><i class="cat-dot" style="color:var(--sky)"></i>AI &amp; LLM</span>
-    <span><i class="cat-dot" style="color:var(--violet)"></i>Hermes / Agents</span>
-    <span><i class="cat-dot" style="color:var(--rose)"></i>Cyber &amp; AI Security</span>
-    <span><i class="cat-dot" style="color:var(--orange)"></i>Cloud Security AI</span>
-    <span><i class="cat-dot" style="color:var(--amber)"></i>SAST &amp; Auditing</span>
-    <span><i class="cat-dot" style="color:var(--emerald)"></i>SIEM &amp; Monitoring</span>
-    <span><i class="cat-dot" style="color:var(--cyan)"></i>Smart Home / Self-Host</span>
-  </div>
-</header>
+  
+  <!-- Content Window (Defaults to the newest report) -->
+  <iframe id="reportFrame" src="archive/intel_briefing_2026-09-20.html"></iframe>
 
-<!-- ============ 1. AI & LLM ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--sky)"></i><h2>🤖 AI &amp; LLM Architectures</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/simonw/llm" target="_blank" rel="noopener">simonw/<b>llm</b> <span class="owner">by simonw</span></a>
-        <span class="stars">12.5k</span>
-      </div>
-      <div class="tagline">Command-line &amp; Python library for interacting with LLMs — local and remote.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Unified interface to OpenAI, Anthropic Claude, Gemini, Qwen, Gemma, Kimi, DeepSeek, Mistral and dozens more. Supports local models via plugins (Ollama, LM Studio), tool calling, embeddings, structured schemas, and SQLite-backed prompt/response logging. The 0.32 release (Apr 2026) was a major backwards-compatible refactor broadening local-model tooling.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Scriptable LLM access for pipelines, one-liner chat, multi-modal (image/audio/video) prompts, and reproducible prompt logs.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Developer tooling &amp; CLI enthusiasts</li><li>Data/ML engineers building LLM pipelines</li><li>Researchers needing reproducible prompt logs</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Steady community staple; the 0.32 refactor and continued remote+local plugin ecosystem keep it a top-of-mind default for terminal-based LLM work.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener">Shubhamsaboo/<b>awesome-llm-apps</b></a>
-        <span class="stars">139k</span>
-      </div>
-      <div class="tagline">100+ AI Agents, Agent Skills and RAG Apps — free and open source.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>A curated catalogue (not a runtime) of working LLM application patterns: agent designs, reusable agent-skills, and RAG implementations across languages and frameworks.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Reference library for bootstrapping agentic and RAG projects without reinventing architecture.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>AI product builders &amp; indie hackers</li><li>Engineers learning agent/RAG patterns</li><li>Technical educators</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Among the fastest-growing "awesome" indexes of 2026; crossed 139k stars, signalling intense demand for copy-paste agent blueprints.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" rel="noopener">Mintplex-Labs/<b>anything-llm</b></a>
-        <span class="stars">66.3k</span>
-      </div>
-      <div class="tagline">The all-in-one, local-first AI app: chat with docs, agents, hyper-configurable.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Monorepo (frontend/React, Node server, collector) delivering document chat, RAG, workspace agents, dynamic model routing, automated memories, scheduled cron-style tasks, multi-user Docker deployments, and embeddable chat widgets. Connects to 50+ LLM/embedder/vector-DB providers. v1.16 added full MCP compatibility.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Privacy-by-default knowledge-base assistant with no-code agent flows and MCP tool access.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Teams wanting private ChatGPT-alternatives</li><li>Knowledge-workers &amp; SMBs</li><li>Self-hosters (Docker)</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>v1.16.0 MCP-compatibility landed 2026; widely covered as the leading local-first RAG/agent workspace. Active telemetry-opt-out discussion in community.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/AlexsJones/llmfit" target="_blank" rel="noopener">AlexsJones/<b>llmfit</b></a>
-        <span class="stars">36.9k</span>
-      </div>
-      <div class="tagline">Hundreds of models &amp; providers. One command to find what runs on your hardware.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Rust CLI/TUI that auto-detects CPU/RAM/GPU/VRAM, scores every model across fit, speed, quality, and context (GGUF/AWQ/GPTQ/EXL2), and exposes a REST API + web dashboard. Includes community benchmark sharing and MoE/multi-GPU support.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Right-sizes LLMs to a given machine before downloading — eliminates "will it even run?" guesswork.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Local-model hobbyists</li><li>Edge / SBC deployers</li><li>MLOps sizing pipelines</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Surging among local-LLM enthusiasts; the "benchmark &amp; share" loop and signed releases (SignPath) drove 2026 adoption.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 2. Hermes / Agents ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--violet)"></i><h2>🪽 Hermes, Agents &amp; Local Models</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/<b>hermes-agent</b></a>
-        <span class="stars">247k</span>
-      </div>
-      <div class="tagline">The self-improving AI agent built by Nous Research — "the agent that grows with you."</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Closed learning loop: agent-curated memory with periodic nudges, autonomous skill creation after complex tasks, skills that self-improve, FTS5 cross-session search, and Honcho dialectic user-modeling. Reaches users via Telegram/Discord/Slack/WhatsApp/Signal + CLI through one gateway. Built-in cron scheduler, subagent delegation, and 7 terminal backends (local, Docker, SSH, Singularity, Modal, Daytona, Vercel). The <code>/learn</code> command distills source material into verifiable skills.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Runs on a $5 VPS or GPU cluster; serverless hibernation keeps idle cost near zero. Model-agnostic via <code>hermes model</code>.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Power users wanting persistent agents</li><li>Teams needing scheduled automations</li><li>Privacy-focused self-hosters <span class="pill">this report's own lineage</span></li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Marktechpost (Jun 2026) covered the <code>/learn</code> skill-distillation system; 243k+ stars with daily commits; recent plugin-catalog additions (aihubmix, feishu). The dominant open agent harness of 2026.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener">msitarzewski/<b>agency-agents</b></a>
-        <span class="stars">153.8k</span>
-      </div>
-      <div class="tagline">A complete AI agency at your fingertips — specialized expert agents with personality.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>A library of role-specialised agents (frontend wizards, community ninjas, whimsy injectors, reality checkers), each with defined processes and deliverables, orchestrated as a multi-agent "agency."</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Compose a virtual team of agents to cover an end-to-end product workflow.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Solopreneurs &amp; small studios</li><li>Content &amp; community operators</li><li>Automation enthusiasts</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Rocketed past 150k stars in 2026 as the "AI agency in a repo" concept gained traction; frequently cited alongside multi-agent orchestration trends.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/earendil-works/pi" target="_blank" rel="noopener">earendil-works/<b>pi</b></a>
-        <span class="stars">107.7k</span>
-      </div>
-      <div class="tagline">AI agent toolkit: unified LLM API, agent loop, TUI, coding-agent CLI.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Monorepo packages: <code>pi-coding-agent</code> (interactive CLI), <code>pi-agent-core</code> (runtime + tool calling), <code>pi-ai</code> (multi-provider LLM API). Strong supply-chain hardening — pinned deps, <code>save-exact</code>, npm shrinkwrap, <code>npm audit</code> in CI. Three containerization patterns (Gondolin micro-VM, plain Docker, OpenShell).</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Self-extensible coding agent with rigorous dependency governance.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Coding-agent developers</li><li>Security-conscious OSS maintainers</li><li>Agent-runtime builders</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Led by badlogic; promotes sharing OSS coding-agent sessions via Hugging Face. Notable for treating npm dependency changes as reviewed code — a model for agent supply-chain security.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/<b>agent-skills</b></a>
-        <span class="stars">97.6k</span>
-      </div>
-      <div class="tagline">Production-grade engineering skills for AI coding agents.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>25 structured skills mapped to the dev lifecycle (<code>/spec /plan /build /test /review /ship</code>), with anti-rationalization tables and non-negotiable verification gates. Portable Markdown that drops into Claude Code, Cursor, Codex, Copilot, Cline, Gemini CLI and 70+ agents via the skills CLI.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Encodes senior-engineer discipline (spec-before-code, TDD, security gates) directly into agent workflows.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>AI coding-agent users</li><li>Engineering leads enforcing quality</li><li>Platform/DevEx teams</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Authored by Addy Osmani (ex-Google); widely adopted as the reference skill pack for the agentskills.io open standard. Cross-posted comparisons with Superpowers dominate agent-tooling discourse.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 3. Cyber & AI Security ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--rose)"></i><h2>🔒 CyberSecurity &amp; AI Security</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/cisco-ai-defense/defenseclaw" target="_blank" rel="noopener">cisco-ai-defense/<b>defenseclaw</b></a>
-        <span class="stars">846</span>
-      </div>
-      <div class="tagline">Security governance for OpenClaw and agentic AI runtimes.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Python operator CLI + Go gateway + connector hooks + policy + scanners + observability exporters. Scans agent skills and MCP servers <em>before</em> admission, inspects runtime prompt/tool-call traffic, and exports durable audit evidence. Decision modes: Observe · Action · HITL. A genuine enforcement layer, not a promise of risk-free AI.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Brings admission control, static analysis, sandbox isolation, and audit logging to agentic deployments.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Agent-platform security teams</li><li>Enterprise AI governance</li><li>OpenClaw/NVIDIA OpenShell operators</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Released at RSAC 2026 (March) by Cisco AI Defense; integrates with NVIDIA OpenShell. SiliconANGLE &amp; BizTech framed it as the "governance layer" for the agentic-workforce era. Rapidly gaining stars post-launch.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/OWASP/AISVS" target="_blank" rel="noopener">OWASP/<b>AISVS</b></a>
-        <span class="stars">451</span>
-      </div>
-      <div class="tagline">The AI Security Verification Standard — testable controls for AI systems.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>v1.0 (released 2026-06-24) defines 12 requirement chapters: training-data integrity, input validation, model lifecycle, infrastructure, access control, model supply-chain, model behaviour, memory/vector-DB, orchestration &amp; agentic, MCP security, adversarial robustness, and monitoring. Three verification levels (L1 baseline → L3 high-assurance), requirement IDs like <code>v1.0-C9.4.3</code>.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Auditable checklist for designing, building, and verifying AI-app security across the full lifecycle.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Security architects &amp; auditors</li><li>AI/ML platform teams</li><li>Procurement &amp; compliance</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Launched at OWASP Global AppSec Vienna; explicitly complements NIST AI RMF, ISO/IEC 42001, and the OWASP Top 10 for LLM &amp; Agentic Applications. Now a de-facto baseline for AI security programs.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/TracecatHQ/tracecat" target="_blank" rel="noopener">TracecatHQ/<b>tracecat</b></a>
-        <span class="stars">3.8k</span>
-      </div>
-      <div class="tagline">The agentic security automation platform (open-source SOAR).</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Agents, case management, low-code workflow builder (durable execution on Temporal), lookup tables, 100+ pre-built connectors, and 50+ hosted MCP servers. Untrusted code runs inside <code>nsjail</code> sandboxes. AGPL-3.0; self-host via Docker/Fargate/Kubernetes, including air-gapped.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Describe a job in plain English ("triage this phishing report") and an agent wires it across security tools via MCP.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>SOC / incident-response teams</li><li>AI-native security orgs</li><li>Detection engineers</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Positioned (Jul 2026) as "open-source SOAR for AI-native security teams"; MCP-first design integrates with Claude Code, Codex, and Copilot. Cited as the agent-friendly alternative to legacy SOAR.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/martin-olivier/airgorah" target="_blank" rel="noopener">martin-olivier/<b>airgorah</b></a>
-        <span class="stars">3.6k</span>
-      </div>
-      <div class="tagline">A WiFi security auditing software (Rust GUI).</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Graphical WiFi auditing tool in Rust (Kali-aligned), providing aircrack-ng-style wireless security assessment with a modern interface.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Approachable wireless pentest/audit UI for authorized engagements.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Wireless security testers</li><li>Red-team operators</li><li>Security trainers</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Niche but consistently active; part of the 2026 refresh of Rust-based security tooling.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 4. Cloud Security ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--orange)"></i><h2>☁️ AWS &amp; Cloud Security AI</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener">prowler-cloud/<b>prowler</b></a>
-        <span class="stars">14.8k</span>
-      </div>
-      <div class="tagline">The Agentic Cloud Defender — open cloud security platform.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>World's most-used open-source CSPM: thousands of checks across AWS (662 checks/86 services), Azure, GCP, Kubernetes, GitHub, M365, OCI, Alibaba, Cloudflare and more. Prowler ThreatScore prioritises risk; Attack Paths graph findings via Neo4j/Neptune. <strong>Lighthouse AI</strong> assistant + a Prowler MCP Server bring natural-language investigation and agent integration. Local Server (Next.js + Django + Celery) adds dashboards and SARIF export.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Continuous compliance (CIS, NIST, PCI-DSS, FedRAMP, NIS2, GDPR, HIPAA, SOC2, ISO 27001) and AI-speed remediation.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Cloud security engineers</li><li>Compliance &amp; GRC teams</li><li>DevSecOps / platform engineering</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>July 2026: Lighthouse AI moved to GPT-5.6 Terra, gained Claude Code integration, cross-provider compliance, one-click AWS onboarding, and Okta coverage. Aug 2026 added AWS Nitro Enclave checks. Exhibiting at Black Hat USA (Booth 5913, Aug 4–6).</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/projectcalico/calico" target="_blank" rel="noopener">projectcalico/<b>calico</b></a>
-        <span class="stars">7.4k</span>
-      </div>
-      <div class="tagline">Cloud native networking and network security.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>CNI plugin for Kubernetes with eBPF dataplane, network policy, identity-aware policy, XDP, and host protection. Supports K8s, OpenStack, and Windows workloads.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Zero-trust pod-to-pod and host networking with observability baked in.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Kubernetes platform teams</li><li>Cloud network architects</li><li>Security/compliance engineering</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>A durable CNCF-ecosystem foundation; eBPF/XDP roadmap keeps it central to container zero-trust networking in 2026.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/Azure/Azure-Sentinel" target="_blank" rel="noopener">Azure/<b>Azure-Sentinel</b></a>
-        <span class="stars">6.1k</span>
-      </div>
-      <div class="tagline">Cloud-native SIEM — intelligent security analytics content for Sentinel.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Community repository of Microsoft Sentinel detections, hunting queries, workbooks, and playbooks (sample code) for enterprise-wide security analytics.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Accelerates Sentinel deployment with vetted detection content and automation.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Azure/Sentinel SOC analysts</li><li>Cloud detection engineers</li><li>MSSPs</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Continuously refreshed community content; a primary source for Azure-native detection engineering in 2026.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 5. SAST ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--amber)"></i><h2>🔍 Code Scanning, SAST &amp; Auditing</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/awslabs/automated-security-helper" target="_blank" rel="noopener">awslabs/<b>automated-security-helper</b></a>
-        <span class="stars">695</span>
-      </div>
-      <div class="tagline">ASH — extensible SAST, SCA, and IaC security scanner orchestration engine.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>v3 Python rewrite orchestrating Bandit, Semgrep, Opengrep, Checkov, cfn_nag, cdk-nag, npm-audit, Grype, and Syft via UV tool-isolation. Runs in local/container/precommit modes; YAML config with schema validation; emits SARIF/JSON/HTML/CSV + CycloneDX/SPDX/OCSF. Ships an <strong>MCP server</strong> so Amazon Q, Claude Desktop, and Cline can trigger scans, poll progress, and diff results. Air-gapped builds supported.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>One command (or one MCP call) to gate merges on SAST/SCA/IaC findings with severity thresholds.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>DevSecOps engineers</li><li>AWS-centric teams</li><li>AI-coding-agent users</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>AWS Labs project; the MCP integration (v3.7.0) makes it a poster child for agent-friendly security gating. Pre-commit + CI examples widely shared.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/analysis-tools-dev/static-analysis" target="_blank" rel="noopener">analysis-tools-dev/<b>static-analysis</b></a>
-        <span class="stars">14.8k</span>
-      </div>
-      <div class="tagline">A curated list of static analysis (SAST) tools and linters for all languages.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Massive catalogue of SAST tools, linters, and code-quality analyzers across every programming language and config format, with quality-focused curation.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Definitive reference when selecting a scanner or linter for a stack.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Tooling evaluators</li><li>DevEx / platform teams</li><li>Security engineers</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Long-standing high-star reference; regularly updated as new linters and SAST engines appear.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/knostic/OpenAnt" target="_blank" rel="noopener">knostic/<b>OpenAnt</b></a>
-        <span class="stars">750</span>
-      </div>
-      <div class="tagline">LLM-based vulnerability discovery — detect, then attack, what survives is real.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Two-stage pipeline: Stage 1 detects candidate flaws; Stage 2 attempts to <em>actually exploit</em> them, eliminating false positives. Go CLI + Python pipeline routing each phase through configurable providers (Anthropic, OpenAI, Google, Bedrock, OpenRouter, Ollama). Supports Go/Python/JS-TS/C-C++/PHP/Ruby and diff/PR/staged/incremental scans. CI-friendly exit codes (1 = findings found).</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Proactive, verified vulnerability discovery for OSS maintainers (free scans offered) and enterprises.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Open-source maintainers</li><li>AppSec / vuln-discovery teams</li><li>Defenders vs AI-found exploits</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Open-sourced by Knostic as a free counterpart to Anthropic Claude Code Security / OpenAI Codex Security; HN discussion; claims ~99.98% false-positive elimination on popular projects.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/openhackai/OpenHack" target="_blank" rel="noopener">openhackai/<b>OpenHack</b></a>
-        <span class="stars">415</span>
-      </div>
-      <div class="tagline">Open Source Agentic Security Scanner.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Agent-driven security scanner combining LLM/agent reasoning with SAST techniques to find and reason about vulnerabilities.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Early-stage agentic alternative to traditional SAST, emphasising explainable findings.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Agentic-security researchers</li><li>AppSec experimenters</li><li>Security startups</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Emerging entry in the "agentic SAST" wave alongside OpenAnt and ASH-MCP; small but active 2026 contributor base.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 6. SIEM ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--emerald)"></i><h2>📊 Security Monitoring &amp; SIEM</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/<b>wazuh</b></a>
-        <span class="stars">16.9k</span>
-      </div>
-      <div class="tagline">The Open Source Security Platform — unified XDR and SIEM.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Endpoint agent + management server + Wazuh Indexer. Capabilities: intrusion detection, log analysis, file-integrity monitoring, vulnerability detection (CVE-correlated), configuration assessment, active incident response, regulatory compliance (PCI DSS, GDPR), cloud security (AWS/Azure/GCP API-level + instance agents), and container security (Docker native). Orchestrated via CloudFormation/Docker/Ansible/K8s.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Single platform for endpoint-to-cloud detection, response, and compliance reporting.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>SOC / MSSP operators</li><li>Compliance officers</li><li>Infra &amp; cloud security</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Mature, GPLv2, OSSEC-derived; remains the default open XDR/SIEM in 2026 with constant rule and cloud-module updates.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/<b>sigma</b></a>
-        <span class="stars">11.1k</span>
-      </div>
-      <div class="tagline">Generic Signature Format for SIEM Systems — the open detection standard.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>3,000+ vendor-agnostic detection rules across generic, threat-hunting, emerging-threat, compliance, and placeholder categories. Rules convert to any SIEM query language via pySigma/sigma-cli. Mapped to MITRE ATT&CK; consumable by IBM QRadar, LimaCharlie, Security Onion, VirusTotal, and more.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Write a detection once, deploy everywhere — the "YAML for logs" standard.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Detection engineers</li><li>Threat hunters</li><li>SOC tooling vendors</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>r2026-01-01 dropped 37 new rules (kernel-tampering, Ivanti CVEs). Specification v2.0 and the Phoenix rule-intelligence platform keep Sigma central to 2026 detection engineering.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/VictoriaMetrics/VictoriaLogs" target="_blank" rel="noopener">VictoriaMetrics/<b>VictoriaLogs</b></a>
-        <span class="stars">2.3k</span>
-      </div>
-      <div class="tagline">Fast, lightweight, zero-config, schema-free logs database.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>High-performance log store scaling to terabytes/day with vertical+horizontal scaling. Single-node and cluster editions are open source. Uses LogsQL, ships a Grafana plugin, and integrates with OpenTelemetry.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Cost-efficient backend for SIEM/XDR log retention and querying at scale.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Observability / SRE teams</li><li>SIEM backend architects</li><li>Cost-conscious operators</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Part of the VictoriaMetrics suite; gaining traction in 2026 as a Loki alternative for high-volume security log storage.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============ 7. Smart Home ============ -->
-<section class="cat">
-  <div class="cat-head"><i class="cat-dot" style="color:var(--cyan)"></i><h2>🏠 Smart Home, IoT &amp; Self-Hosting</h2></div>
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener">louislam/<b>uptime-kuma</b></a>
-        <span class="stars">91.6k</span>
-      </div>
-      <div class="tagline">A fancy self-hosted monitoring tool.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Monitors HTTP(s)/TCP/Ping/DNS/Docker/Steam servers at 20s intervals with a reactive UI, multiple status pages, certificate info, proxy support, and 2FA. 90+ notification channels (Telegram, Discord, Slack, email, Pushover, Gotify).</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Drop-in self-hosted uptime monitor with public status pages.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Homelab operators</li><li>Small-business IT</li><li>SRE / on-call</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>De-facto self-hosted uptime standard; Docker-first install and active i18n via Weblate keep momentum in 2026.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/rustdesk/rustdesk" target="_blank" rel="noopener">rustdesk/<b>rustdesk</b></a>
-        <span class="stars">124k</span>
-      </div>
-      <div class="tagline">Open-source remote desktop — full data control, self-hostable.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Rust-based remote desktop that works out of the box. You can use the public rendezvous/relay server, run your own, or write your own. Cross-platform (Windows, macOS, Linux, Android, iOS) with file transfer and TCP tunneling.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Privacy-respecting TeamViewer/AnyDesk alternative with self-hosted relay.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Remote workers</li><li>Self-hosters &amp; SMBs</li><li>Privacy-focused users</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Among the most-starred self-hosted tools of 2026; self-hosting emphasis resonates with post-privacy-shift users.</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/oblien/openship" target="_blank" rel="noopener">oblien/<b>openship</b></a>
-        <span class="stars">12.4k</span>
-      </div>
-      <div class="tagline">Open-source, self-hostable deployment platform with built-in CI/CD.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Point it at a repo, folder, or artifact → it detects the stack, builds, runs, and routes with automatic Let's Encrypt TLS via an OpenResty edge. Desktop app, web dashboard, and CLI interfaces; Docker-Compose or bare mode; push-to-deploy webhooks; built-in mail server (DKIM/SPF/DMARC); MCP endpoint + REST API for agents.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Self-hostable Heroku/Vercel — deploy any stack with zero config and automatic domains/SSL.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Indie developers</li><li>Homelab / VPS owners</li><li>Small teams (free self-host)</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Featured on Trendshift in 2026 as an emerging "deploy-anything" PaaS; production-ready core with active roadmap (multi-node, visual CI/CD).</p></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <a class="repo" href="https://github.com/mastodon/mastodon" target="_blank" rel="noopener">mastodon/<b>mastodon</b></a>
-        <span class="stars">50.3k</span>
-      </div>
-      <div class="tagline">Your self-hosted, globally interconnected microblogging community.</div>
-      <div class="section"><div class="lbl">Mechanics</div><p>Federated social network built on ActivityPub. Ruby on Rails + React Native; supports Docker deployment and federation across the fediverse.</p></div>
-      <div class="section"><div class="lbl">Practical Utility</div><p>Own your social presence with a self-hosted, interoperable instance.</p></div>
-      <div class="section"><div class="lbl">Target Audience</div><ul class="aud"><li>Communities &amp; orgs</li><li>Privacy/sovereignty advocates</li><li>Fediverse operators</li></ul></div>
-      <div class="osint"><div class="lbl">OSINT / Trending</div><p>Remains the flagship fediverse platform; continued 2026 updates sustain its role as the leading self-hosted social alternative.</p></div>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <span>Mr Delly Bot &middot; Headmaster &amp; Systems Butler to Mr Happy &middot; Generated 2026-09-20</span>
-  <span>Data: GitHub MCP (search + README), web OSINT &middot; Model: tencent/hy3-preview</span>
-</footer>
-
-</div>
+  <script>
+    const latestReport = "archive/intel_briefing_2026-09-20.html";
+    
+    function loadReport(url) {
+      if(url) {
+        document.getElementById('reportFrame').src = url;
+      }
+    }
+    
+    function loadLatest() {
+      document.getElementById('reportFrame').src = latestReport;
+      document.getElementById('historySelect').value = "";
+    }
+  </script>
 </body>
 </html>

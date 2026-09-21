@@ -8,7 +8,7 @@ ARCHIVE_DIR = os.path.join(REPO_DIR, "archive")
 
 os.makedirs(ARCHIVE_DIR, exist_ok=True)
 
-# 1. Move new reports to archive
+# 1. Move any stray reports into the archive
 home_reports = glob.glob("/home/hermes/intel_briefing_*.html")
 repo_reports = glob.glob(os.path.join(REPO_DIR, "intel_briefing_*.html"))
 
@@ -24,57 +24,92 @@ if not archived_files:
     print("No briefing files found.")
     exit(1)
 
-latest_file = archived_files[0]
-
-# 3. Dynamic Navigation Generator
-def generate_nav(is_index=True):
-    # Adjust paths based on folder depth
-    home_url = "index.html" if is_index else "../index.html"
-    archive_prefix = "archive/" if is_index else ""
-    
-    nav = f'''
-    <div id="dynamic-nav" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <a href="{home_url}" style="background: var(--card); color: var(--neon); text-decoration: none; border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: bold; box-shadow: 0 0 10px rgba(0,242,254,0.1); transition: transform 0.15s ease;">
-        🏠 Home (Latest)
-      </a>
-      <select onchange="if(this.value) window.location.href=this.value" 
-              style="background: var(--card); color: var(--link); border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; font-family: inherit; font-size: 13px; cursor: pointer; outline: none;">
-        <option value="">📂 View History...</option>
-    '''
-    
-    # Include all files in the dropdown so you can jump between any dates
-    for f in archived_files:
-        filename = os.path.basename(f)
-        date_str = filename.replace("intel_briefing_", "").replace(".html", "")
-        path = archive_prefix + filename if is_index else filename
-        nav += f'        <option value="{path}">{date_str}</option>\n'
-        
-    nav += '      </select>\n    </div>\n'
-    return nav
-
-def inject_nav(filepath, nav_html, output_path):
+# 3. Clean up the old injected menus from the archived files
+for filepath in archived_files:
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
-        
-    # Safely remove any previously injected nav to avoid duplicates
-    content = re.sub(r'<div id="dynamic-nav">.*?</div>\s*(<header class="hero">)', r'\1', content, flags=re.DOTALL)
     
-    # Inject the new nav directly above the hero header
-    if '<header class="hero">' in content:
-        content = content.replace('<header class="hero">', nav_html + '<header class="hero">')
-        
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(content)
+    # Remove the old dynamic navs and the first attempt's flexbox nav
+    cleaned = re.sub(r'<div id="dynamic-nav">.*?</div>\s*(<header class="hero">)', r'\1', content, flags=re.DOTALL)
+    cleaned = re.sub(r'<div style="margin-bottom: 20px; display: flex; justify-content: flex-end;">\s*<select.*?</select>\s*</div>\s*(<header class="hero">)', r'\1', cleaned, flags=re.DOTALL)
+    
+    if cleaned != content:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(cleaned)
 
-# 4. Inject navigation into EVERY file in the archive
-print("Updating archive files...")
-nav_for_archive = generate_nav(is_index=False)
+latest_file_rel = f"archive/{os.path.basename(archived_files[0])}"
+
+# 4. Generate the options for the dropdown
+options_html = ""
 for f in archived_files:
-    inject_nav(f, nav_for_archive, f)
+    filename = os.path.basename(f)
+    date_str = filename.replace("intel_briefing_", "").replace(".html", "")
+    options_html += f'      <option value="archive/{filename}">{date_str}</option>\n'
 
-# 5. Inject navigation into the root index.html
-print("Updating index.html...")
-nav_for_index = generate_nav(is_index=True)
-inject_nav(latest_file, nav_for_index, os.path.join(REPO_DIR, "index.html"))
+# 5. Build the standalone wrapper index.html with an iframe
+index_content = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GitHub Intelligence Briefings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  :root {{
+    --bg: #0f172a; --card: #1e293b; --line: #334155; --link: #38bdf8; --neon: #00f2fe;
+  }}
+  body, html {{
+    margin: 0; padding: 0; height: 100vh; overflow: hidden; 
+    background: var(--bg); font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }}
+  .top-bar {{
+    height: 60px; background: var(--card); border-bottom: 1px solid var(--line); 
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+  }}
+  .btn {{
+    background: var(--bg); color: var(--neon); border: 1px solid var(--line); 
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px;
+  }}
+  .btn:hover {{ border-color: var(--neon); }}
+  select {{
+    background: var(--bg); color: var(--link); border: 1px solid var(--line); 
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; outline: none; font-size: 13px;
+  }}
+  iframe {{
+    width: 100%; height: calc(100vh - 60px); border: none; display: block;
+  }}
+</style>
+</head>
+<body>
+  <!-- Minimal Top Navigation -->
+  <div class="top-bar">
+    <button class="btn" onclick="loadLatest()">🏠 Home (Latest)</button>
+    <select id="historySelect" onchange="loadReport(this.value)">
+      <option value="">📂 View History...</option>
+{options_html}
+    </select>
+  </div>
+  
+  <!-- Content Window (Defaults to the newest report) -->
+  <iframe id="reportFrame" src="{latest_file_rel}"></iframe>
 
-print(f"Success! Processed {len(archived_files)} reports. Index and archive navigation updated.")
+  <script>
+    const latestReport = "{latest_file_rel}";
+    
+    function loadReport(url) {{
+      if(url) {{
+        document.getElementById('reportFrame').src = url;
+      }}
+    }}
+    
+    function loadLatest() {{
+      document.getElementById('reportFrame').src = latestReport;
+      document.getElementById('historySelect').value = "";
+    }}
+  </script>
+</body>
+</html>'''
+
+with open(os.path.join(REPO_DIR, "index.html"), 'w', encoding='utf-8') as f:
+    f.write(index_content)
+
+print(f"Built wrapper index.html. Total archived reports: {len(archived_files)}.")
