@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing - 2026-08-23</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --link-color: #38bdf8;
+            --neon-accent: #00f2fe;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--neon-accent);
+        }
+        
+        .header h1 {
+            color: var(--neon-accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+        
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            color: var(--neon-accent);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--neon-accent);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+        }
+        
+        .card a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .card a:hover {
+            text-decoration: underline;
+            color: var(--neon-accent);
+        }
+        
+        .star-badge {
+            background-color: #fbbf24;
+            color: #1e293b;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .card-section {
+            margin: 15px 0;
+        }
+        
+        .card-section h4 {
+            color: var(--neon-accent);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .audience-list {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+        
+        .audience-list li {
+            margin-bottom: 3px;
+        }
+        
+        .osint-context {
+            background-color: rgba(0, 242, 254, 0.1);
+            border-left: 3px solid var(--neon-accent);
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <p>Date: August 23, 2026 | Model: tencent/hy3-preview (OpenRouter) | Categories: 7 | Repositories Analyzed: 28</p>
+    </div>
+    
+    <!-- Category 1: AI & LLM Architectures -->
+    <div class="category">
+        <h2 class="category-title">🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/huggingface/transformers" target="_blank">huggingface/transformers</a> <span class="star-badge">⭐ 164,374</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>State-of-the-art ML model framework for text, vision, audio, and multimodal models supporting inference and training.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Industry-standard model definition framework used by researchers and engineers to deploy SOTA models.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>ML Researchers</li>
+                        <li>AI Engineers</li>
+                        <li>Model Deployers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Consistently top-trending in AI/ML; recent updates include support for latest DeepSeek and Qwen models.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/vllm-project/vllm" target="_blank">vllm-project/vllm</a> <span class="star-badge">⭐ 89,805</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>High-throughput, memory-efficient LLM inference and serving engine.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Production-grade LLM serving with optimized attention mechanisms for reduced latency.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>LLM Serving Engineers</li>
+                        <li>AI Infrastructure Teams</li>
+                        <li>Cloud Providers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending due to Blackwell GPU support and DeepSeek-V3 optimization patches.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/sgl-project/sglang" target="_blank">sgl-project/sglang</a> <span class="star-badge">⭐ 32,304</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>High-performance serving framework for LLMs and multimodal models with advanced scheduling.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Optimized for MoE models and multimodal workloads with low-latency inference.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Multimodal AI Teams</li>
+                        <li>MoE Model Deployers</li>
+                        <li>Research Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Gaining traction as alternative to vLLM for multimodal and diffusion model serving.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <div class="category">
+        <h2 class="category-title">🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/AtlasOmnia/hermes-tool-router" target="_blank">AtlasOmnia/hermes-tool-router</a> <span class="star-badge">⭐ 107</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Deterministic tool routing for Hermes Agent with optional local-model fallback to reduce first-turn schema overhead.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Reduces LLM token usage by up to 97% by narrowing tool schemas for Hermes Agent sessions.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Hermes Agent Users</li>
+                        <li>Local Model Operators</li>
+                        <li>Plugin Developers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending in Hermes Agent community following v0.2 release with OpenRouter classifier support.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <div class="category">
+        <h2 class="category-title">🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/NVIDIA/SkillSpector" target="_blank">NVIDIA/SkillSpector</a> <span class="star-badge">⭐ 14,912</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Security scanner for AI agent skills detecting vulnerabilities, prompt injection, and supply-chain risks.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Scans 70+ vulnerability patterns across 17 categories before installing agent skills.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>AI Agent Developers</li>
+                        <li>Security Auditors</li>
+                        <li>Skill Marketplace Operators</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Viral adoption following NVIDIA Verified Skills pipeline launch; 26.1% of skills contain vulnerabilities per research.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank">Tencent/AI-Infra-Guard</a> <span class="star-badge">⭐ 5,662</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Full-stack AI Red Teaming platform for agent scan, MCP scan, and LLM jailbreak evaluation.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Detects 2000+ CVEs in AI frameworks and 14 categories of MCP/server skill risks.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>AI Security Teams</li>
+                        <li>Red Team Operators</li>
+                        <li>Enterprise AI Deployers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Featured at Black Hat EU 2025 Arsenal; updated with 2000+ CVE rules and SkillJack research.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/Kritt-ai/open-kritt" target="_blank">Kritt-ai/open-kritt</a> <span class="star-badge">⭐ 1,963</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Self-hosted AI vulnerability research platform orchestrating agents to find/validate code issues.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Breaks security research into focused tasks with post-scripts for PoC generation.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Bug Bounty Hunters</li>
+                        <li>Security Researchers</li>
+                        <li>DevSecOps Teams</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Backed by $1.5M in bug-bounty payouts; open-sourced core workflow engine.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <div class="category">
+        <h2 class="category-title">☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler-cloud/prowler</a> <span class="star-badge">⭐ 14,660</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>World's most widely used open-source cloud security platform for AWS, Azure, GCP compliance.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Automates CIS, GDPR, and custom compliance checks across multi-cloud environments.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Cloud Security Engineers</li>
+                        <li>Compliance Officers</li>
+                        <li>DevSecOps Teams</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Consistently top cloud security tool; recent AI-powered compliance reporting update.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/turbot/steampipe" target="_blank">turbot/steampipe</a> <span class="star-badge">⭐ 7,925</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Zero-ETL SQL interface for live querying of cloud APIs, code, and configurations.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Enables SQL-based security audits and asset inventory without data pipelines.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Cloud Architects</li>
+                        <li>Security Analysts</li>
+                        <li>Data Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending for cloud asset inventory use cases; new GCP and Azure plugins released.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <div class="category">
+        <h2 class="category-title">🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/Bearer/bearer" target="_blank">Bearer/bearer</a> <span class="star-badge">⭐ 2,733</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>SAST tool for discovering, filtering, and prioritizing security/privacy risks in code.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Scans for OWASP, GDPR, and custom patterns with dataflow analysis.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>AppSec Teams</li>
+                        <li>Compliance Engineers</li>
+                        <li>Code Reviewers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Updated with post-quantum audit rules and diff-aware scanning.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/0sec-labs/foxguard" target="_blank">0sec-labs/foxguard</a> <span class="star-badge">⭐ 284</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Fast universal code security scanner in Rust with TUI triage and 14-language support.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Scans for secrets, vulnerabilities, and supports pre-commit hooks with SARIF output.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Rust Developers</li>
+                        <li>Security Auditors</li>
+                        <li>CI/CD Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Rising star in Rust-based SAST; 14-language support outperforming legacy tools.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <div class="category">
+        <h2 class="category-title">📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ/sigma</a> <span class="star-badge">⭐ 10,929</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Main Sigma Rule Repository for generic SIEM signature format across platforms.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Provides 2,700+ detection rules for Elasticsearch, Splunk, and Sysmon.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>SIEM Administrators</li>
+                        <li>Security Analysts</li>
+                        <li>Threat Hunters</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Industry-standard detection rule format; recent updates for AI/LLM attack patterns.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <div class="category">
+        <h2 class="category-title">🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/OpenCCU/OpenCCU" target="_blank">OpenCCU/OpenCCU</a> <span class="star-badge">⭐ 1,824</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Cloud-free smart-home platform for Homematic IP CCU on Raspberry Pi and Proxmox VE.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Replaces proprietary cloud with local control for smart home devices.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Smart Home Enthusiasts</li>
+                        <li>Proxmox Users</li>
+                        <li>Privacy-Focused Users</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending in self-hosting communities as privacy-focused alternative to cloud IoT.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/3dg1luk43/ha_washdata" target="_blank">3dg1luk43/ha_washdata</a> <span class="star-badge">⭐ 1,218</span></h3>
+                <div class="card-section">
+                    <h4>Overview:</h4>
+                    <p>Home Assistant integration for smart-plug appliance monitoring (washing machines, dryers, dishwashers).</p>
+                </div>
+                <div class="card-section">
+                    <h4>Practical Utility:</h4>
+                    <p>Detects cycles, matches programs, and estimates time remaining via power profiling.</p>
+                </div>
+                <div class="card-section">
+                    <h4>Target Audience:</h4>
+                    <ul class="audience-list">
+                        <li>Home Assistant Users</li>
+                        <li>Smart Plug Owners</li>
+                        <li>Energy Monitors</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Popular HACS integration; trending as energy-saving smart home tool.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Report ID: GITHUB-INTEL-20260823 | Hermes Agent v2.0 | Proxmox LXC i5-4C 8GB RAM</p>
+    </div>
+</body>
+</html>

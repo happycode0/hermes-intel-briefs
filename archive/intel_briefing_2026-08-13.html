@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | August 13, 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --border: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--neon);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--neon), var(--link));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .meta {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .category-section {
+            margin-bottom: 3rem;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--neon);
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--neon);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .project-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .project-name a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .project-name a:hover {
+            color: var(--link);
+        }
+        
+        .star-badge {
+            background-color: var(--neon);
+            color: var(--bg-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            background-color: rgba(0, 242, 254, 0.1);
+            color: var(--neon);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            color: var(--link);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .overview {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        
+        li {
+            margin-bottom: 0.3rem;
+        }
+        
+        .osint {
+            background-color: rgba(15, 23, 42, 0.7);
+            border-left: 4px solid var(--neon);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-top: 1rem;
+        }
+        
+        .osint strong {
+            color: var(--neon);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+        
+        .empty-category {
+            color: #64748b;
+            font-style: italic;
+            padding: 1rem;
+            border: 1px dashed var(--border);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Intelligence Briefing</h1>
+        <p class="meta">Executive Security & Trend Analysis | August 13, 2026</p>
+        <p class="meta">Model: tencent/hy3-preview (OpenRouter) | Analyst: Mr Delly Bot, Hermes Agent</p>
+    </header>
+
+    <!-- Category 1: AI & LLM Architectures -->
+    <section class="category-section">
+        <h2 class="category-title">🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/Sudharsanselvaraj/Token-Print" target="_blank">Token-Print</a>
+                    </div>
+                    <div class="star-badge">60 ⭐</div>
+                </div>
+                <div class="category-tag">LLM Visualization</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Interactive 3D visualization platform for transformer architectures with real-time LLM inference. Supports GGUF models, real forward pass data, and four interactive modes: Architecture, Generation, Walkthrough, and Debugger.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Visual debugging of transformer internals</li>
+                    <li>Educational tool for LLM mechanics</li>
+                    <li>Real-time tensor inspection during inference</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>ML Researchers</li>
+                    <li>LLM Developers</li>
+                    <li>AI Students</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Niche tool gaining traction among LLM developers for its "real data only" approach to transformer visualization, filling a gap in interpretability tooling.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <section class="category-section">
+        <h2 class="category-title">🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/screenpipe/screenpipe" target="_blank">screenpipe</a>
+                    </div>
+                    <div class="star-badge">20,937 ⭐</div>
+                </div>
+                <div class="category-tag">YC S26 | Local Memory</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">YC S26 local-first screen/audio recording tool that creates searchable AI memory for agents. Integrates with Hermes Agent, OpenClaw, and 100+ apps via MCP. Event-driven capture with accessibility tree + OCR fallback.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>24/7 work activity recording for AI context</li>
+                    <li>Automated SOP generation from workflows</li>
+                    <li>Privacy-first alternative to Rewind.ai</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>AI Agent Developers</li>
+                    <li>Knowledge Workers</li>
+                    <li>Remote Teams</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Joined YC S26 (May 2026), gained 20K+ stars in 3 months. Viral launch thread (260K+ views) reframed local work memory as the "next frontier for agent context". Featured on Product Hunt and explainx.ai.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/liaohch3/claude-tap" target="_blank">claude-tap</a>
+                    </div>
+                    <div class="star-badge">3,049 ⭐</div>
+                </div>
+                <div class="category-tag">Agent Debugging</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Local proxy and trace viewer for AI coding agents. Intercepts API traffic from Claude Code, Codex, Hermes Agent, and 8+ CLIs. Inspects system prompts, tool calls, streaming responses, and token usage.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Debug agent API interactions</li>
+                    <li>Audit agent behavior and costs</li>
+                    <li>Trace tool call chains</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Agent Developers</li>
+                    <li>Security Auditors</li>
+                    <li>LLM Ops Teams</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Rising demand for agent observability tools as coding agents become mainstream. Positioned as the "Wireshark for AI agents" in developer forums.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/MemTensor/memmy-agent" target="_blank">memmy-agent</a>
+                    </div>
+                    <div class="star-badge">663 ⭐</div>
+                </div>
+                <div class="category-tag">Cross-Agent Memory</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Personal AI memory hub that shares context across Claude Code, Codex, Hermes Agent, and 10+ agents. MemOS-powered memory engine distills conversations into reusable long-term memory.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Unified memory across AI tools</li>
+                    <li>Import existing agent history</li>
+                    <li>Local-first data control</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Multi-Agent Users</li>
+                    <li>Power Users</li>
+                    <li>Productivity Enthusiasts</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Gaining traction as the "memory layer for agents" following Hermes Agent's rise. Product Hunt featured product with cross-agent memory as key differentiator.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/VasiHemanth/tokentelemetry" target="_blank">tokentelemetry</a>
+                    </div>
+                    <div class="star-badge">310 ⭐</div>
+                </div>
+                <div class="category-tag">Hermes Observability</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Free, local observability dashboard for Hermes Agent and 15+ coding agents. Tracks token usage, costs, tool calls, and session traces. Dedicated Hermes dashboard with 38 source platform support.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Hermes Agent cost tracking</li>
+                    <li>Multi-agent token analytics</li>
+                    <li>Session replay and debugging</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Hermes Operators</li>
+                    <li>Agent Teams</li>
+                    <li>Engineering Managers</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Only third-party observability tool built specifically for Hermes Agent. Fills gap in Hermes ecosystem as agent adoption grows.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/Shaf2665/Hermes-router" target="_blank">Hermes-router</a>
+                    </div>
+                    <div class="star-badge">97 ⭐</div>
+                </div>
+                <div class="category-tag">Model Routing</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">OpenAI/Anthropic-compatible router for Hermes Agent with provider failover, key rotation, caching, and local model fallback. Stretches free AI quotas across 10+ providers.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Free tier quota optimization</li>
+                    <li>Provider outage resilience</li>
+                    <li>Local model cloud fallback</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Hermes Users</li>
+                    <li>Cost-Conscious Developers</li>
+                    <li>Self-Hosters</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Niche tool for Hermes Agent users looking to optimize free tier usage. Growing alongside Hermes Agent's user base.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <section class="category-section">
+        <h2 class="category-title">🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/usestrix/strix" target="_blank">strix</a>
+                    </div>
+                    <div class="star-badge">51,839 ⭐</div>
+                </div>
+                <div class="category-tag">AI Pentesting</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Open-source AI penetration testing tool that autonomously finds and fixes vulnerabilities. Multi-agent orchestration with real exploit validation, CI/CD integration, and one-click autofix PRs.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Automated vulnerability discovery</li>
+                    <li>CI/CD security gates</li>
+                    <li>Compliance-ready reports</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>AppSec Teams</li>
+                    <li>Penetration Testers</li>
+                    <li>DevSecOps Engineers</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Top trending AI pentesting tool (50K+ stars). Featured in Beagle Security's 2026 agentic pentesting guide as "best open-source option". XBOW benchmark validation and GitHub integration driving adoption.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/KeygraphHQ/shannon" target="_blank">shannon</a>
+                    </div>
+                    <div class="star-badge">46,780 ⭐</div>
+                </div>
+                <div class="category-tag">Autonomous Pentesting</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Autonomous AI pentester for web apps/APIs by Keygraph. Analyzes source code, executes real exploits, and validates findings. 96.15% XBOW benchmark success rate with Claude Agent SDK.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>White-box vulnerability validation</li>
+                    <li>Source-aware attack planning</li>
+                    <li>CI/CD pipeline integration</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Security Engineers</li>
+                    <li>Web Developers</li>
+                    <li>Enterprise AppSec</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> GitHub trending #3 in March 2026 (2,930 stars in 24h). Described as "GitHub Copilot moment for cybersecurity". $50/1.5h vs $10K+ traditional pentesting value prop driving viral adoption.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/NVIDIA/SkillSpector" target="_blank">SkillSpector</a>
+                    </div>
+                    <div class="star-badge">14,596 ⭐</div>
+                </div>
+                <div class="category-tag">NVIDIA | Agent Skills</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">NVIDIA's security scanner for AI agent skills. Detects 64 vulnerability patterns across 16 categories. Research found 26.1% of skills contain vulnerabilities, 5.2% malicious intent.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Pre-install skill vetting</li>
+                    <li>Prompt injection detection</li>
+                    <li>Supply chain risk assessment</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Agent Skill Developers</li>
+                    <li>Enterprise Security Teams</li>
+                    <li>Marketplace Operators</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong"> NVIDIA open-sourced following study of 42,447 skills. Featured in Help Net Security as "critical tool for agent ecosystem security". 2.12x higher risk for skills with executable scripts.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank">AI-Infra-Guard</a>
+                    </div>
+                    <div class="star-badge">4,490 ⭐</div>
+                </div>
+                <div class="category-tag">Tencent | Red Teaming</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Full-stack AI red teaming platform from Tencent Zhuque Lab. Integrates OpenClaw Scan, Agent Scan, MCP Scan, and LLM jailbreak evaluation. Web UI + API for AI ecosystem security.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>AI infrastructure vulnerability scanning</li>
+                    <li>MCP server security testing</li>
+                    <li>Agent workflow risk assessment</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>AI Platform Teams</li>
+                    <li>Red Team Operators</li>
+                    <li>AI Security Researchers</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Tencent's entry into AI security tooling. Updated July 2026 with multi-turn jailbreak attacks (PAIR, GOAT) and OWASP skill detection. MCP.so featured server.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/Kritt-ai/open-kritt" target="_blank">open-kritt</a>
+                    </div>
+                    <div class="star-badge">1,700 ⭐</div>
+                </div>
+                <div class="category-tag">Vulnerability Research</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Self-hosted security research platform that orchestrates AI agents to find vulnerabilities. Breaks code analysis into focused tasks, runs parallel agents, and deduplicates findings.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Parallel vulnerability scanning</li>
+                    <li>Custom security workflows</li>
+                    <li>Ranked finding triage</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Security Researchers</li>
+                    <li>Bug Bounty Hunters</li>
+                    <li>Security-Minded Developers</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Built by $1.5M+ bug bounty earners (Blockian). Launch paper and open-source release drove adoption among professional security researchers. Discord community growing rapidly.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <section class="category-section">
+        <h2 class="category-title">☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/CyberStrikeus/CyberStrike" target="_blank">CyberStrike</a>
+                    </div>
+                    <div class="star-badge">1,793 ⭐</div>
+                </div>
+                <div class="category-tag">AI Red Team</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Open-source AI-augmented red team harness with 13+ autonomous agents, 150+ LLM providers, and 7,600+ Ed25519-signed attack skills. Covers MITRE ATT&CK, OWASP WSTG, and cloud post-exploitation.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>Cloud (AWS/Azure/K8s) post-exploitation</li>
+                    <li>Automated attack path simulation</li>
+                    <li>CI/CD security testing</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Cloud Security Teams</li>
+                    <li>Red Team Operators</li>
+                    <li>DevSecOps Engineers</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Rising demand for AI-powered cloud red team tools following CrowdStrike's $100K AI Security Challenge (Aug 2026) with AWS. Aligns with 2026 AI cybersecurity trends.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <section class="category-section">
+        <h2 class="category-title">🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/semgrep/semgrep" target="_blank">semgrep</a>
+                    </div>
+                    <div class="star-badge">16,208 ⭐</div>
+                </div>
+                <div class="category-tag">SAST Leader</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Fast open-source SAST tool with 30+ language support. Semantic grep for code with rule syntax that mirrors source code. February 2026 update improved scan speed by 25-30%.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>CI/CD security gates</li>
+                    <li>Custom security rule creation</li>
+                    <li>AI-generated code scanning (Guardian)</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>AppSec Teams</li>
+                    <li>Developers</li>
+                    <li>Security Champions</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> 2026 updates added AI triage (60% noise reduction) and supply chain reachability. Featured in SecureSlate's 2026 SAST solutions guide as "speed specialist".
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/ParzivalHack/PySpector" target="_blank">PySpector</a>
+                    </div>
+                    <div class="star-badge">146 ⭐</div>
+                </div>
+                <div class="category-tag">Python SAST</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Rust-powered Python SAST framework with flow-sensitive, inter-procedural taint tracking. 71% faster than Bandit, 16.6x faster than Semgrep for Python. AI-agent security rules included.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>High-speed Python vulnerability scanning</li>
+                    <li>LLM/AI integration security checks</li>
+                    <li>Supply chain CVE detection</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>Python Developers</li>
+                    <li>AI/LLM Engineers</li>
+                    <li>CI/CD Pipelines</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Niche tool gaining traction among Python teams for speed advantages. Rust core and AI security rules align with 2026 SAST performance demands.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <section class="category-section">
+        <h2 class="category-title">📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="project-name">
+                        <a href="https://github.com/TonyPhipps/SIEM" target="_blank">SIEM</a>
+                    </div>
+                    <div class="star-badge">728 ⭐</div>
+                </div>
+                <div class="category-tag">SIEM Resources</div>
+                <div class="section-title">Overview</div>
+                <p class="overview">Comprehensive SIEM tactics, techniques, and procedures repository. Includes detection matrices, playbooks, hardening guides, and log enrichment resources for security operations.</p>
+                <div class="section-title">Practical Utility</div>
+                <ul>
+                    <li>SIEM content creation workflows</li>
+                    <li>Detection coverage gap analysis</li>
+                    <li>Incident response playbooks</li>
+                </ul>
+                <div class="section-title">Target Audience</div>
+                <ul>
+                    <li>SIEM Engineers</li>
+                    <li>SOC Analysts</li>
+                    <li>Security Architects</li>
+                </ul>
+                <div class="osint">
+                    <strong>Trending Context:</strong> Steady growth as foundational SIEM resource. Updated August 2026 with latest MITRE ATT&CK mappings and cloud logging guidance.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <section class="category-section">
+        <h2 class="category-title">🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="empty-category">
+            No trending repositories found in the last 48 hours with >10 stars. IoT/self-hosting activity appears to have stagnated this cycle.
+        </div>
+    </section>
+
+    <footer>
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Hermes Agent (tencent/hy3-preview) | OpenRouter | August 13, 2026</p>
+        <p>Data sourced from GitHub API, README extractions, and OSINT web searches</p>
+    </footer>
+</body>
+</html>

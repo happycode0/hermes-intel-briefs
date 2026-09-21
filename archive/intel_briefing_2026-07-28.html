@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing — 2026-07-28</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --accent-ai: #8b5cf6;
+            --accent-security: #ef4444;
+            --accent-cloud: #3b82f6;
+            --accent-sast: #10b981;
+            --accent-siem: #f59e0b;
+            --accent-iot: #ec4899;
+            --accent-hermes: #06b6d4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-bottom: 2px solid var(--neon);
+            background: linear-gradient(180deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%);
+            border-radius: 12px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--neon), var(--link));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .meta-item {
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .category-section {
+            margin-bottom: 50px;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .category-ai { color: var(--accent-ai); border-color: var(--accent-ai); }
+        .category-hermes { color: var(--accent-hermes); border-color: var(--accent-hermes); }
+        .category-security { color: var(--accent-security); border-color: var(--accent-security); }
+        .category-cloud { color: var(--accent-cloud); border-color: var(--accent-cloud); }
+        .category-sast { color: var(--accent-sast); border-color: var(--accent-sast); }
+        .category-siem { color: var(--accent-siem); border-color: var(--accent-siem); }
+        .category-iot { color: var(--accent-iot); border-color: var(--accent-iot); }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 25px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .card-ai::before { background: var(--accent-ai); }
+        .card-hermes::before { background: var(--accent-hermes); }
+        .card-security::before { background: var(--accent-security); }
+        .card-cloud::before { background: var(--accent-cloud); }
+        .card-sast::before { background: var(--accent-sast); }
+        .card-siem::before { background: var(--accent-siem); }
+        .card-iot::before { background: var(--accent-iot); }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .repo-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .repo-name a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .repo-name a:hover {
+            color: var(--neon);
+            text-decoration: underline;
+        }
+        
+        .stars {
+            background: rgba(234, 179, 8, 0.15);
+            color: #eab308;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        
+        .section-title {
+            color: var(--neon);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 15px 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .overview {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .audience {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .audience-tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--link);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .osint-box {
+            background: rgba(0, 242, 254, 0.05);
+            border-left: 4px solid var(--neon);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .osint-box strong {
+            color: var(--neon);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.2rem;
+            color: var(--neon);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="subtitle">Executive Security & Technology Trend Analysis</div>
+        <div class="meta">
+            <div class="meta-item">Date: 2026-07-28</div>
+            <div class="meta-item">Generated by: Mr Delly Bot (Hermes Agent)</div>
+            <div class="meta-item">Scope: 24-48h Star Velocity & Commit Activity</div>
+            <div class="meta-item">Categories: 7 Technology Domains</div>
+        </div>
+    </header>
+    
+    <!-- AI & LLM Architectures -->
+    <section class="category-section">
+        <h2 class="category-title category-ai">🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <!-- OpenCodeReview -->
+            <div class="card card-ai">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a>
+                    </div>
+                    <div class="stars">⭐ 15,460</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Battle-tested at Alibaba scale, this hybrid architecture code review tool combines deterministic pipelines with LLM agents for precise line-level comments. Features built-in fine-tuned rulesets for NPE, thread-safety, XSS, and SQL injection detection. Outperforms general-purpose agents with ~1/9 token consumption.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">DevOps Teams</span>
+                    <span class="audience-tag">Code Reviewers</span>
+                    <span class="audience-tag">AI Integration Engineers</span>
+                    <span class="audience-tag">Enterprise Developers</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Reached #1 on GitHub Trending (Go) on July 23, 2026. Featured in Trendshift daily/weekly lists. Rapid adoption driven by Alibaba's production validation and superior benchmark performance vs Claude Code.
+                </div>
+            </div>
+            
+            <!-- NVIDIA Model Optimizer -->
+            <div class="card card-ai">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA/Model-Optimizer</a>
+                    </div>
+                    <div class="stars">⭐ 3,329</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Unified library of SOTA model optimization techniques including quantization, distillation, pruning, and speculative decoding. Compresses deep learning models for TensorRT-LLM, TensorRT, and vLLM deployment. Recent NVFP4 quantization support enables up to 5.9× higher inference throughput.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">ML Engineers</span>
+                    <span class="audience-tag">AI Infrastructure Teams</span>
+                    <span class="audience-tag">Model Deployment Specialists</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Recent integration with Nemotron 3 Ultra NVFP4 checkpoint (550B parameters) and widespread adoption in enterprise AI deployment pipelines. Featured in NVIDIA developer blogs throughout Q2 2026.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hermes, Agents & Local Models -->
+    <section class="category-section">
+        <h2 class="category-title category-hermes">🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <!-- Portable Hermes Agent -->
+            <div class="card card-hermes">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/aivrar/portable-hermes-agent" target="_blank">aivrar/portable-hermes-agent</a>
+                    </div>
+                    <div class="stars">⭐ 194</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Portable Hermes Agent desktop for Windows with 100 tools, GUI, local models via LM Studio, TTS, Music, ComfyUI workflows, and dynamic tool maker. No installation, Docker, or admin rights required. Built on NousResearch/hermes-agent with extensive customization for non-technical users.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">Windows Users</span>
+                    <span class="audience-tag">Non-Technical AI Adopters</span>
+                    <span class="audience-tag">Local AI Enthusiasts</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Growing interest in portable AI solutions without infrastructure overhead. Fills gap for Windows users seeking local AI capabilities without Docker/technical setup.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CyberSecurity & AI Security -->
+    <section class="category-section">
+        <h2 class="category-title category-security">🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <!-- Strix -->
+            <div class="card card-security">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/usestrix/strix" target="_blank">usestrix/strix</a>
+                    </div>
+                    <div class="stars">⭐ 45,315</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Autonomous AI penetration testing agents that find and fix vulnerabilities like real hackers. Runs code dynamically, validates findings with proof-of-concepts, and integrates with CI/CD pipelines. Features multi-agent orchestration, HTTP interception proxy, and browser exploitation capabilities.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">Penetration Testers</span>
+                    <span class="audience-tag">DevSecOps Teams</span>
+                    <span class="audience-tag">Security Researchers</span>
+                    <span class="audience-tag">Bug Bounty Hunters</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Featured in "Top 10 Trending AI GitHub Repos — July 2026" by Analytics Vidhya. Listed in Intruder.io's "8 best AI pentesting tools for 2026". Rapid adoption driven by CI/CD integration capabilities.
+                </div>
+            </div>
+            
+            <!-- SkillSpector -->
+            <div class="card card-security">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/NVIDIA/SkillSpector" target="_blank">NVIDIA/SkillSpector</a>
+                    </div>
+                    <div class="stars">⭐ 13,896</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Security scanner for AI agent skills detecting 68 vulnerability patterns across 17 categories. Research shows 26.1% of skills contain vulnerabilities and 5.2% show likely malicious intent. Features static analysis, LLM semantic evaluation, and live OSV.dev CVE lookups.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">AI Security Engineers</span>
+                    <span class="audience-tag">Agent Skill Developers</span>
+                    <span class="audience-tag">Enterprise AI Teams</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Based on 2026 study of 42,447 skills from major marketplaces. Featured in explainx.ai and rushis.com security blogs. Addresses critical gap in AI agent supply chain security.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AWS & Cloud Security AI -->
+    <section class="category-section">
+        <h2 class="category-title category-cloud">☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <!-- Prowler -->
+            <div class="card card-cloud">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler-cloud/prowler</a>
+                    </div>
+                    <div class="stars">⭐ 14,494</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    World's most widely used open-source cloud security platform automating security and compliance across any cloud environment. Features 621 AWS checks, 47 compliance frameworks, and new CIS Controls v8.1 mapping. Recent additions include Bedrock AgentCore IAM detection and remote MCP Server.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">Cloud Security Architects</span>
+                    <span class="audience-tag">Compliance Officers</span>
+                    <span class="audience-tag">DevSecOps Engineers</span>
+                    <span class="audience-tag">AWS Solution Architects</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> July 2026 update added CIS Foundations benchmarks for AWS v7.0.0, Azure v6.0.0, GCP v5.0.0. New remote MCP Server and Claude Code plugin drive adoption. Featured in AWS Marketplace with 50% 5-star reviews.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Code Scanning, SAST & Auditing -->
+    <section class="category-section">
+        <h2 class="category-title category-sast">🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <!-- Bearer -->
+            <div class="card card-sast">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/Bearer/bearer" target="_blank">Bearer/bearer</a>
+                    </div>
+                    <div class="stars">⭐ 2,709</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Static application security testing (SAST) tool scanning source code for security and privacy risks. Covers OWASP Top 10 and CWE Top 25 with data flow analysis. Detects 120+ sensitive data types for GDPR compliance. Bearer Pro adds interprocedural analysis for Java with 76% OWASP benchmark score.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">AppSec Engineers</span>
+                    <span class="audience-tag">Privacy Compliance Teams</span>
+                    <span class="audience-tag">Java/Python Developers</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Part of Cygives community hub for free developer security tools. Recent integration with Cycode commercial platform expands enterprise adoption. Strong focus on privacy regulations drives EU market interest.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Security Monitoring & SIEM -->
+    <section class="category-section">
+        <h2 class="category-title category-siem">📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <!-- Sigma -->
+            <div class="card card-siem">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ/sigma</a>
+                    </div>
+                    <div class="stars">⭐ 10,813</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Generic signature format for SIEM systems with 3000+ detection rules. Supports generic detection, threat hunting, emerging threats, compliance, and placeholder rules. Vendor-agnostic format converts to 25+ SIEM query languages. Recent addition of ATR rules for AI agent security threats.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">Detection Engineers</span>
+                    <span class="audience-tag">Threat Hunters</span>
+                    <span class="audience-tag">SOC Analysts</span>
+                    <span class="audience-tag">SIEM Administrators</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Continued growth as open standard for detection rules. Recent integration with AI agent threat detection (ATR rules) addresses emerging security challenges. Featured in 2026 detection engineering conferences.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Smart Home, IoT & Self-Hosting -->
+    <section class="category-section">
+        <h2 class="category-title category-iot">🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="grid">
+            <!-- OpenCCU -->
+            <div class="card card-iot">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/OpenCCU/OpenCCU" target="_blank">OpenCCU/OpenCCU</a>
+                    </div>
+                    <div class="stars">⭐ 1,815</div>
+                </div>
+                <div class="section-title">Overview</div>
+                <div class="overview">
+                    Cloud-free smart-home platform for Homematic IP CCU (CCU3/ELV-Charly). Runs on Raspberry Pi, x86/ARM, Proxmox VE, Home Assistant, Docker/LXC/K8s. Provides 100% CCU3 compatibility with WebUI enhancements, Linux OS updates, and performance fixes.
+                </div>
+                <div class="section-title">Target Audience</div>
+                <div class="audience">
+                    <span class="audience-tag">Home Automation Enthusiasts</span>
+                    <span class="audience-tag">Homematic IP Users</span>
+                    <span class="audience-tag">Proxmox Home Lab Users</span>
+                    <span class="audience-tag">Privacy-Focused Homeowners</span>
+                </div>
+                <div class="osint-box">
+                    <strong>Trending Context:</strong> Growing demand for cloud-free smart home solutions. Recent Proxmox VE compatibility drives adoption in home lab communities. Strong German-speaking user base with active forum support.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-logo">Mr Delly Bot — Headmaster & Systems Butler to Mr Happy</div>
+        <div>Generated: 2026-07-28 23:59:59 UTC | Hermes Agent (tencent/hy3-preview)</div>
+        <div>Intelligence Scope: GitHub Trending Repositories (24-48h Star Velocity)</div>
+        <div>Data Sources: GitHub API, README Analysis, OSINT Context Gathering</div>
+        <div style="margin-top: 15px; color: var(--neon); font-size: 0.8rem;">
+            CONFIDENTIAL — FOR AUTHORIZED RECIPIENTS ONLY
+        </div>
+    </footer>
+</body>
+</html>

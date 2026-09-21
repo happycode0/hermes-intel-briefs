@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Intelligence Briefing — 2026-09-04</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#172033; --link:#38bdf8; --neon:#00f2fe;
+    --text:#e2e8f0; --muted:#94a3b8; --border:#334155;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.55;padding:32px 20px 60px}
+  .wrap{max-width:1280px;margin:0 auto}
+  header.hero{text-align:center;padding:36px 20px 28px;border-bottom:1px solid var(--border);margin-bottom:28px;
+    background:radial-gradient(ellipse at 50% -20%,rgba(0,242,254,.12),transparent 60%)}
+  header.hero h1{font-size:2.1rem;letter-spacing:1px;color:#fff;text-shadow:0 0 18px rgba(0,242,254,.55)}
+  header.hero h1 .accent{color:var(--neon)}
+  .sub{color:var(--muted);margin-top:8px;font-size:.95rem}
+  .meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .meta span{background:var(--card);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:.78rem;color:var(--muted)}
+  .meta b{color:var(--neon)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:26px 0 8px;font-size:.78rem;color:var(--muted)}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle}
+  section.cat{margin:38px 0 8px}
+  .cat-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-left:4px}
+  .cat-head .bar{width:5px;height:30px;border-radius:3px;background:var(--neon);box-shadow:0 0 10px var(--neon)}
+  .cat-head h2{font-size:1.3rem;color:#fff;letter-spacing:.5px}
+  .cat-head .count{color:var(--muted);font-size:.85rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:14px;padding:18px 18px 16px;
+    box-shadow:0 6px 24px rgba(0,0,0,.35);transition:transform .15s ease,border-color .15s ease;position:relative;overflow:hidden}
+  .card:hover{transform:translateY(-3px);border-color:var(--neon)}
+  .card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .card h3{font-size:1.05rem;line-height:1.25}
+  .card h3 a{color:var(--link);text-decoration:none}
+  .card h3 a:hover{color:var(--neon);text-shadow:0 0 8px rgba(0,242,254,.6)}
+  .stars{flex:none;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.35);color:var(--neon);
+    border-radius:999px;padding:3px 10px;font-size:.78rem;font-weight:600;white-space:nowrap}
+  .lang{color:var(--muted);font-size:.74rem;margin:6px 0 10px}
+  .lang b{color:#cbd5e1}
+  .block{margin-top:11px}
+  .block .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--neon);margin-bottom:4px;font-weight:700}
+  .block p{font-size:.86rem;color:#cbd5e1}
+  .aud{list-style:none;margin-top:4px}
+  .aud li{font-size:.82rem;color:#cbd5e1;padding-left:16px;position:relative;margin:3px 0}
+  .aud li:before{content:"▹";position:absolute;left:0;color:var(--neon)}
+  .osint{margin-top:13px;background:rgba(56,189,248,.07);border-left:3px solid var(--neon);border-radius:0 8px 8px 0;padding:10px 12px;font-size:.82rem;color:#dbeafe}
+  .osint .lbl{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--link);margin-bottom:4px;font-weight:700}
+  .tag{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:6px;background:rgba(148,163,184,.15);color:var(--muted);margin:2px 4px 0 0}
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.8rem}
+  footer b{color:var(--neon)}
+  .disc{margin-top:10px;font-size:.72rem;color:#64748b}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>GitHub <span class="accent">Intelligence Briefing</span></h1>
+  <div class="sub">Executive dossier on trending repositories · 24–48h star velocity · commit activity · community OSINT</div>
+  <div class="meta">
+    <span>Date: <b>2026-09-04</b></span>
+    <span>Compiled by: <b>Mr Delly Bot</b></span>
+    <span>Model: <b>tencent/hy3-preview</b></span>
+    <span>Repos analyzed: <b>26</b></span>
+    <span>Sectors: <b>7</b></span>
+  </div>
+</header>
+
+<div class="legend">
+  <span><i style="background:#a855f7"></i>AI &amp; LLM Architectures</span>
+  <span><i style="background:#00f2fe"></i>Agents &amp; Local Models</span>
+  <span><i style="background:#ef4444"></i>CyberSecurity &amp; AI Security</span>
+  <span><i style="background:#f59e0b"></i>AWS &amp; Cloud Security</span>
+  <span><i style="background:#22c55e"></i>Code Scanning &amp; SAST</span>
+  <span><i style="background:#eab308"></i>Monitoring &amp; SIEM</span>
+  <span><i style="background:#14b8a6"></i>Smart Home &amp; Self-Hosting</span>
+</div>
+
+<!-- ============ 1. AI & LLM ARCHITECTURES ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#a855f7;box-shadow:0 0 10px #a855f7"></div><h2>🤖 AI &amp; LLM Architectures</h2><span class="count">3 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/Zleap-AI/SAG" target="_blank">Zleap-AI / SAG</a></h3><span class="stars">★ 2,461</span></div>
+      <div class="lang">Python · <b>arXiv:2606.15971</b> · MIT</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A third retrieval architecture — "SQL-Retrieval Augmented Generation" — that replaces both dense RAG and GraphRAG. It models each chunk as one event + multiple entities and builds query-time dynamic hyperedges via SQL joins, avoiding pre-built global graphs and enabling trivial incremental updates. Benchmarked as new SOTA on HotpotQA, 2WikiMultiHopQA and MuSiQue (avg 90.07% Recall@5).</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Local-first knowledge base for individuals and agents: document ingestion → event/entity extraction → cited multi-hop answers. Ships a desktop app, Docker stack, OpenAI-compatible endpoint, and a Knowledge MCP server (via fast `sag` CLI) that wires into Codex / Claude Code with no JWT copy-paste.</p></div>
+      <ul class="aud"><li>AI researchers building RAG/agent memory</li><li>Engineers wanting cited, source-traceable retrieval</li><li>Agent platforms needing a pluggable knowledge MCP</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>New arXiv paper (submitted Aug 25 2026) plus a v1.8.6 release. Recent additions: native DeepSeek Harness connector (dsh-sag), OCTX import/export with integrity validation, and a CLI that mounts the Knowledge MCP into Codex/Claude Code. Surfacing as a credible "third architecture" narrative against GraphRAG.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA / Model-Optimizer</a></h3><span class="stars">★ 3,741</span></div>
+      <div class="lang">Python · <b>Apache 2.0</b> · by NVIDIA</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Unified library of SOTA model-optimization techniques — post-training quantization, quantization-aware training/distillation, pruning, speculative decoding and sparsity — to compress models for TensorRT-LLM, TensorRT, vLLM and SGLang. Recently added AutoQuantize (fast automatic mixed precision) and NVFP4 support used to shrink Nemotron models up to 5.9× throughput gains.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Turns frontier models into deployable, cost-efficient checkpoints. Exports to Hugging Face format; integrates with Megatron-Bridge, Megatron-LM and HF Accelerate. Ships `nvidia-modelopt[all]` plus agent skills for Claude Code and Codex.</p></div>
+      <ul class="aud"><li>ML infrastructure &amp; deployment engineers</li><li>Teams serving LLMs/VLMs at scale</li><li>Platform teams on Blackwell / TensorRT stacks</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Active release cadence through 2026 (AutoQuantize blog Aug 24; Nemotron 3.5 Lightning NVFP4 Aug 17). NVIDIA's open-source push for efficient inference keeps it on the radar of anyone deploying large models on-prem.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/JordanCoin/codemap" target="_blank">JordanCoin / codemap</a></h3><span class="stars">★ 688</span></div>
+      <div class="lang">Go · <b>MIT</b> · CLI + MCP</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>"Structural ground truth for coding agents." Computes an orientation map, a real dependency graph (resolved through each ecosystem's own rules, not string matching) and a blast-radius report — *and crucially* reports when it doesn't know, with a versioned coverage contract so partial graphs never read as complete.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>CLI + 16-tool MCP server + Codex/Claude hooks. Answers "what breaks if I change this file?" across Go, Rust, JS/TS, Dart and 17 more languages. Analyzes remote GitHub/GitLab repos without cloning and supports cross-agent handoff.</p></div>
+      <ul class="aud"><li>Coding-agent builders (Claude Code, Codex, Cursor)</li><li>Platform teams enforcing repo context</li><li>Developers auditing change impact</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Part of the broader "give agents architectural context without burning tokens" wave. The explicit coverage/uncertainty contract differentiates it from naive AST tools and resonates with agent-reliability discussions in 2026.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 2. AGENTS & LOCAL MODELS ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar"></div><h2>🪽 Hermes, Agents &amp; Local Models</h2><span class="count">4 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/obra/superpowers" target="_blank">obra / superpowers</a></h3><span class="stars">★ 281,790</span></div>
+      <div class="lang">Shell · <b>MIT</b> · agentic skills framework</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A complete software-development *methodology* for coding agents, built on composable "skills" that trigger automatically: brainstorming → git worktrees → writing plans → subagent-driven development → TDD (RED-GREEN-REFACTOR) → requesting-code-review → finishing-branch. Enforces discipline (YAGNI, DRY, evidence over claims) rather than relying on model willpower.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Installable as a plugin into Claude Code, Codex, Cursor, Devin, Gemini CLI, GitHub Copilot CLI, OpenCode, Pi, and — relevant to this household — <b>Hermes Agent</b> (`hermes plugins install obra/superpowers --enable`). One-line bootstrap gives any agent a full SDLC.</p></div>
+      <ul class="aud"><li>Anyone running autonomous coding agents</li><li>Engineering leads standardizing agent workflows</li><li>Teams wanting TDD + review gates enforced</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Explosive growth — coverage pegged it north of 200k stars by late June 2026 and it is now the de-facto "give your agent discipline" plugin, with deep-dives on Medium/DEV and wide harness support. A defining project of the 2026 agent-tooling boom.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/agent0ai/agent-zero" target="_blank">agent0ai / agent-zero</a></h3><span class="stars">★ 19,087</span></div>
+      <div class="lang">Python · <b>open agent framework</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>An autonomous agent framework that gives the agent a *full Dockerized Linux desktop* — real XFCE GUI, a browser with DOM-annotation ("Annotate" mode), live document cowork (Markdown/LibreOffice), a 100+ plugin hub, multi-agent delegation, and Time Travel snapshots. Runs from a $6 VPS to a GPU server via the A0 Launcher.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Bridges agent reasoning to real desktop software (drive Blender, annotate web UIs, cowork on spreadsheets). A0 CLI Connector extends the same agent onto the host machine with explicit, controlled access. v2.9 adds an Agent Editor, scoped policies and security hardening.</p></div>
+      <ul class="aud"><li>Builders of autonomous/computer-use agents</li><li>Designers iterating on UIs via annotation</li><li>Teams needing isolated agent workspaces</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>v2.9 changelog (Aug 2026) emphasized scoped policies &amp; security hardening; A0 Launcher v1.6 simplifies install. Regularly cited in 2026 framework comparisons as the most customizable autonomous option. Gartner-style forecasts on agentic adoption keep frameworks like this in the spotlight.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/microsoft/agent-framework" target="_blank">microsoft / agent-framework</a></h3><span class="stars">★ 13,331</span></div>
+      <div class="lang">Python / C# · <b>MIT</b> · production agents</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Microsoft's open, multi-language framework for production-grade agents and multi-agent workflows in .NET and Python. Graph-based orchestration (sequential, concurrent, handoff, group), middleware, OpenTelemetry observability, declarative YAML agents, and "Foundry Hosted Agents" deployable in two lines.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The unified successor to Semantic Kernel and AutoGen (MAF 1.0 shipped April 3 2026). Native MCP and A2A support, provider flexibility (Azure OpenAI, OpenAI, GitHub Copilot SDK), with samples for local dev and cloud deployment.</p></div>
+      <ul class="aud"><li>Enterprise teams on .NET / Azure</li><li>Architects building durable multi-agent systems</li><li>Developers wanting governance + observability</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>MAF 1.0 (April 2026) consolidated Microsoft's agent stack and is tracked as a strategic pin in 2026 framework-release timelines. Strong enterprise pull given Azure/Foundry alignment.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/TEN-framework/ten-framework" target="_blank">TEN-framework / ten-framework</a></h3><span class="stars">★ 11,108</span></div>
+      <div class="lang">Python · <b>voice AI agents</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Open-source framework for real-time, conversational voice AI agents — multi-modal, low-latency voice + video pipelines designed for natural spoken interaction rather than text chat loops.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Targets the fast-growing realtime-voice-agent niche (rivals livekit/agents). Lets developers compose speech-to-speech agent graphs with tool use and external integrations.</p></div>
+      <ul class="aud"><li>Voice/Audio AI product teams</li><li>Builders of call-center &amp; assistant agents</li><li>Realtime multimodal researchers</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Voice agents are a hot 2026 frontier; TEN sits alongside livekit/agents as a leading open framework. Sustained commit activity keeps it in the conversation.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 3. CYBERSECURITY & AI SECURITY ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#ef4444;box-shadow:0 0 10px #ef4444"></div><h2>🔒 CyberSecurity &amp; AI Security</h2><span class="count">4 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank">Tencent / AI-Infra-Guard</a></h3><span class="stars">★ 6,139</span></div>
+      <div class="lang">Python · <b>Apache 2.0</b> · AI red teaming</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A full-stack AI Red Teaming platform by Tencent Zhuque Lab. Integrates ClawScan (OpenClaw security scan), Agent Scan (multi-agent workflow auditing for Dify/Coze), MCP Server &amp; Agent Skills scan (14 risk categories), AI-infra vulnerability scan (100+ components, 2000+ CVE rules), and Jailbreak Evaluation (Many-Shot, PAIR, GOAT, ActorAttack).</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>One-command Docker deploy (port 8088) or `aig-scanner` skill from OpenClaw. Standalone CLI scanners (skill-scan, mcp-scan, agent-scan) drop into CI/CD. SkillTrustBench scores F1 ≈ 0.98 on leading models. Note: no auth by default — keep off public networks.</p></div>
+      <ul class="aud"><li>AI/ML security red teams</li><li>Platforms shipping agents &amp; MCP servers</li><li>AppSec teams auditing AI supply chain</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Featured at Black Hat Europe 2025 Arsenal ("MCP Unchained" talk) and backed by an arXiv technical report (2606.31227). v4.6.0 (Aug 26 2026) added LLM API-poisoning detection and 2000+ CVE rules. Cited by 19 papers — a center of gravity for AI-infra security.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/scadastrangelove/awesome-ai-security-tools" target="_blank">scadastrangelove / awesome-ai-security-tools</a></h3><span class="stars">★ 1,102</span></div>
+      <div class="lang">Curated list · <b>Python</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A curated index of public-source, research and commercial AI-security / AI-assisted-cybersecurity tools: autotriage, agent security, AI/ML supply chain, pentest agents, AI SAST, LLM fuzzing, threat intel, SOC/SIEM triage, reverse engineering, LLM red-teaming, plus sister lists (awesome-MLSecOps, awesome-ai-agents-security, Offensive-AI-Agentic-Landscape).</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The fastest on-ramp to the AI-security tooling landscape — a single bookmark that points to garak, PyRIT, promptfoo, DeepTeam, ModelScan, MCP-Scan and dozens more, with freshness signals (star counts / update dates).</p></div>
+      <ul class="aud"><li>Security engineers entering AI security</li><li>Red teams building a toolchain</li><li>Researchers mapping the landscape</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Surged as the "AI security" category professionalized in 2026; its sibling lists (awesome-ai-agents-security, Offensive-AI-Agentic-Landscape ≈ 214★) reflect exploding interest in agentic offense/defense.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/eugene1g/agent-safehouse" target="_blank">eugene1g / agent-safehouse</a></h3><span class="stars">★ 2,050</span></div>
+      <div class="lang">Shell · <b>Apache 2.0</b> · macOS sandbox</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Sandboxes local LLM coding agents on macOS using `sandbox-exec` with composable policy profiles and a deny-first model. Wraps Claude, Codex, Cursor, Aider, Gemini etc. so they can only read/write what they need. Starts from deny-all, allows only explicit project/system paths, and reports provenance honestly.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Reduces blast radius from prompt injection / confused-deputy flows touching `~/.ssh`, cloud creds, unrelated repos or personal files — without heavy workflow changes. Homebrew one-liner + `--append-profile` for machine-local overrides.</p></div>
+      <ul class="aud"><li>Developers running local coding agents</li><li>Security-conscious Mac power users</li><li>Teams enforcing least privilege</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Hit Hacker News in March 2026 ("Agent Safehouse sandboxes LLM coding agents on macOS"). Timely given high-profile agent mishaps; positioned as practical least-privilege hardening rather than a perfect boundary.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/akto-api-security/akto" target="_blank">akto-api-security / akto</a></h3><span class="stars">★ 1,512</span></div>
+      <div class="lang">Java · <b>MIT</b> · API &amp; AI security</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>An instant open-source API security platform (60-sec Docker start). Continuous API inventory, business-logic testing in CI/CD, and runtime vulnerability finding. Covers OWASP Top 10 and HackerOne Top 10 (BOLA, auth, SSRF, XSS) and reads traffic from Burp, AWS, Postman, GCP, gateways.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Now explicitly markets AI-security coverage for agents, MCPs, LLMs and GenAI apps (OWASP LLM/MCP/Agentic Top 10). Integrates with multiple traffic sources and offers enterprise edition for cloud/team deployment.</p></div>
+      <ul class="aud"><li>AppSec &amp; platform security teams</li><li>Teams shipping AI/agent APIs</li><li>Compliance-focused orgs</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Pivoting hard into the AI-security lane (agent/MCP/LLM scanning) to ride 2026 demand; Black Hat / DEF CON 2023 arsenal alumni with steady commit activity.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 4. AWS & CLOUD SECURITY ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#f59e0b;box-shadow:0 0 10px #f59e0b"></div><h2>☁️ AWS &amp; Cloud Security AI</h2><span class="count">4 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler-cloud / prowler</a></h3><span class="stars">★ 14,753</span></div>
+      <div class="lang">Python · <b>Apache 2.0</b> · CSPM</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>The world's most-used open-source cloud security platform — "Agentic Cloud Defender." Thousands of checks across AWS (639), Azure, GCP, Kubernetes, GitHub, M365, OCI, Alibaba, Cloudflare and more, mapped to CIS, NIST, MITRE ATT&amp;CK, PCI-DSS, NIS2, GDPR, HIPAA, ISO 27001, FedRAMP. New **Attack Paths** feature graphs Cartography inventory + findings via Neo4j/Neptune.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>CLI, Local Server (Next.js UI + Django API + Celery), and GitHub Action with SARIF upload. AI features: Lighthouse assistant (MCP server) and "Prowler ThreatScore" risk prioritization. Onboards 47 AWS compliance frameworks out of the box.</p></div>
+      <ul class="aud"><li>Cloud security &amp; compliance teams</li><li>DevSecOps / platform engineers</li><li>Auditors &amp; MSPs across multi-cloud</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Rebranded as the "Agentic Cloud Defender"; July 2026 added Lighthouse AI on GPT-5.6 Terra, a Claude Code integration, cross-provider compliance, one-click AWS onboarding, Okta coverage, and a Black Hat booth. Linux Foundation project — peak mainstream adoption.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/cloud-custodian/cloud-custodian" target="_blank">cloud-custodian / cloud-custodian</a></h3><span class="stars">★ 6,061</span></div>
+      <div class="lang">Python · <b>Apache 2.0</b> · CNCF Incubating</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A rules engine for managing public-cloud accounts via simple YAML policies (resource type + filters + actions + mode). Enforces security/compliance (encryption, access), tag policy, and cost governance (garbage-collect unused resources). Auto-provisions serverless enforcement (CloudWatch Events, Config Rules, EventGrid, AuditLog/PubSub) or runs as cron.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Unifies ad-hoc cloud scripts into one tool with unified metrics/reporting. Runs policies against IaC (Terraform) via ShiftLeft. Battle-tested at very large scale; supports multi-account execution and dry-run validation.</p></div>
+      <ul class="aud"><li>Cloud platform / FinOps teams</li><li>Compliance &amp; governance owners</li><li>SREs automating guardrails</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>A CNCF Incubating staple; interest persists as orgs formalize "policy-as-code" guardrails and shift-left cloud governance. Third-party security audit (OSTIF/Ada Logics) reinforces trust.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/cloudquery/cloudquery" target="_blank">cloudquery / cloudquery</a></h3><span class="stars">★ 6,510</span></div>
+      <div class="lang">Go · <b>MPL 2.0</b> · asset inventory</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Cloud asset inventory built for platform teams: sync cloud/SAAS metadata into your data warehouse, queryable with SQL. Normalizes data from AWS, Azure, GCP and 70+ sources (Wiz, Finout, GitHub…), powered by Apache Arrow for fast syncs. Your data never leaves your infra.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Doubles as a CSPM (Grafana + CloudQuery patterns), FinOps billing unification, and a BI/Slack/Jira integration hub. Code-first, extensible plugin system, no lock-in.</p></div>
+      <ul class="aud"><li>Platform &amp; security engineering</li><li>FinOps / asset-management teams</li><li>Data teams building cloud dashboards</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Steady adoption as the open queryable-inventory backbone for CSPM/FinOps. Note: some integrations moved to closed-source (Oct 2025) — community watches license posture, but core remains MPL-2.0.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/salesforce/cloudsplaining" target="_blank">salesforce / cloudsplaining</a></h3><span class="stars">★ 2,247</span></div>
+      <div class="lang">JavaScript · <b>Apache 2.0</b> · IAM audit</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>AWS IAM Security Assessment tool that identifies violations of least privilege and generates a risk-prioritized HTML report. Parses IAM policies to surface overly-permissive actions, wildcard resources, and privilege-escalation risk.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Scans an AWS account's IAM to produce an actionable remediation roadmap — a quick win for tightening identity posture, complementing CNAPP/CSPM tooling.</p></div>
+      <ul class="aud"><li>Cloud security auditors</li><li>AWS IAM / identity owners</li><li>Compliance teams</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Resurgent relevance as 2026 "identity is the new perimeter" narrative (NHI, identity drift) pushes IAM least-privilege back to the top of cloud-risk agendas.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 5. CODE SCANNING / SAST ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#22c55e;box-shadow:0 0 10px #22c55e"></div><h2>🔍 Code Scanning, SAST &amp; Auditing</h2><span class="count">3 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/semgrep/semgrep" target="_blank">semgrep / semgrep</a></h3><span class="stars">★ 16,514</span></div>
+      <div class="lang">OCaml · <b>LGPL-2.1</b> · SAST</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>"Semantic grep for code." Fast open-source static analysis across 30+ languages; rules look like the code you write. Community Edition misses cross-function/TAINt true positives by design — the AppSec Platform adds cross-file data-flow, AI Assistant auto-triage (humans agree 97% of the time), and 20k+ proprietary rules.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Runs in IDE, pre-commit, and CI/CD (SARIF). New **Semgrep MCP Server** lets AI coding assistants run scans; Claude Code / Cursor plugins and `write_custom_semgrep_rule` prompts ship natively. 2,000+ community rules in the Registry.</p></div>
+      <ul class="aud"><li>AppSec / security engineers</li><li>Developers wanting guardrails in CI</li><li>Agent builders integrating SAST</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>The MCP Server release puts Semgrep squarely in the agent-tooling loop (Cursor, VS Code, Windsurf, Claude Desktop). Constant "~ludicrous speed" messaging and Assistant AI keep it a 2026 SAST default.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba / open-code-review</a></h3><span class="stars">★ 21,925</span></div>
+      <div class="lang">Go · <b>Apache 2.0</b> · AI code review</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Hybrid architecture code-review CLI — deterministic pipelines (precise file selection, smart bundling, rule matching, positioning/reflection modules) + an LLM agent for dynamic context retrieval. Deliberately favors precision over recall: ~1/9 the tokens of general agents, faster, with higher F1 on the AACR-Bench (50 repos, 200 PRs, 1,505 ground-truth issues).</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>`ocr review` / `ocr scan` for diffs or whole repos; integrates with Claude Code, Codex, Cursor, OpenCode; CI/CD (GitHub Actions, GitLab); JSON output for host agents; built-in rules for NPE, thread-safety, XSS, SQL injection. Originated as Alibaba's internal reviewer (millions of defects caught).</p></div>
+      <ul class="aud"><li>Engineering orgs scaling code review</li><li>Platform teams in CI pipelines</li><li>Maintainers wanting precise PR feedback</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Open-sourced May 18 2026; hit #1 Go Trending and #2 overall GitHub Trending, reaching ~11.8k stars in two months (now 21.9k). Coverage hails it as higher-precision-than-Claude-Code at 1/9 token cost — a standout in the AI-review race.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/OWASP-Benchmark/BenchmarkJava" target="_blank">OWASP-Benchmark / BenchmarkJava</a></h3><span class="stars">★ 823</span></div>
+      <div class="lang">Java · <b>OWASP</b> · benchmark</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A test suite verifying the speed/accuracy of vulnerability-detection tools. A fully runnable Java web app supporting Static (SAST), Dynamic (DAST) and Runtime (IAST) analysis — every vulnerability is actually exploitable, giving a fair, reproducible test for any detector.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The reference yardstick for evaluating SAST/DAST/IAST accuracy (true/false-positive rates) before trusting a scanner in production. Maintained under the OWASP umbrella.</p></div>
+      <ul class="aud"><li>AppSec researchers</li><li>Vendors benchmarking scanners</li><li>Enterprises validating tooling</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Not "trending" by stars but a perennial authority as AI-Code-Review and agentic SAST tools (above) need credible benchmarks to prove their precision claims — citations spike whenever a new "higher-F1" reviewer launches.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 6. MONITORING & SIEM ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#eab308;box-shadow:0 0 10px #eab308"></div><h2>📊 Security Monitoring &amp; SIEM</h2><span class="count">4 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ / sigma</a></h3><span class="stars">★ 10,980</span></div>
+      <div class="lang">Python · <b>Detection Rule License</b> · SIEM signatures</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>The generic, open signature format for SIEM systems — "for log files what Snort is for network traffic and YARA is for files." Three rule families: generic detection, threat-hunting, emerging-threat (APT/0-day/malware) plus compliance rules. 3000+ peer-reviewed detections, vendor-agnostic, convertible to 25+ SIEM/EDR/XDR query languages via pySigma / sigma-cli.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Write a detection once, deploy everywhere. Integrated into IBM QRadar, Splunk, LimaCharlie, MISP, Security Onion, VirusTotal, SOC Prime and more. Sigma Spec v2.0 formalized the standard.</p></div>
+      <ul class="aud"><li>Detection engineers</li><li>Threat hunters / SOC analysts</li><li>Tool vendors embedding detections</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Still the lingua franca of detection engineering; Spec v2.0 and the Phoenix rule-intelligence platform keep it central. Listed on the Open Source Security Index as a fastest-growing security project.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/splunk/security_content" target="_blank">splunk / security_content</a></h3><span class="stars">★ 1,682</span></div>
+      <div class="lang">Python · <b>Apache 2.0</b> · detections-as-code</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Splunk's repository of Analytic Stories — security guides mapping TTPs to the MITRE ATT&amp;CK Framework, Lockheed Martin Kill Chain and CIS Controls. Each bundles Splunk searches, ML algorithms and Phantom playbooks to detect, investigate and respond. Built/tested via contentctl-ng; validated in the Splunk Attack Range.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Detection content-as-code: YML detections, macros, lookups, baselines, stories and playbooks. Ships in Splunk ES (ESCU) or as a standalone app; JSON schemas enforce consistency for contributor PRs.</p></div>
+      <ul class="aud"><li>SOC / detection engineers on Splunk</li><li>Threat research teams</li><li>Purple-team validators</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Anchor of the detection-engineering ecosystem; paired with Attack Range &amp; contentctl-ng it remains the canonical "detections-as-code" reference even as AI-assisted detection authoring gains traction.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/secureworks/dalton" target="_blank">secureworks / dalton</a></h3><span class="stars">★ 521</span></div>
+      <div class="lang">Python · <b>IDS testing</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>Suricata, Snort and Zeek IDS rule-and-pcap testing system. Lets analysts validate detection rules against captured traffic without standing up full sensor infrastructure — submit a rule + pcap and see whether it fires.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>Speeds up detection-rule development/QA for network security monitoring teams; supports iterating on Suricata/Snort/Zeek signatures against real or synthetic pcaps.</p></div>
+      <ul class="aud"><li>Network detection engineers</li><li>Threat researchers writing IDS rules</li><li>NSM / SOC teams</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Niche but authoritative; recent activity (Sep 2026) keeps it relevant for teams validating network detections — a quiet workhorse beside the flashier Sigma/Splunk repos.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/infosecB/awesome-detection-engineering" target="_blank">infosecB / awesome-detection-engineering</a></h3><span class="stars">★ 1,333</span></div>
+      <div class="lang">Curated list · <b>detection eng.</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A curated map of detection engineering — the discipline of designing/operating detective controls to catch malicious or unauthorized activity before impact. Indexes tools, methodologies, MITRE/Splunk integrations and learning resources.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The "table of contents" for the detection-engineering profession — pairs naturally with Sigma, Splunk content and Dalton for practitioners building or maturing a detection program.</p></div>
+      <ul class="aud"><li>New &amp; experienced detection engineers</li><li>Blue-team leaders</li><li>Security hiring / training orgs</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Detection engineering matured into a recognized discipline in 2026; curated lists like this ride the professionalization wave alongside Sigma Spec v2.0 and AI-assisted detection authoring.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 7. SMART HOME / SELF-HOSTING ============ -->
+<section class="cat">
+  <div class="cat-head"><div class="bar" style="background:#14b8a6;box-shadow:0 0 10px #14b8a6"></div><h2>🏠 Smart Home, IoT &amp; Self-Hosting</h2><span class="count">4 repositories</span></div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/glanceapp/glance" target="_blank">glanceapp / glance</a></h3><span class="stars">★ 36,848</span></div>
+      <div class="lang">Go · <b>self-hosted dashboard</b></div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A lightweight, highly customizable "feed-first" dashboard: RSS, Reddit, Hacker News, weather, YouTube, Twitch, market prices, Docker status, server stats and more. Single &lt;20MB binary / tiny Docker image, minimal vanilla JS, uncached pages load in ~1s. Config via YAML; mobile-optimized and themeable.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The clean start-page for homelabs — aggregates all your feeds/services into one glanceable view. One-line Docker Compose; community widgets and preconfigured pages available; also installable via Proxmox helper scripts / NixOS / Coolify.</p></div>
+      <ul class="aud"><li>Self-hosters / homelab owners</li><li>Anyone wanting a personal start page</li><li>Low-resource / ARM SBC users</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>A top-trending homelab project in 2026; praised for its conservative, fast, "read-mostly" posture (a deliberate security contrast to heavier dashboards). Regular comparisons with Homepage/Dashy keep it in the spotlight.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/lissy93/dashy" target="_blank">lissy93 / dashy</a></h3><span class="stars">★ 26,387</span></div>
+      <div class="lang">Vue · <b>MIT</b> · homelab homepage</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>"The most customizable dashboard for self-hosters." Multi-page, real-time status checks, dynamic widgets, instant search + hotkeys, many themes + custom CSS, optional auth (basic/Keycloak SSO), multi-language, encrypted cloud backup, workspace/minimal views. Single-file YAML or UI config; 1-click cloud deploy.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The canonical "homepage for your homelab" — launch tiles for every service with up/down status, rich icons, and integrations. Runs on Pi 3-class hardware; strong privacy focus (no tracking).</p></div>
+      <ul class="aud"><li>Homelab enthusiasts</li><li>Self-hosters wanting status monitoring</li><li>Teams needing SSO dashboards</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>A long-standing community favorite; sustained development and a huge showcase keep it a default recommendation alongside Glance/Homepage. Frequent "best self-hosted dashboard 2026" roundups.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/teslamate-org/teslamate" target="_blank">teslamate-org / teslamate</a></h3><span class="stars">★ 8,944</span></div>
+      <div class="lang">Elixir · <b>AGPL-3.0</b> · Tesla data logger</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>A powerful self-hosted data logger for Teslas — high-precision drive recording, automatic address lookup, geo-fencing, charge-cost tracking, multi-vehicle support. Stores data in Postgres, visualizes via Grafana, publishes to a local MQTT broker for Home Assistant / Node-RED / Telegram integration. Minimal "vampire drain."</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>The definitive open Tesla telemetry hub; 20+ bundled Grafana dashboards (battery health, efficiency, drive stats, timeline). Docker-based; easy HA integration through MQTT.</p></div>
+      <ul class="aud"><li>Tesla owners (self-hosters)</li><li>Home Assistant enthusiasts</li><li>Data-driven EV tinkerers</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Maintains a prominent security warning (Sep 2026) about malicious forks / fake App Store apps stealing Tesla credentials — a timely reminder that popular self-hosted tools attract impersonation attacks.</div>
+    </div>
+
+    <div class="card">
+      <div class="top"><h3><a href="https://github.com/knadh/listmonk" target="_blank">knadh / listmonk</a></h3><span class="stars">★ 23,263</span></div>
+      <div class="lang">Go · <b>AGPL-3.0</b> · newsletter manager</div>
+      <div class="block"><div class="lbl">Overview / Mechanics</div><p>High-performance, self-hosted newsletter &amp; mailing-list manager with a modern dashboard. Single binary; handles campaigns, subscriptions, transactional emails and SMTP/SMS gateways at scale.</p></div>
+      <div class="block"><div class="lbl">Practical Utility</div><p>A privacy-respecting, self-hosted alternative to Mailchimp/Substack for indie publishers and orgs wanting ownership of their audience. Pairs well with homelab stacks.</p></div>
+      <ul class="aud"><li>Indie publishers / bloggers</li><li>Orgs wanting owned email infra</li><li>Self-hosters running services</li></ul>
+      <div class="osint"><span class="lbl">Trending Context</span>Consistently among the most-starred self-hosted apps; 2026 "own your stack" momentum (post-privacy-scandal sentiment) keeps listmonk a top recommendation for newsletters.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>Generated by <b>Mr Delly Bot</b> — Headmaster &amp; Systems Butler to Mr Happy · Model: <b>tencent/hy3-preview</b></div>
+  <div class="disc">Data sourced from GitHub MCP (repository metadata + README extraction) and open-web OSINT on 2026-09-04. Star counts reflect values at collection time and fluctuate. "Trending context" reflects publicly reported momentum, not a guarantee of future trajectory. Classified: Internal / Executive Use.</div>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | 2026-08-27</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --accent-ai: #818cf8;
+            --accent-security: #f87171;
+            --accent-cloud: #34d399;
+            --accent-sast: #fbbf24;
+            --accent-siem: #a78bfa;
+            --accent-iot: #fb923c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--bg-card);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--neon), var(--link));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .category {
+            margin-bottom: 3rem;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--neon);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-card);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--neon);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .repo-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .repo-name a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        
+        .repo-name a:hover {
+            text-decoration: underline;
+            color: var(--neon);
+        }
+        
+        .stars {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .section {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .overview {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        
+        .audience {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .audience li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .audience li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--neon);
+        }
+        
+        .osint {
+            background: rgba(0, 242, 254, 0.05);
+            border-left: 3px solid var(--neon);
+            padding: 0.75rem 1rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">
+            Generated: 2026-08-27 | Model: tencent/hy3-preview | Categories: 7 | Repositories Analyzed: 22
+        </div>
+        <div class="meta" style="margin-top: 0.5rem; color: var(--neon);">
+            Principal Security Architect & Intelligence Analyst Report
+        </div>
+    </header>
+    
+    <!-- Category 1: AI & LLM Architectures -->
+    <section class="category">
+        <h2 class="category-title">🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <!-- Open Code Review -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a>
+                    </div>
+                    <div class="stars">21.5k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Alibaba's open-source AI code review CLI tool, battle-tested at massive scale. Hybrid architecture: deterministic pipelines + LLM Agent for precise line-level comments. Supports OpenAI & Anthropic, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection).
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>DevOps Engineers</li>
+                        <li>QA Teams</li>
+                        <li>AI Integration Specialists</li>
+                        <li>Enterprise Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Hit top 15 on GitHub Trending in early August 2026, gaining 4,700+ new stars in one week. Over 17,000 cumulative stars. Benchmark shows 9x token efficiency vs general-purpose agents.
+                </div>
+            </div>
+            
+            <!-- SAG -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/Zleap-AI/SAG" target="_blank">Zleap-AI/SAG</a>
+                    </div>
+                    <div class="stars">2.4k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        New SOTA for RAG: original retrieval architecture replacing traditional RAG/GraphRAG. Event-entity indexing + query-time dynamic hyperedges. Outperforms baselines on HotpotQA, 2WikiMultiHopQA, MuSiQue. Complete knowledge base app for humans/agents.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>AI Researchers</li>
+                        <li>Knowledge Base Developers</li>
+                        <li>RAG System Architects</li>
+                        <li>Agent Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> August 2026 updates: OCTX source import/export, `sag-cli` for Codex/Claude Code integration. Paper published on arXiv (2606.15971) establishing new SOTA.
+                </div>
+            </div>
+            
+            <!-- NVIDIA Model Optimizer -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA/Model-Optimizer</a>
+                    </div>
+                    <div class="stars">3.5k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Unified library of SOTA model optimization techniques: quantization, distillation, pruning, NAS, speculative decoding. Compresses models for TensorRT-LLM, TensorRT, vLLM. Recent Nemotron 3.5/3 Ultra NVFP4 quantization support.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>ML Engineers</li>
+                        <li>Model Deployment Teams</li>
+                        <li>AI Infrastructure Engineers</li>
+                        <li>Performance Optimization Specialists</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> August 2026: Nemotron 3.5 Lightning NVFP4 with QAD using ModelOpt. Roadmap includes video/image model quantization, SageAttention, NVFP4 3D-CNN.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <section class="category">
+        <h2 class="category-title">🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <!-- Portable Hermes Agent -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/aivrar/portable-hermes-agent" target="_blank">aivrar/portable-hermes-agent</a>
+                    </div>
+                    <div class="stars">210 ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Portable Hermes Agent for Windows: 100 tools, GUI, local models via LM Studio, TTS, Music, ComfyUI, workflows. No install, no Docker, no admin rights. Built on NousResearch/hermes-agent.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Windows Users</li>
+                        <li>Non-Technical AI Users</li>
+                        <li>Local Model Enthusiasts</li>
+                        <li>Creative Professionals</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Portable Hermes ecosystem growing; built on NousResearch/hermes-agent (36.6k stars). Alternatives compared in Gradually.ai 2026 Hermes Agent alternatives list.
+                </div>
+            </div>
+            
+            <!-- Hermes Router -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/Shaf2665/Hermes-router" target="_blank">Shaf2665/Hermes-router</a>
+                    </div>
+                    <div class="stars">102 ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        OpenAI/Anthropic-compatible AI router: provider failover, key rotation, caching, analytics, local-model fallback. Stretch free AI quotas across providers (Gemini, OpenRouter, Groq). Built-in web dashboard.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>AI Application Developers</li>
+                        <li>Cost-Optimization Teams</li>
+                        <li>Multi-Provider Integrators</li>
+                        <li>Local Model Users</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Part of growing Hermes ecosystem (GitHub topic: hermes has 36.6k stars for 1Panel, 32.1k for AionUi). Complements portable-hermes-agent for local model routing.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <section class="category">
+        <h2 class="category-title">🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <!-- Anubis -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/TecharoHQ/anubis" target="_blank">TecharoHQ/anubis</a>
+                    </div>
+                    <div class="stars">21.8k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Web AI Firewall: weighs the soul of incoming HTTP requests to stop AI scrapers. Lightweight alternative to Cloudflare for non-Cloudflare users. Challenge-based defense against scraper bots.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Web Administrators</li>
+                        <li>Security Engineers</li>
+                        <li>Self-Hosters</li>
+                        <li>Anti-Bot System Designers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Recent release 1.27.0 (August 8, 2026) with i18n updates (Basque, Bulgarian, Croatian). Wikipedia entry created; featured in LWN.net article "Anubis sends AI scraperbots to a well-deserved fate".
+                </div>
+            </div>
+            
+            <!-- Tracecat -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/TracecatHQ/tracecat" target="_blank">TracecatHQ/tracecat</a>
+                    </div>
+                    <div class="stars">3.8k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Open-source security automation platform for teams and AI agents. Prompt-to-automations, code-native (sync Python scripts from Git), all-in-one: agents, workflows, cases, tables. Sandboxed with nsjail, runs on Temporal.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Security Operations (SecOps)</li>
+                        <li>DevSecOps Teams</li>
+                        <li>AI Agent Developers</li>
+                        <li>Incident Response Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Featured on tracecat.com with Shai-Hulud npm worm case study. 500+ integrations, Tracecat MCP for Claude Code/Codex. Enterprise Edition with RBAC, HITL, workspace version control.
+                </div>
+            </div>
+            
+            <!-- DB-GPT -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/eosphoros-ai/DB-GPT" target="_blank">eosphoros-ai/DB-GPT</a>
+                    </div>
+                    <div class="stars">19.8k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Open-source agentic AI data assistant for next-gen AI + Data products. Connects to databases, CSV/Excel, warehouses, knowledge bases. Autonomous SQL + code execution, reusable skills, sandboxed environments.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Data Analysts</li>
+                        <li>AI Application Developers</li>
+                        <li>Database Administrators</li>
+                        <li>Business Intelligence Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> 19.8k stars, active community (Slack, Bilibili). Supported models include DeepSeek-R1/V3, Qwen3, GLM-4, Llama 3.1. Recent issues: scheduled-task snapshot leaks, planner SQL generation fixes.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <section class="category">
+        <h2 class="category-title">☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <!-- Boxlite -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/boxlite-ai/boxlite" target="_blank">boxlite-ai/boxlite</a>
+                    </div>
+                    <div class="stars">2.3k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Micro-VM for AI agents: light enough to embed on laptop, elastic enough to power agentic cloud. Security-focused sandboxing for agent workloads. Rust-based, self-hosted, serverless.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Cloud Infrastructure Engineers</li>
+                        <li>AI Agent Platform Developers</li>
+                        <li>Security-Focused DevOps</li>
+                        <li>Edge Computing Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Rising in cloud security AI searches; micro-VM architecture aligns with agentic cloud trends. Topics: agentic, ai-agent, embedded, rust, sandbox, security.
+                </div>
+            </div>
+            
+            <!-- Chaterm -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/chaterm/Chaterm" target="_blank">chaterm/Chaterm</a>
+                    </div>
+                    <div class="stars">3k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Open source AI terminal for cloud/infrastructure management. Deploy, troubleshoot, automate services using natural language + intelligent agents. Supports SSH, PAM, CyberArk, vibe-coding workflows.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Cloud Engineers</li>
+                        <li>Site Reliability Engineers (SRE)</li>
+                        <li>DevOps Teams</li>
+                        <li>Infrastructure Automation Specialists</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Trending in cloud security AI searches; integrates with Codex CLI, Cursor, Windsurf. Topics: aiagent, bastion, devops, pam, ssh, terminal, vibecoding.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <section class="category">
+        <h2 class="category-title">🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <!-- Dvalincode -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/arthurpanhku/dvalincode" target="_blank">arthurpanhku/dvalincode</a>
+                    </div>
+                    <div class="stars">113 ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Independent security verification for code by humans/AI agents. Scan, repair, then prove it: runs project's own checks, issues Verified Fix Record. Local-first, policy-bound, MIT license. MCP server included.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Security Auditors</li>
+                        <li>AI Agent Developers</li>
+                        <li>Compliance Teams</li>
+                        <li>Open Source Maintainers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Recent activity: 10 open issues, 8 forks. Topics: ai-agents, ai-governance-framework, audit-trails, cli-tool, coding-agents, mcp-server, policy-as-code-sdlc, sarif, sast.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <section class="category">
+        <h2 class="category-title">📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <!-- Caddy Analyzer -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/lenny-ts/caddy-analyzer" target="_blank">lenny-ts/caddy-analyzer</a>
+                    </div>
+                    <div class="stars">26 ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Fast, zero-dependency access log analyzer, security threat inspector, TUI dashboard for Caddy v2. 26 attack categories, dual-pass evasion-resistant engine, real-time iptables firewall guard, Sigma export, MITRE ATT&CK tagged.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Caddy Users</li>
+                        <li>Security Analysts</li>
+                        <li>SIEM Integrators</li>
+                        <li>Log Analysis Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> Recent update: August 27, 2026. 21 open issues, 5 forks. Topics: access-logs, bubbletea, caddy, cli, dashboard, devops, firewall, go, log-analysis, monitoring, observability, security, siem, threat-detection, tui.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <section class="category">
+        <h2 class="category-title">🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="grid">
+            <!-- Uptime Kuma -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/louislam/uptime-kuma" target="_blank">louislam/uptime-kuma</a>
+                    </div>
+                    <div class="stars">90.7k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Fancy self-hosted monitoring tool. Responsive, real-time uptime monitoring with WebSocket, notifications, multiple providers. Docker support, self-hosted, single-page app.
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>Self-Hosters</li>
+                        <li>System Administrators</li>
+                        <li>DevOps Engineers</li>
+                        <li>Home Lab Enthusiasts</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> 90.7k stars, 8.3k forks, 791 open issues. Most popular self-hosting monitoring tool; active maintenance (updated August 27, 2026).
+                </div>
+            </div>
+            
+            <!-- Odysseus -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name">
+                        <a href="https://github.com/odysseus-dev/odysseus" target="_blank">odysseus-dev/odysseus</a>
+                    </div>
+                    <div class="stars">86.4k ⭐</div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Overview</div>
+                    <div class="overview">
+                        Self-hosted AI workspace. 86.4k stars, 684 forks, 1128 open issues. Combines AI agent capabilities with self-hosted workspace management. Active development (updated August 27, 2026).
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-title">Target Audience</div>
+                    <ul class="audience">
+                        <li>AI Workspace Developers</li>
+                        <li>Self-Hosting AI Enthusiasts</li>
+                        <li>Remote Teams</li>
+                        <li>Productivity Tool Makers</li>
+                    </ul>
+                </div>
+                <div class="osint">
+                    <strong>OSINT Trending Context:</strong> 86.4k stars, trending in self-hosting searches. Competes with local AI workspace tools; active development on dev branch.
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Intelligence Report | 2026-08-27 | Powered by GitHub MCP, Tavily Research, and Hermes Agent</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-secondary);">
+            Note: Partial data accepted where GitHub search/web fetch returned limited results. All repository data verified via GitHub API.
+        </p>
+    </footer>
+</body>
+</html>

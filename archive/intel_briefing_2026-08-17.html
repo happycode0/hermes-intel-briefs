@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | 2026-08-17</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-link: #38bdf8;
+            --accent-neon: #00f2fe;
+            --severity-critical: #ef4444;
+            --severity-high: #f97316;
+            --severity-medium: #eab308;
+            --border-subtle: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-link), var(--accent-neon));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        header .metadata {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        header .metadata span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .category-header h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .category-header .repo-count {
+            background: var(--bg-card);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .repo-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .card-title a {
+            color: var(--accent-link);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .card-title a:hover {
+            color: var(--accent-neon);
+            text-decoration: underline;
+        }
+
+        .star-badge {
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--severity-medium);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            white-space: nowrap;
+        }
+
+        .card-section {
+            margin-bottom: 1rem;
+        }
+
+        .card-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .card-section p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            opacity: 0.9;
+        }
+
+        .target-audience {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .target-audience li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .target-audience li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-link);
+        }
+
+        .osint-context {
+            background: rgba(56, 189, 248, 0.05);
+            border-left: 3px solid var(--accent-neon);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: auto;
+        }
+
+        .osint-context strong {
+            color: var(--accent-neon);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 GitHub Intelligence Briefing</h1>
+        <div class="metadata">
+            <span>📅 Date: 2026-08-17</span>
+            <span>🧠 Model: tencent/hy3-preview</span>
+            <span>🛡️ Principal Security Architect: Mr Delly Bot</span>
+            <span>📊 Repositories Analyzed: 18</span>
+        </div>
+    </header>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2>🪽 Hermes, Agents & Local Models</h2>
+            <span class="repo-count">5 repos</span>
+        </div>
+        <div class="card-grid">
+            <!-- ClawRouter -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/BlockRunAI/ClawRouter" target="_blank">ClawRouter</a>
+                    </div>
+                    <div class="star-badge">⭐ 6560</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Agent-native LLM router designed for autonomous agents, supporting 66 models (8 free) with <1ms local routing, USDC payments via x402 protocol on Base/Solana, and zero API key requirements.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Reduces LLM operational costs by up to 70% for agentic workflows; enables autonomous agents to select optimal models without human intervention or payment friction.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Autonomous agent developers</li>
+                        <li>OpenClaw ecosystem users</li>
+                        <li>Cost-optimized LLM workflow engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Featured in Medium analysis as the optimal LLM router for OpenClaw agents; reported to cut Anthropic API costs by 70% in production workflows. Integrated with 41+ LLMs as of August 2026.
+                </div>
+            </div>
+
+            <!-- gptme -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/gptme/gptme" target="_blank">gptme</a>
+                    </div>
+                    <div class="star-badge">⭐ 4390</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Terminal-native autonomous AI agent with local tool access: writes code, executes terminal commands, browses the web, and supports persistent agent workflows on top of local LLM infrastructure.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Enables local-first agentic coding workflows without cloud dependency; integrates with Ollama, OpenAI, and Anthropic models for fully offline development.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Local-first developer workflow advocates</li>
+                        <li>Autonomous coding agent users</li>
+                        <li>CLI-native AI tool enthusiasts</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Steady growth driven by demand for offline agentic coding tools; latest update adds improved terminal integration and browser automation capabilities.
+                </div>
+            </div>
+
+            <!-- opendroid -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/yashab-cyber/opendroid" target="_blank">opendroid</a>
+                    </div>
+                    <div class="star-badge">⭐ 715</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Production-ready autonomous Android AI agent powered by local/remote LLMs and accessibility-driven screen automation; supports 12 LLM providers with automatic failover.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Enables fully autonomous Android device control for accessibility, automation, and productivity use cases; supports both cloud and on-device LiteRT-LM models.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Android automation developers</li>
+                        <li>Accessibility technology researchers</li>
+                        <li>Local LLM Android application builders</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Gaining traction as the first production-ready open-source Android agent; featured on Product Hunt in August 2026 with strong community adoption for accessibility use cases.
+                </div>
+            </div>
+
+            <!-- tokentelemetry -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/VasiHemanth/tokentelemetry" target="_blank">tokentelemetry</a>
+                    </div>
+                    <div class="star-badge">⭐ 315</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>100% local observability dashboard for AI coding and autonomous agents (including Hermes Agent) tracking token usage, session traces, tool calls, and LLM costs across 38+ supported agents.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Provides dedicated Hermes Agent dashboard with 38 source platform support, per-API latency tracking, subagent card visualization, and provider-aware cost pricing. Integrates seamlessly with Hermes Dashboard.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Hermes Agent operators and developers</li>
+                        <li>AI coding agent cost optimization teams</li>
+                        <li>Agent observability engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Surged in adoption following Hermes Agent v2 release; featured in Braintrust's 2026 Agent Observability Guide as a leading local-first observability tool for autonomous agents.
+                </div>
+            </div>
+
+            <!-- Arena-of-Autonomous-Threads -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/rafaelmateo123/Arena-of-Autonomous-Threads" target="_blank">Arena-of-Autonomous-Threads</a>
+                    </div>
+                    <div class="star-badge">⭐ 117</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Multi-model AI discourse simulation engine that creates a distributed, self-moderating forum for LLMs to debate, collaborate, and evolve; includes dynamic persona system and moderator agent overlay.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Used for LLM consistency stress testing, bias detection, and emergent reasoning research; generates synthetic multi-perspective dialogue datasets for training smaller models.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>LLM research scientists</li>
+                        <li>AI safety and alignment engineers</li>
+                        <li>Synthetic data generation teams</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Niche but growing adoption in AI research circles for emergent behavior testing; latest update adds multilingual debate support and improved persona drift mitigation.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2>🔒 CyberSecurity & AI Security</h2>
+            <span class="repo-count">5 repos</span>
+        </div>
+        <div class="card-grid">
+            <!-- strix -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/usestrix/strix" target="_blank">strix</a>
+                    </div>
+                    <div class="star-badge">⭐ 54085</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Open-source autonomous AI penetration testing framework that deploys multi-agent hacker teams to discover, validate, and prove vulnerabilities through real proof-of-concepts; supports CI/CD integration and SAST/DAST capabilities.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Delivers pentest results in hours instead of weeks; includes graph of agents for collaborative red teaming, real exploit validation, and one-click autofix for discovered vulnerabilities.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Penetration testers and red teamers</li>
+                        <li>DevSecOps engineers</li>
+                        <li>Bug bounty researchers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Featured as top AI security tool for 2026 in multiple industry lists; gained 15k+ stars in Q3 2026 alone following integration with Claude Code and GitHub Actions.
+                </div>
+            </div>
+
+            <!-- open-kritt -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Kritt-ai/open-kritt" target="_blank">open-kritt</a>
+                    </div>
+                    <div class="star-badge">⭐ 1903</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Open-source, self-hosted AI vulnerability research platform that orchestrates agents to find and validate security issues in code; built from real-world bug bounty research with $1.5M+ in payouts.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Breaks security research into focused, parallelizable tasks; includes post-scripts for validation, proof-of-concept generation, and compliance-ready reporting. Supports Codex and Claude Code as agents.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Security researchers and bug bounty hunters</li>
+                        <li>Self-hosted vulnerability management teams</li>
+                        <li>AI-assisted code audit engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Developed by Kritt team (aka Blockian) with $1.5M+ in bug bounty payouts; gaining traction as the open-source alternative to managed vulnerability research platforms.
+                </div>
+            </div>
+
+            <!-- SkillSpector -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/NVIDIA/SkillSpector" target="_blank">SkillSpector</a>
+                    </div>
+                    <div class="star-badge">⭐ 14712</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>NVIDIA-led security scanner for AI agent skills that detects 64 vulnerability patterns across 16 categories, including prompt injection, credential theft, supply-chain risks, and malicious code in Claude Code, Codex, and MCP skills.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Addresses critical skill supply chain risk: research shows 26.1% of skills contain vulnerabilities and 5.2% show likely malicious intent. Integrates with NVIDIA Verified Skills pipeline for pre-publication scanning.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>AI agent skill developers</li>
+                        <li>Enterprise AI security teams</li>
+                        <li>MCP ecosystem maintainers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Surged following NVIDIA's empirical study of 42,447 skills showing widespread vulnerabilities; featured in explainx.ai's 2026 guide to AI agent security.
+                </div>
+            </div>
+
+            <!-- xalgorix -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/xalgorix/xalgorix" target="_blank">xalgorix</a>
+                    </div>
+                    <div class="star-badge">⭐ 865</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Autonomous AI pentesting agent platform with real-time reconnaissance, vulnerability detection, and exploitation orchestration; built with Go + TypeScript for high-performance offensive security workflows.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Automates end-to-end pentesting workflows from reconnaissance to exploitation; supports headless mode for CI/CD integration and custom agent orchestration for complex attack paths.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Offensive security automation engineers</li>
+                        <li>CI/CD security integration teams</li>
+                        <li>Autonomous pentesting researchers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Growing adoption in offensive security circles for automated reconnaissance; latest update adds improved exploitation chaining and post-exploitation modules.
+                </div>
+            </div>
+
+            <!-- AI-Infra-Guard -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank">AI-Infra-Guard</a>
+                    </div>
+                    <div class="star-badge">⭐ 4513</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Tencent's full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan, and LLM jailbreak evaluation; supports 14+ vulnerability categories.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Provides end-to-end AI infrastructure security assessment; detects prompt injection, LLM jailbreaks, agent skill vulnerabilities, and MCP server risks. Supports both local and cloud-based scanning.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>AI infrastructure security teams</li>
+                        <li>LLM red team operators</li>
+                        <li>MCP ecosystem security auditors</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Backed by Tencent's security research team; gaining enterprise adoption for comprehensive AI ecosystem security audits in 2026.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2>☁️ AWS & Cloud Security AI</h2>
+            <span class="repo-count">5 repos</span>
+        </div>
+        <div class="card-grid">
+            <!-- cloud-custodian -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/cloud-custodian/cloud-custodian" target="_blank">cloud-custodian</a>
+                    </div>
+                    <div class="star-badge">⭐ 6046</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>CNCF Incubating project: rules engine for multi-cloud security, cost optimization, and governance using YAML-defined policies; supports AWS, Azure, GCP, and 70+ cloud/SaaS sources with real-time event-driven enforcement.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Consolidates ad-hoc cloud management scripts into a unified, auditable framework; supports infrastructure-as-code scanning, multi-account management, and automated remediation of non-compliant resources.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Cloud governance and compliance teams</li>
+                        <li>FinOps and cost optimization engineers</li>
+                        <li>Multi-cloud security architects</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Steady enterprise adoption as the standard cloud governance engine; latest update adds improved Kubernetes support and enhanced compliance framework mappings.
+                </div>
+            </div>
+
+            <!-- prowler -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler</a>
+                    </div>
+                    <div class="star-badge">⭐ 14610</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>World's most widely used open-source cloud security platform with 639 AWS checks, 191 Azure checks, 109 GCP checks, and support for Kubernetes, GitHub, M365, and 12+ additional providers; includes AI-driven risk prioritization (Prowler ThreatScore).</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Automates security and compliance across any cloud environment; includes attack path analysis with Neo4j/Neptune backend, AI-powered remediation guidance, and seamless CI/CD integration. Latest update adds 218 new checks.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Cloud security engineers</li>
+                        <li>Compliance and audit teams</li>
+                        <li>DevSecOps practitioners</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Featured in Prowler's August 2026 blog for new DORA compliance framework support and identity layer security scanning; surged following the April 2026 Vercel breach remediation guide.
+                </div>
+            </div>
+
+            <!-- cloudquery -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/cloudquery/cloudquery" target="_blank">cloudquery</a>
+                    </div>
+                    <div class="star-badge">⭐ 6481</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Cloud asset inventory data pipeline that syncs cloud infrastructure metadata into warehouses for insights and automation; supports 70+ cloud and SaaS sources with normalized, queryable SQL output and Apache Arrow-powered high-performance syncs.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Unifies multi-cloud asset data into a single queryable interface; powers Cloud Security Posture Management (CSPM) and FinOps workflows with BI tool integration, Slack alerts, and Jira ticketing.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Platform engineering teams</li>
+                        <li>FinOps and cloud asset management</li>
+                        <li>CSPM solution builders</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Growing adoption as the go-to cloud asset inventory tool; latest update adds improved Wiz and Finout integration for enhanced security and cost visibility.
+                </div>
+            </div>
+
+            <!-- cloudsplaining -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/salesforce/cloudsplaining" target="_blank">cloudsplaining</a>
+                    </div>
+                    <div class="star-badge">⭐ 2243</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Salesforce-led AWS IAM security assessment tool that identifies least privilege violations and generates risk-prioritized HTML reports; flags Data Exfiltration, Infrastructure Modification, Resource Exposure, Privilege Escalation, and Credentials Exposure risks.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Helps remediate IAM privilege escalation risks across AWS accounts; supports multi-account scanning via sts:AssumeRole, custom exclusions files, and offline policy file scanning for supply chain audits.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>AWS IAM security administrators</li>
+                        <li>Penetration testers and red teamers</li>
+                        <li>Compliance audit teams</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Steady adoption for AWS least privilege remediation; latest update adds improved multi-account scanning performance and enhanced privilege escalation path detection.
+                </div>
+            </div>
+
+            <!-- stratus-red-team -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/DataDog/stratus-red-team" target="_blank">stratus-red-team</a>
+                    </div>
+                    <div class="star-badge">⭐ 2373</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Datadog-led "Atomic Red Team™ for the cloud" providing granular, self-contained adversarial emulation of offensive attack techniques mapped to MITRE ATT&CK; supports AWS, Azure, GCP, Entra ID, and Kubernetes.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Enables purple team exercises and detection engineering validation; includes warmup, detonation, and cleanup phases for each attack technique with HTML reporting. Supports programmatic usage as a Go library.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Purple team and detection engineering teams</li>
+                        <li>Cloud threat emulation practitioners</li>
+                        <li>Security control validation engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Featured in Datadog's 2026 threat emulation guide; growing community adoption with 10+ community integrations (Threatest, Wazuh, Sigma/Athena) as of August 2026.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2>🔍 Code Scanning, SAST & Auditing</h2>
+            <span class="repo-count">2 repos</span>
+        </div>
+        <div class="card-grid">
+            <!-- cycode-cli -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/cycodehq/cycode-cli" target="_blank">cycode-cli</a>
+                    </div>
+                    <div class="star-badge">⭐ 99</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Cycode's CLI for local and CI/CD security scanning of repositories covering SAST, SCA, Secrets, and IaC misconfigurations; provides prioritized remediation guidance and supports pre-commit hook integration.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Integrates with Cycode's platform for centralized vulnerability management; supports GitHub Action and pre-commit hook deployment for shift-left security. Includes MCP server for AI agent integration.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Shift-left security engineers</li>
+                        <li>CI/CD pipeline security teams</li>
+                        <li>Secrets and IaC scanning practitioners</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Growing adoption as a lightweight SAST/SCA CLI; latest update adds improved secrets detection and enhanced integration with Cycode's cloud platform.
+                </div>
+            </div>
+
+            <!-- foxguard -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/0sec-labs/foxguard" target="_blank">foxguard</a>
+                    </div>
+                    <div class="star-badge">⭐ 282</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Fast universal code security scanner written in Rust with 200+ built-in rules across 14 languages; supports taint tracking, secrets scanning, OSV-backed SCA, post-quantum crypto audits, and Semgrep/OpenGrep-compatible YAML bridge.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Delivers 5-22x faster scans than Semgrep across JavaScript, Python, and Go codebases; supports diff-aware scans, CycloneDX 1.6 CBOM export, and GitHub App/VS Code/Claude Code integrations.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>High-performance SAST requirement teams</li>
+                        <li>Post-quantum cryptography audit engineers</li>
+                        <li>Rust ecosystem security advocates</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Surged in adoption following benchmark reports showing 5-22x speedup over Semgrep; latest update adds improved taint tracking for Python and JavaScript.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="category-header">
+            <h2>📊 Security Monitoring & SIEM</h2>
+            <span class="repo-count">1 repos</span>
+        </div>
+        <div class="card-grid">
+            <!-- caddy-analyzer -->
+            <div class="repo-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/lenny-ts/caddy-analyzer" target="_blank">caddy-analyzer</a>
+                    </div>
+                    <div class="star-badge">⭐ 22</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Fast, zero-dependency Caddy v2 access log analyzer, security threat inspector, and TUI dashboard with 26 attack categories, dual-pass evasion-resistant detection, real-time iptables firewall guard, and Sigma export for SIEM integration.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Native support for Caddy v2's structured JSON log format; provides real-time threat detection, automatic IP blocking via iptables, and offline GeoIP enrichment. Supports Docker, Kubernetes, and journalctl log sources.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="target-audience">
+                        <li>Caddy v2 web server operators</li>
+                        <li>SIEM and threat detection engineers</li>
+                        <li>Real-time firewall automation teams</li>
+                    </ul>
+                </div>
+                <div class="osint-context">
+                    <strong>🔥 Trending Context:</strong> Niche but growing adoption among Caddy v2 users; latest update adds improved evasion-resistant detection and GeoIP country blocking capabilities.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Intelligence Briefing | 2026-08-17 | Powered by Hermes Agent (Nous Research)</p>
+        <p>⚠️ This briefing is for authorized personnel only. Do not distribute without explicit consent.</p>
+    </footer>
+</body>
+</html>

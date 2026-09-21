@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing — 2026-07-26</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --link-color: #38bdf8;
+            --neon-accent: #00f2fe;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            border-bottom: 2px solid var(--neon-accent);
+            background: linear-gradient(180deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--neon-accent), var(--link-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .header .meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .header .meta span {
+            margin: 0 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.15);
+            border-color: var(--neon-accent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .card-title a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .card-title a:hover {
+            color: var(--neon-accent);
+            text-decoration: underline;
+        }
+
+        .star-badge {
+            background-color: rgba(0, 242, 254, 0.1);
+            color: var(--neon-accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        .section {
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            color: var(--neon-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .audience-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .audience-list li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .audience-list li:before {
+            content: "▸";
+            color: var(--neon-accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .osint-box {
+            background-color: rgba(56, 189, 248, 0.08);
+            border-left: 4px solid var(--link-color);
+            padding: 12px 15px;
+            border-radius: 0 6px 6px 0;
+            margin-top: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">
+            <span>Date: 2026-07-26</span>
+            <span>Model: tencent/hy3-preview</span>
+            <span>Categories: AI/LLM, CyberSecurity, SAST, NVIDIA Blueprints</span>
+        </div>
+        <p style="margin-top: 15px; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto;">
+            Executive-grade analysis of trending repositories with 24-48h star velocity, commit activity, and OSINT context. Partial data accepted per cron job parameters.
+        </p>
+    </div>
+
+    <div class="grid">
+        <!-- Card 1: alibaba/open-code-review -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a>
+                </div>
+                <div class="star-badge">⭐ 13,724</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Hybrid architecture code review tool combining deterministic pipelines with LLM agents for precise line-level comments. Battle-tested at Alibaba scale with built-in fine-tuned rulesets for NPE, thread-safety, XSS, SQL injection.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">CLI tool that reads Git diffs, sends changes to configurable LLMs with tool-use capabilities, generates structured review comments. Supports Claude Code, Codex, Cursor integrations with MCP server.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>DevOps Engineers</li>
+                    <li>Code Reviewers</li>
+                    <li>AI Tooling Integrators</li>
+                    <li>Enterprise Development Teams</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending due to Alibaba's enterprise-scale validation and multi-agent benchmark showing ~1/9 token usage vs general-purpose agents. Featured in Trendshift weekly rankings with cross-validated benchmark from 50+ open-source repos.</div>
+            </div>
+        </div>
+
+        <!-- Card 2: NVIDIA/Model-Optimizer -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA/Model-Optimizer</a>
+                </div>
+                <div class="star-badge">⭐ 3,310</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Unified library of SOTA model optimization techniques including quantization, distillation, pruning, NAS, speculative decoding. Compresses models for TensorRT-LLM, TensorRT, vLLM deployment with 2-5x throughput improvements.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Python APIs for composing optimization techniques with Hugging Face/PyTorch/ONNX model support. Recent Nemotron 3 Ultra NVFP4 checkpoint achieves 5.9x higher decode throughput than GLM-5.1 754B FP4.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>ML Engineers</li>
+                    <li>AI Infrastructure Teams</li>
+                    <li>Model Deployment Specialists</li>
+                    <li>Performance Optimization Engineers</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending due to June 2026 release of Nemotron 3 Ultra NVFP4 checkpoint and integration with NVIDIA Megatron-Bridge. Featured in NVIDIA developer blogs and July 2026 trending AI GitHub repositories lists.</div>
+            </div>
+        </div>
+
+        <!-- Card 3: study8677/awesome-architecture -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/study8677/awesome-architecture" target="_blank">study8677/awesome-architecture</a>
+                </div>
+                <div class="star-badge">⭐ 1,921</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Architecture-first knowledge base with 26 bilingual tutorials, 25 architecture templates, 6 end-to-end cases covering distributed systems, AI-native systems, RAG, coding Agents, and production trade-offs.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Teaches architecture thinking over syntax with C4 model diagrams, ADR templates, and evolution playbooks. Includes templates for Claude Code, Codex, Cursor integrations via architecture-copilot skill.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Solution Architects</li>
+                    <li>System Design Interview Candidates</li>
+                    <li>AI Application Designers</li>
+                    <li>Technical Leads</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending due to 2026-06-08 PickGithub Vue trending #1 and LinkedIn mentions as free system design resource. Focus on AI-native architecture templates for Hermes, Claude Code, OpenClaw aligns with agentic workflow trends.</div>
+            </div>
+        </div>
+
+        <!-- Card 4: usestrix/strix -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/usestrix/strix" target="_blank">usestrix/strix</a>
+                </div>
+                <div class="star-badge">⭐ 44,507</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Open-source AI penetration testing tool with autonomous agents that find and fix vulnerabilities. Full pentesting toolkit with reconnaissance, exploitation, validation, multi-agent orchestration, and real exploit validation.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">CLI tool with Docker-based sandbox, HTTP interception proxy, browser exploitation, shell execution. Integrates with GitHub Actions for CI/CD security scanning with auto-fix PR generation.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Security Engineers</li>
+                    <li>Penetration Testers</li>
+                    <li>DevSecOps Teams</li>
+                    <li>Bug Bounty Hunters</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as top AI security tool with 44k+ stars. Featured in GitHub trending daily lists and cybersecurity social media. Recent v1.0 release with GitHub Actions integration drives adoption.</div>
+            </div>
+        </div>
+
+        <!-- Card 5: TecharoHQ/anubis -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/TecharoHQ/anubis" target="_blank">TecharoHQ/anubis</a>
+                </div>
+                <div class="star-badge">⭐ 20,948</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Web AI Firewall that weighs the soul of HTTP requests to stop AI crawlers. Lightweight Go tool that challenges incoming requests before allowing access to upstream resources, protecting against scraper bots.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Alternative to Cloudflare for non-enterprise users. Configurable bot policy definitions with allowlisting for good bots. 1-click deployment with minimal resource overhead for small internet communities.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Web Administrators</li>
+                    <li>Self-Hosted Service Operators</li>
+                    <li>Content Creators</li>
+                    <li>Community Managers</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending in July 2026 GitHub daily lists as countermeasure to AI scraping. Featured in Sopenu Blog GitHub Trending Radar for web defense tooling. 20k+ stars reflect growing concern over AI crawler abuse.</div>
+            </div>
+        </div>
+
+        <!-- Card 6: eosphoros-ai/DB-GPT -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/eosphoros-ai/DB-GPT" target="_blank">eosphoros-ai/DB-GPT</a>
+                </div>
+                <div class="star-badge">⭐ 19,568</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Open-source agentic AI data assistant for AI+Data products. Connects to databases, CSV/Excel, warehouses, knowledge bases. Writes SQL autonomously, runs Python analysis workflows, generates reports with sandboxed execution.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Natural language to SQL/code, multi-source data access, reusable skills, sandboxed execution. Supports DeepSeek, Qwen, GLM, Llama models with one-line installer for macOS/Linux.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Data Analysts</li>
+                    <li>Business Intelligence Teams</li>
+                    <li>AI Application Developers</li>
+                    <li>Database Administrators</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as leading agentic data assistant with 19k+ stars. Featured in AI tooling roundups and enterprise data infrastructure discussions. Recent vulnerability reports (RCE via malicious skill.md) highlight security considerations.</div>
+            </div>
+        </div>
+
+        <!-- Card 7: OpenNHP/opennhp -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/OpenNHP/opennhp" target="_blank">OpenNHP/opennhp</a>
+                </div>
+                <div class="star-badge">⭐ 13,824</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Lightweight Zero Trust security toolkit implementing Cloud Security Alliance's Network-infrastructure Hiding Protocol (NHP). Conceals server ports, IPs, domain names with cryptography-powered access control.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Third-generation network hiding protocol (after port knocking/SPA) with bi-directional status, domain+IP+ports hiding. Uses Curve25519/AES-256-GCM or SM2/SM4-GCM cipher suites with Noise Protocol Framework.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Zero Trust Architects</li>
+                    <li>Network Security Engineers</li>
+                    <li>Cloud Infrastructure Teams</li>
+                    <li>Compliance Officers</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as CSA reference implementation for Zero Trust network hiding. Featured in July 2026 trending security lists. Addresses AI-era threat of autonomous vulnerability exploitation with "invisible until trusted" model.</div>
+            </div>
+        </div>
+
+        <!-- Card 8: zhaoxuya520/reverse-skill -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/zhaoxuya520/reverse-skill" target="_blank">zhaoxuya520/reverse-skill</a>
+                </div>
+                <div class="star-badge">⭐ 8,997</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Cybersecurity skills router for AI agents (Claude Code, Codex, Cursor). AI-powered routing + on-demand toolchain bootstrapping + self-evolving knowledge base for reverse engineering, pentesting, security research.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Master routing ladder (MASTER-ROUTING.md) with scenario skills for APK/Android, iOS, binary reverse, malware analysis, CTF, firmware pentest. Includes tool index auto-detection and case initialization scripts.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Security Researchers</li>
+                    <li>Reverse Engineers</li>
+                    <li>CTF Competitors</li>
+                    <li>AI Agent Developers</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending after v1.0.0 release (2026-07-18) with 8.8k+ stars. Featured in Analytics Vidhya July 2026 trending AI repositories. Addresses AI agent tool selection problem for security tasks.</div>
+            </div>
+        </div>
+
+        <!-- Card 9: 0sec-labs/foxguard -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/0sec-labs/foxguard" target="_blank">0sec-labs/foxguard</a>
+                </div>
+                <div class="star-badge">⭐ 279</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Fast universal code security scanner in Rust with 200+ built-in rules across 14 languages. Supports taint tracking, secrets scanning, OSV dependency scanning, post-quantum crypto audit with TUI for triage.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">22x faster than Semgrep for JavaScript (0.28s vs 6.09s for express). Diff-aware scans, Semgrep/OpenGrep-compatible YAML bridge, SARIF/CycloneDX CBOM output. GitHub App and VS Code integration available.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Security Auditors</li>
+                    <li>CI/CD Pipeline Engineers</li>
+                    <li>Code Quality Teams</li>
+                    <li>Rust Enthusiasts</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as high-performance alternative to Semgrep from 0sec Labs (Anthropic Cyber Verification Program member). Recent v0.12.0 release with post-quantum crypto audit capabilities drives adoption.</div>
+            </div>
+        </div>
+
+        <!-- Card 10: NVIDIA-AI-Blueprints/video-search-and-summarization -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization" target="_blank">NVIDIA-AI-Blueprints/video-search-and-summarization</a>
+                </div>
+                <div class="star-badge">⭐ 1,753</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">NVIDIA AI Blueprint for video search and summarization (VSS) - GPU-accelerated reference architecture for vision agents with real-time verified alerts, visual Q&A, automated reporting using VLMs and LLMs.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Three processing layers: real-time video intelligence (feature extraction/embeddings), downstream analytics (incident detection), agentic processing (MCP tools for search/summarization). Uses NVIDIA Cosmos, Nemotron models.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Video Analytics Developers</li>
+                    <li>AI Application Architects</li>
+                    <li>Smart City/Surveillance Engineers</li>
+                    <li>Multimodal AI Researchers</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as NVIDIA's flagship video agent blueprint. Featured in NVIDIA build experience and vision-agent GitHub topics. Recent updates to support NVIDIA Cosmos and Nemotron models drive interest.</div>
+            </div>
+        </div>
+
+        <!-- Card 11: rasbt/llm-architecture-gallery -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <a href="https://github.com/rasbt/llm-architecture-gallery" target="_blank">rasbt/llm-architecture-gallery</a>
+                </div>
+                <div class="star-badge">⭐ 1,418</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <div class="section-content">Source data repository for Sebastian Raschka's LLM Architecture Gallery - interactive visualization of LLM architectures with per-model metadata, images, fact-sheet fields, and related links.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <div class="section-content">Lightweight public data export of gallery metadata (models.yml) for educational and research use. Companion to Raschka's LLMs-from-scratch book and reasoning-from-scratch repository.</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>AI Researchers</li>
+                    <li>LLM Architecture Students</li>
+                    <li>Educational Content Creators</li>
+                    <li>Model Development Teams</li>
+                </ul>
+            </div>
+            <div class="osint-box">
+                <div class="section-title">OSINT Trending Context</div>
+                               <div class="section-content">Trending as companion to Sebastian Raschka's popular LLMs-from-scratch book. Featured in his social media and GitHub topics for LLM education. 1.4k+ stars reflect educational value in LLM architecture understanding.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Generated by Mr Delly Bot (Hermes Agent) for Sir Mr Happy</p>
+        <p>Data sourced from GitHub API, README extractions, and OSINT web searches</p>
+        <p>Report timestamp: 2026-07-26T23:59:59Z | Partial data accepted per cron job parameters</p>
+    </div>
+</body>
+</html>

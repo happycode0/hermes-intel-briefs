@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | 2026-08-20</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--neon);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--neon), var(--link));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+        
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .category {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--neon);
+            color: var(--neon);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+            border-color: var(--neon);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .repo-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .repo-name a {
+            color: var(--link);
+            text-decoration: none;
+        }
+        
+        .repo-name a:hover {
+            text-decoration: underline;
+            color: var(--neon);
+        }
+        
+        .stars {
+            background-color: var(--neon);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            color: var(--neon);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .audience-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .audience-list li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .audience-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--neon);
+        }
+        
+        .osint {
+            background-color: rgba(0, 242, 254, 0.1);
+            border-left: 3px solid var(--neon);
+            padding: 0.75rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        .empty-category {
+            background-color: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">Date: 2026-08-20 | Model: tencent/hy3-preview | Categories: 7 | Repositories Analyzed: 8</div>
+        <div class="meta">Principal Security Architect: Mr Delly Bot | Hermes Agent v1.0</div>
+    </header>
+    
+    <!-- Category 1: AI & LLM Architectures -->
+    <h2 class="category">🤖 AI & LLM Architectures</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/laugiov/scambuster" target="_blank">laugiov/scambuster</a>
+                </div>
+                <div class="stars">⭐ 13</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Multi-agent LLM architecture for defensive scambaiting honeypot. Converts inbound scam emails into actionable IOCs using controlled AI engagement. Features adaptive persona selection and multilingual support.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Automated threat intelligence gathering from scam interactions. Produces STIX 2.1, TAXII 2.1, MISP, and SIEM exports. Presented at Black Hat USA 2026 (Human Factor track).</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Threat Intelligence Analysts</li>
+                    <li>SOC Teams</li>
+                    <li>Email Security Engineers</li>
+                    <li>Defensive Security Researchers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Featured at Black Hat USA 2026. Gaining traction in defensive security circles for automated scam intelligence gathering. Integrates with OpenCTI for threat actor profiling.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <h2 class="category">🪽 Hermes, Agents & Local Models</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/Scottcjn/trashclaw" target="_blank">Scottcjn/trashclaw</a>
+                </div>
+                <div class="stars">⭐ 68</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Local LLM agent running on vintage hardware (2013 Mac Pro, PowerPC G4, IBM POWER8). Zero dependencies beyond Python 3.7. 14 built-in tools for file operations, shell commands, git, and web requests.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Enables AI agent workflows on legacy hardware. Single-file deployment with plugin system. Supports llama.cpp, Ollama, LM Studio. Ideal for air-gapped or resource-constrained environments.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Hardware Hackers</li>
+                    <li>Local AI Enthusiasts</li>
+                    <li>Legacy System Administrators</li>
+                    <li>Offline AI Developers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Born from rejected llama.cpp PR for AMD FirePro D500 support. Trending in vintage computing and local AI communities. Part of Elyan Labs ecosystem (RustChain, BoTTube).
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <h2 class="category">🔒 CyberSecurity & AI Security</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/ottosulin/awesome-ai-security" target="_blank">ottosulin/awesome-ai-security</a>
+                </div>
+                <div class="stars">⭐ 1410</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Curated list of AI security frameworks, standards, learning resources, and open source tools. Covers attack techniques, defense controls, benchmarks, and security-focused models.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Comprehensive reference for AI security practitioners. Includes OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS, and 100+ tools for red teaming, SAST, and guardrails.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>AI Security Researchers</li>
+                    <li>Penetration Testers</li>
+                    <li>Compliance Officers</li>
+                    <li>ML Engineers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Community-driven project with regular updates. Referenced in OWASP documentation and AI security training materials. Growing as AI security concerns increase in 2026.
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/akto-api-security/akto" target="_blank">akto-api-security/akto</a>
+                </div>
+                <div class="stars">⭐ 1503</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Open source API security platform for AI agents, MCPs, LLMs, and GenAI apps. Detects prompt injection, tool poisoning, unauthorized tool use, and sensitive data leaks.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>CI/CD integration with 150+ tests. MCP endpoint shield and recon. 10K+ Docker pulls. Black Hat Arsenal USA 2023 and Defcon 2023 presentation.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>API Security Engineers</li>
+                    <li>DevSecOps Teams</li>
+                    <li>AI Product Managers</li>
+                    <li>Compliance Auditors</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Featured in AppSec Santa 2026 review. Growing adoption for AI agent security testing. YC-backed team with active community on Discord.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/agentgg-dev/agentgg" target="_blank">agentgg-dev/agentgg</a>
+                </div>
+                <div class="stars">⭐ 133</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Agentic SAST scanner using tool-enabled LLM agents. Follows imports, checks call graphs, and confirms findings before flagging. Supports full repo scans and PR diff reviews.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>100+ AI security agents. CI-ready with GitHub Actions. Bring-your-own-model (Anthropic, OpenAI, Ollama, Bedrock, Vertex). Resume support for interrupted scans.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Security Engineers</li>
+                    <li>CI/CD Pipeline Maintainers</li>
+                    <li>Code Reviewers</li>
+                    <li>Open Source Maintainers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Featured in "Most Popular Agentic Open-Source Tools (2026 Edition)". Engine behind hundreds of disclosed zero-days. Growing adoption in enterprise security workflows.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <h2 class="category">☁️ AWS & Cloud Security AI</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/Masriyan/FuFuFaFa" target="_blank">Masriyan/FuFuFaFa</a>
+                </div>
+                <div class="stars">⭐ 32</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Framework for Unified Flaw & Fault Auditing - AWS Cloud Security Audit Framework. Simplifies security auditing with automated checks for AWS environments.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Automates AWS security assessments. Python-based with audit logging. Covers cloud security best practices and compliance checks.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>AWS Cloud Engineers</li>
+                    <li>Cloud Security Architects</li>
+                    <li>Compliance Auditors</li>
+                    <li>DevOps Teams</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Emerging tool in AWS security community. Positioned as "security auditing so easy, you can do it even when you're sleepy!" - gaining traction for simplicity.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <h2 class="category">🔍 Code Scanning, SAST & Auditing</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/agentgg-dev/agentgg" target="_blank">agentgg-dev/agentgg</a>
+                </div>
+                <div class="stars">⭐ 133</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Agentic SAST scanner with 100+ AI security agents. Uses LLM agents to reason about code, follow imports, and confirm findings instead of pattern matching.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Reduces false positives through validation phase. Supports semgrep rules as anchors. Generates GHSA-shaped findings with CVSS scoring.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>Application Security Engineers</li>
+                    <li>Quality Assurance Teams</li>
+                    <li>Open Source Maintainers</li>
+                    <li>Security Consultants</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Highlighted in 2026 agentic tool roundups. Differentiated from traditional SAST by agent-based reasoning. Active development with regular agent catalog updates.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <h2 class="category">📊 Security Monitoring & SIEM</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <div class="repo-name">
+                    <a href="https://github.com/bunnyhp/enterprise-soc-blueprint" target="_blank">bunnyhp/enterprise-soc-blueprint</a>
+                </div>
+                <div class="stars">⭐ 14</div>
+            </div>
+            <div class="section">
+                <div class="section-title">Overview</div>
+                <p>Production-ready SOC implementation with Splunk, SOAR automation, and MITRE ATT&CK detection rules. Infrastructure-as-code using Terraform and Ansible.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Practical Utility</div>
+                <p>Complete blueprint for enterprise SOC deployment. Includes detection rules, incident response workflows, and threat hunting playbooks.</p>
+            </div>
+            <div class="section">
+                <div class="section-title">Target Audience</div>
+                <ul class="audience-list">
+                    <li>SOC Managers</li>
+                    <li>Security Architects</li>
+                    <li>DevOps Engineers</li>
+                    <li>Incident Responders</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <strong>OSINT Context:</strong> Niche but valuable resource for SOC implementation. Aligns with MITRE ATT&CK framework. Growing interest in standardized SOC blueprints for 2026 threat landscape.
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <h2 class="category">🏠 Smart Home, IoT & Self-Hosting</h2>
+    <div class="empty-category">
+        No trending repositories discovered in this category with 24-48h star velocity. Search parameters widened to stars>10 without date filters still yielded no results. This may indicate a lack of recent notable activity in this space.
+    </div>
+    
+    <footer>
+        <p>Generated by Mr Delly Bot | Hermes Agent | 2026-08-20 22:45 UTC</p>
+        <p>Intelligence Briefing v1.0 | Confidential - For Sir Mr Happy Only</p>
+    </footer>
+</body>
+</html>

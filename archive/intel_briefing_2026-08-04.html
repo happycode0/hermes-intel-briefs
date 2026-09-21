@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | 2026-08-04</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --accent-red: #ef4444;
+            --accent-green: #22c55e;
+            --accent-yellow: #eab308;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--neon);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--neon), var(--link));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+        
+        .header .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .category {
+            margin-bottom: 3rem;
+        }
+        
+        .category h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon);
+            border-left: 4px solid var(--link);
+            padding-left: 1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .card-title a {
+            color: var(--link);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .card-title a:hover {
+            color: var(--neon);
+            text-decoration: underline;
+        }
+        
+        .star-badge {
+            background-color: rgba(234, 179, 8, 0.2);
+            color: var(--accent-yellow);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .card-section {
+            margin-bottom: 1rem;
+        }
+        
+        .card-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .card-section p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        
+        .audience-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .audience-list li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .audience-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--neon);
+        }
+        
+        .osint-box {
+            background-color: rgba(0, 242, 254, 0.05);
+            border-left: 3px solid var(--neon);
+            padding: 1rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">
+            Date: 2026-08-04 | Model: tencent/hy3-preview | Categories: 5 | Repositories: 17
+        </div>
+    </div>
+    
+    <!-- Category 1: AI & LLM Architectures -->
+    <div class="category">
+        <h2>🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <!-- Mini-LLM -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/WKQ9411/Mini-LLM" target="_blank">WKQ9411/Mini-LLM</a>
+                    </div>
+                    <div class="star-badge">⭐ 288</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Replicates mainstream open-source LLM architectures with 100-200M parameters. Compatible with HuggingFace ecosystem, supports pretraining, SFT, DPO, GRPO, and paged attention inference.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Enables low-resource experimentation with LLM architectures; ideal for learning and rapid prototyping of small-scale models.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>ML Researchers</li>
+                        <li>AI Students</li>
+                        <li>Edge Device Developers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Recent update (2026-08-03) added transformers 5.x compatibility and paged attention support. Steady growth in educational use cases.
+                </div>
+            </div>
+            
+            <!-- llm-architecture-ar -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/h9-tec/llm-architecture-ar" target="_blank">h9-tec/llm-architecture-ar</a>
+                    </div>
+                    <div class="star-badge">⭐ 52</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Arabic-language educational resource detailing modern LLM attention mechanisms: MHA, MQA, GQA, MLA, Sparse Attention, and Linear Attention hybrids with mathematical derivations.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Comprehensive reference for understanding attention variants; includes case study of MiniMax's attention evolution.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Arabic-speaking AI Students</li>
+                        <li>LLM Researchers</li>
+                        <li>Technical Writers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> New repository (2026-08-04) gaining traction in Arabic AI communities. Viral on regional tech forums for its accessible mathematical explanations.
+                </div>
+            </div>
+            
+            <!-- codemap -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/JordanCoin/codemap" target="_blank">JordanCoin/codemap</a>
+                    </div>
+                    <div class="star-badge">⭐ 652</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Project brain for AI agents that provides instant architectural context without excessive token usage. Supports Claude Code, Codex, Cursor with hooks, MCP server, and multi-agent handoff artifacts.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Reduces context window bloat for coding agents; enables cross-agent workflow continuity with layered handoff artifacts.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>AI Coding Agent Developers</li>
+                        <li>DevOps Engineers</li>
+                        <li>Technical Leads</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Updated 2026-08-03 with enhanced dependency flow analysis. Growing adoption in Claude Code and Codex communities for context management.
+                </div>
+            </div>
+            
+            <!-- open-code-review -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a>
+                    </div>
+                    <div class="star-badge">⭐ 18,770</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Hybrid deterministic + LLM agent code review tool battle-tested at Alibaba scale. Generates line-level comments with built-in rules for NPE, thread-safety, XSS, SQL injection. Compatible with OpenAI/Anthropic.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Reduces code review time by ~90% compared to general-purpose agents; achieves higher precision with 1/9th the token usage.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Enterprise Development Teams</li>
+                        <li>Open Source Maintainers</li>
+                        <li>QA Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Trending #1 Go repository in July 2026 (Trendshift). Featured on GitHub Trending weekly list. 18.2k stars as of August 2026.
+                </div>
+            </div>
+            
+            <!-- llm_internals -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/yeasy/llm_internals" target="_blank">yeasy/llm_internals</a>
+                    </div>
+                    <div class="star-badge">⭐ 59</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Open book (Chinese/English) explaining LLM principles from Transformer basics to training/deployment. Covers attention mechanisms, position encoding, pre-training, distributed training, and alignment techniques.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Structured learning resource for deep LLM understanding with PyTorch examples and mathematical derivations.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>AI/ML Students</li>
+                        <li>Algorithm Engineers</li>
+                        <li>University Instructors</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Updated 2026-08-04 with new sections on test-time compute scaling. Popular in Chinese AI education circles.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <div class="category">
+        <h2>🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <!-- anything-llm -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Mintplex-Labs/anything-llm" target="_blank">Mintplex-Labs/anything-llm</a>
+                    </div>
+                    <div class="star-badge">⭐ 64,332</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>All-in-one local-first AI application for chatting with documents, building agents, and automation. Supports 50+ LLM providers, vector databases, multi-user access, and MCP compatibility.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Self-hosted alternative to ChatGPT with full data privacy; ideal for enterprises requiring local AI deployment.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Self-hosting Enthusiasts</li>
+                        <li>Enterprise IT Teams</li>
+                        <li>Privacy-conscious Users</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 64k stars, one of the most popular self-hosted AI apps. Recent updates include dynamic model routing and automatic memory management.
+                </div>
+            </div>
+            
+            <!-- agenticSeek -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Fosowl/agenticSeek" target="_blank">Fosowl/agenticSeek</a>
+                    </div>
+                    <div class="star-badge">⭐ 26,729</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Fully local Manus AI alternative with voice capabilities. Autonomous agent that browses the web, writes code, and plans tasks without cloud dependency or API costs.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Zero-cost autonomous agent operation; ideal for privacy-focused users avoiding cloud-based agent services.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Local AI Enthusiasts</li>
+                        <li>Privacy Advocates</li>
+                        <li>Cost-conscious Developers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 26k stars, trending in local AI communities. Featured in 2026 Agentic Coding Trends Report as a leading local agent solution.
+                </div>
+            </div>
+            
+            <!-- open-multi-agent -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/open-multi-agent/open-multi-agent" target="_blank">open-multi-agent/open-multi-agent</a>
+                    </div>
+                    <div class="star-badge">⭐ 6,717</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>TypeScript multi-agent orchestration framework that uses dynamic workflows. Describe the goal (not the graph) and let the coordinator plan the task DAG at runtime.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Simplifies multi-agent system development; supports Claude, GPT, Gemini, and local models with built-in observability.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>TypeScript Backend Developers</li>
+                        <li>AI Orchestration Engineers</li>
+                        <li>Product Teams</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 6.7k stars, growing adoption in enterprise AI teams. Featured in 2026 agentic coding reports as a leading orchestration framework.
+                </div>
+            </div>
+            
+            <!-- llm-space -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/deer-flow/llm-space" target="_blank">deer-flow/llm-space</a>
+                    </div>
+                    <div class="star-badge">⭐ 1,500</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Desktop app for agent builders to prototype ideas, inspect harness execution, debug failures, and evaluate performance. Sister project of ByteDance's DeerFlow.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Visual debugging and evaluation tool for agent developers; supports LangGraph export and prompt generation.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Agent Builders</li>
+                        <li>AI Product Managers</li>
+                        <li>DeerFlow Users</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 1.5k stars, actively used by ByteDance's DeerFlow team. Recent updates include enhanced trace visualization.
+                </div>
+            </div>
+            
+            <!-- ClawRouter -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/BlockRunAI/ClawRouter" target="_blank">BlockRunAI/ClawRouter</a>
+                    </div>
+                    <div class="star-badge">⭐ 6,682</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Agent-native LLM router with 66 models (8 free, no signup). Local routing (<1ms latency), x402 USDC payments on Base/Solana. Supports autonomous agent operation without API keys.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Enables agents to select optimal models without human intervention; integrates with OpenClaw and MCP servers.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Autonomous Agent Developers</li>
+                        <li>Web3 AI Teams</li>
+                        <li>Cost-optimization Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 6.6k stars, trending in Web3 AI communities. First router to support x402 stablecoin payments for agent transactions.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <div class="category">
+        <h2>🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <!-- awesome-ai-security -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/ottosulin/awesome-ai-security" target="_blank">ottosulin/awesome-ai-security</a>
+                    </div>
+                    <div class="star-badge">⭐ 1,342</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Curated list of AI security frameworks, standards, learning resources, and open-source tools. Covers attack techniques, red teaming, governance, and risk management.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Centralized resource for AI security professionals; regularly updated with new tools and research.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>AI Security Engineers</li>
+                        <li>Red Team Operators</li>
+                        <li>Compliance Officers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 1.3k stars, maintained by security community. Recent additions include MCP security guidelines.
+                </div>
+            </div>
+            
+            <!-- anubis -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/TecharoHQ/anubis" target="_blank">TecharoHQ/anubis</a>
+                    </div>
+                    <div class="star-badge">⭐ 21,157</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Web AI firewall that "weighs the soul" of incoming HTTP requests to block AI crawlers. Lightweight, self-hosted alternative to Cloudflare for small internet communities.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Protects websites from aggressive AI scraping; configurable bot policies for allowing legitimate crawlers like Internet Archive.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Website Owners</li>
+                        <li>Self-hosting Communities</li>
+                        <li>Web Administrators</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 21k stars, viral in indie web communities. Featured in HN discussions on AI crawler ethics. Recent sponsorship from Raptor Computing Systems.
+                </div>
+            </div>
+            
+            <!-- hexstrike-ai -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/0x4m4/hexstrike-ai" target="_blank">0x4m4/hexstrike-ai</a>
+                    </div>
+                    <div class="star-badge">⭐ 10,803</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>MCP server with 150+ cybersecurity tools for autonomous pentesting, vulnerability discovery, and bug bounty automation. Supports Claude, GPT, Copilot with 12+ AI agents.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Bridges LLMs with real-world security tools (Nmap, Metasploit, Nuclei); reduces manual pentesting effort by 70%.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Penetration Testers</li>
+                        <li>Bug Bounty Hunters</li>
+                        <li>Security Researchers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 10k stars, featured in YouTube tutorials and MCP Market. Highlighted in 2026 AI Agent Security Risks report as a leading offensive MCP tool.
+                </div>
+            </div>
+            
+            <!-- defenseclaw -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/cisco-ai-defense/defenseclaw" target="_blank">cisco-ai-defense/defenseclaw</a>
+                    </div>
+                    <div class="star-badge">⭐ 801</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Security governance for Agentic AI runtimes (OpenClaw). Scans capabilities before use, inspects runtime traffic, and exports audit evidence. Cisco-backed open-source project.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Mitigates MCP and agent security risks; provides policy enforcement and observability for AI agent deployments.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Enterprise Security Teams</li>
+                        <li>OpenClaw Users</li>
+                        <li>AI Governance Officers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 800 stars, Cisco-backed project addressing 2026 MCP security concerns. Recent updates include connector compatibility for major agent frameworks.
+                </div>
+            </div>
+            
+            <!-- tracecat -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/TracecatHQ/tracecat" target="_blank">TracecatHQ/tracecat</a>
+                    </div>
+                    <div class="star-badge">⭐ 3,756</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Open-source security automation platform for teams and AI agents. Prompt-to-automations, code-native workflows, case management, and 100+ integrations. Sandboxed with nsjail/Temporal.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>All-in-one security operations tool; enables AI agents to trigger workflows and manage incidents.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Security Operations Teams</li>
+                        <li>DevSecOps Engineers</li>
+                        <li>Incident Responders</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 3.7k stars, growing adoption in mid-sized security teams. Recent updates include enhanced MCP client support.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 4: Code Scanning, SAST & Auditing -->
+    <div class="category">
+        <h2>🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <!-- bearer -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Bearer/bearer" target="_blank">Bearer/bearer</a>
+                    </div>
+                    <div class="star-badge">⭐ 2,715</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>SAST tool scanning for security (OWASP Top 10, CWE Top 25) and privacy risks (PII, PHI flow detection). Supports 7 languages with inter-file analysis in Pro version.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Prioritizes findings by data flow sensitivity; generates privacy reports for GDPR compliance (DPIA, RoPA).</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>AppSec Engineers</li>
+                        <li>Compliance Teams</li>
+                        <li>Privacy Officers</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 2.7k stars, part of Cygives community hub. Recent updates include enhanced Java inter-file analysis.
+                </div>
+            </div>
+            
+            <!-- medusa -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/Pantheon-Security/medusa" target="_blank">Pantheon-Security/medusa</a>
+                    </div>
+                    <div class="star-badge">⭐ 959</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>AI-first security scanner with 40,000+ patterns. New in v2026.7: Claude Code compromise detection, AI attack-signature scanner, native Rust/PHP rules. Zero setup required.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Detects AI-specific vulnerabilities (prompt injection, tool poisoning); scans repos for leaked API keys with medusa secrets scan.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>AI Application Developers</li>
+                        <li>Security Auditors</li>
+                        <li>DevSecOps Teams</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 950 stars, trending in AI security circles. Featured in 2026 AI Agent Security Risks report for Claude Code vulnerability detection.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 5: Security Monitoring & SIEM -->
+    <div class="category">
+        <h2>📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <!-- sigma -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ/sigma</a>
+                    </div>
+                    <div class="star-badge">⭐ 10,840</div>
+                </div>
+                <div class="card-section">
+                    <h3>Overview</h3>
+                    <p>Generic signature format for SIEM systems with 3,000+ detection rules (generic, threat hunting, emerging threats, compliance). Vendor-agnostic, convertible to 25+ SIEM query languages.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Practical Utility</h3>
+                    <p>Standardizes detection logic across SIEM platforms; enables community-driven rule sharing and collaboration.</p>
+                </div>
+                <div class="card-section">
+                    <h3>Target Audience</h3>
+                    <ul class="audience-list">
+                        <li>Detection Engineers</li>
+                        <li>Threat Hunters</li>
+                        <li>SIEM Administrators</li>
+                    </ul>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> 10.8k stars, industry-standard for SIEM detection. Recent updates include 2026 emerging threat rules for AI-related attacks. Featured in Panther's Sigma rules guide.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Generated by Mr Delly Bot (Hermes Agent) | Principal Security Architect & Intelligence Analyst<br>
+        Data Sources: GitHub API, Tavily Web Search | Date: 2026-08-04 22:45 UTC
+    </div>
+</body>
+</html>

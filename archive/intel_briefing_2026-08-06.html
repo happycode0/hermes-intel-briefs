@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing — 2026-08-06</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-neon: #00f2fe;
+            --accent-red: #ef4444;
+            --accent-green: #22c55e;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-neon), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .meta span {
+            margin: 0 1rem;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--accent-neon);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 242, 254, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .repo-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .repo-name a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .repo-name a:hover {
+            text-decoration: underline;
+            color: var(--accent-neon);
+        }
+
+        .stars {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .overview {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-neon);
+            margin: 1rem 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: rgba(0, 242, 254, 0.1);
+            color: var(--accent-neon);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .osint-box {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid var(--accent-red);
+            padding: 0.75rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .osint-box strong {
+            color: var(--accent-red);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖 GitHub Intelligence Briefing</h1>
+        <div class="meta">
+            <span>Date: 2026-08-06</span>
+            <span>Model: tencent/hy3-preview</span>
+            <span>Analyst: Mr Delly Bot, Headmaster & Systems Butler to Mr Happy</span>
+        </div>
+    </header>
+
+    <!-- Category 1: AI & LLM Architectures -->
+    <section class="category-section">
+        <h2 class="category-title">🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a></div>
+                    <div class="stars">⭐ 19,364</div>
+                </div>
+                <div class="overview">Battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>AI-powered code review CLI that achieves higher precision than general-purpose agents with 1/9 token consumption. Supports Claude Code, Codex, Cursor integrations.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">Developers</span>
+                    <span class="tag">DevOps Teams</span>
+                    <span class="tag">Code Reviewers</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Open-sourced by Alibaba in May 2026 after 2 years of internal use. Hit #1 on GitHub Trending (Go) in July 2026. Featured on Trendshift and OSSInsight with 13.8k+ stars.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/NVIDIA/GenerativeAIExamples" target="_blank">NVIDIA/GenerativeAIExamples</a></div>
+                    <div class="stars">⭐ 4,142</div>
+                </div>
+                <div class="overview">Generative AI reference workflows optimized for accelerated infrastructure and microservice architecture. Includes RAG, agentic workflows, tool-calling fine-tuning with NeMo microservices.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Reference implementations for RAG pipelines, agentic workflows, and model fine-tuning using NVIDIA NIMs and NeMo microservices.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">AI Engineers</span>
+                    <span class="tag">MLOps</span>
+                    <span class="tag">NVIDIA Developers</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Continuously updated with latest NVIDIA AI advancements. Pushed 2026-08-05 with new Data Flywheel and Safer Agentic AI tutorials.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <section class="category-section">
+        <h2 class="category-title">🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/musistudio/claude-code-router" target="_blank">musistudio/claude-code-router</a></div>
+                    <div class="stars">⭐ 36,464</div>
+                </div>
+                <div class="overview">One local control plane for every AI agent: route across models, fuse new capabilities, orchestrate tools, and stay fully in control. Supports Claude Code, Codex, Grok CLI, Kimi CLI, and more.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Unified model gateway for coding agents with provider management, routing rules, retries, and observability. Eliminates per-agent model configuration.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">AI Agent Users</span>
+                    <span class="tag">Developers</span>
+                    <span class="tag">DevOps</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Was #1 trending on GitHub in February 2026. 36k+ stars, 3k+ forks. Latest release v3.0.19 (July 2026) with Kimi K2.7 integration.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/huggingface/speech-to-speech" target="_blank">huggingface/speech-to-speech</a></div>
+                    <div class="stars">⭐ 11,418</div>
+                </div>
+                <div class="overview">Build local voice agents with open-source models. Supports speech-to-text, text-to-speech, and speech translation using Hugging Face models.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Local-first voice agent toolkit for building privacy-preserving voice interfaces with open-source LLMs and speech models.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">Voice AI Developers</span>
+                    <span class="tag">Local AI Enthusiasts</span>
+                    <span class="tag">Hugging Face Users</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Trending in August 2026 with 11k+ stars. Pushed 2026-08-06 with latest model support updates.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <section class="category-section">
+        <h2 class="category-title">🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/usestrix/strix" target="_blank">usestrix/strix</a></div>
+                    <div class="stars">⭐ 49,360</div>
+                </div>
+                <div class="overview">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities. Autonomous agents that behave like real hackers with full pentesting toolkit.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>AI-powered pentesting with real exploit validation, CI/CD integration, and auto-fix capabilities. Supports GPT-5, Claude Sonnet 4.6.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">Security Teams</span>
+                    <span class="tag">Penetration Testers</span>
+                    <span class="tag">DevSecOps</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Featured in Help Net Security (Nov 2025) as revolutionary AI pentesting tool. 49k+ stars, 5k+ forks. Hit #1 on Trendshift weekly list.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/NVIDIA/SkillSpector" target="_blank">NVIDIA/SkillSpector</a></div>
+                    <div class="stars">⭐ 14,302</div>
+                </div>
+                <div class="overview">Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Pre-installation security scanning for AI agent skills to prevent prompt injection, data exfiltration, and supply chain attacks.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">AI Security Engineers</span>
+                    <span class="tag">Agent Developers</span>
+                    <span class="tag">MCP Users</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> NVIDIA-backed security tool for the growing agent skill ecosystem. Pushed 2026-08-06 with latest detection rules.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <section class="category-section">
+        <h2 class="category-title">☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/ASCIT31/Dark-Moon" target="_blank">ASCIT31/Dark-Moon</a></div>
+                    <div class="stars">⭐ 812</div>
+                </div>
+                <div class="overview">Autonomous AI pentesting engine, continuous offensive security across web, cloud, identity, CI/CD, IaC, databases, Active Directory, Kubernetes and IoT firmware. Privacy gateway: LLM never sees real IPs/creds.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Self-hosted AI pentesting for cloud and IoT environments with privacy-preserving architecture. Supports multi-agent reasoning.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">Cloud Security</span>
+                    <span class="tag">Red Teams</span>
+                    <span class="tag">IoT Security</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Trending in cloud security AI category. Pushed 2026-08-06 with latest exploit modules.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <section class="category-section">
+        <h2 class="category-title">🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/cycodehq/cycode-cli" target="_blank">cycodehq/cycode-cli</a></div>
+                    <div class="stars">⭐ 99</div>
+                </div>
+                <div class="overview">Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning. Includes MCP server for AI integration with Claude, Cursor, Copilot.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Unified CLI for SAST, SCA, secrets, and IaC scanning with MCP integration for AI coding agents. Supports pre-commit/pre-push hooks.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">DevSecOps</span>
+                    <span class="tag">Developers</span>
+                    <span class="tag">Security Engineers</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Part of Cycode's Agentic Development Security Platform. Featured in AppSecSanta 2026 review. Latest release v3.5.0 with MCP improvements.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <section class="category-section">
+        <h2 class="category-title">📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ/sigma</a></div>
+                    <div class="stars">⭐ 10,848</div>
+                </div>
+                <div class="overview">Main Sigma Rule Repository. Generic Signature Format for SIEM Systems with 3000+ detection rules (generic, threat hunting, emerging threats, compliance).</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Industry-standard open format for SIEM detection rules. Convertible to 25+ SIEM platforms via pySigma and sigma-cli.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">SOC Analysts</span>
+                    <span class="tag">Detection Engineers</span>
+                    <span class="tag">Threat Hunters</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Maintained by SigmaHQ with 10k+ stars. Featured in Panther's 2026 Sigma Rules guide. Continuously updated with emerging threat rules.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/gensecaihq/Wazuh-MCP-Server" target="_blank">gensecaihq/Wazuh-MCP-Server</a></div>
+                    <div class="stars">⭐ 214</div>
+                </div>
+                <div class="overview">AI-powered security operations for Wazuh SIEM—use any MCP-compatible client to ask security questions in plain English. Production-ready MCP server for conversational SOC workflows.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Natural language interface for Wazuh SIEM using MCP. Enables threat detection, incident triage, and compliance checks via AI agents.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">SOC Teams</span>
+                    <span class="tag">Wazuh Users</span>
+                    <span class="tag">MCP Integrators</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Trending in SIEM category. Pushed 2026-08-06 with latest MCP improvements.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <section class="category-section">
+        <h2 class="category-title">🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="repo-name"><a href="https://github.com/dadaloop82/EverShelf" target="_blank">dadaloop82/EverShelf</a></div>
+                    <div class="stars">⭐ 99</div>
+                </div>
+                <div class="overview">EverShelf: Your pantry's best friend. A self-hosted, open source smart pantry manager with AI expiry tracking, barcode scanning, smart shopping lists, and Android Kiosk support.</div>
+                <div class="section-title">Practical Utility</div>
+                <p>Self-hosted pantry management with Home Assistant HACS integration, IoT scale support, and AI-powered expiry tracking to reduce food waste.</p>
+                <div class="section-title">Target Audience</div>
+                <div class="tag-list">
+                    <span class="tag">Home Assistant Users</span>
+                    <span class="tag">Self-Hosting Enthusiasts</span>
+                    <span class="tag">IoT Hobbyists</span>
+                </div>
+                <div class="osint-box">
+                    <strong>OSINT Context:</strong> Featured on Home Assistant Community (May 2026) with native HACS integration. 99 stars, Docker-based deployment.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Mr Happy</p>
+        <p>Intelligence Briefing — 2026-08-06 — Powered by Hermes Agent (Nous Research)</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing | 2026-08-02</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--neon);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--neon);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .header .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #334155;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 242, 254, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h2 a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .card h2 a:hover {
+            text-decoration: underline;
+            color: var(--neon);
+        }
+
+        .star-badge {
+            display: inline-block;
+            background-color: #334155;
+            color: var(--neon);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .section {
+            margin: 1rem 0;
+        }
+
+        .section h3 {
+            color: var(--neon);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.25rem;
+        }
+
+        .audience ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .audience li {
+            margin-bottom: 0.25rem;
+        }
+
+        .osint {
+            background-color: #0f172a;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--neon);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--neon);
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">Date: 2026-08-02 | Model: tencent/hy3-preview (OpenRouter)</div>
+        <div class="meta">Categories Covered: AI & LLM Architectures, CyberSecurity & AI Security</div>
+        <div class="meta">Note: Partial report due to GitHub search index limitations for niche categories (Hermes/Agents, Cloud Security, SAST, SIEM, Smart Home)</div>
+    </header>
+
+    <div class="grid">
+        <!-- Card 1: llm-architecture-gallery -->
+        <div class="card">
+            <h2><a href="https://github.com/rasbt/llm-architecture-gallery" target="_blank">rasbt/llm-architecture-gallery</a></h2>
+            <div class="star-badge">★ 1,439 Stars</div>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p class="overview">Source data for the LLM Architecture Gallery, a centralized resource for browsing recent open-weight LLM architectures with config links, tech reports, and implementation references. Includes dates, vocabulary sizes, context lengths, and decoder types for 30+ models.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p class="utility">Quick reference for AI researchers and engineers to compare LLM architectures, access model configurations, and find implementation resources without jumping between articles.</p>
+            </div>
+            <div class="section audience">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>AI/ML Researchers</li>
+                    <li>LLM Engineers</li>
+                    <li>Model Architects</li>
+                    <li>Technical Writers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Featured on Hacker News (July 2026) and LinkedIn by Sebastian Raschka. Gained traction as a centralized architecture reference amid growing interest in sparse MoE and hybrid attention models. Referenced in LLM research discussions for its curated model metadata.</p>
+            </div>
+        </div>
+
+        <!-- Card 2: awesome-ai-security -->
+        <div class="card">
+            <h2><a href="https://github.com/ottosulin/awesome-ai-security" target="_blank">ottosulin/awesome-ai-security</a></h2>
+            <div class="star-badge">★ 1,337 Stars</div>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p class="overview">Curated list of AI security frameworks, standards, learning resources, and open-source tools. Covers OWASP LLM Top 10, red teaming, governance, attack techniques, and defense controls with categorized tables of contents.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p class="utility">Comprehensive reference for AI security practitioners, includes courses, labs, CTFs, tool directories, and compliance frameworks for end-to-end AI security coverage.</p>
+            </div>
+            <div class="section audience">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>AI Security Professionals</li>
+                    <li>Red Team Operators</li>
+                    <li>Compliance Officers</li>
+                    <li>Software Developers</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Listed in GitHub's official AI security topic, referenced in CompTIA SecAI+ study guides (2026 edition), and cited in community discussions on AI security challenges. Maintained by a recognized AI security contributor with regular updates.</p>
+            </div>
+        </div>
+
+        <!-- Card 3: awesome-ai-security-tools -->
+        <div class="card">
+            <h2><a href="https://github.com/scadastrangelove/awesome-ai-security-tools" target="_blank">scadastrangelove/awesome-ai-security-tools</a></h2>
+            <div class="star-badge">★ 940 Stars</div>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p class="overview">Curated list of 100+ public-source, research, and commercial tools for AI security across autotriage, agent security, AI/ML supply chain, pentest agents, SAST, LLM fuzzing, and SOC triage. Includes license and maintenance status tags.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p class="utility">Tool discovery platform for AI security workflows, enables practitioners to find specialized tools for narrow use cases like MCP security, prompt injection detection, and agent runtime protection.</p>
+            </div>
+            <div class="section audience">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Security Engineers</li>
+                    <li>DevSecOps Teams</li>
+                    <li>Penetration Testers</li>
+                    <li>SOC Analysts</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Featured in GitHub's AI security topic, highlighted in Medium's AI Security Hub May 2026 roundup of open-source security tools. Integrated into multiple enterprise security toolchains and referenced in AI security training materials.</p>
+            </div>
+        </div>
+
+        <!-- Card 4: VulnHunter -->
+        <div class="card">
+            <h2><a href="https://github.com/capitalone/VulnHunter" target="_blank">capitalone/VulnHunter</a></h2>
+            <div class="star-badge">★ 859 Stars</div>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p class="overview">Agentic AI security tool that applies attacker-first forward analysis to source code. Identifies exploitable defects, maps attack paths, and proposes targeted fixes using Claude Opus/Claude Code. Includes Hunt→Fix→Verify loop with composable skills.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p class="utility">Replaces passive SAST with adversarial reasoning to reduce false positives. Automates vulnerability discovery, remediation, and verification for enterprise codebases and supply chains.</p>
+            </div>
+            <div class="section audience">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Security Researchers</li>
+                    <li>DevOps Engineers</li>
+                    <li>Claude Code Users</li>
+                    <li>Enterprise Security Teams</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Open-sourced by Capital One in July 2026, covered by SecurityWeek. Trending due to the industry shift toward agentic AI security tools and enterprise demand for proactive vulnerability analysis. Requires Claude Opus access for full functionality.</p>
+            </div>
+        </div>
+
+        <!-- Card 5: LLMVault -->
+        <div class="card">
+            <h2><a href="https://github.com/CyberSunil/LLMVault" target="_blank">CyberSunil/LLMVault</a></h2>
+            <div class="star-badge">★ 262 Stars</div>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p class="overview">Deliberately vulnerable OWASP LLM Top 10 training platform with 25 CTF-style labs across core, advanced, and expert tiers. Offline-first, Docker-ready, with deterministic scripted assistants and progress persistence.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p class="utility">Hands-on training for LLM security concepts including prompt injection, RAG security, agent exploitation, and system prompt leakage. Suitable for self-paced learning and instructor-led workshops.</p>
+            </div>
+            <div class="section audience">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Security Trainees</li>
+                    <li>Penetration Testers</li>
+                    <li>AI Developers</li>
+                    <li>CTF Players</li>
+                </ul>
+            </div>
+            <div class="osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Listed in trending AI GitHub repositories for developers (2026), referenced in AI security training resources as the "WebGoat for LLMs". Gaining traction as organizations prioritize hands-on LLM security training amid rising AI adoption.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Report Type: GitHub Intelligence Briefing | Delivery: Automated Cron Job</p>
+        <p>© 2026 Mr Delly Bot. All data sourced from GitHub API and public OSINT.</p>
+    </footer>
+</body>
+</html>

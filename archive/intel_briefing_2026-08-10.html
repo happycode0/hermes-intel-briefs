@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing - 2026-08-10</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --link-color: #38bdf8;
+            --neon-accent: #00f2fe;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --star-badge: #fbbf24;
+        }
+        
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--neon-accent);
+        }
+        
+        .header h1 {
+            color: var(--neon-accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .category {
+            margin-bottom: 40px;
+        }
+        
+        .category h2 {
+            color: var(--neon-accent);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--bg-card);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .card h3 a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+        
+        .card h3 a:hover {
+            text-decoration: underline;
+        }
+        
+        .star-badge {
+            display: inline-block;
+            background-color: var(--star-badge);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .card p {
+            margin: 10px 0;
+            color: var(--text-secondary);
+        }
+        
+        .card ul {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .osint-context {
+            background-color: rgba(0, 242, 254, 0.1);
+            border-left: 3px solid var(--neon-accent);
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <div class="meta">Date: 2026-08-10 | Model: tencent/hy3-preview | Categories: 7 | Repos Analyzed: 24</div>
+    </div>
+    
+    <!-- Category 1: AI & LLM Architectures -->
+    <div class="category">
+        <h2>🤖 AI & LLM Architectures</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a> <span class="star-badge">19.9k ⭐</span></h3>
+                <p><strong>Overview:</strong> Hybrid architecture code review tool combining deterministic pipelines with LLM Agents for precise line-level comments. Battle-tested at Alibaba scale with built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection).</p>
+                <p><strong>Practical Utility:</strong> Enterprise-grade code review automation with OpenAI/Anthropic compatibility.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> DevOps teams, enterprise developers, security auditors</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending due to recent v2026.7 update with Claude Code compromise detection and 40,000+ attack patterns. High activity (updated 2026-08-10).
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/Zleap-AI/SAG" target="_blank">Zleap-AI/SAG</a> <span class="star-badge">2.3k ⭐</span></h3>
+                <p><strong>Overview:</strong> New SOTA for RAG with original retrieval architecture and open-source knowledge base for humans and agents.</p>
+                <p><strong>Practical Utility:</strong> Advanced RAG implementations for AI agents and knowledge management systems.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> AI researchers, LLM developers, knowledge engineers</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Recent surge in interest following RAG architecture breakthroughs. Updated 2026-08-10.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA/Model-Optimizer</a> <span class="star-badge">3.4k ⭐</span></h3>
+                <p><strong>Overview:</strong> Unified library of SOTA model optimization techniques (quantization, distillation, pruning, NAS, speculative decoding) for TensorRT-LLM, TensorRT, vLLM deployment.</p>
+                <p><strong>Practical Utility:</strong> Optimizes inference speed for production AI models across NVIDIA ecosystems.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> ML engineers, inference optimization specialists, NVIDIA ecosystem developers</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending with recent updates to support latest TensorRT-LLM versions. Updated 2026-08-10.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <div class="category">
+        <h2>🪽 Hermes, Agents & Local Models</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/Shaf2665/Hermes-router" target="_blank">Shaf2665/Hermes-router</a> <span class="star-badge">93 ⭐</span></h3>
+                <p><strong>Overview:</strong> OpenAI/Anthropic-compatible AI router with provider failover, key rotation, caching, analytics, and local-model fallback.</p>
+                <p><strong>Practical Utility:</strong> High-availability LLM routing for applications requiring provider redundancy.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> LLM application developers, self-hosting enthusiasts, HA system architects</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Niche but growing interest in local-model fallback solutions. Recent update 2026-08-10.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <div class="category">
+        <h2>🔒 CyberSecurity & AI Security</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/TecharoHQ/anubis" target="_blank">TecharoHQ/anubis</a> <span class="star-badge">21.3k ⭐</span></h3>
+                <p><strong>Overview:</strong> Weighs incoming HTTP requests to stop AI crawlers with soul-weighing algorithm.</p>
+                <p><strong>Practical Utility:</strong> Defensive measure against aggressive AI scraping bots.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Web administrators, content publishers, anti-bot system designers</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Viral adoption following AI crawler incidents. Updated 2026-08-10.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/scadastrangelove/awesome-ai-security-tools" target="_blank">scadastrangelove/awesome-ai-security-tools</a> <span class="star-badge">1k ⭐</span></h3>
+                <p><strong>Overview:</strong> Curated list of AI security tools covering autotriage, agent security, AI/ML supply chain, pentest agents, AI SAST, LLM fuzzing, threat intelligence, SOC/SIEM triage.</p>
+                <p><strong>Practical Utility:</strong> Comprehensive resource for AI security practitioners and tool discovery.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Security researchers, AI red teams, DevSecOps engineers</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Growing importance of AI security tools. Updated 2026-08-10.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <div class="category">
+        <h2>☁️ AWS & Cloud Security AI</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler-cloud/prowler</a> <span class="star-badge">14.6k ⭐</span></h3>
+                <p><strong>Overview:</strong> World's most widely used open-source cloud security platform automating security and compliance across multi-cloud environments.</p>
+                <p><strong>Practical Utility:</strong> CSPM, compliance auditing, and security assessment for AWS/Azure/GCP.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Cloud security engineers, compliance officers, DevOps teams</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Continued dominance in cloud security. Updated 2026-08-10.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/cloud-custodian/cloud-custodian" target="_blank">cloud-custodian/cloud-custodian</a> <span class="star-badge">6k ⭐</span></h3>
+                <p><strong>Overview:</strong> Rules engine for cloud security, cost optimization, and governance using YAML DSL for policy definition.</p>
+                <p><strong>Practical Utility:</strong> Automated cloud resource management and governance at scale.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Cloud architects, FinOps teams, governance specialists</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Steady growth in cloud governance adoption. Updated 2026-08-10.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <div class="category">
+        <h2>🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/Pantheon-Security/medusa" target="_blank">Pantheon-Security/medusa</a> <span class="star-badge">961 ⭐</span></h3>
+                <p><strong>Overview:</strong> AI-first security scanner with Claude Code compromise detection, AI attack-signature scanning, and 40,000+ patterns. Features medusa scan --git and secrets scanning.</p>
+                <p><strong>Practical Utility:</strong> Zero-setup security scanning for repos with AI-specific threat detection.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Security engineers, AI developers, DevSecOps teams</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Trending due to v2026.7 release with Claude Code security features. Updated 2026-08-10.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <div class="category">
+        <h2>📊 Security Monitoring & SIEM</h2>
+        <div class="grid">
+            <div class="card">
+                <p><em>No trending repositories with significant recent activity (pushed >2026-08-08) found in this category. Searches with lowered star thresholds also returned null results.</em></p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <div class="category">
+        <h2>🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="grid">
+            <div class="card">
+                <h3><a href="https://github.com/OpenCCU/OpenCCU" target="_blank">OpenCCU/OpenCCU</a> <span class="star-badge">1.8k ⭐</span></h3>
+                <p><strong>Overview:</strong> Buildroot-based, cloud-free smart-home platform for Homematic IP CCU. Runs on Raspberry Pi, x86/ARM, Proxmox VE, Home Assistant, Docker/LXC/K8s.</p>
+                <p><strong>Practical Utility:</strong> Privacy-focused smart home automation without cloud dependencies.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> Smart home enthusiasts, self-hosting advocates, Home Assistant users</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Growing interest in cloud-free smart home solutions. Updated 2026-08-10.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3><a href="https://github.com/jibrilsharafi/EnergyMe-Home" target="_blank">jibrilsharafi/EnergyMe-Home</a> <span class="star-badge">272 ⭐</span></h3>
+                <p><strong>Overview:</strong> Smart energy meter monitoring up to 16 channels with MQTT, REST API, Modbus TCP, InfluxDB, AWS IoT Core support. Fully open-source hardware/software.</p>
+                <p><strong>Practical Utility:</strong> Open-source energy monitoring for home automation and IoT integration.</p>
+                <ul>
+                    <li><strong>Target Audience:</strong> IoT developers, energy monitoring enthusiasts, home automators</li>
+                </ul>
+                <div class="osint-context">
+                    <strong>OSINT Context:</strong> Rising energy costs driving interest in open-source monitoring. Updated 2026-08-09.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Generated by Mr Delly Bot, Headmaster & Systems Butler to Mr Happy<br>
+        Powered by Hermes Agent (Nous Research) | Intelligence Report 2026-08-10
+    </div>
+</body>
+</html>

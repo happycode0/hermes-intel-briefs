@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing - August 29, 2026</title>
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --link: #38bdf8;
+            --neon: #00f2fe;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--neon);
+        }
+
+        h1 {
+            color: var(--neon);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .category-header {
+            color: var(--neon);
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px -2px rgba(0, 242, 254, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-name {
+            color: var(--link);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-name:hover {
+            text-decoration: underline;
+            color: var(--neon);
+        }
+
+        .star-badge {
+            background-color: var(--neon);
+            color: var(--bg-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .overview, .utility {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .audience-list li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .audience-list li:before {
+            content: "▸";
+            color: var(--neon);
+            position: absolute;
+            left: 0;
+        }
+
+        .osint-context {
+            background-color: rgba(0, 242, 254, 0.05);
+            border-left: 4px solid var(--neon);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+
+        .osint-context p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GitHub Intelligence Briefing</h1>
+        <p class="meta">Date: August 29, 2026 | Model: tencent/hy3-preview | Provider: openrouter</p>
+        <p class="meta">Principal Security Architect & Intelligence Analyst: Mr Delly Bot</p>
+        <p class="meta">Scope: 24-48h Star Velocity, Commit Activity, Community OSINT</p>
+    </header>
+
+    <!-- Category 1: AI & LLM Architectures -->
+    <h2 class="category-header">🤖 AI & LLM Architectures</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/alibaba/open-code-review" target="_blank" class="project-name">alibaba/open-code-review</a>
+                <span class="star-badge">⭐ 21.6k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Hybrid deterministic pipeline + LLM agent code review tool, battle-tested at Alibaba scale. Provides precise line-level comments with built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection). Supports OpenAI & Anthropic compatible endpoints.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Automates code reviews with ~1/9 token usage vs general-purpose agents, achieves higher precision (F1 score) on real-world benchmarks. Supports CLI, CI/CD, and MCP server integrations.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>DevOps Teams</li>
+                <li>Security Engineers</li>
+                <li>Enterprise Developers</li>
+                <li>CI/CD Pipeline Maintainers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Reached #1 Go repository on GitHub Trending (Week 23, 2026), #9 overall weekly. Featured on Trendshift with 2.1k+ daily stars. Recent updates include Scala/Verilog support and path traversal fixes.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank" class="project-name">NVIDIA/Model-Optimizer</a>
+                <span class="star-badge">⭐ 3.6k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Unified library of SOTA model optimization techniques (quantization, distillation, pruning, neural architecture search, speculative decoding) for compressing deep learning models deployed via TensorRT-LLM, TensorRT, vLLM.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Optimizes inference speed for LLMs and vision models. Integrates with NVIDIA's AI blueprint ecosystem for production-grade deployments.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>ML Engineers</li>
+                <li>AI Infrastructure Teams</li>
+                <li>Edge Computing Developers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Recently updated (Aug 29, 2026) with 372 open issues. Part of NVIDIA's push for optimized inference in enterprise AI workflows.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/Zleap-AI/SAG" target="_blank" class="project-name">Zleap-AI/SAG</a>
+                <span class="star-badge">⭐ 2.4k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">New SOTA for RAG with original retrieval architecture and open-source knowledge base for humans and agents. Combines graph-based RAG with vector search for improved context retrieval.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Enhances LLM context awareness with structured knowledge graphs. Supports agentic workflows via MCP integration.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>AI Researchers</li>
+                <li>Agent Developers</li>
+                <li>Knowledge Management Teams</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Updated Aug 29, 2026, gaining traction in RAG-focused AI communities. Tagged with graphrag, vector-search, and agent topics.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <h2 class="category-header">🪽 Hermes, Agents & Local Models</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/unslothai/unsloth" target="_blank" class="project-name">unslothai/unsloth</a>
+                <span class="star-badge">⭐ 75k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Local UI to run and train LLMs/diffusion models. Supports GGUF, MLX, Qwen3.8, Kimi K3, MiniMax-H3, Gemma 4, FLUX. 2× faster training with 70% less VRAM, no accuracy loss.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Enables local model inference for Claude Code, Codex, Hermes Agent via Unsloth Start. Supports fine-tuning, export to GGUF/NVFP4, and LAN/Cloudflare remote access.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Local AI Enthusiasts</li>
+                <li>Agent Developers</li>
+                <li>ML Researchers</li>
+                <li>Edge AI Engineers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Qwen3.8-27B GGUF reached #2 trending model on Hugging Face (2.7M downloads). Unsloth hit #3 trending on GitHub (Aug 18, 2026). 75k+ stars, 6.8k forks.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/Mintplex-Labs/anything-llm" target="_blank" class="project-name">Mintplex-Labs/anything-llm</a>
+                <span class="star-badge">⭐ 65k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">All-in-one local-first AI agent experience. Chat with docs, use AI Agents, hyper-configurable, multi-user. Supports dynamic model routing, automatic memories, scheduled tasks, MCP compatibility.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Self-hosted alternative to ChatGPT with RAG, agentic workflows, and multi-provider support (OpenAI, Anthropic, Ollama, LM Studio). Docker and desktop versions available.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Self-hosting Enthusiasts</li>
+                <li>Small Teams</li>
+                <li>Privacy-Focused Users</li>
+                <li>Agent Developers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 65k+ stars, 7.2k forks. Featured in "GitHub Trending in August" lists. Recently added scheduled tasks and intelligent skill selection (80% token reduction).</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/EverMind-AI/EverOS" target="_blank" class="project-name">EverMind-AI/EverOS</a>
+                <span class="star-badge">⭐ 12.5k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Portable memory layer for every AI agent: local-first, Markdown-native, user-owned, self-evolving across apps, tools, and workflows. Implements agent memory management with RAG integration.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Provides persistent memory for AI agents across sessions. Supports MCP, DeepSeek harness, and Python 3. Compatible with Claude Code and OpenClaw.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Agent Developers</li>
+                <li>AI Workflow Designers</li>
+                <li>Productivity Tool Builders</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Updated Aug 29, 2026, 12.5k stars. Tagged with agent-memory, claudebot-skill, and deepseek-harness. Gaining traction as agent memory standard.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <h2 class="category-header">🔒 CyberSecurity & AI Security</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/usestrix/strix" target="_blank" class="project-name">usestrix/strix</a>
+                <span class="star-badge">⭐ 59k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Open-source AI penetration testing tool that finds and fixes app vulnerabilities. Autonomous agents run dynamic exploitation with real PoCs, CI/CD integration via GitHub Actions. Supports OWASP Top 10 coverage.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Automates pentesting with proof-by-exploitation reports. Reduces false positives vs static analysis. Supports white-box, grey-box, and black-box testing modes.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Security Engineers</li>
+                <li>DevSecOps Teams</li>
+                <li>Penetration Testers</li>
+                <li>CI/CD Maintainers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Featured in "GitHub Trending in August: Agents That Test Security". Integrated with GitHub Actions for PR scanning. 59k+ stars, 6.4k forks. Praised for autonomous exploit validation.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/KeygraphHQ/shannon" target="_blank" class="project-name">KeygraphHQ/shannon</a>
+                <span class="star-badge">⭐ 47k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">AI pentester for web apps/APIs. Analyzes source code, identifies attack vectors, executes real exploits to prove vulnerabilities pre-production. Multi-agent workflow with pre-reconnaissance, reconnaissance, vulnerability analysis, exploitation, reporting.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Shifts security left with on-demand pentesting. Outputs SARIF 2.1.0 for code scanning tools. Supports authenticated testing and rules of engagement configuration.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>AppSec Teams</li>
+                <li>Security Researchers</li>
+                <li>Enterprise Developers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 47k+ stars, 5.4k forks. Featured in "AI Pentesting Agents 2026" roundup. Shannon 2.0 released Aug 2026 with enhanced agent orchestration.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/NVIDIA/SkillSpector" target="_blank" class="project-name">NVIDIA/SkillSpector</a>
+                <span class="star-badge">⭐ 15.2k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Security scanner for AI agent skills. Detects vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, supply-chain risks in Claude Code, Codex, MCP skills before installation.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Hardens agent ecosystems against supply-chain attacks. Scans skill dependencies, prompt injection vectors, and data exfiltration patterns. Supports CI/CD integration.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Agent Ecosystem Maintainers</li>
+                <li>Security Auditors</li>
+                <li>Enterprise AI Teams</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Updated Aug 29, 2026, 15.2k stars. NVIDIA-backed project addressing emerging agent security threats. Tagged with agent-security, prompt-injection, supply-chain-security.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <h2 class="category-header">☁️ AWS & Cloud Security AI</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/prowler-cloud/prowler" target="_blank" class="project-name">prowler-cloud/prowler</a>
+                <span class="star-badge">⭐ 14.7k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">World's most widely used open-source cloud security platform. Automates security/compliance across AWS, Azure, GCP, Kubernetes, GitHub. 639 AWS checks, 47 compliance frameworks (CIS, NIST, PCI-DSS, GDPR).</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Continuous cloud security monitoring with AI-driven risk prioritization (Prowler ThreatScore). Supports Attack Paths (Neo4j/Neptune) for graph-based analysis. Docker and CLI versions available.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Cloud Security Engineers</li>
+                <li>Compliance Officers</li>
+                <li>DevSecOps Teams</li>
+                <li>Multi-Cloud Architects</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 14.7k+ stars, 2.3k forks. Recently added M365, OCI, and Cloudflare providers. Prowler Cloud platform launched for enterprise users (Aug 2026).</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/cloudquery/cloudquery" target="_blank" class="project-name">cloudquery/cloudquery</a>
+                <span class="star-badge">⭐ 6.5k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Data pipelines for cloud config/security data. Extracts from AWS, Azure, GCP, 70+ cloud/SaaS sources. Builds asset inventory, CSPM, FinOps, vulnerability management solutions. SQL-based querying.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Transforms cloud data into queryable SQL tables. Integrates with BigQuery, PostgreSQL. Supports custom policy engines and compliance reporting.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Cloud Data Engineers</li>
+                <li>Security Analysts</li>
+                <li>FinOps Teams</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 6.5k+ stars, 555 forks. Updated Aug 29, 2026. Go-based, supports 70+ sources. Gaining traction as cloud data normalization standard.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <h2 class="category-header">🔍 Code Scanning, SAST & Auditing</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/semgrep/semgrep" target="_blank" class="project-name">semgrep/semgrep</a>
+                <span class="star-badge">⭐ 16.4k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Lightweight static analysis for many languages. Finds bug variants with patterns that look like source code. Supports 30+ languages, cross-file data-flow analysis (Pro engine).</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Semgrep AppSec Platform adds 25% false positive reduction, 250% true positive increase. Includes Supply Chain (SCA), Secrets scanning, Assistant (AI triage). MCP server for Cursor/Claude Desktop.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Security Engineers</li>
+                <li>Code Quality Teams</li>
+                <li>Compliance Auditors</li>
+                <li>AI Coding Assistants</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 16.4k+ stars, 1k forks. Recently added MCP server for agentic workflows. Semgrep Supply Chain detects reachable vulnerabilities in 12 languages across 15 package managers.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/analysis-tools-dev/static-analysis" target="_blank" class="project-name">analysis-tools-dev/static-analysis</a>
+                <span class="star-badge">⭐ 14.7k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Curated list of 14,754+ static analysis (SAST) tools and linters for all programming languages, config files, build tools. Community-maintained resource for code quality.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Reference guide for selecting SAST tools. Covers linters, security scanners, and code quality tools. Regularly updated with new entries.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Developers</li>
+                <li>Tool Evaluators</li>
+                <li>Security Researchers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 14.7k+ stars, 1.5k forks. Updated Aug 29, 2026. Most comprehensive SAST tool registry, referenced in 1000+ articles.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/google/mantis" target="_blank" class="project-name">google/mantis</a>
+                <span class="star-badge">⭐ 782</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Modular, stack-agnostic toolkit of security review skills for AI coding agents. Autonomously finds, reproduces, and patches vulnerabilities. Supports Gemini API/CLI integration.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Empowers AI agents (Claude Code, Codex) with security review skills. Includes Antigravity CLI for hardware security testing. Reduces vulnerability remediation time.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>AI Agent Developers</li>
+                <li>Security Researchers</li>
+                <li>Google Cloud Users</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Google-backed project (Aug 2026), 782 stars. Tagged with ai-agents, application-security, gemini-api. Modular skills for agentic security workflows.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <h2 class="category-header">📊 Security Monitoring & SIEM</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/lenny-ts/caddy-analyzer" target="_blank" class="project-name">lenny-ts/caddy-analyzer</a>
+                <span class="star-badge">⭐ 27</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Fast, zero-dependency Caddy v2 access log analyzer, security threat inspector, TUI dashboard. 26 attack categories (SQLi, XSS, RCE, SSRF) with dual-pass evasion-resistant engine. MITRE ATT&CK tagged.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Real-time iptables firewall guard with sliding window banning. Sigma export for SIEM import. Supports Docker, Kubernetes, journalctl log sources. HTML reports and TUI dashboard.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Caddy Administrators</li>
+                <li>Security Analysts</li>
+                <li>SIEM Integrators</li>
+                <li>DevOps Engineers</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: Niche but rapidly growing (27 stars, 5 forks). Updated Aug 29, 2026. Only dedicated Caddy v2 log analyzer with built-in SIEM export. Recently added country-blocking via GeoIP.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <h2 class="category-header">🏠 Smart Home, IoT & Self-Hosting</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/cactus-compute/needle" target="_blank" class="project-name">cactus-compute/needle</a>
+                <span class="star-badge">⭐ 9.6k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">14MB foundation model for tiny devices (phones, wearables, smart home, robots). 45M parameters, CQ2-bit quantized, 28MB RAM usage. Supports tool calling, structured extraction, confidence-gated responses.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">On-device AI for IoT/smart home. Runs on Apple Silicon, ARM, x86. Supports LoRA fine-tuning, Pydantic extraction. 5×-70× smaller than comparable models (FunctionGemma 270M, LFM2.5 230M).</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>IoT Developers</li>
+                <li>Smart Home Integrators</li>
+                <li>Embedded AI Engineers</li>
+                <li>Wearable Tech Teams</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 9.6k+ stars, 622 forks. Cactus Compute's flagship tiny model. Updated Aug 29, 2026. Paper (arXiv:2607.18363) on Simple Attention Network architecture released.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/CCOSTAN/Home-AssistantConfig" target="_blank" class="project-name">CCOSTAN/Home-AssistantConfig</a>
+                <span class="star-badge">⭐ 5.2k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Comprehensive Home Assistant configuration with write-ups, videos, part lists. Supports Alexa, Hue, LED controllers, Lovelace dashboards. Codex-compatible skills for AI home automation.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Reference smart home setup with detailed documentation. Integrates with YouTube tutorials for step-by-step setup. Supports automation via Home Assistant's YAML configuration.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Smart Home Enthusiasts</li>
+                <li>Home Assistant Users</li>
+                <li>DIY Automation Hobbyists</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 5.2k+ stars, 501 forks. Updated Aug 28, 2026. Featured in "GitHub Trending" lists for IoT. Includes Codex skills for AI-driven home automation.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <a href="https://github.com/OpenCCU/OpenCCU" target="_blank" class="project-name">OpenCCU/OpenCCU</a>
+                <span class="star-badge">⭐ 1.8k</span>
+            </div>
+            <div class="section-title">Overview/Mechanics</div>
+            <p class="overview">Buildroot-based, cloud-free smart-home platform for Homematic IP CCU (CCU3/ELV-Charly). Runs on Raspberry Pi, x86/ARM, Docker/LXC/K8s. Open-source alternative to proprietary IoT hubs.</p>
+            <div class="section-title">Practical Utility</div>
+            <p class="utility">Self-hosted IoT hub with no cloud dependency. Supports Homematic, Home Assistant integration. Virtual appliance for Proxmox VE, Docker, Kubernetes.</p>
+            <div class="section-title">Target Audience</div>
+            <ul class="audience-list">
+                <li>Self-hosting Enthusiasts</li>
+                <li>IoT Hub Administrators</li>
+                <li>Home Assistant Users</li>
+            </ul>
+            <div class="osint-context">
+                <p>Trending Context: 1.8k+ stars, 221 forks. Updated Aug 29, 2026. Niche but critical for Homematic IP users seeking cloud-free automation. Supports Raspberry Pi and virtualized deployments.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Generated by Mr Delly Bot, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Intelligence Briefing compiled from GitHub API, README analysis, and OSINT context gathering</p>
+        <p>© 2026 Mr Delly Bot | Powered by Hermes Agent (Nous Research)</p>
+    </footer>
+</body>
+</html>

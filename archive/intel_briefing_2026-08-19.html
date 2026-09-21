@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Intelligence Briefing - 2026-08-19</title>
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        .header { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #00f2fe; padding-bottom: 20px; }
+        .header h1 { color: #00f2fe; font-size: 2.8em; margin: 0 0 10px 0; letter-spacing: 1px; }
+        .header .meta { color: #94a3b8; font-size: 1.1em; margin: 5px 0; }
+        .category { margin-bottom: 50px; }
+        .category h2 { color: #38bdf8; font-size: 2em; border-bottom: 1px solid #334155; padding-bottom: 12px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+        .card { background-color: #1e293b; border-radius: 12px; padding: 24px; border: 1px solid #334155; transition: all 0.2s ease; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-6px); border-color: #00f2fe; box-shadow: 0 8px 24px rgba(0, 242, 254, 0.1); }
+        .card h3 { margin: 0 0 12px 0; color: #f8fafc; font-size: 1.4em; }
+        .card h3 a { color: #38bdf8; text-decoration: none; }
+        .card h3 a:hover { text-decoration: underline; color: #00f2fe; }
+        .star-badge { background-color: #0f172a; color: #fbbf24; padding: 6px 12px; border-radius: 6px; font-size: 0.9em; font-weight: 600; display: inline-block; margin-bottom: 15px; border: 1px solid #fbbf24; }
+        .overview { color: #cbd5e1; font-size: 0.95em; line-height: 1.6; margin-bottom: 18px; }
+        .utility { color: #94a3b8; font-size: 0.9em; margin-bottom: 18px; padding: 10px; background-color: #0f172a; border-radius: 6px; }
+        .audience { margin-bottom: 18px; }
+        .audience h4 { color: #38bdf8; margin: 0 0 8px 0; font-size: 1em; }
+        .audience ul { margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 0.9em; }
+        .audience li { margin-bottom: 4px; }
+        .osint { background-color: #0f172a; border-left: 4px solid #00f2fe; padding: 12px; font-size: 0.9em; color: #cbd5e1; border-radius: 0 6px 6px 0; }
+        .footer { text-align: center; margin-top: 60px; color: #64748b; font-size: 0.9em; border-top: 1px solid #334155; padding-top: 24px; }
+        .neon-accent { color: #00f2fe; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>GitHub Intelligence Briefing</h1>
+        <p class="meta">Date: 2026-08-19 | Model: tencent/hy3-preview | Provider: openrouter</p>
+        <p class="meta">Principal Security Architect & Intelligence Analyst Report</p>
+        <p class="meta">24-48h Star Velocity Analysis | Commit Activity | OSINT Context</p>
+    </div>
+
+    <!-- Category 1: AI & LLM Architectures -->
+    <div class="category">
+        <h2>🤖 AI & LLM Architectures</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/alibaba/open-code-review" target="_blank">alibaba/open-code-review</a></h3>
+                <div class="star-badge">⭐ 20,858 Stars</div>
+                <div class="overview">Hybrid deterministic + LLM agent code review tool, battle-tested at Alibaba scale. Line-level precision, multi-language rules (NPE, XSS, SQLi), OpenAI/Anthropic compatible. Achieves ~1/9 token usage vs general agents with higher precision.</div>
+                <div class="utility"><strong>Utility:</strong> CI/CD code review automation, legacy codebase auditing, reducing false-positive review noise.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>DevOps/CI Engineers</li>
+                        <li>Senior Software Developers</li>
+                        <li>AI Coding Agent Users (Claude Code, Cursor)</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending due to Alibaba's internal validation (millions of defects found), open-source release, and benchmark dominance over general-purpose agents. Featured on Trendshift weekly charts.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/NVIDIA/Model-Optimizer" target="_blank">NVIDIA/Model-Optimizer</a></h3>
+                <div class="star-badge">⭐ 3,456 Stars</div>
+                <div class="overview">Unified library of SOTA model optimization techniques: quantization, pruning, distillation, NAS, speculative decoding. Exports to TensorRT-LLM, vLLM, TensorRT. Supports Hugging Face, PyTorch, ONNX inputs.</div>
+                <div class="utility"><strong>Utility:</strong> LLM inference acceleration, model compression for edge deployment, reducing inference costs.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>ML Engineers</li>
+                        <li>AI Infrastructure Teams</li>
+                        <li>GenAI Application Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending following Nemotron 3 Ultra NVFP4 checkpoint release, 5.9× higher decode throughput. Featured in NVIDIA developer blogs and Hugging Face collections.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/Zleap-AI/SAG" target="_blank">Zleap-AI/SAG</a></h3>
+                <div class="star-badge">⭐ 2,382 Stars</div>
+                <div class="overview">New SOTA RAG architecture with open-source knowledge base for humans and agents. Graph-based retrieval, vector search, and agent-ready knowledge graph integration.</div>
+                <div class="utility"><strong>Utility:</strong> Building agentic knowledge bases, improving RAG accuracy, reducing hallucination in LLM apps.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>LLM Application Developers</li>
+                        <li>Data Engineers</li>
+                        <li>AI Researcher</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a RAG alternative to traditional vector stores, with arXiv paper (2608.12129) release and desktop app launch.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/JordanCoin/codemap" target="_blank">JordanCoin/codemap</a></h3>
+                <div class="star-badge">⭐ 659 Stars</div>
+                <div class="overview">Project brain for AI agents: structural ground truth, dependency graphs, blast radius analysis. Resolves imports via ecosystem-specific rules (Go, Rust, JS/TS) with coverage guarantees.</div>
+                <div class="utility"><strong>Utility:</strong> AI agent context injection, refactoring risk assessment, cross-agent handoff metadata.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>AI Coding Agent Developers</li>
+                        <li>Software Architects</li>
+                        <li>DevOps Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as an agent skill for Claude Code/Codex, with MCP server support and Smithery integration.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 2: Hermes, Agents & Local Models -->
+    <div class="category">
+        <h2>🪽 Hermes, Agents & Local Models</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/AtlasOmnia/hermes-tool-router" target="_blank">AtlasOmnia/hermes-tool-router</a></h3>
+                <div class="star-badge">⭐ 100 Stars</div>
+                <div class="overview">Deterministic first-turn tool routing for Hermes Agent with optional OpenRouter classifier. Reduces tool schema tokens by 97% for web-only requests, fail-open design.</div>
+                <div class="utility"><strong>Utility:</strong> Reducing Hermes Agent latency, lowering token costs, improving tool selection accuracy.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Hermes Agent Users</li>
+                        <li>AI Agent Plugin Developers</li>
+                        <li>Prompt Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as an experimental Hermes plugin, with live A/B validation showing 61.6% first-request token reduction.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/Shaf2665/Hermes-router" target="_blank">Shaf2665/Hermes-router</a></h3>
+                <div class="star-badge">⭐ 99 Stars</div>
+                <div class="overview">OpenAI/Anthropic-compatible AI router with provider failover, key rotation, caching, analytics, and local model fallback. Stretch free quotas across Gemini, OpenRouter, Groq.</div>
+                <div class="utility"><strong>Utility:</strong> Multi-provider AI load balancing, surviving rate limits, local cloud hybrid inference.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>AI Application Developers</li>
+                        <li>Self-Hosting Enthusiasts</li>
+                        <li>DevOps Engineers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a cost-saving router for AI agents, with VS Code extension and Docker deployment support.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/SouthpawIN/turbofit" target="_blank">SouthpawIN/turbofit</a></h3>
+                <div class="star-badge">⭐ 73 Stars</div>
+                <div class="overview">Adaptive local inference provider for Hermes Agent. Inventories hardware, recommends model configs, launches native backends (llama.cpp, Ollama) with evidence-backed rungs.</div>
+                <div class="utility"><strong>Utility:</strong> One-command local model setup, hardware-adaptive inference, Hermes Agent integration.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Hermes Agent Users</li>
+                        <li>Local LLM Enthusiasts</li>
+                        <li>Edge AI Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending with v2.2 release replacing GRM 2.6 variants, with GGUF model catalog and benchmark campaigns.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 3: CyberSecurity & AI Security -->
+    <div class="category">
+        <h2>🔒 CyberSecurity & AI Security</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/usestrix/strix" target="_blank">usestrix/strix</a></h3>
+                <div class="star-badge">⭐ 55,668 Stars</div>
+                <div class="overview">Autonomous AI pentesting tool that finds and fixes vulnerabilities with real PoCs. Full pentesting toolkit, multi-agent orchestration, CI/CD integration, auto-fix reports.</div>
+                <div class="utility"><strong>Utility:</strong> Automated penetration testing, bug bounty automation, CI/CD security gates, compliance reporting.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>AppSec Engineers</li>
+                        <li>Penetration Testers</li>
+                        <li>DevSecOps Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as the leading open-source AI pentester, with GitHub Actions integration and Strix Platform launch. Featured on Trendshift daily charts.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/KeygraphHQ/shannon" target="_blank">KeygraphHQ/shannon</a></h3>
+                <div class="star-badge">⭐ 46,946 Stars</div>
+                <div class="overview">Autonomous AI pentester for web apps/APIs. Analyzes source code, identifies attack vectors, executes real exploits. White-box attack planning, proof-by-exploitation reports.</div>
+                <div class="utility"><strong>Utility:</strong> On-demand pentesting, authenticated testing, OWASP coverage, resumable workspaces.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Security Researchers</li>
+                        <li>Web Developers</li>
+                        <li>Compliance Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending with Shannon 2.0 release, ChatGPT Plus/Pro subscription support, and Keygraph Platform integration.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/zhaoxuya520/reverse-skill" target="_blank">zhaoxuya520/reverse-skill</a></h3>
+                <div class="star-badge">⭐ 26,716 Stars</div>
+                <div class="overview">Cybersecurity skills router for AI agents: APK/binary/malware analysis, CTF, pentesting. 41 routing rules, 42 skill modules, regression benchmarks.</div>
+                <div class="utility"><strong>Utility:</strong> AI agent cybersecurity workflow routing, tool bootstrapping, self-evolving knowledge base.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Reverse Engineers</li>
+                        <li>CTF Players</li>
+                        <li>AI Agent Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a skill pack for Claude Code/Cursor, with 163 regression test cases and cross-platform CI.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/TecharoHQ/anubis" target="_blank">TecharoHQ/anubis</a></h3>
+                <div class="star-badge">⭐ 21,549 Stars</div>
+                <div class="overview">Web AI firewall that weighs connection souls to block scraper bots. Challenge-based defense, lightweight, Cloudflare alternative for self-hosters.</div>
+                <div class="utility"><strong>Utility:</strong> Protecting small internet sites from AI scrapers, reducing bot traffic, preserving bandwidth.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Self-Hosters</li>
+                        <li>Web Administrators</li>
+                        <li>Indie Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a nuclear option against AI scrapers, with sponsor backing from Raptor Computing and Databento.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 4: AWS & Cloud Security AI -->
+    <div class="category">
+        <h2>☁️ AWS & Cloud Security AI</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/prowler-cloud/prowler" target="_blank">prowler-cloud/prowler</a></h3>
+                <div class="star-badge">⭐ 14,624 Stars</div>
+                <div class="overview">World's most widely used open-source cloud security platform. Automates security/compliance across AWS, Azure, GCP. Agentic Cloud Defender, CIS benchmarks, CSPM.</div>
+                <div class="utility"><strong>Utility:</strong> Cloud security auditing, compliance reporting, CIS hardening, multi-cloud governance.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Cloud Security Engineers</li>
+                        <li>Compliance Officers</li>
+                        <li>DevSecOps Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as the standard CSPM tool, with Agentic Cloud Defender launch and 70+ cloud/SAAS source support.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/turbot/steampipe" target="_blank">turbot/steampipe</a></h3>
+                <div class="star-badge">⭐ 7,919 Stars</div>
+                <div class="overview">Zero-ETL SQL query engine for live APIs, code, and cloud resources. No DB required, PostgreSQL FDW for AWS/Azure/GCP, Terraform, Kubernetes.</div>
+                <div class="utility"><strong>Utility:</strong> Cloud asset inventory, security querying, compliance checks, DevOps troubleshooting.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Cloud Engineers</li>
+                        <li>Data Engineers</li>
+                        <li>Security Analysts</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a zero-ETL alternative to traditional cloud data pipelines, with 70+ plugin support.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/DataDog/stratus-red-team" target="_blank">DataDog/stratus-red-team</a></h3>
+                <div class="star-badge">⭐ 2,374 Stars</div>
+                <div class="overview">Granular adversary emulation for cloud environments. AWS/Azure/GCP attack simulations, MITRE ATT&CK mapping, purple team exercises.</div>
+                <div class="utility"><strong>Utility:</strong> Cloud red teaming, detection engineering, attack surface validation.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Red Team Operators</li>
+                        <li>Detection Engineers</li>
+                        <li>Cloud Security Architects</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a Datadog-backed cloud red team tool, with Kubernetes security and GCP support added.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 5: Code Scanning, SAST & Auditing -->
+    <div class="category">
+        <h2>🔍 Code Scanning, SAST & Auditing</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/0sec-labs/foxguard" target="_blank">0sec-labs/foxguard</a></h3>
+                <div class="star-badge">⭐ 282 Stars</div>
+                <div class="overview">Fast universal code security scanner in Rust. 14 languages, TUI triage, secrets, post-quantum audits, diff-aware scans. 22x faster than Semgrep for JS, 20x for Python.</div>
+                <div class="utility"><strong>Utility:</strong> Local/CI security scanning, secrets detection, dependency vulnerability scanning, PQC audit.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Security Engineers</li>
+                        <li>CI/CD Pipeline Maintainers</li>
+                        <li>Developers</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a Rust-based Semgrep alternative, with 98% public registry coverage and GitHub App integration.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/cycodehq/cycode-cli" target="_blank">cycodehq/cycode-cli</a></h3>
+                <div class="star-badge">⭐ 99 Stars</div>
+                <div class="overview">CLI for SAST, SCA, secrets, IaC scanning. Boosts dev lifecycle security, pre-commit hooks, CI integration, MCP server support.</div>
+                <div class="utility"><strong>Utility:</strong> DevSecOps pipeline integration, secret leak prevention, IaC misconfiguration detection.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>DevSecOps Engineers</li>
+                        <li>Developers</li>
+                        <li>Compliance Teams</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a multi-scan CLI tool, with MCP server and Claude Code plugin support.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 6: Security Monitoring & SIEM -->
+    <div class="category">
+        <h2>📊 Security Monitoring & SIEM</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/SigmaHQ/sigma" target="_blank">SigmaHQ/sigma</a></h3>
+                <div class="star-badge">⭐ 10,908 Stars</div>
+                <div class="overview">Generic signature format for SIEM systems. 3000+ detection rules, vendor-agnostic, converts to 25+ SIEM query languages. Covers generic, threat hunting, emerging threats, compliance.</div>
+                <div class="utility"><strong>Utility:</strong> SIEM rule standardization, threat hunting, compliance reporting, log analysis.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Detection Engineers</li>
+                        <li>Threat Hunters</li>
+                        <li>SIEM Administrators</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as the open standard for SIEM rules, with Sigma v2.0 specification release and Phoenix rule intelligence platform launch.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category 7: Smart Home, IoT & Self-Hosting -->
+    <div class="category">
+        <h2>🏠 Smart Home, IoT & Self-Hosting</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><a href="https://github.com/OpenCCU/OpenCCU" target="_blank">OpenCCU/OpenCCU</a></h3>
+                <div class="star-badge">⭐ 1,823 Stars</div>
+                <div class="overview">Buildroot-based cloud-free smart home platform for Homematic IP CCU. Runs on Raspberry Pi, x86/ARM, Proxmox VE, Docker/LXC/K8s. Replaces proprietary CCU3.</div>
+                <div class="utility"><strong>Utility:</strong> Self-hosted smart home automation, Homematic IP integration, cloud-free IoT control.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Home Assistant Users</li>
+                        <li>Homematic IP Owners</li>
+                        <li>Self-Hosting Enthusiasts</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a cloud-free alternative to Homematic IP, with Proxmox VE and Kubernetes support.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/3dg1luk43/ha_washdata" target="_blank">3dg1luk43/ha_washdata</a></h3>
+                <div class="star-badge">⭐ 1,206 Stars</div>
+                <div class="overview">Home Assistant integration for smart plug appliance monitoring. Detects cycles, matches programs, estimates time remaining for washing machines, dryers, dishwashers.</div>
+                <div class="utility"><strong>Utility:</strong> Appliance energy monitoring, cycle notifications, smart home automation for laundry.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Home Assistant Users</li>
+                        <li>Smart Plug Owners</li>
+                        <li>Energy Conscious Homeowners</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a HACS custom component, with numpy-based power profile matching and time remaining estimation.</div>
+            </div>
+
+            <div class="card">
+                <h3><a href="https://github.com/lasswellt/govee-homeassistant" target="_blank">lasswellt/govee-homeassistant</a></h3>
+                <div class="star-badge">⭐ 111 Stars</div>
+                <div class="overview">Govee Integration for Home Assistant. HACS custom component for Govee lights and smart devices, cloud API support, RGBIC control.</div>
+                <div class="utility"><strong>Utility:</strong> Govee smart device integration, Home Assistant automation, LED light control.</div>
+                <div class="audience">
+                    <h4>Target Audience:</h4>
+                    <ul>
+                        <li>Home Assistant Users</li>
+                        <li>Govee Device Owners</li>
+                        <li>Smart Lighting Enthusiasts</li>
+                    </ul>
+                </div>
+                <div class="osint">Trending as a HACS integration, with MQTT support and cloud API improvements.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Generated by <span class="neon-accent">Mr Delly Bot</span>, Headmaster & Systems Butler to Sir Mr Happy</p>
+        <p>Report ID: INTEL-20260819 | Hermes Agent Cron Job | Model: tencent/hy3-preview</p>
+        <p>Partial OSINT context accepted per cron job protocol. All data sourced from GitHub API and repository READMEs.</p>
+    </div>
+</body>
+</html>

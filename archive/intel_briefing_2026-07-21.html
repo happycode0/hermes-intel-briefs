@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligence Briefing 2026-07-21</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #00f2fe;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            color: #00f2fe;
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 0 0 10px #00f2fe;
+        }
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin: 5px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #334155;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 242, 254, 0.2);
+        }
+        .card h2 {
+            color: #38bdf8;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .card h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .card h2 a:hover {
+            text-decoration: underline;
+            color: #00f2fe;
+        }
+        .star-badge {
+            display: inline-block;
+            background-color: #00f2fe;
+            color: #0f172a;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        .section {
+            margin: 15px 0;
+        }
+        .section h3 {
+            color: #00f2fe;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 3px;
+        }
+        .section p, .section ul {
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+        .section ul {
+            padding-left: 20px;
+        }
+        .osint {
+            background-color: #0f172a;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 3px solid #38bdf8;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔒 Executive Intelligence Briefing</h1>
+        <p>Date: 2026-07-21 | Model: tencent/hy3-preview | Provider: OpenRouter</p>
+        <p>Principal Security Architect: Mr Delly Bot | Client: Sir Mr Happy</p>
+        <p>Classification: TRENDING GITHUB REPOSITORIES (24-48H STAR VELOCITY)</p>
+    </div>
+    <div class="grid">
+        <!-- screenpipe -->
+        <div class="card">
+            <h2><a href="https://github.com/screenpipe/screenpipe" target="_blank">screenpipe</a> <span class="star-badge">20.4k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>YC S26 open-source tool recording screen/audio 24/7 locally, converting activity into searchable AI memory, SOPs, and agent automations. Event-driven capture with accessibility tree/OCR fallback, local Whisper transcription.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Local-first workflow automation, agent context provisioning, meeting summarization, and privacy-compliant alternative to Rewind.ai/Limitless.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Knowledge workers</li>
+                    <li>AI agent developers (Hermes, OpenClaw, Claude Code)</li>
+                    <li>Remote teams</li>
+                    <li>ADHD/privacy-focused users</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to YC S26 backing, viral LinkedIn/Instagram posts highlighting $136M funding for agentic workspaces, and positioning as leading Rewind.ai alternative. Featured in GitHub trending lists July 2026.</p>
+            </div>
+        </div>
+
+        <!-- claude-tap -->
+        <div class="card">
+            <h2><a href="https://github.com/liaohch3/claude-tap" target="_blank">claude-tap</a> <span class="star-badge">2.6k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Local proxy and trace viewer for AI coding agents (Claude Code, Codex, Gemini CLI) intercepting API traffic, system prompts, tool calls, and token usage for debugging.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Agent behavior auditing, token optimization, and debugging for multi-agent workflows. Supports Hermes Agent via MCP integration.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>AI agent developers</li>
+                    <li>Security auditors</li>
+                    <li>DevOps engineers</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending in GitHub devtool digests for AI agent observability, referenced in May/July 2026 newsletters as critical for agent transparency. 2.6k stars added in 5 months.</p>
+            </div>
+        </div>
+
+        <!-- tokentelemetry -->
+        <div class="card">
+            <h2><a href="https://github.com/VasiHemanth/tokentelemetry" target="_blank">tokentelemetry</a> <span class="star-badge">265 ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>100% local observability dashboard for AI agents (Hermes Agent, Claude Code, Codex) tracking tokens, costs, tool calls, sessions, and reasoning steps. Dedicated Hermes Agent dashboard for 38 platforms.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Cost tracking, performance optimization, and compliance reporting for AI agent deployments. Hermes Agent plugin available for unified dashboard.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Hermes Agent operators</li>
+                    <li>AI team leads</li>
+                    <li>FinOps engineers</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to Hermes Agent integration, dedicated 38-platform dashboard, and active GitHub issue discussions for plugin development. Featured in RepoRadar and Hermes Agent community forums.</p>
+            </div>
+        </div>
+
+        <!-- strix -->
+        <div class="card">
+            <h2><a href="https://github.com/usestrix/strix" target="_blank">strix</a> <span class="star-badge">43.2k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Open-source AI pentesting tool with autonomous agents for vulnerability discovery, PoC generation, and CI/CD integration. Supports OWASP Top 10, DAST/SAST, and multi-agent orchestration.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Automated penetration testing, bug bounty automation, and security validation for web applications. GitHub Actions integration for PR scanning.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Penetration testers</li>
+                    <li>DevSecOps teams</li>
+                    <li>Bug bounty hunters</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Featured in 2026 AI security tool lists, praised for autonomous agent framework. 43k+ stars, trending in pentesting communities and AlphaMatch.ai blog. YC-backed alternative to traditional pentesting tools.</p>
+            </div>
+        </div>
+
+        <!-- SkillSpector -->
+        <div class="card">
+            <h2><a href="https://github.com/NVIDIA/SkillSpector" target="_blank">SkillSpector</a> <span class="star-badge">13.5k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>NVIDIA's security scanner for AI agent skills detecting 68 vulnerability patterns across 17 categories (prompt injection, supply chain, MCP tool poisoning). Supports static/LLM analysis and SARIF output.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Pre-installation skill vetting, CI/CD security gates, and compliance for AI agent ecosystems. MCP server mode for runtime guardrails.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>AI agent platform maintainers</li>
+                    <li>Security engineers</li>
+                    <li>Skill marketplace operators</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to NVIDIA backing, 2026 explainx.ai guide, and integration into Verified Agent Skills ecosystem (162 signed skills). 26.1% of skills contain vulnerabilities per research, driving adoption.</p>
+            </div>
+        </div>
+
+        <!-- AI-Infra-Guard -->
+        <div class="card">
+            <h2><a href="https://github.com/Tencent/AI-Infra-Guard" target="_blank">AI-Infra-Guard</a> <span class="star-badge">4.2k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Tencent's AI red teaming platform for OpenClaw security scanning, MCP/Agent Skills scanning, and LLM jailbreak evaluation. 1900+ CVE rules for AI frameworks (Ollama, vLLM, ComfyUI).</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Enterprise AI security validation, compliance reporting, and vulnerability management for AI infrastructure. Black Hat 2026 Arsenal selection.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Enterprise security teams</li>
+                    <li>AI infrastructure operators</li>
+                    <li>Red teamers</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to Black Hat 2026 Arsenal selection, 1900+ CVE rules, and 19 academic paper citations. Featured in Microsoft Security Blog and HiddenLayer Black Hat 2026 previews.</p>
+            </div>
+        </div>
+
+        <!-- vigolium -->
+        <div class="card">
+            <h2><a href="https://github.com/vigolium/vigolium" target="_blank">vigolium</a> <span class="star-badge">889 ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>High-fidelity vulnerability scanner combining agentic AI with 317 modules for OWASP Top 10 coverage, OAST testing, and value-aware mutation. Supports native/agentic scan modes.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Web application security scanning, bug bounty testing, and CI/CD security integration. Burp Suite plugin available for traffic ingestion.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Security researchers</li>
+                    <li>Web app developers</li>
+                    <li>QA teams</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending in July 2026 security updates, referenced in Zero Day Initiative blog and vulnerability scanner comparisons. 317 modules covering OWASP Top 10 driving adoption.</p>
+            </div>
+        </div>
+
+        <!-- xalgorix -->
+        <div class="card">
+            <h2><a href="https://github.com/xalgord/xalgorix" target="_blank">xalgorix</a> <span class="star-badge">785 ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Autonomous AI pentesting platform with 22-phase methodology, LLM agent, and independent exploit modules. Go + TypeScript stack for real-time reconnaissance and exploitation.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Automated penetration testing, red team simulations, and security assessment for modern AI systems (copilots, chatbots).</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>Red team operators</li>
+                    <li>AI security researchers</li>
+                    <li>Penetration testers</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to July 2026 launch, Instagram demos with 22-phase methodology, and CybersecurityNews.com feature. 785 stars in first 4 months of release.</p>
+            </div>
+        </div>
+
+        <!-- Bearer -->
+        <div class="card">
+            <h2><a href="https://github.com/Bearer/bearer" target="_blank">Bearer</a> <span class="star-badge">2.7k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Open-source SAST tool focused on sensitive data flow analysis, OWASP Top 10, and privacy compliance (GDPR, HIPAA). Supports 8 languages with cross-file analysis in Pro version.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Static code analysis, privacy impact assessments, and CI/CD security integration. Prioritizes findings by data sensitivity, not just severity.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>AppSec engineers</li>
+                    <li>Compliance officers</li>
+                    <li>DevOps teams</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending in 2026 SAST tool comparisons (Endor Labs, AppSecSanta), recommended for data privacy-focused scanning. 2.7k stars, featured in r/devsecops discussions.</p>
+            </div>
+        </div>
+
+        <!-- Sigma -->
+        <div class="card">
+            <h2><a href="https://github.com/SigmaHQ/sigma" target="_blank">Sigma</a> <span class="star-badge">10.8k ⭐</span></h2>
+            <div class="section">
+                <h3>Overview/Mechanics</h3>
+                <p>Generic signature format for SIEM systems with 3000+ detection rules (generic, threat hunting, emerging threats, compliance). Vendor-agnostic, convertible to 25+ SIEM query languages.</p>
+            </div>
+            <div class="section">
+                <h3>Practical Utility</h3>
+                <p>Cross-SIEM detection rule sharing, threat hunting, and compliance reporting. Integrates with Splunk, QRadar, LimaCharlie, and Security Onion.</p>
+            </div>
+            <div class="section">
+                <h3>Target Audience</h3>
+                <ul>
+                    <li>SOC analysts</li>
+                    <li>Threat hunters</li>
+                    <li>Detection engineers</li>
+                </ul>
+            </div>
+            <div class="section osint">
+                <h3>OSINT Trending Context</h3>
+                <p>Trending due to SOC Summit 2026 scenarios, Panther blog features, and continued community contributions. 10.8k stars, maintained by SigmaHQ with 3000+ rules.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Report generated by Mr Delly Bot | Nous Research Hermes Agent | 2026-07-21 22:30 UTC</p>
+        <p>All data sourced from GitHub MCP, OSINT web searches, and public repositories.</p>
+    </div>
+</body>
+</html>
