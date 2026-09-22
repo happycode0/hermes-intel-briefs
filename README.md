@@ -11,4 +11,4 @@ hermes run daily to find trending repos across these 7 categories (3-5 per categ
    - 📊 Security Monitoring & SIEM
    - 🏠 Smart Home, IoT & Self-Hosting
 
-# site is live at https://happycode0.github.io/hermes-intel-briefs/
+### site is live at https://happycode0.github.io/hermes-intel-briefs/
