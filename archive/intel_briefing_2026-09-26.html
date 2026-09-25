@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GitHub Intelligence Briefing — 2026-09-26</title>
+<style>
+  :root {
+    --bg:#0f172a; --card:#1e293b; --link:#38bdf8; --neon:#00f2fe; --muted:#94a3b8;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:radial-gradient(1200px 600px at 70% -10%, #152540 0%, var(--bg) 55%);
+    color:#e2e8f0; font-family:"Segoe UI",Inter,system-ui,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5; padding:0 0 60px;
+  }
+  .wrap { max-width:1280px; margin:0 auto; padding:0 22px; }
+  header {
+    padding:46px 22px 30px; border-bottom:1px solid #243049;
+    background:linear-gradient(180deg, rgba(0,242,254,.07), transparent);
+  }
+  header .wrap { padding:0 22px; }
+  h1 { margin:0; font-size:2.1rem; letter-spacing:.5px;
+    background:linear-gradient(90deg,#00f2fe,#38bdf8); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:var(--muted); margin:8px 0 0; font-size:1.02rem; }
+  .meta { margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; }
+  .pill { background:#16233b; border:1px solid #2a3a57; color:#cbd5e1;
+    padding:6px 12px; border-radius:999px; font-size:.8rem; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .pill b { color:var(--neon); font-weight:600; }
+  .cat { margin-top:40px; }
+  .cat-title { font-size:1.3rem; margin:0 0 16px; letter-spacing:.4px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid #2a3a57; border-radius:14px; padding:18px 18px 20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35); transition:transform .15s ease, box-shadow .15s ease; }
+  .card:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(0,242,254,.12); }
+  .card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .repo { color:var(--link); font-weight:700; text-decoration:none; font-size:1.02rem; word-break:break-word; }
+  .repo:hover { color:var(--neon); text-decoration:underline; }
+  .badge { background:#0b1626; border:1px solid #2a3a57; color:#fbbf24;
+    padding:3px 9px; border-radius:8px; font-size:.82rem; font-family:ui-monospace,monospace; white-space:nowrap; }
+  .lang { color:var(--muted); font-size:.74rem; margin:6px 0 10px; text-transform:uppercase; letter-spacing:.6px; }
+  .overview { margin:0 0 12px; font-size:.92rem; }
+  .section-label { color:var(--neon); font-size:.72rem; text-transform:uppercase; letter-spacing:.8px; margin:12px 0 4px; font-weight:700; }
+  .utility { margin:0; font-size:.88rem; color:#cbd5e1; }
+  .audience { margin:0 0 4px; padding-left:18px; font-size:.85rem; color:#cbd5e1; }
+  .audience li { margin:2px 0; }
+  .osint { margin-top:14px; background:#0b1626; padding:11px 13px; border-radius:10px; }
+  .osint-label { color:var(--neon); font-size:.7rem; text-transform:uppercase; letter-spacing:.7px; font-weight:700; margin-bottom:4px; }
+  .osint p { margin:0; font-size:.84rem; color:#cbd5e1; }
+  footer { margin-top:46px; padding-top:18px; border-top:1px solid #243049; color:var(--muted); font-size:.8rem; }
+  footer .wrap { padding:0 22px; }
+  a.f { color:var(--link); text-decoration:none; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>GitHub Intelligence Briefing</h1>
+  <p class="sub">Executive security &amp; architecture report — trending repositories across seven sectors (24–48h star velocity, commit activity &amp; community OSINT).</p>
+  <div class="meta">
+    <span class="pill">Date: <b>2026-09-26</b></span>
+    <span class="pill">Model: <b>tencent/hy3-preview (OpenRouter)</b></span>
+    <span class="pill">Analyst: <b>Mr Delly Bot</b></span>
+    <span class="pill">Repos covered: <b>37</b></span>
+  </div>
+</div></header>
+<div class="wrap">
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#00f2fe">◆ AI &amp; LLM Architectures</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #00f2fe">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+          <span class="badge">★ 248,967</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The self-improving AI agent by Nous Research. Features a closed learning loop: it authors skills from experience, self-improves them, recalls past conversations via FTS5, and models the user via Honcho. Runs on $5 VPS to GPU clusters, seven terminal backends, built-in cron scheduler, and subagent delegation.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Production agentic workloads where memory persistence, skill evolution, and unattended scheduled automations matter. Native Telegram/Discord/Slack/WhatsApp/Signal gateways.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AI platform engineers</li><li>SRE / automation teams</li><li>Power users running unattended agents</li></ul>
+        <div class="osint" style="border-left:3px solid #00f2fe">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Surged +7,450 stars in a single day (12 Apr 2026) to top GitHub Trending. v0.8.0 shipped 209 merged PRs + Bot Mode; v0.16.0 &#x27;Surface Release&#x27; (Jun 2026) added a native desktop app and browser admin. ICL 2026 Oral companion repo for GEPA self-evolution.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #00f2fe">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+          <span class="badge">★ 181,725</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">Get up and running with large local models — Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and more — behind a single CLI and REST API with a simple model-pull workflow.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Local-first LLM inference for privacy-sensitive environments, rapid prototyping, and edge/offline deployments.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>ML engineers</li><li>Privacy-focused developers</li><li>Self-hosters</li></ul>
+        <div class="osint" style="border-left:3px solid #00f2fe">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Constant top-of-trending presence; frequent model-weights support drops keep velocity high. Cornerstone of the local-model movement.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #00f2fe">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">huggingface/transformers</a>
+          <span class="badge">★ 166,655</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The model-definition framework for SOTA text, vision, audio and multimodal models — both inference and training — with a vast pretrained-model hub.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Foundational library for fine-tuning, serving and researching transformer architectures across modalities.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>ML researchers</li><li>NLP / CV engineers</li><li>AI product teams</li></ul>
+        <div class="osint" style="border-left:3px solid #00f2fe">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Maintained as the de-facto backbone of open ML; continuous releases tied to new model families (DeepSeek, Gemma, Qwen).</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #00f2fe">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a>
+          <span class="badge">★ 184,711</span>
+        </div>
+        <div class="lang">TypeScript</div>
+        <p class="overview">The web data API to search, scrape, and interact at scale — turning any site into clean markdown/structured data for LLM pipelines.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Feeds RAG and agent pipelines with reliable, extracted web content; handles JS-heavy and authenticated surfaces.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Agent builders</li><li>Data engineers</li><li>RAG developers</li></ul>
+        <div class="osint" style="border-left:3px solid #00f2fe">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Explosive growth as the default ingestion layer for agentic systems; widely referenced in agent stacks.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #00f2fe">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noopener">Significant-Gravitas/AutoGPT</a>
+          <span class="badge">★ 187,560</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The vision of accessible AI for everyone — a platform to build, deploy and run continuous autonomous agents that pursue goals with minimal human input.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Rapid experimentation with goal-driven autonomous agents and low-code agent assembly.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AI enthusiasts</li><li>Prototypers</li><li>No-code builders</li></ul>
+        <div class="osint" style="border-left:3px solid #00f2fe">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Long-standing flagship of the autonomous-agent wave; remains a bellwether for agent interest.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#38bdf8">◆ Hermes, Agents &amp; Local Models</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">affaan-m/ECC</a>
+          <span class="badge">★ 267,450</span>
+        </div>
+        <div class="lang">JavaScript</div>
+        <p class="overview">The agent harness performance-optimization &#x27;operating system&#x27;. Ships 64+ specialized subagents, 260+ skills, hooks, rules, MCP configs, and AgentShield security scanning. v2.0.0 adds a dashboard GUI, operator workflows and a Rust control-plane.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Supercharges Claude Code, Codex, OpenCode, Cursor and Hermes Agent with cross-harness memory, token optimization and multi-agent orchestration.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AI coding-agent power users</li><li>DevEx/platform teams</li><li>Agent harness maintainers</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>GitHub Trending &#x27;Repository of the Day&#x27; multiple times. Grew from ~82k to 267k stars in 2026; daily.dev and X buzz around v2.0.0&#x27;s public Hermes operator story (281 skills, 67 agents).</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/obra/superpowers" target="_blank" rel="noopener">obra/superpowers</a>
+          <span class="badge">★ 291,633</span>
+        </div>
+        <div class="lang">Shell</div>
+        <p class="overview">A complete agentic skills framework &amp; software-development methodology: brainstorming, TDD, git-worktree isolation, subagent-driven development, code review and branch completion — triggered automatically across harnesses.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Turns coding agents into disciplined senior engineers that stop skipping the boring-but-protective steps.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Engineering leads</li><li>AI coding-agent users</li><li>Process-focused teams</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>~237-291k stars; v6.0.3 (Jun 2026). Cited as the clearest signal on 2 May 2026 GitHub Trending among multiple agent-shaped projects; works across Hermes, Claude Code, Codex, Cursor, Gemini, Qwen.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/anomalyco/opencode" target="_blank" rel="noopener">anomalyco/opencode</a>
+          <span class="badge">★ 210,059</span>
+        </div>
+        <div class="lang">TypeScript</div>
+        <p class="overview">The open-source coding agent — a terminal-native, transparent alternative to proprietary coding assistants with full tool visibility.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Self-hosted autonomous coding assistant for repos, with auditable tool use.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Developers</li><li>Platform teams</li><li>Open-source advocates</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Cross-listed across agent and local-model categories; strong star velocity as a Claude-Code-class open alternative.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a>
+          <span class="badge">★ 178,275</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The public repository for Anthropic Agent Skills — the open standard for packaged, reusable agent capabilities (SKILL.md conventions).</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Reference library and distribution point for composable agent skills now adopted across the ecosystem (agentskills.io).</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Agent builders</li><li>Tooling authors</li><li>Enterprise AI teams</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Anchors the emerging &#x27;skills as an asset class&#x27; movement; heavily cross-referenced by ECC, Superpowers and Strix.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/langgenius/dify" target="_blank" rel="noopener">langgenius/dify</a>
+          <span class="badge">★ 157,213</span>
+        </div>
+        <div class="lang">TypeScript</div>
+        <p class="overview">Build agentic workflows and RAG pipelines on one collaborative workspace; deploy on cloud, VPC, or self-hosted from prototype to production.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Visual LLM-app and agent orchestration with broad model/tool support and MCP.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AI product teams</li><li>Startups</li><li>No-code/low-code builders</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Persistent top-trending agent framework; frequent feature drops keep it central to the agentic-workflow conversation.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #38bdf8">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+          <span class="badge">★ 153,183</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">User-friendly AI interface supporting Ollama and OpenAI-compatible APIs — a self-hosted, feature-rich chat front-end with RAG, pipelines and MCP.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Turns local or remote models into a polished, multi-user chat/assistant platform.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>Local-model users</li><li>Teams needing a private ChatGPT</li></ul>
+        <div class="osint" style="border-left:3px solid #38bdf8">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Default UI layer for Ollama stacks; steady growth as the open ChatGPT-alternative of choice.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#f472b6">◆ CyberSecurity &amp; AI Security</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #f472b6">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/usestrix/strix" target="_blank" rel="noopener">usestrix/strix</a>
+          <span class="badge">★ 64,833</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Open-source AI pentesting tool — autonomous AI hackers that run your code dynamically, find vulnerabilities, and VALIDATE them with working proofs-of-concept. Multi-agent orchestration, CI/CD PR gates, one-click autofix.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Developer- and security-first testing across OWASP Top 10, APIs, web apps and codebases; blocks insecure code before production.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AppSec teams</li><li>Bug-bounty researchers</li><li>DevSecOps engineers</li></ul>
+        <div class="osint" style="border-left:3px solid #f472b6">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Trendshift weekly badge; strong X/LinkedIn buzz as the &#x27;security co-pilot for vibe coders&#x27;. Integrates with GitHub Actions and ships nine agent skills.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #f472b6">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">OpenNHP/opennhp</a>
+          <span class="badge">★ 13,936</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">Lightweight, cryptography-powered open-source toolkit implementing Zero Trust via NHP (Network-resource Hiding Protocol). Authentication-before-connect conceals IPs, ports and domains from reconnaissance.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Make infrastructure invisible by default; fine-grained identity-based access; DDoS/phishing mitigation; post-quantum roadmap.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Zero Trust architects</li><li>Network security teams</li><li>Cloud platform engineers</li></ul>
+        <div class="osint" style="border-left:3px solid #f472b6">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Subject of an IETF Internet-Draft (draft-opennhp-ace-nhp); covered by Help Net Security. Directly aligned with Sir&#x27;s Zero Trust posture.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #f472b6">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a>
+          <span class="badge">★ 92,746</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Hunt down social-media accounts by username across thousands of sites — a staple OSINT reconnaissance tool.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Attribution, threat-intel footprinting, and account-takeover investigations.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>OSINT analysts</li><li>Red/blue teams</li><li>Investigators</li></ul>
+        <div class="osint" style="border-left:3px solid #f472b6">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Perennial OSINT favorite; continuous maintenance keeps it trending in recon circles.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #f472b6">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/soxoj/maigret" target="_blank" rel="noopener">soxoj/maigret</a>
+          <span class="badge">★ 37,969</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Collect a dossier on a person by username from 6,000+ websites — correlation and clustering of online identities.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Broad-surface OSINT person searches without manual per-site queries.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>OSINT practitioners</li><li>Threat intel</li><li>Investigators</li></ul>
+        <div class="osint" style="border-left:3px solid #f472b6">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Frequently paired with Sherlock in OSINT tooling discussions and training.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #f472b6">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/crowdsecurity/crowdsec" target="_blank" rel="noopener">crowdsecurity/crowdsec</a>
+          <span class="badge">★ 14,965</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">Open-source IDS/IPS, WAF and bot detection for Linux, Windows, Docker and Kubernetes, backed by a crowdsourced blocklist of malicious IPs.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Behavioral threat detection with community-sourced intelligence and native remediation.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>SOC analysts</li><li>Sysadmins</li><li>Cloud defenders</li></ul>
+        <div class="osint" style="border-left:3px solid #f472b6">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Community-driven alternative to commercial WAF/IPS; steady adoption in self-hosted stacks.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#a78bfa">◆ AWS &amp; Cloud Security AI</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #a78bfa">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener">prowler-cloud/prowler</a>
+          <span class="badge">★ 14,864</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The world&#x27;s most widely used open-source cloud-security platform — automates security and compliance (CIS, NIST, PCI-DSS, GDPR, HIPAA) across AWS, Azure and GCP.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Continuous CSPM, threat detection and compliance reporting across multi-cloud estates.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Cloud security engineers</li><li>Compliance officers</li><li>AWS/Azure/GCP architects</li></ul>
+        <div class="osint" style="border-left:3px solid #a78bfa">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>De-facto open cloud-audit standard; constant CIS-benchmark updates keep it at the top of cloud-security search.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #a78bfa">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener">aquasecurity/trivy</a>
+          <span class="badge">★ 38,075</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">Find vulnerabilities, misconfigurations, secrets and SBOM across containers, Kubernetes, code repos and clouds in a single scanner.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">All-in-one supply-chain and workload scanning for CI/CD and registries.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>DevSecOps</li><li>Container/K8s engineers</li><li>Supply-chain security</li></ul>
+        <div class="osint" style="border-left:3px solid #a78bfa">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Industry-standard scanner; broad ecosystem integrations sustain high velocity.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #a78bfa">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/projectdiscovery/nuclei" target="_blank" rel="noopener">projectdiscovery/nuclei</a>
+          <span class="badge">★ 31,523</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">Fast, customizable vulnerability scanner built on a YAML DSL, powered by a global community template set for apps, APIs, networks, DNS and cloud.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Template-driven detection of trending CVEs and misconfigurations at scale.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Red teams</li><li>Bug-bounty hunters</li><li>Security researchers</li></ul>
+        <div class="osint" style="border-left:3px solid #a78bfa">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Community template firehose makes it the first responder to newly disclosed CVEs.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #a78bfa">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/falcosecurity/falco" target="_blank" rel="noopener">falcosecurity/falco</a>
+          <span class="badge">★ 9,416</span>
+        </div>
+        <div class="lang">C++</div>
+        <p class="overview">Cloud-native runtime security using eBPF to detect anomalous behavior in containers, Kubernetes and hosts.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Runtime threat detection and policy enforcement for dynamic cloud workloads.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Kubernetes operators</li><li>Cloud-native security</li><li>SRE</li></ul>
+        <div class="osint" style="border-left:3px solid #a78bfa">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>CNCF-graduated; foundational runtime-security layer in cloud-native stacks.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #a78bfa">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/bunkerity/bunkerweb" target="_blank" rel="noopener">bunkerity/bunkerweb</a>
+          <span class="badge">★ 11,003</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Open-source, cloud-native Web Application Firewall (WAF) with anti-bot, mod_security, Let&#x27;s Encrypt and hardening out of the box.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Drop-in WAF for web apps and reverse proxies with sane secure defaults.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Web ops</li><li>Self-hosters</li><li>Security engineers</li></ul>
+        <div class="osint" style="border-left:3px solid #a78bfa">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Popular self-hosted WAF; frequent rule and integration updates.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#34d399">◆ Code Scanning, SAST &amp; Auditing</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #34d399">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a>
+          <span class="badge">★ 16,761</span>
+        </div>
+        <div class="lang">C</div>
+        <p class="overview">Lightweight static analysis for many languages — find bug variants with patterns that look like source code. The standard for code-aware SAST in CI.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Pattern-based SAST, supply-chain and secrets detection across polyglot codebases.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>AppSec engineers</li><li>Developers</li><li>DevSecOps</li></ul>
+        <div class="osint" style="border-left:3px solid #34d399">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Long-running category leader; rule packs and CI integrations keep it central to SAST programs.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #34d399">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/duriantaco/skylos" target="_blank" rel="noopener">duriantaco/skylos</a>
+          <span class="badge">★ 834</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Open-source, local-first PR scanner for dead code, security bugs, secrets, quality regressions and AI-code mistakes (phantom security calls, invented package APIs, impossible dependency versions) before merge. 12+ languages, GitHub Action + VS Code extension.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Catches hallucinated/incomplete AI-generated code paths and LLM-app risks (prompt injection, missing output validation) as a CI gate.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Developers using AI codegen</li><li>PR reviewers</li><li>QA/AppSec</li></ul>
+        <div class="osint" style="border-left:3px solid #34d399">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Listed on MCP Toplist; X buzz around &#x27;PR review gets harder when AI mistakes slip through&#x27;. Framework-aware dead-code detection.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #34d399">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/knostic/OpenAnt" target="_blank" rel="noopener">knostic/OpenAnt</a>
+          <span class="badge">★ 755</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Leading open-source LLM-based vulnerability discovery for defenders. Stage 1 detects (agent classifies exposure); Stage 2 attacks with a tightly constrained persona that must trace every step — &#x27;what survives is real.&#x27;</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Proactively find verified flaws with minimal false positives/negatives; free for OSS maintainers.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Defenders</li><li>OSS maintainers</li><li>AppSec researchers</li></ul>
+        <div class="osint" style="border-left:3px solid #34d399">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Open-sourced by Knostic; HN discussion framing it as a free alternative to Anthropic&#x27;s Claude Code Security. Deliberately minimizes both FP and FN.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #34d399">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/betterleaks/betterleaks" target="_blank" rel="noopener">betterleaks/betterleaks</a>
+          <span class="badge">★ 2,027</span>
+        </div>
+        <div class="lang">Go</div>
+        <p class="overview">The direct successor to Gitleaks, by the original author (Zach Rice). BPE token-efficiency filtering (98.6% recall vs 70.4%), Expr/CEL rule filters, live secret validation, and broad sources (GitHub, GitLab, Hugging Face, S3, stdin).</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Drop-in Gitleaks replacement with existing .gitleaks.toml and CLI flags carrying over; scans repos, history, containers and cloud.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>DevSecOps</li><li>AppSec</li><li>Platform engineers</li></ul>
+        <div class="osint" style="border-left:3px solid #34d399">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Covered by BleepingComputer; &#x27;clearest successor to Gitleaks&#x27; (Aikido). Maintained with Aikido support; MIT licensed.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #34d399">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/santhreal/keyhog" target="_blank" rel="noopener">santhreal/keyhog</a>
+          <span class="badge">★ 105</span>
+        </div>
+        <div class="lang">Rust</div>
+        <p class="overview">GPU-accelerated secret scanner in Rust — 923 detectors, live verification, and CUDA/Metal/WGPU backends for scanning code, Git history, containers, cloud, browser assets and CI at massive throughput.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Near-real-time secret discovery across enormous corpora where CPU scanners stall.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Security engineers</li><li>Large-codebase owners</li><li>CI pipeline designers</li></ul>
+        <div class="osint" style="border-left:3px solid #34d399">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>r/VibeCodeDevs buzz on GPU acceleration enabling &#x27;ridiculous amounts of data&#x27; scans; emerging Rust secret-scanner.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#fbbf24">◆ Security Monitoring &amp; SIEM</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #fbbf24">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/beenuar/AiSOC" target="_blank" rel="noopener">beenuar/AiSOC</a>
+          <span class="badge">★ 2,367</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Open-source, self-hostable AI SOC. Ingests telemetry, runs 833 executable detection rules, correlates incidents, and investigates with AI agents whose every prompt/tool call is logged to an Investigation Ledger. A human approves any response. Ships CISA KEV feed, 84 connectors, MCP server.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Alert fusion, agent-assisted triage, MITRE ATT&amp;CK investigation, and purple-team drills — no API keys required for core.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>SOC analysts</li><li>Blue teams</li><li>Detection engineers</li></ul>
+        <div class="osint" style="border-left:3px solid #fbbf24">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Notable for radical honesty: a &#x27;REPOSITORY_REALITY&#x27; audit distinguishing real vs synthetic data; SourcePulse and LinkedIn buzz; MIT licensed, OpenSSF Scorecard tracked.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fbbf24">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/sigma</a>
+          <span class="badge">★ 11,092</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">The main Sigma rule repository — the generic signature format for SIEM/log analytics, enabling vendor-neutral detection content.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Write once, run across Splunk, Elastic, Sentinel and more via conversion tools.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Detection engineers</li><li>SOC analysts</li><li>Threat hunters</li></ul>
+        <div class="osint" style="border-left:3px solid #fbbf24">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>The lingua franca of detection-as-code; constant community rule contributions.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fbbf24">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a>
+          <span class="badge">★ 16,998</span>
+        </div>
+        <div class="lang">C++</div>
+        <p class="overview">Open-source security platform — unified XDR and SIEM for endpoints and cloud workloads: FIM, log analysis, malware/outlier detection, compliance and vulnerability detection.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Centralized threat detection, integrity monitoring and incident response.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>SOC teams</li><li>Sysadmins</li><li>Compliance owners</li></ul>
+        <div class="osint" style="border-left:3px solid #fbbf24">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Most-deployed open XDR/SIEM; broad agent ecosystem sustains momentum.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fbbf24">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/Graylog2/graylog2-server" target="_blank" rel="noopener">Graylog2/graylog2-server</a>
+          <span class="badge">★ 8,148</span>
+        </div>
+        <div class="lang">Java</div>
+        <p class="overview">Free and open log management — centralized collection, parsing, search and alerting for machine data.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Operational and security log aggregation with dashboards and alerting.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>SRE</li><li>SecOps</li><li>IT operations</li></ul>
+        <div class="osint" style="border-left:3px solid #fbbf24">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Mature logging backbone; frequent releases keep it relevant vs ELK/OpenSearch.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fbbf24">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/Azure/Azure-Sentinel" target="_blank" rel="noopener">Azure/Azure-Sentinel</a>
+          <span class="badge">★ 6,149</span>
+        </div>
+        <div class="lang">Python</div>
+        <p class="overview">Cloud-native SIEM content for intelligent security analytics — a community of detections, hunting queries, playbooks and workbooks for Microsoft Sentinel.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Ready-made analytics and automation for Azure-centric SOCs.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Azure SecOps</li><li>Detection engineers</li><li>MSSPs</li></ul>
+        <div class="osint" style="border-left:3px solid #fbbf24">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Primary content source for Sentinel deployments; continuous Microsoft + community contributions.</p>
+        </div>
+      </article></div>
+    </section>
+
+    <section class="cat">
+      <h2 class="cat-title" style="color:#fb923c">◆ Smart Home, IoT &amp; Self-Hosting</h2>
+      <div class="grid">
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">n8n-io/n8n</a>
+          <span class="badge">★ 205,972</span>
+        </div>
+        <div class="lang">TypeScript</div>
+        <p class="overview">Fair-code workflow automation with native AI capabilities — visual building plus custom code, 400+ integrations, self-host or cloud, and first-class MCP client/server support.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Orchestrate automations, agents and data flows with or without code; wire LLMs and tools into pipelines.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Automation engineers</li><li>Ops teams</li><li>No-code builders</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Cross-listed as an AI/agent enabler via MCP; one of the fastest-growing automation platforms.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/rustdesk/rustdesk" target="_blank" rel="noopener">rustdesk/rustdesk</a>
+          <span class="badge">★ 124,527</span>
+        </div>
+        <div class="lang">Rust</div>
+        <p class="overview">Open-source remote desktop, self-hostable, as an alternative to TeamViewer — full control of your relay/ID servers.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Privacy-respecting remote access across desktop and mobile without vendor lock-in.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>IT support</li><li>Privacy-minded users</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Default open TeamViewer substitute; strong momentum in self-hosting communities.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/immich-app/immich" target="_blank" rel="noopener">immich-app/immich</a>
+          <span class="badge">★ 115,044</span>
+        </div>
+        <div class="lang">TypeScript</div>
+        <p class="overview">High-performance self-hosted photo and video management — a full Google Photos alternative with backup, search and albums.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Own your photo library end-to-end with ML-powered search and mobile apps.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>Families</li><li>Privacy users</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>The leading Google Photos self-hosted alternative; rapid feature cadence.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener">louislam/uptime-kuma</a>
+          <span class="badge">★ 91,823</span>
+        </div>
+        <div class="lang">JavaScript</div>
+        <p class="overview">A fancy self-hosted monitoring tool — clean uptime checks, status pages and notifications with WebSocket live updates.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Lightweight infrastructure and service health monitoring with status pages.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>Sysadmins</li><li>SRE</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Beloved single-binary monitoring staple; near-ubiquitous in home-lab stacks.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank" rel="noopener">Stirling-Tools/Stirling-PDF</a>
+          <span class="badge">★ 93,013</span>
+        </div>
+        <div class="lang">Java</div>
+        <p class="overview">The #1 PDF application on GitHub — edit, convert, merge, split, OCR and manipulate PDFs on any device, fully self-hostable.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Private document processing without SaaS dependence.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>Offices</li><li>Document-heavy teams</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>Top-starred PDF tool; constant feature expansion.</p>
+        </div>
+      </article>
+
+      <article class="card" style="border-top:3px solid #fb923c">
+        <div class="card-head">
+          <a class="repo" href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noopener">awesome-selfhosted/awesome-selfhosted</a>
+          <span class="badge">★ 321,773</span>
+        </div>
+        <div class="lang">Markdown</div>
+        <p class="overview">A curated list of Free Software network services and web applications that can be hosted on your own servers — the canonical index of the self-hosting movement.</p>
+        <div class="section-label">Practical Utility</div>
+        <p class="utility">Discovery and comparison reference for anyone building a self-hosted stack.</p>
+        <div class="section-label">Target Audience</div>
+        <ul class="audience"><li>Self-hosters</li><li>Homelab builders</li><li>Privacy advocates</li></ul>
+        <div class="osint" style="border-left:3px solid #fb923c">
+          <div class="osint-label">OSINT · Why Trending</div>
+          <p>The gravity well of the self-hosting category; consistently among the most-starred repos on GitHub.</p>
+        </div>
+      </article></div>
+    </section>
+<footer><div class="wrap">
+  Generated 2026-09-25 22:35 UTC by Mr Delly Bot — Headmaster &amp; Systems Butler to Mr Happy. Data sourced via GitHub MCP search &amp; README extraction, cross-referenced with public OSINT (GitHub Trending, Trendshift, HN, daily.dev, BleepingComputer, Help Net Security). Star counts are point-in-time snapshots.
+</div></footer>
+</div>
+</body>
+</html>
