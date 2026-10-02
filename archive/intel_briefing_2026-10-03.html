@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Intelligence Briefing &mdash; Saturday, 03 October 2026 (AEST)</title>
+<style>
+  :root {
+    --bg:#0f172a; --card:#1e293b; --link:#38bdf8; --neon:#00f2fe; --txt:#e2e8f0;
+    --muted:#94a3b8; --accent:#f472b6; --warn:#fbbf24; --new:#34d399;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.5; }
+  header { padding:36px 24px 24px; text-align:center; border-bottom:1px solid #233; }
+  header h1 { margin:0 0 6px; font-size:30px; letter-spacing:0.5px;
+    background:linear-gradient(90deg,var(--neon),var(--link)); -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent; }
+  .tagline { color:var(--muted); font-size:14px; }
+  .meta-bar { margin:14px auto 0; max-width:1000px; display:flex; flex-wrap:wrap;
+    gap:10px 22px; justify-content:center; font-size:12.5px; color:var(--muted); }
+  .meta-bar b { color:var(--link); }
+  .wrap { max-width:1180px; margin:0 auto; padding:0 18px 60px; }
+  .summary { background:var(--card); border:1px solid #2b3a52; border-radius:12px;
+    padding:16px 20px; margin:22px 0; font-size:13.5px; color:var(--muted); }
+  .summary b { color:var(--neon); }
+  section { margin:30px 0; }
+  h2 { font-size:21px; margin:0 0 2px; color:var(--txt); border-left:4px solid var(--neon);
+    padding-left:12px; }
+  .sec-emoji { filter:saturate(1.4); }
+  .sec-sub { color:var(--muted); font-size:13px; margin:0 0 16px 16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:16px; }
+  .card { background:var(--card); border:1px solid #2b3a52; border-radius:12px;
+    padding:16px 16px 14px; transition:transform .12s ease, border-color .12s ease; }
+  .card:hover { transform:translateY(-3px); border-color:var(--neon); }
+  .card-head { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .cat-tag { font-size:10px; color:var(--bg); background:var(--neon); border-radius:5px;
+    padding:2px 6px; font-weight:700; }
+  .repo { color:var(--link); font-weight:700; font-size:15.5px; text-decoration:none; flex:1; }
+  .repo:hover { color:var(--neon); text-decoration:underline; }
+  .stars { color:var(--warn); font-size:13px; font-weight:700; white-space:nowrap; }
+  .meta { color:var(--muted); font-size:11.5px; margin:4px 0 8px; }
+  .new { color:var(--new); font-weight:700; }
+  .overview { font-size:13.2px; margin:6px 0 8px; color:var(--txt); }
+  .util { font-size:12.8px; margin:6px 0; color:var(--muted); }
+  .util b { color:var(--link); }
+  .audience { font-size:12.6px; margin:6px 0; color:var(--muted); }
+  .audience ul { margin:4px 0 0 18px; padding:0; }
+  .audience li { margin:1px 0; }
+  .osint { background:rgba(0,242,254,0.06); border-left:3px solid var(--neon);
+    border-radius:6px; padding:8px 10px; font-size:12.4px; margin-top:10px; color:#cbd5e1; }
+  .osint b { color:var(--neon); }
+  .also-wrap { margin-top:14px; background:#16223a; border:1px dashed #2b3a52;
+    border-radius:10px; padding:12px 14px; }
+  .also-title { font-size:12px; color:var(--muted); text-transform:uppercase;
+    letter-spacing:0.6px; margin-bottom:6px; }
+  .also { font-size:12.4px; color:var(--muted); padding:2px 0; }
+  .also-name a { color:var(--link); text-decoration:none; font-weight:600; }
+  .also-name a:hover { color:var(--neon); }
+  .also-stars { color:var(--warn); font-weight:700; }
+  .also-lang { color:#64748b; font-style:italic; }
+  footer { text-align:center; color:var(--muted); font-size:12px; padding:26px 16px 40px;
+    border-top:1px solid #233; }
+  footer b { color:var(--link); }
+</style>
+</head>
+<body>
+<header>
+  <h1>GitHub Intelligence Briefing</h1>
+  <div class="tagline">Executive-grade trend report &middot; 12 categories &middot; star-velocity, commit activity &amp; community OSINT</div>
+  <div class="meta-bar">
+    <span>Report date: <b>Saturday, 03 October 2026 (AEST)</b></span>
+    <span>Data snapshot: <b>GitHub REST API + web OSINT, captured 02-03 Oct 2026 (UTC)</b></span>
+    <span>Analyst: <b>Mr Delly Bot</b> (Hermes Agent)</span>
+    <span>Model: <b>tencent/hy3-preview via Hermes Agent (NousResearch) on LXC (Dell i5 / Proxmox)</b></span>
+  </div>
+</header>
+<div class="wrap">
+  <div class="summary">
+    <b>Briefing scope.</b> This report surveys trending GitHub repositories across twelve security, AI and
+    infrastructure categories. Featured cards are built from <b>live GitHub REST API metadata</b> and
+    <b>README extraction</b>, with <b>OSINT trending context</b> sourced from primary web references.
+    Star counts are OBSERVED snapshots from the GitHub REST API on 02-03 Oct 2026 (UTC) — not velocity estimates. Repos flagged 'created' are newly-minted (surging) as of this window. OSINT context is drawn from primary web sources; where a claim could not be independently verified it is flagged as such.
+    <br><br>
+    <b>Headline signal:</b> the defining 2026 theme is the collision of <b>agentic AI</b> with <b>security</b> &mdash;
+    an entire new tool-class has formed around auditing, firewalling and detecting AI agents
+    (SkillSpector, pipelock, agent-threat-rules, iFixAi, hol-guard, redamon, Claude-BugHunter), while
+    cloud-security platforms (Prowler) and SIEMs (AiSOC, Wazuh) absorb agentic workflows. In self-hosting,
+    Home Assistant + Proxmox + Frigate + local LLMs remain the resilient privacy stack.
+    <b>Repos profiled:</b> 81 (featured + also-trending).
+  </div>
+  
+<section>
+  <h2><span class="sec-emoji">[AI/LLM]</span> AI & LLM Architectures</h2>
+  <div class="sec-sub">Inference, fine-tuning, RAG, evals, model serving</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI/LLM]</span>
+    <a class="repo" href="https://github.com/huggingface/transformers" target="_blank" rel="noopener">huggingface/transformers</a>
+    <span class="stars">&#9733; 166.9k</span>
+  </div>
+  <div class="meta">Python</div>
+  <p class="overview">The model-definition framework for state-of-the-art ML across text, vision, audio and multimodal. Inference + training for 50k+ pretrained models.</p>
+  <p class="util"><b>Practical utility:</b> Canonical library for loading, fine-tuning and serving open models; backbone of most self-hosted LLM stacks.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>ML engineers</li><li>Platform teams</li><li>Research labs</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> Steady marquee project; 166.9k stars, updated daily. Remains the default model-loading layer underpinning most local-AI and agent tooling.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI/LLM]</span>
+    <a class="repo" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">Graphify-Labs/graphify</a>
+    <span class="stars">&#9733; 123.3k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-04-03</span></div>
+  <p class="overview">A /graphify skill for Claude Code, Cursor, Codex and Gemini CLI that turns any codebase (code, docs, SQL schemas, PDFs, diagrams) into a queryable knowledge graph via deterministic Tree-sitter AST parsing plus LLM semantic extraction — no vector store.</p>
+  <p class="util"><b>Practical utility:</b> Cuts agent token usage 40-70% by giving coding agents a structural map instead of re-reading raw files. Self-hostable skill registry for enterprises (RBAC, audit logs).</p>
+  <div class="audience"><b>Target audience:</b><ul><li>AI coding agents</li><li>Engineering orgs</li><li>Kiro / Cursor users</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> Explosive growth to 123k stars since April 2026; hit #1 Python repo of the day on Trendshift. AWS Builder Center published a token-reduction case study. Maintained by Safi Shamsi, MIT-licensed.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI/LLM]</span>
+    <a class="repo" href="https://github.com/deepseek-ai/DeepGEMM-Ascend" target="_blank" rel="noopener">deepseek-ai/DeepGEMM-Ascend</a>
+    <span class="stars">&#9733; 464</span>
+  </div>
+  <div class="meta">C++ &middot; <span class='new'>NEW 2026-09-29</span></div>
+  <p class="overview">Clean, efficient matrix-multiplication kernel library for Huawei Ascend NPUs — a port of DeepSeek's celebrated DeepGEMM to non-CUDA hardware.</p>
+  <p class="util"><b>Practical utility:</b> Enables high-performance inference/training on Ascend accelerators; signals deepening hardware diversification beyond NVIDIA.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>HPC engineers</li><li>Ascend NPU shops</li><li>Model-serving teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> New (created 29 Sep 2026), part of DeepSeek's open-kernel push alongside DeepEP-Ascend. Reflects the broadening 'de-NVIDIA' inference-kernel ecosystem.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI/LLM]</span>
+    <a class="repo" href="https://github.com/NaiveAI-Labs/Naive-N0.5-Flash" target="_blank" rel="noopener">NaiveAI-Labs/Naive-N0.5-Flash</a>
+    <span class="stars">&#9733; 147</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-09-27</span></div>
+  <p class="overview">Open-weight 309B MoE model (15.5B active params) built for coding and AI R&D.</p>
+  <p class="util"><b>Practical utility:</b> Large open-weight option for self-hosted coding workloads; early-stage but notable for scale at open weights.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Coding-agent builders</li><li>Self-hosting enthusiasts</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> Fresh release (27 Sep 2026); tiny star count but a signal of continued open-weight scaling attempts.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a></span>
+  <span class="also-stars">&#9733; 182.1k</span> <span class="also-lang">Go</span> &mdash; Local model runtime (Kimi, GLM, DeepSeek, Qwen, Gemma).</div><div class="also"><span class="also-name"><a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a></span>
+  <span class="also-stars">&#9733; 153.8k</span> <span class="also-lang">Python</span> &mdash; User-friendly self-hosted AI interface for Ollama/OpenAI.</div><div class="also"><span class="also-name"><a href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a></span>
+  <span class="also-stars">&#9733; 187.9k</span> <span class="also-lang">TS</span> &mdash; Web data API for agents (scrape/search).</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[AGENTIC]</span> Agentic AI & Multi-Agent Systems</h2>
+  <div class="sec-sub">Agent frameworks, MCP, A2A, tool-use, orchestration, memory</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AGENTIC]</span>
+    <a class="repo" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+    <span class="stars">&#9733; 250.8k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2025-07-22</span></div>
+  <p class="overview">The self-improving AI agent by Nous Research — a closed learning loop that creates skills from experience, searches past conversations, and builds a cross-session model of the user. Runs on a $5 VPS or GPU cluster; Telegram/Discord/Slack/WhatsApp/Signal gateways; built-in cron scheduler; delegates subagents; seven terminal backends.</p>
+  <p class="util"><b>Practical utility:</b> General-purpose agent platform with agentic skills, persistent memory, MCP integration and scheduled automations. (This very briefing was produced by a Hermes Agent cron job.)</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Power users</li><li>DevOps</li><li>Security analysts</li><li>Automation builders</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 250.8k stars, updated continuously. Recently added native Windows support, Android/Termux builds, OpenClaw migration, and a skills marketplace (agentskills.io). The definitive open agent runtime.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AGENTIC]</span>
+    <a class="repo" href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener">langchain-ai/langchain</a>
+    <span class="stars">&#9733; 147.4k</span>
+  </div>
+  <div class="meta">Python</div>
+  <p class="overview">The agent-engineering platform: framework for building LLM apps, RAG, multi-agent orchestration (LangGraph) across Python and TypeScript.</p>
+  <p class="util"><b>Practical utility:</b> De-facto orchestration layer for production agentic workflows; vast integration surface.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Backend engineers</li><li>AI product teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 147.4k stars, daily commits. Remains the reference framework despite rising competition from lighter agent loops.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AGENTIC]</span>
+    <a class="repo" href="https://github.com/openai/mcp-extensions" target="_blank" rel="noopener">openai/mcp-extensions</a>
+    <span class="stars">&#9733; 695</span>
+  </div>
+  <div class="meta">TypeScript &middot; <span class='new'>NEW 2026-09-29</span></div>
+  <p class="overview">OpenAI's spec for ChatGPT-specific MCP capabilities (sidebar entrypoints, file-extension handlers, composer @mentions, extended forms) plus TypeScript/Python SDKs so developers build plugins that feel native to ChatGPT.</p>
+  <p class="util"><b>Practical utility:</b> Bridges MCP servers into the ChatGPT plugin surface; signals OpenAI formalising the MCP extension space.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Plugin developers</li><li>MCP server authors</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> New repo (29 Sep 2026). Reflects OpenAI's embrace of MCP as the agent-tooling standard while layering ChatGPT-native UX on top.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AGENTIC]</span>
+    <a class="repo" href="https://github.com/Louis-CFM/coucou" target="_blank" rel="noopener">Louis-CFM/coucou</a>
+    <span class="stars">&#9733; 2.95k</span>
+  </div>
+  <div class="meta">Swift &middot; <span class='new'>NEW 2026-09-27</span></div>
+  <p class="overview">A tiny 'friend' that lives in your macOS notch (or screen top on Windows/Linux) and watches your coding agents — Claude Code, Codex, Cursor, Gemini CLI, Antigravity — flagging when they go off the rails.</p>
+  <p class="util"><b>Practical utility:</b> Lightweight always-on visibility/guardian for autonomous coding agents on the desktop.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Solo developers</li><li>Agent power users</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> Surged to 2.9k stars within days of release (27 Sep 2026) — taps the growing anxiety about unsupervised coding agents.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AGENTIC]</span>
+    <a class="repo" href="https://github.com/feder-cr/dots" target="_blank" rel="noopener">feder-cr/dots</a>
+    <span class="stars">&#9733; 2.46k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-09-29</span></div>
+  <p class="overview">Open-source 'dots for the web' — an AI agent with its own browser that claims not to get blocked (anti-detect / stealth browser via Playwright).</p>
+  <p class="util"><b>Practical utility:</b> Autonomous web agent for research/automation; controversial dual-use (anti-detect) profile.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Automation builders</li><li>Researchers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 2.5k stars since 29 Sep 2026. Part of a wave of open web-agent projects (OpenDots, composio open-dot) competing with closed browser-agents.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/affaan-m/ECC" target="_blank" rel="noopener">affaan-m/ECC</a></span>
+  <span class="also-stars">&#9733; 271.3k</span> <span class="also-lang">JS</span> &mdash; Agent-harness performance-optimization system (skills/instincts/memory).</div><div class="also"><span class="also-name"><a href="https://github.com/browser-use/browser-use" target="_blank" rel="noopener">browser-use/browser-use</a></span>
+  <span class="also-stars">&#9733; 117.0k</span> <span class="also-lang">Python</span> &mdash; Agents that use the browser.</div><div class="also"><span class="also-name"><a href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a></span>
+  <span class="also-stars">&#9733; 95.2k</span> <span class="also-lang">TS</span> &mdash; Persistent cross-session context for any agent.</div><div class="also"><span class="also-name"><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener">stablyai/orca</a></span>
+  <span class="also-stars">&#9733; 83.8k</span> <span class="also-lang">TS</span> &mdash; ADE for a fleet of parallel agents.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[LOCAL]</span> Hermes, Local Models & Self-Hosted AI</h2>
+  <div class="sec-sub">Ollama, llama.cpp, vLLM, local assistants, Hermes-family models</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[LOCAL]</span>
+    <a class="repo" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+    <span class="stars">&#9733; 182.1k</span>
+  </div>
+  <div class="meta">Go</div>
+  <p class="overview">Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models. The de-facto local model runtime.</p>
+  <p class="util"><b>Practical utility:</b> One-command local LLM serving with a clean API; foundation for most self-hosted AI stacks and agent backends.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Self-hosters</li><li>Homelabbers</li><li>Agent builders</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 182.1k stars, daily activity. Continues to be the default on-ramp for local inference across the open-model ecosystem.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[LOCAL]</span>
+    <a class="repo" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    <span class="stars">&#9733; 153.8k</span>
+  </div>
+  <div class="meta">Python</div>
+  <p class="overview">User-friendly AI interface supporting Ollama, OpenAI API and more — RAG, multi-model chat, pipelines, voice, phone/app support.</p>
+  <p class="util"><b>Practical utility:</b> Turns a local model runtime into a full chat/UI/tooling surface; self-hosted alternative to ChatGPT UIs.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Self-hosters</li><li>Families/SMBs</li><li>Privacy-focused users</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 153.8k stars. The leading self-hosted LLM front-end; frequent releases add pipelines, artifacts and mobile apps.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[LOCAL]</span>
+    <a class="repo" href="https://github.com/LearningCircuit/local-deep-research" target="_blank" rel="noopener">LearningCircuit/local-deep-research</a>
+    <span class="stars">&#9733; 9.15k</span>
+  </div>
+  <div class="meta">Python</div>
+  <p class="overview">Local deep-research: ~95% on SimpleQA (e.g. Qwen3.6-27B on a 3090). Supports all local and cloud LLMs (llama.cpp, Ollama, Google ...) with 10+ search engines (arXiv, PubMed, private docs). Everything local & encrypted.</p>
+  <p class="util"><b>Practical utility:</b> Privacy-preserving autonomous research agent; alternative to paid deep-research products.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Researchers</li><li>Privacy advocates</li><li>Self-hosters</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 9.1k stars. Part of the local-AI surge; strong SimpleQA benchmark cited as differentiator vs cloud deep-research.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/langbot-app/LangBot" target="_blank" rel="noopener">langbot-app/LangBot</a></span>
+  <span class="also-stars">&#9733; 17.99k</span> <span class="also-lang">Python</span> &mdash; Production-grade agentic IM-bot platform.</div><div class="also"><span class="also-name"><a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" rel="noopener">mnfst/awesome-free-llm-apis</a></span>
+  <span class="also-stars">&#9733; 9.01k</span> <span class="also-lang">JS</span> &mdash; List of permanent free LLM API keys.</div><div class="also"><span class="also-name"><a href="https://github.com/MakazhanAlpamys/Soup" target="_blank" rel="noopener">MakazhanAlpamys/Soup</a></span>
+  <span class="also-stars">&#9733; 8.03k</span> <span class="also-lang">Python</span> &mdash; Fine-tune LLMs from one YAML (8B on 4GB GPU).</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[OFFSEC]</span> CyberSecurity (Offensive & Defensive)</h2>
+  <div class="sec-sub">Red team, recon, C2, vuln research, CVE PoCs</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[OFFSEC]</span>
+    <a class="repo" href="https://github.com/BishopFox/sliver" target="_blank" rel="noopener">BishopFox/sliver</a>
+    <span class="stars">&#9733; 11.95k</span>
+  </div>
+  <div class="meta">Go</div>
+  <p class="overview">Open-source, cross-platform adversary-emulation / red-team framework. Implants over mTLS, WireGuard, HTTP(S) and DNS with per-binary asymmetric keys; BOF/COFF execution; reflective loading across macOS/Windows/Linux.</p>
+  <p class="util"><b>Practical utility:</b> Authorized red-team C2 and post-exploitation; industry reference for adversary emulation.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Red teams</li><li>Security researchers</li><li>Adversary-emulation orgs</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 11.9k stars, actively maintained by BishopFox. The mainstream open C2 choice; frequently referenced in 2026 tradecraft (notably alongside the agentic-pentest wave).</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[OFFSEC]</span>
+    <a class="repo" href="https://github.com/trickest/cve" target="_blank" rel="noopener">trickest/cve</a>
+    <span class="stars">&#9733; 8.12k</span>
+  </div>
+  <div class="meta">HTML</div>
+  <p class="overview">A curated, automatically-updated repository of almost every publicly-available CVE Proof-of-Concept. Splits CVEs by year, mines references and GitHub for PoCs, filters false positives, emits per-CVE markdown with version badges.</p>
+  <p class="util"><b>Practical utility:</b> Fast lookup of public exploit code for a CVE; watch/repo alerts for new PoCs; atom feeds per product.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Bug-bounty hunters</li><li>Defenders</li><li>Vulnerability researchers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 8.1k stars. Continuously aggregated from CVEProject/cvelist; a primary community PoC index. Note: contains weaponisable exploit code — handle under authorized-use policy.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[OFFSEC]</span>
+    <a class="repo" href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank" rel="noopener">elementalsouls/Claude-BugHunter</a>
+    <span class="stars">&#9733; 4.75k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-05-05</span></div>
+  <p class="overview">A drop-in Claude-Code skill bundle (83 skills, 15 slash commands, 681 disclosed HackerOne report patterns across 24 vuln classes + enterprise identity/infra attack matrices). Works on Claude Code, OpenCode, Codex CLI, Hermes Agent, Google AntiGravity.</p>
+  <p class="util"><b>Practical utility:</b> Turns an agent into a senior bug-hunter / external red-teamer; in-scope: webapps, APIs, SaaS, GraphQL, OAuth, enterprise platforms (M365/Entra, Okta, vCenter, VPN appliances), recon/OSINT.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Bug-bounty hunters</li><li>External red teams</li><li>Appsec engineers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 4.7k stars since May 2026. Built and validated across authorized engagements; explicitly scopes OUT internal AD post-exploit and C2 tradecraft. Acknowledges Anthropic cyber-safeguard model-switching on Opus 5.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[OFFSEC]</span>
+    <a class="repo" href="https://github.com/samugit83/redamon" target="_blank" rel="noopener">samugit83/redamon</a>
+    <span class="stars">&#9733; 2.90k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2025-12-29</span></div>
+  <p class="overview">Open-source, self-hosted AUTONOMOUS AI pentest framework. Parallelised recon across 20+ scanners -> Neo4j attack-surface graph -> multi-agent planning/exploitation from an isolated Kali sandbox, with human approval gates. 'CypherFix' then triages findings and opens PRs that fix them.</p>
+  <p class="util"><b>Practical utility:</b> End-to-end autonomous offensive pipeline that also proposes remediations; MCP both ways (use any MCP tool, or drive RedAmon from Claude Code).</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Red teams</li><li>Pentesters</li><li>Security researchers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 2.9k stars; Trendshift-listed. Surging interest as 'agentic pentest' becomes a category. Ships a 'AI Gauntlet' grading corpus. Dual-use: restrict to authorized targets only.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/sherlock-project/sherlock" target="_blank" rel="noopener">sherlock-project/sherlock</a></span>
+  <span class="also-stars">&#9733; 93.1k</span> <span class="also-lang">Python</span> &mdash; Username OSINT across social networks.</div><div class="also"><span class="also-name"><a href="https://github.com/Pennyw0rth/NetExec" target="_blank" rel="noopener">Pennyw0rth/NetExec</a></span>
+  <span class="also-stars">&#9733; 5.91k</span> <span class="also-lang">Python</span> &mdash; Network execution / AD attacking tool.</div><div class="also"><span class="also-name"><a href="https://github.com/maigret" target="_blank" rel="noopener">maigret</a></span>
+  <span class="also-stars">&#9733; 38.2k</span> <span class="also-lang">Python</span> &mdash; Person dossier by username from 6k sites.</div><div class="also"><span class="also-name"><a href="https://github.com/GhostESP-Revival/GhostESP" target="_blank" rel="noopener">GhostESP-Revival/GhostESP</a></span>
+  <span class="also-stars">&#9733; 1.03k</span> <span class="also-lang">C</span> &mdash; Open ESP32 wireless-research platform.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[AI-SEC]</span> AI Security</h2>
+  <div class="sec-sub">Prompt injection, jailbreaks, agent/MCP security, guardrails, supply chain</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI-SEC]</span>
+    <a class="repo" href="https://github.com/NVIDIA/SkillSpector" target="_blank" rel="noopener">NVIDIA/SkillSpector</a>
+    <span class="stars">&#9733; 19.13k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-03-21</span></div>
+  <p class="overview">Security scanner for AI-agent skills. Detects 71 vulnerability patterns across 17 categories (prompt injection, data exfiltration, privilege escalation, supply chain, MCP tool poisoning, AST behavioural analysis, YARA). Two-stage: fast static + optional LLM semantic eval. Live OSV.dev CVE lookup. CLI, SARIF, MCP server, Docker.</p>
+  <p class="util"><b>Practical utility:</b> Answers 'is this skill safe to install?' before you grant an agent implicit trust; gates skill/MCP installs. Scores 0-100, emits DO_NOT_INSTALL verdicts.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Appsec teams</li><li>Agent-skills publishers</li><li>CISOs</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 19.1k stars. Backed by NVIDIA's study of 42,447 skills: 26.1% contained >=1 vulnerability, 5.2% likely malicious. Part of NVIDIA's Verified Skills pipeline; covered by Help Net Security (Aug 2026) and NVIDIA docs.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI-SEC]</span>
+    <a class="repo" href="https://github.com/luckyPipewrench/pipelock" target="_blank" rel="noopener">luckyPipewrench/pipelock</a>
+    <span class="stars">&#9733; 919</span>
+  </div>
+  <div class="meta">Go &middot; <span class='new'>NEW 2026-02-08</span></div>
+  <p class="overview">Open-source AI-agent FIREWALL for Verifiable Egress Control. Scans mediated HTTP, MCP, A2A and WebSocket traffic for exfiltration, SSRF, prompt injection and tool poisoning; emits mediator-signed action receipts (verifiable audit evidence from outside the agent). Single Go binary; strict/balanced modes; GitHub Action; OpenSSF Scorecard.</p>
+  <p class="util"><b>Practical utility:</b> Inline egress proxy between an agent and the network; blocks unsafe traffic and produces signed, offline-verifiable decision records.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Appsec teams</li><li>Agent-platform builders</li><li>Enterprises deploying agents</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 919 stars. Positioned as the 'egress' counterpart to inbound WAFs. New category: agent-egress-firewall. Public 'agent-egress-bench' corpus + scheduled Gauntlet exam. (Core Apache-2.0; some Enterprise features ELv2.)</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI-SEC]</span>
+    <a class="repo" href="https://github.com/Agent-Threat-Rule/agent-threat-rules" target="_blank" rel="noopener">Agent-Threat-Rule/agent-threat-rules</a>
+    <span class="stars">&#9733; 406</span>
+  </div>
+  <div class="meta">TypeScript &middot; <span class='new'>NEW 2026-03-09</span></div>
+  <p class="overview">Open detection-rule standard for AI-agent security threats — 'like Sigma, but for AI agents'. Executable, testable rules for prompt injection, tool poisoning, context exfiltration and MCP attacks. Reportedly merged into Microsoft, Cisco, Gen Digital, MISP and FINOS.</p>
+  <p class="util"><b>Practical utility:</b> Gives blue teams a vendor-neutral, Sigma-style rule format to detect agentic attacks in logs/telemetry.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Detection engineers</li><li>SOC/blue teams</li><li>MISP/FINOS adopters</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 406 stars. Early but strategically important — an attempt to standardise agent-threat detection the way Sigma did for SIEM. Cross-vendor adoption claims are notable but unverified; treat as emerging.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[AI-SEC]</span>
+    <a class="repo" href="https://github.com/ifixai-ai/iFixAi" target="_blank" rel="noopener">ifixai-ai/iFixAi</a>
+    <span class="stars">&#9733; 19.13k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-04-27</span></div>
+  <p class="overview">Independent auditing of AI agents — run by human or the agent itself. Answers 'is the agent doing what it should?' within 120 seconds, mapping to EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM.</p>
+  <p class="util"><b>Practical utility:</b> Audit/assurance layer for deployed agents; governance and compliance evidence for agentic systems.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>AI governance</li><li>CISOs</li><li>Compliance teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 19.1k stars. Reflects the 2026 regulatory wave (EU AI Act, NIST AI RMF) driving demand for agent-auditing tooling.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/hashgraph-online/hol-guard" target="_blank" rel="noopener">hashgraph-online/hol-guard</a></span>
+  <span class="also-stars">&#9733; 711</span> <span class="also-lang">Python</span> &mdash; Open 'antivirus' for AI agents (blocks risky tools/MCP at runtime).</div><div class="also"><span class="also-name"><a href="https://github.com/PrismorSec/prismor" target="_blank" rel="noopener">PrismorSec/prismor</a></span>
+  <span class="also-stars">&#9733; 397</span> <span class="also-lang">Python</span> &mdash; Self-hosted runtime control plane for agents (observe/HITL/block).</div><div class="also"><span class="also-name"><a href="https://github.com/AgentSafeLabs/safelabs-eval" target="_blank" rel="noopener">AgentSafeLabs/safelabs-eval</a></span>
+  <span class="also-stars">&#9733; 416</span> <span class="also-lang">Python</span> &mdash; Red-teaming framework, OWASP ASI01-ASI10 taxonomy.</div><div class="also"><span class="also-name"><a href="https://github.com/uber/ADR" target="_blank" rel="noopener">uber/ADR</a></span>
+  <span class="also-stars">&#9733; 1.62k</span> <span class="also-lang">Python</span> &mdash; Uber's agent security via observability + threat detection.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[DFIR]</span> DFIR (Digital Forensics & Incident Response)</h2>
+  <div class="sec-sub">Forensics, memory/disk analysis, triage, malware RE, IR automation</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[DFIR]</span>
+    <a class="repo" href="https://github.com/Velocidex/velociraptor" target="_blank" rel="noopener">Velocidex/velociraptor</a>
+    <span class="stars">&#9733; 4.29k</span>
+  </div>
+  <div class="meta">Go</div>
+  <p class="overview">Endpoint visibility and collection tool built on the Velociraptor Query Language (VQL). Collect host state, hunt across thousands of endpoints, build self-contained local triage collectors. The gold standard for enterprise DFIR at scale.</p>
+  <p class="util"><b>Practical utility:</b> Live triage, IOC sweeps, artifact collection across fleets; widely deployed by IR firms.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>DFIR responders</li><li>SOC teams</li><li>Threat hunters</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 4.3k stars, continuously maintained. The reference endpoint-forensics platform; paired in the community with Hayabusa for Windows event-log triage.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[DFIR]</span>
+    <a class="repo" href="https://github.com/Yamato-Security/hayabusa" target="_blank" rel="noopener">Yamato-Security/hayabusa</a>
+    <span class="stars">&#9733; 3.38k</span>
+  </div>
+  <div class="meta">Rust</div>
+  <p class="overview">Windows event-log FAST forensics timeline generator and threat-hunting tool in memory-safe Rust — the only open-source tool with full Sigma support including v2 correlation rules. Outputs CSV/JSON/JSONL timelines (Elastic, Timesketch, Timeline Explorer).</p>
+  <p class="util"><b>Practical utility:</b> Turns Windows event logs into huntable timelines; live or enterprise-wide via Velociraptor.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>DFIR analysts</li><li>Blue teams</li><li>Threat hunters</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 3.4k stars. Black Hat Arsenal regular (Asia 2022, USA 2025, and a 'Mecha Hayabusa' AI analyzer debut at Black Hat USA 2026). Recently added 700+ Sigma rules for AWS. AGPLv3.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[DFIR]</span>
+    <a class="repo" href="https://github.com/radareorg/radare2" target="_blank" rel="noopener">radare2</a>
+    <span class="stars">&#9733; 24.9k</span>
+  </div>
+  <div class="meta">C</div>
+  <p class="overview">UNIX-like reverse-engineering framework and command-line toolset: disassembler, debugger, binary analysis, scripting.</p>
+  <p class="util"><b>Practical utility:</b> Core malware-analysis / RE toolkit; scriptable triage of binaries.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Malware analysts</li><li>Reverse engineers</li><li>Vulnerability researchers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 24.9k stars, long-standing community standard for offline binary analysis; regularly updated.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/log2timeline/plaso" target="_blank" rel="noopener">log2timeline/plaso</a></span>
+  <span class="also-stars">&#9733; 2.17k</span> <span class="also-lang">Python</span> &mdash; Super-timeline all the things.</div><div class="also"><span class="also-name"><a href="https://github.com/kevoreilly/CAPEv2" target="_blank" rel="noopener">kevoreilly/CAPEv2</a></span>
+  <span class="also-stars">&#9733; 3.55k</span> <span class="also-lang">Python</span> &mdash; Malware config/payload extraction sandbox.</div><div class="also"><span class="also-name"><a href="https://github.com/chainguard-dev/malcontent" target="_blank" rel="noopener">chainguard-dev/malcontent</a></span>
+  <span class="also-stars">&#9733; 678</span> <span class="also-lang">YARA</span> &mdash; Supply-chain attack detection.</div><div class="also"><span class="also-name"><a href="https://github.com/ydkhatri/mac_apt" target="_blank" rel="noopener">ydkhatri/mac_apt</a></span>
+  <span class="also-stars">&#9733; 1.09k</span> <span class="also-lang">Python</span> &mdash; macOS/iOS artifact parsing tool.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[CLOUD-SEC]</span> AWS & Cloud Security</h2>
+  <div class="sec-sub">IAM analysis, CSPM, Terraform/CDK security, cloud attack/defence</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[CLOUD-SEC]</span>
+    <a class="repo" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener">prowler-cloud/prowler</a>
+    <span class="stars">&#9733; 17.0k</span>
+  </div>
+  <div class="meta">Python/Shell</div>
+  <p class="overview">The world's most widely-used open-source cloud-security platform. 662 AWS checks + Azure/GCP/K8s/GitHub/M365/Oracle/Alibaba and more. Now rebranded the 'Agentic Cloud Defender': Lighthouse AI assistant, remote MCP server, Claude Code plugin, Attack Paths (Cartography + Neo4j graph), Prowler Local Server.</p>
+  <p class="util"><b>Practical utility:</b> CSPM, compliance (CIS/NIST/PCI/HIPAA/FedRAMP/NIS2/ISO27001...), IAM analysis, supply-chain (IaC via Trivy), SARIF to GitHub code-scanning.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Cloud security teams</li><li>Compliance owners</li><li>DevSecOps</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 17k stars. July 2026 release added Bedrock AgentCore IAM-privesc detection and Lighthouse agentic triage. Featured at RSA26; 'Agentic Cloud Defender' pivot is the 2026 narrative.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[CLOUD-SEC]</span>
+    <a class="repo" href="https://github.com/toniblyx/my-arsenal-of-aws-security-tools" target="_blank" rel="noopener">toniblyx/my-arsenal-of-aws-security-tools</a>
+    <span class="stars">&#9733; 9.51k</span>
+  </div>
+  <div class="meta">Shell/MD</div>
+  <p class="overview">The definitive curated list of open-source AWS security tools — defensive, offensive, auditing, DFIR, inventory, IAM, IR. A 'awesome-list' maintained for years.</p>
+  <p class="util"><b>Practical utility:</b> One-stop catalogue for any AWS-security practitioner building a toolkit.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>AWS security engineers</li><li>Auditors</li><li>Cloud red teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 9.5k stars; the canonical AWS-security link hub. Frequently the first bookmark for new cloud-security hires.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[CLOUD-SEC]</span>
+    <a class="repo" href="https://github.com/cynative/cynative" target="_blank" rel="noopener">cynative/cynative</a>
+    <span class="stars">&#9733; 218</span>
+  </div>
+  <div class="meta">Go &middot; <span class='new'>NEW 2026-06-24</span></div>
+  <p class="overview">Open-source AI-agent framework for cloud security across AWS/Azure/GCP/Kubernetes: AI-powered cloud detection & response and CSPM findings triage.</p>
+  <p class="util"><b>Practical utility:</b> Agentic cloud-DR and posture triage; newer entrant in the agentic-cloud-security space.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Cloud security teams</li><li>Agent-platform builders</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 218 stars (created Jun 2026). Small but emblematic of the 'agentic cloud defence' trend riding alongside Prowler's Lighthouse.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/awslabs/automated-security-helper" target="_blank" rel="noopener">awslabs/automated-security-helper</a></span>
+  <span class="also-stars">&#9733; 695</span> <span class="also-lang">Python</span> &mdash; Extensible SAST/SCA/IaC scanner orchestration engine.</div><div class="also"><span class="also-name"><a href="https://github.com/rezmoss/cloud-provider-ip-addresses" target="_blank" rel="noopener">rezmoss/cloud-provider-ip-addresses</a></span>
+  <span class="also-stars">&#9733; 187</span> <span class="also-lang">Shell</span> &mdash; Daily-updated IP ranges for 60+ providers.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[CLOUD-AI]</span> AWS & Cloud AI</h2>
+  <div class="sec-sub">Bedrock, AgentCore, SageMaker, MCP servers for AWS, GenAI samples</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[CLOUD-AI]</span>
+    <a class="repo" href="https://github.com/faiscadev/fakecloud" target="_blank" rel="noopener">faiscadev/fakecloud</a>
+    <span class="stars">&#9733; 736</span>
+  </div>
+  <div class="meta">Rust &middot; <span class='new'>NEW 2026-04-04</span></div>
+  <p class="overview">Free, open-source LOCAL AWS emulator (AGPL-3.0) — single ~19MB binary, 106 services, 7,543 operations, claimed 100% Smithy conformance (249,449 variants). Full Bedrock surface (216 ops, real InvokeModel/Converse streaming, guardrails, agents). Opt-in SigV4 + IAM enforcement. First-party SDKs for TS/Python/Go/PHP/Java/Rust/.NET.</p>
+  <p class="util"><b>Practical utility:</b> Drop-in LocalStack replacement for local/dev AWS testing after LocalStack's March-2026 move to a proprietary, account-and-token-gated Community image. Runs unmodified apps via default credential chain.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Backend engineers</li><li>Platform teams</li><li>AI-coding-tool users</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 736 stars. Directly born from LocalStack's March-2026 licensing change; blog compares it vs MiniStack/floci/Moto. Strong 'free forever' positioning captured developer goodwill.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[CLOUD-AI]</span>
+    <a class="repo" href="https://github.com/2FastLabs/agent-squad" target="_blank" rel="noopener">2FastLabs/agent-squad</a>
+    <span class="stars">&#9733; 7.78k</span>
+  </div>
+  <div class="meta">Python/TS</div>
+  <p class="overview">Flexible framework for managing multiple AI agents and complex conversations — multi-agent orchestration with AWS Bedrock, AWS Lambda, CDK support; serverless-friendly.</p>
+  <p class="util"><b>Practical utility:</b> Build/route multi-agent systems on AWS; commonly paired with Bedrock for production agentic apps.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>AWS builders</li><li>Agent architects</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 7.8k stars. A leading open multi-agent orchestrator with first-class AWS/Bedrock integration; referenced alongside the broader agentic-AWS wave.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/faiscadev/fakecloud (Bedrock)" target="_blank" rel="noopener">faiscadev/fakecloud (Bedrock)</a></span>
+  <span class="also-stars">&#9733; 736</span> <span class="also-lang">Rust</span> &mdash; Full local Bedrock emulator for agent testing.</div><div class="also"><span class="also-name"><a href="https://github.com/jenkinsci/explain-error-plugin" target="_blank" rel="noopener">jenkinsci/explain-error-plugin</a></span>
+  <span class="also-stars">&#9733; 46</span> <span class="also-lang">Java</span> &mdash; Explain Jenkins failures with AI (Bedrock/OpenAI).</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[SAST]</span> Code Scanning, SAST & Auditing</h2>
+  <div class="sec-sub">Static analysis, secret scanning, SBOM, supply-chain, AI code review</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SAST]</span>
+    <a class="repo" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a>
+    <span class="stars">&#9733; 16.84k</span>
+  </div>
+  <div class="meta">OCaml/C</div>
+  <p class="overview">Fast open-source static analysis — 'semantic grep'. 30+ languages, IDE/pre-commit/CI. Community Edition is local-first (code never uploaded). AppSec Platform adds cross-file data-flow, 20k+ proprietary rules, Supply Chain (reachable vuln detection) and AI Assistant triage.</p>
+  <p class="util"><b>Practical utility:</b> SAST/SCA/secrets scanning; rule syntax mirrors code; 2,000+ community rules; MCP server for AI IDEs.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Appsec teams</li><li>Developers</li><li>Auditors</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 16.8k stars. The leading open SAST; recent push is the MCP server + AI Assistant (humans agree with triage 97% of the time). Default local-scan stance aligns with zero-trust data-handling.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SAST]</span>
+    <a class="repo" href="https://github.com/betterleaks/betterleaks" target="_blank" rel="noopener">betterleaks/betterleaks</a>
+    <span class="stars">&#9733; 2.09k</span>
+  </div>
+  <div class="meta">Go &middot; <span class='new'>NEW 2026-02-03</span></div>
+  <p class="overview">Find leaked secrets everywhere — Go-based scanner across git, GitHub, CI, with dynamic analysis; the spiritual successor lineage to gitleaks-style tooling with broader coverage.</p>
+  <p class="util"><b>Practical utility:</b> Pre-commit/CI secret detection; catches credentials before they land.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>DevSecOps</li><li>Appsec</li><li>Platform teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 2.1k stars since Feb 2026. Notable as a fresh, actively-developed entrant in the crowded secrets-scanning space — a response to demand for better leak prevention.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SAST]</span>
+    <a class="repo" href="https://github.com/agentgg-dev/agentgg" target="_blank" rel="noopener">agentgg-dev/agentgg</a>
+    <span class="stars">&#9733; 400</span>
+  </div>
+  <div class="meta">TypeScript &middot; <span class='new'>NEW 2026-05-13</span></div>
+  <p class="overview">Open-source AGENTIC SAST — 'the engine behind hundreds of disclosed zero-days'. 100+ AI security agents, any repo or PR diff, bring-your-own model.</p>
+  <p class="util"><b>Practical utility:</b> AI-driven vulnerability discovery at scale; positions itself as the autonomous SAST agent.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Appsec researchers</li><li>Bug-bounty hunters</li><li>Security vendors</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 400 stars. Bold claim of powering disclosed zero-days; representative of the 'agentic SAST' sub-genre emerging in 2026 (skylos, dvalincode, trajan are siblings).</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/analysis-tools-dev/static-analysis" target="_blank" rel="noopener">analysis-tools-dev/static-analysis</a></span>
+  <span class="also-stars">&#9733; 14.82k</span> <span class="also-lang">Rust</span> &mdash; Curated list of SAST tools/linters.</div><div class="also"><span class="also-name"><a href="https://github.com/duriantaco/skylos" target="_blank" rel="noopener">duriantaco/skylos</a></span>
+  <span class="also-stars">&#9733; 841</span> <span class="also-lang">Python</span> &mdash; Local-first PR scanner (dead code/bugs/secrets).</div><div class="also"><span class="also-name"><a href="https://github.com/praetorian-inc/trajan" target="_blank" rel="noopener">praetorian-inc/trajan</a></span>
+  <span class="also-stars">&#9733; 189</span> <span class="also-lang">Go</span> &mdash; CI/CD vuln detection + attack automation.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[SIEM]</span> Security Monitoring & SIEM</h2>
+  <div class="sec-sub">SIEM/XDR, Sigma/YARA/Suricata, log pipelines, threat hunting, SOAR</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SIEM]</span>
+    <a class="repo" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a>
+    <span class="stars">&#9733; 17.07k</span>
+  </div>
+  <div class="meta">C++</div>
+  <p class="overview">Open-source XDR + SIEM platform: agents for intrusion detection, log analysis, file-integrity monitoring, vulnerability detection, config assessment, incident response, cloud and container security. Unified indexer + dashboard.</p>
+  <p class="util"><b>Practical utility:</b> Unified endpoint + cloud + container security with compliance (PCI DSS, GDPR, HIPAA, NIST...); agent-based with rule analysis.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>SOCs</li><li>Blue teams</li><li>Compliance owners</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 17.1k stars, continuously maintained (GPLv2, based on OSSEC). A mainstay for self-hosted SIEM/XDR; 3,144 open issues signal heavy enterprise adoption.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SIEM]</span>
+    <a class="repo" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/sigma</a>
+    <span class="stars">&#9733; 11.14k</span>
+  </div>
+  <div class="meta">Python/YAML</div>
+  <p class="overview">The main Sigma rule repository — the generic signature format for SIEM/IDS/log analysis. Vendor-neutral detection-as-code.</p>
+  <p class="util"><b>Practical utility:</b> Write once, convert to Splunk/Elastic/Sentinel/etc.; the lingua franca of detection engineering.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Detection engineers</li><li>SOC analysts</li><li>Threat hunters</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 11.1k stars. The de-facto detection-standard repo; Hayabusa and agent-threat-rules both extend the Sigma idiom to new domains.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SIEM]</span>
+    <a class="repo" href="https://github.com/beenuar/AiSOC" target="_blank" rel="noopener">beenuar/AiSOC</a>
+    <span class="stars">&#9733; 2.38k</span>
+  </div>
+  <div class="meta">Python/Go &middot; <span class='new'>NEW 2026-05-02</span></div>
+  <p class="overview">Open-source, self-hostable AI Security Operations Center. Ingest -> detect (2,603 executable rules of 6,991) -> correlate -> alert -> AI-triage with a fully-auditable Investigation Ledger (every prompt/tool-call logged) -> human-approved response. 84 connectors; ships CISA KEV feed; local Llama model; 'make smoke' end-to-end test.</p>
+  <p class="util"><b>Practical utility:</b> AI-assisted alert triage + MITRE ATT&CK investigation with strong honesty guarantees (no silent synthetic fallback); not a SIEM replacement.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>SOC analysts</li><li>Detection engineers</li><li>Blue teams</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 2.4k stars. Notably disciplined about 'real vs synthetic' data and negative controls — a reaction to overhyped AI-SOC marketing. OpenSSF Scorecard + CodeQL; MIT-licensed.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SIEM]</span>
+    <a class="repo" href="https://github.com/Karib0u/rustinel" target="_blank" rel="noopener">Karib0u/rustinel</a>
+    <span class="stars">&#9733; 497</span>
+  </div>
+  <div class="meta">Rust &middot; <span class='new'>NEW 2026-01-31</span></div>
+  <p class="overview">Endpoint detection for Windows/Linux/macOS using Sigma, YARA and IOC rules on native telemetry (ETW, eBPF) — written in Rust, no cloud account required.</p>
+  <p class="util"><b>Practical utility:</b> Lightweight, self-hosted EDR/endpoint detection aligned with Sigma/YARA; runs offline.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Blue teams</li><li>Self-hosters</li><li>Endpoint defenders</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 497 stars. Rust-based, offline-friendly EDR — fits the 'no-cloud' endpoint-security preference and the Sigma-native detection trend.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/Graylog2/graylog2-server" target="_blank" rel="noopener">Graylog2/graylog2-server</a></span>
+  <span class="also-stars">&#9733; 8.15k</span> <span class="also-lang">Java</span> &mdash; Free/open log management.</div><div class="also"><span class="also-name"><a href="https://github.com/VictoriaMetrics/VictoriaLogs" target="_blank" rel="noopener">VictoriaMetrics/VictoriaLogs</a></span>
+  <span class="also-stars">&#9733; 2.34k</span> <span class="also-lang">Go</span> &mdash; Fast logs DB (TB-scale).</div><div class="also"><span class="also-name"><a href="https://github.com/tenzir/tenzir" target="_blank" rel="noopener">tenzir/tenzir</a></span>
+  <span class="also-stars">&#9733; 762</span> <span class="also-lang">C++</span> &mdash; Data-pipeline engine for security teams.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[SMART-HOME]</span> Smart Home, IoT & Self-Hosting</h2>
+  <div class="sec-sub">Home Assistant, homelab, Proxmox, NAS, privacy, edge AI</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SMART-HOME]</span>
+    <a class="repo" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a>
+    <span class="stars">&#9733; 29.71k</span>
+  </div>
+  <div class="meta">Shell &middot; <span class='new'>NEW 2024-11-01</span></div>
+  <p class="overview">Community-driven one-command install scripts for services, containers and VMs on Proxmox VE (built on tteck's original work). Hundreds of services: Home Assistant, Zigbee2MQTT, ESPHome, Jellyfin, AdGuard, Vaultwarden, CrowdSec, Grafana and more. Default/Advanced modes; post-install helpers.</p>
+  <p class="util"><b>Practical utility:</b> Dramatically lowers the barrier to a homelab; the go-to helper for Proxmox operators.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Homelabbers</li><li>Self-hosters</li><li>Proxmox admins</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 29.7k stars. Thriving successor to tteck's scripts; 30% of donations go to cancer research/hospice (in tteck's memory). The backbone of much self-hosted infrastructure.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SMART-HOME]</span>
+    <a class="repo" href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener">blakeblackshear/frigate</a>
+    <span class="stars">&#9733; 36.32k</span>
+  </div>
+  <div class="meta">Python/C</div>
+  <p class="overview">Complete, local NVR designed for Home Assistant with real-time on-device object detection (OpenCV/TensorFlow). Tight HA integration, MQTT, 24/7 recording, re-streaming, WebRTC/MSE live view, person/vehicle detection. GPU/AI-accelerator recommended.</p>
+  <p class="util"><b>Practical utility:</b> Privacy-preserving local camera AI — no cloud required; the standard for self-hosted surveillance.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Home Assistant users</li><li>Privacy-focused homeowners</li><li>Homelabbers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 36.3k stars, MIT-licensed (Frigate name/trademark reserved). The reference local-NVR; deep HA integration via the companion component.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SMART-HOME]</span>
+    <a class="repo" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">homeassistant-ai/ha-mcp</a>
+    <span class="stars">&#9733; 4.92k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2025-09-14</span></div>
+  <p class="overview">The Unofficial (and Awesome) Home Assistant MCP Server — 87 tools to let AI assistants control devices, query states, build automations/scripts/dashboards, debug traces, manage backups. Runs in-process via HACS custom component, or as app/Docker/stdio. Read-Only Mode, per-tool approval policies, search-based discovery for small LLMs.</p>
+  <p class="util"><b>Practical utility:</b> Turns Claude/ChatGPT/Cursor into a smart-home builder/maintainer; far beyond the built-in Assist MCP (edits automations, dashboards, helpers, YAML).</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Home Assistant users</li><li>AI-assistant tinkerers</li><li>Home automators</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 4.9k stars. Rapidly became the leading third-party HA MCP server; strong privacy stance (local, no telemetry). Includes bundled agent Skills for HA best practices.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[SMART-HOME]</span>
+    <a class="repo" href="https://github.com/ruvnet/RuView" target="_blank" rel="noopener">ruvnet/RuView</a>
+    <span class="stars">&#9733; 96.0k</span>
+  </div>
+  <div class="meta">Rust &middot; <span class='new'>NEW 2025-06-07</span></div>
+  <p class="overview">Turns commodity WiFi signals into real-time spatial intelligence, vital-sign monitoring and presence detection — without a single pixel of video. ESP32 + RF + Rust, Home Assistant integration.</p>
+  <p class="util"><b>Practical utility:</b> Privacy-first sensing (no cameras); presence/occupancy and vital-sign monitoring via WiFi CSI.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Privacy advocates</li><li>Home Assistant users</li><li>IoT researchers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 96k stars — a viral privacy-centric sensing project; notable for the 'sense without cameras' angle and HA ecosystem hooks.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/esphome/esphome" target="_blank" rel="noopener">esphome/esphome</a></span>
+  <span class="also-stars">&#9733; 11.77k</span> <span class="also-lang">C++</span> &mdash; Configure ESP32/ESP8266 devices for HA.</div><div class="also"><span class="also-name"><a href="https://github.com/make-all/tuya-local" target="_blank" rel="noopener">make-all/tuya-local</a></span>
+  <span class="also-stars">&#9733; 3.51k</span> <span class="also-lang">Python</span> &mdash; Local Tuya device support in HA.</div><div class="also"><span class="also-name"><a href="https://github.com/home-assistant/frontend" target="_blank" rel="noopener">home-assistant/frontend</a></span>
+  <span class="also-stars">&#9733; 5.69k</span> <span class="also-lang">TS</span> &mdash; Home Assistant frontend.</div></div>
+</section>
+<section>
+  <h2><span class="sec-emoji">[WILDCARD]</span> Wildcard / Emerging</h2>
+  <div class="sec-sub">Abnormal velocity that fits none of the above</div>
+  <div class="grid"><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[WILDCARD]</span>
+    <a class="repo" href="https://github.com/KKKKhazix/AIHOT" target="_blank" rel="noopener">KKKKhazix/AIHOT</a>
+    <span class="stars">&#9733; 4.96k</span>
+  </div>
+  <div class="meta">TypeScript &middot; <span class='new'>NEW 2026-09-28</span></div>
+  <p class="overview">An open-source framework to build your own industry hot-topic / daily-digest site: configurable sources + scoring + clustering, self-hosted, RSS/LLM. Decouples code from domain know-how so any industry can run its own 'AIHOT'.</p>
+  <p class="util"><b>Practical utility:</b> Spin up a curated, AI-ranked news/intel digest for any vertical; the public AIHOT reached ~1M MAU and 100k Skill users before open-sourcing.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Content creators</li><li>Industry analysts</li><li>Newsletter operators</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> Created 28 Sep 2026, already 4.96k stars. Open-sourced by designer-turned-builder Kazike; rewritten with Claude Opus 5.5. Viral in Chinese tech media (Tencent/Sohu) as a 'million-MAU product given away'.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[WILDCARD]</span>
+    <a class="repo" href="https://github.com/firelex/jeff" target="_blank" rel="noopener">firelex/jeff</a>
+    <span class="stars">&#9733; 1.32k</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-09-28</span></div>
+  <p class="overview">A 0.8B open 'System 1' model that makes millisecond calibrated-probability decisions between options; one base with swappable LoRA adapters, runnable on your own hardware.</p>
+  <p class="util"><b>Practical utility:</b> Tiny, fast decision/scoring model as a drop-in 'System 1' for agents and apps needing sub-second picks.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Agent builders</li><li>Edge/embedded ML</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 1.3k stars since 28 Sep 2026. Part of a mini-wave of small 'decision/Jev' models (strands-labs/strands-decider, OmniJev/OneJev) — the 'fast System-1' counterpart to big reasoning models.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[WILDCARD]</span>
+    <a class="repo" href="https://github.com/strands-labs/strands-decider" target="_blank" rel="noopener">strands-labs/strands-decider</a>
+    <span class="stars">&#9733; 188</span>
+  </div>
+  <div class="meta">Python &middot; <span class='new'>NEW 2026-09-29</span></div>
+  <p class="overview">A small, fast decision model / 'System One' model for agentic workflows — pick between options or rate on a scale faster than an LLM, with a (related) Strands agent framework.</p>
+  <p class="util"><b>Practical utility:</b> Low-latency routing/selection inside multi-agent pipelines; companion to Strands agents.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>Agent architects</li><li>Strands users</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 188 stars since 29 Sep 2026. Emerging 'decision-model' niche; notable mainly as evidence of the trend.</div>
+</div><div class="card">
+  <div class="card-head">
+    <span class="cat-tag">[WILDCARD]</span>
+    <a class="repo" href="https://github.com/CAPCOM-TD-OSS/REDox" target="_blank" rel="noopener">CAPCOM-TD-OSS/REDox</a>
+    <span class="stars">&#9733; 806</span>
+  </div>
+  <div class="meta">C# &middot; <span class='new'>NEW 2026-09-30</span></div>
+  <p class="overview">High-performance, token-based structured-data engine for .NET — a core component of REX, the technology behind CAPCOM's next-generation game engine.</p>
+  <p class="util"><b>Practical utility:</b> Open-sourcing of a production game-engine data layer; of interest to .NET/game-engine engineers.</p>
+  <div class="audience"><b>Target audience:</b><ul><li>.NET developers</li><li>Game-engine engineers</li></ul></div>
+  <div class="osint"><b>Trending context (OSINT):</b> 806 stars since 30 Sep 2026. CAPCOM open-sourcing internal engine tech is unusual and drew attention from the .NET/gamedev community.</div>
+</div></div>
+  <div class="also-wrap"><div class="also-title">Also trending in this category:</div><div class="also"><span class="also-name"><a href="https://github.com/CopilotKit/OpenDots" target="_blank" rel="noopener">CopilotKit/OpenDots</a></span>
+  <span class="also-stars">&#9733; 1.42k</span> <span class="also-lang">TS</span> &mdash; Always-on AI coworkers (text/calls/Slack).</div><div class="also"><span class="also-name"><a href="https://github.com/composio-community/open-dot" target="_blank" rel="noopener">composio-community/open-dot</a></span>
+  <span class="also-stars">&#9733; 426</span> <span class="also-lang">TS</span> &mdash; Open personal AI agents on their own computer.</div><div class="also"><span class="also-name"><a href="https://github.com/AFK-surf/Comma" target="_blank" rel="noopener">AFK-surf/Comma</a></span>
+  <span class="also-stars">&#9733; 154</span> <span class="also-lang">Elixir</span> &mdash; Sessionless personal agent (Muse/Dots alt).</div></div>
+</section>
+</div>
+<footer>
+  Generated by <b>Mr Delly Bot</b> &mdash; Headmaster &amp; Systems Butler to Mr Happy.<br>
+  Delivered via Hermes Agent cron &middot; Saturday, 03 October 2026 (AEST) &middot; Data: GitHub REST API + web OSINT, 02-03 Oct 2026 UTC.<br>
+  Star figures are observed snapshots, not velocity estimates. OSINT claims independently unverifiable are flagged in-line.
+</footer>
+</body>
+</html>
