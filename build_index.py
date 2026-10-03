@@ -15,7 +15,7 @@ repo_reports = glob.glob(os.path.join(REPO_DIR, "intel_briefing_*.html"))
 for filepath in home_reports + repo_reports:
     filename = os.path.basename(filepath)
     target_path = os.path.join(ARCHIVE_DIR, filename)
-    shutil.move(filepath, target_path)
+    shutil.copy2(filepath, target_path)
 
 # 2. Get sorted archive files
 archived_files = sorted(glob.glob(os.path.join(ARCHIVE_DIR, "intel_briefing_*.html")), reverse=True)
