@@ -36,6 +36,7 @@
     <button class="btn" onclick="loadLatest()">🏠 Home (Latest)</button>
     <select id="historySelect" onchange="loadReport(this.value)">
       <option value="">📂 View History...</option>
+      <option value="archive/intel_briefing_2026-10-05.html">2026-10-05</option>
       <option value="archive/intel_briefing_2026-10-04.html">2026-10-04</option>
       <option value="archive/intel_briefing_2026-10-03.html">2026-10-03</option>
       <option value="archive/intel_briefing_2026-10-02.html">2026-10-02</option>
@@ -114,10 +115,10 @@
   </div>
   
   <!-- Content Window (Defaults to the newest report) -->
-  <iframe id="reportFrame" src="archive/intel_briefing_2026-10-04.html"></iframe>
+  <iframe id="reportFrame" src="archive/intel_briefing_2026-10-05.html"></iframe>
 
   <script>
-    const latestReport = "archive/intel_briefing_2026-10-04.html";
+    const latestReport = "archive/intel_briefing_2026-10-05.html";
     
     function loadReport(url) {
       if(url) {
