@@ -1,5 +1,8 @@
 # hermes-intel-briefs
-This report aggregates open-source intelligence on the most rapidly accelerating repositories across the AI and cybersecurity landscapes. Activity is measured by acute star growth, pull request velocity, and developer ecosystem adoption. 
+
+[![BuyMeCoffee](https://img.shields.io/badge/-BuyMeCoffee-ffd700?style=flat&labelColor=1e293b&color=000&logo=buymeacoffee)](https://buymeacoffee.com/happycode0)
+
+This report aggregates open-source intelligence on the most rapidly accelerating repositories across the AI and cybersecurity landscapes. Activity is measured by acute star growth, pull request velocity, and developer ecosystem.
 
 #how
 hermes run daily to find trending repos across these 7 categories (3-5 per category):

@@ -21,6 +21,11 @@
     padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px;
   }
   .btn:hover { border-color: var(--neon); }
+  .btn-coffee {
+    background: #ffd700; color: #000; border: 1px solid #d4a500;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px; text-decoration: none;
+  }
+  .btn-coffee:hover { background: #f5c400; border-color: #b8860b; }
   select {
     background: var(--bg); color: var(--link); border: 1px solid var(--line); 
     padding: 8px 16px; border-radius: 8px; cursor: pointer; outline: none; font-size: 13px;
@@ -34,7 +39,9 @@
   <!-- Minimal Top Navigation -->
   <div class="top-bar">
     <button class="btn" onclick="loadLatest()">🏠 Home (Latest)</button>
-    <select id="historySelect" onchange="loadReport(this.value)">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://buymeacoffee.com/happycode0" target="_blank" class="btn-coffee">☕ BuyMeCoffee</a>
+      <select id="historySelect" onchange="loadReport(this.value)">
       <option value="">📂 View History...</option>
       <option value="archive/intel_briefing_2026-10-07.html">2026-10-07</option>
       <option value="archive/intel_briefing_2026-10-06.html">2026-10-06</option>
@@ -114,6 +121,7 @@
       <option value="archive/intel_briefing_2026-07-21.html">2026-07-21</option>
 
     </select>
+    </div>
   </div>
   
   <!-- Content Window (Defaults to the newest report) -->
