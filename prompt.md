@@ -29,11 +29,15 @@ WORKFLOW:
 
 4. Telegram Delivery — After the HTML file is created, source ~/.hermes/.env and use the Telegram Bot API to send the file as a document. The bot token and chat id are in the env file under TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID. Construct the sendDocument POST request to api.telegram.org with the HTML file attached and an HTML-parsed caption including the briefing title and date. Print the response to confirm.
 
-5. Web Deployment — Execute these exact bash commands to archive the daily report, update the index wrapper, and push to GitHub Pages:
+5. Web Deployment — Archive the daily report, update the index wrapper, commit .nojekyll, and push to GitHub Pages:
+   REPORT_PATH="/home/hermes/intel_briefing_$(TZ=Australia/Sydney date +%Y-%m-%d).html"
    python3 /home/hermes/hermes-intel-briefs/build_index.py
-   cd /home/hermes/hermes-intel-briefs
-   git add index.html archive/
-   git commit -m "Auto-publish daily intel report: $(date +%Y-%m-%d)"
+   cd /home/hermes/hermes-intel-briefs && cp "$REPORT_PATH" archive/ && git add index.html archive/ .nojekyll
+   git commit -m "Auto-publish daily intel report: $(TZ=Australia/Sydney date +%Y-%m-%d)"
+   source /home/hermes/.hermes/.env
+   git remote set-url origin "https://${GITHUB_TOKEN}@github.com/happycode0/hermes-intel-briefs.git"
    git push origin main
+   git remote set-url origin "https://github.com/happycode0/hermes-intel-briefs.git"
+   echo "Published to GitHub Pages."
 
 If any GitHub search or web fetch fails, skip that item and continue — partial data is acceptable. Never fabricate results or hallucinate repo metrics. A report with 0 valid repos is better than one with fictional entries.
