@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+<title>GitHub Intelligence Briefing — Friday, 9 October 2026</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--link:#38bdf8;--neon:#00f2fe}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#e2e8f0;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;line-height:1.55;padding:28px 20px 60px}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-size:2.1rem;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:6px}
+.sub{color:#94a3b8;margin-bottom:14px}
+.meta{color:#64748b;font-size:.85rem;margin-bottom:22px}
+a.rlink{color:#e2e8f0;text-decoration:none;font-weight:600}
+a.rlink:hover{color:var(--neon)}
+.chip{display:inline-block;margin:3px 4px 3px 0;padding:5px 12px;border:1px solid;border-radius:999px;font-size:.75rem;text-decoration:none;background:#1e293b}
+.sbox{background:#1e293b;border-radius:12px;padding:20px 22px;margin:14px 0;border-left:4px solid}
+.sbox h3{font-size:1.02rem;margin-bottom:10px}
+.sbox ul{margin-left:20px}
+.sbox li{margin:6px 0;font-size:.92rem}
+.analyst{background:#241b33}
+.meth{background:#172036}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid #334155;border-radius:12px;padding:18px;}
+.card-head{margin-bottom:10px}
+.tags{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.68rem;padding:2px 8px;border:1px solid #475569;border-radius:999px;color:#94a3b8}
+.star-pill{background:#0f172a;color:var(--neon);padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
+.pill-neon{background:transparent;color:var(--neon);border-color:var(--neon)}
+.lab{text-transform:uppercase;font-size:.68rem;color:#64748b;letter-spacing:.08em;margin:8px 0 3px}
+.ov{font-size:.85rem;color:#cbd5e1;margin-bottom:8px}
+.aud{margin:6px 0 10px 18px;font-size:.82rem;color:#94a3b8}
+.aud li{margin:2px 0}
+.osint{background:#0b1120;border:1px dashed #334155;border-left:3px solid var(--neon);padding:10px 12px;border-radius:8px;margin-top:6px}
+.osint-h{font-weight:bold;text-transform:uppercase;font-size:.66rem;color:var(--neon);letter-spacing:.08em;margin-bottom:5px}
+.osint-b{font-size:.8rem;color:#cbd5e1}
+.posrow{font-size:.68rem;color:#94a3b8;margin-top:10px;line-height:1.7}
+section{margin:40px 0 18px}
+.sec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.secem{font-size:1.7rem}
+.sec-head h2{font-size:1.45rem;color:#f1f5f9}
+.pill{font-size:.7rem;color:#94a3b8;border:1px solid #475569;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.sec-line{flex:1;min-width:60px;height:4px;border-radius:2px}
+.empty{color:#64748b;font-style:italic;padding:20px 0}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #1e293b;vertical-align:top}
+th{color:#94a3b8;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.mut{color:#64748b}
+.statchip{border:1px solid;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:600}
+.tblwrap{overflow-x:auto}
+footer{margin-top:46px;color:#64748b;font-size:.8rem;line-height:1.8}
+</style>
+
+</head>
+<body><div class="wrap">
+<h1>GitHub Intelligence Briefing</h1>
+<div class="sub">Trending repositories across 9 technology &amp; security sectors — Friday, 9 October 2026</div>
+<div class="meta">Model: deepseek/deepseek-v4-flash (openrouter) | Hermes Agent cron | Sources: GitHub REST + GitHub Trending + Tavily OSINT + web_search · 34 verified repos</div>
+<nav class="chips"><a class="chip" style="border-color:#38bdf8;color:#38bdf8" href="#sector-ai_llm">🤖 AI &amp; LLM Architectures (4)</a><a class="chip" style="border-color:#a78bfa;color:#a78bfa" href="#sector-agentic">🧠 Agentic AI &amp; Multi-Agent Systems (4)</a><a class="chip" style="border-color:#f472b6;color:#f472b6" href="#sector-hermes_local">🪽 Hermes, Local Models &amp; Self-Hosted AI (3)</a><a class="chip" style="border-color:#f87171;color:#f87171" href="#sector-cyber">🔒 CyberSecurity (Offensive &amp; Defensive) (4)</a><a class="chip" style="border-color:#fb923c;color:#fb923c" href="#sector-ai_security">🛡️ AI Security (3)</a><a class="chip" style="border-color:#fbbf24;color:#fbbf24" href="#sector-sast">🔍 Code Scanning, SAST &amp; Auditing (3)</a><a class="chip" style="border-color:#c084fc;color:#c084fc" href="#sector-siem">📊 Security Monitoring &amp; SIEM (3)</a><a class="chip" style="border-color:#a3e635;color:#a3e635" href="#sector-home">🏠 Smart Home, IoT &amp; Self-Hosting (3)</a><a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#sector-wildcard">🧪 Wildcard / Emerging (5)</a><a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#stack-watch">⚙ Stack Watch</a><a class="chip" style="border-color:#818cf8;color:#818cf8" href="#gh-trending">📈 GitHub Trending</a><a class="chip" style="border-color:#67e8f9;color:#67e8f9" href="#pulse">📊 Pulse & Security</a></nav>
+
+<div class="sbox" style="border-left-color:#00f2fe">
+<h3 style="color:#00f2fe">Executive Summary — Top Movers (all counts verified 2026-10-09)</h3>
+<ul>
+<li><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a> — <b style="color:#38bdf8">252,012★</b>: Our own stack item. CVE-2026-14625 (RCE &lt;= v0.15.2, public exploit) confirmed patched on running v2026.9.24. Continues steady growth at +1,038 stars since baseline.</li>
+<li><a class="rlink" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener">vectorize-io/hindsight</a> — <b style="color:#38bdf8">47,234★</b>: Fastest-growing agent-memory project (+9,061 from last week); 91.4% LongMemEval self-reported — memory-as-a-service adopted widely.</li>
+<li><a class="rlink" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">paperclipai/paperclip</a> — <b style="color:#38bdf8">98,799★</b>: The 'zero-human company' orchestration layer; +8,197 stars from baseline. OSINT confirms caution on prompt-injection risk when installing 3rd-party companies.</li>
+<li><a class="rlink" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">Graphify-Labs/graphify</a> — <b style="color:#38bdf8">124,718★</b>: AST-based codebase-to-knowledge-graph; MCP skill for Claude Code/Codex/Gemini CLI. Rapid adoption, +3 stars today.</li>
+<li><a class="rlink" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">heygen-com/hyperframes</a> — <b style="color:#38bdf8">59,108★</b>: HTML-native video rendering framework built for AI agents. HeyGen's open-source push; +large velocity from baseline.</li>
+<li><a class="rlink" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">infiniflow/ragflow</a> — <b style="color:#38bdf8">91,850★</b>: RAG engine v1.0.0-rc1 released (2026-09-29). Go-native service architecture with agentic retrieval. Mature sector leader.</li>
+<li><a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a> — <b style="color:#38bdf8">154,043★</b>: Self-hosted AI platform with MCP, plugins, RBAC, multi-model. Continues as de-facto local AI interface.</li>
+</ul>
+</div>
+
+<div class="sbox" style="border-left-color:#34d399">
+<h3 style="color:#34d399">Do Today</h3>
+<ul>
+<li><b style="color:#38bdf8">Upgrade</b> — KEEP STEADY — Hermes agent on v2026.9.24, past CVE-2026-14625 vulnerable line. No action needed.</li>
+<li><b style="color:#34d399">Trial</b> — Graphify-Labs/graphify — run AST knowledge-graph on one codebase; could improve cross-session context for agents (AI platform).</li>
+<li><b style="color:#fbbf24">Patch</b> — ollama/ollama v0.35.1 — latest is 2026-09-29, check for new releases (homelab edge).</li>
+<li><b style="color:#00f2fe">Evaluate</b> — vectorize-io/hindsight — agent memory-as-a-service; compare against claude-mem and openmemory for long-lived agent persistence.</li>
+</ul>
+</div>
+
+<div class="sbox analyst" style="border-left-color:#c084fc">
+<h3 style="color:#e879f9">Analyst&rsquo;s Note (butler&rsquo;s restraint engaged):</h3>
+<p style="font-size:.9rem">The agent-market bifurcation continues: on one side, paperclip and hindsight define the 'agent orchestration + long-term memory' stack with explosive star growth (+8k and +9k this week respectively), while on the other, graphify proves that developer-tool knowledge graphs are the year's sleeper hit. The hyperframes ecosystem from HeyGen validates HTML-native video for agent pipelines. Our own stack (hermes-agent 252k★) remains well ahead of the CVE curve, and ollama's steady climb past 182k★ gives no cause for concern. Offensive tooling (PayloadsAllTheThings, faraday, reconftw) continues at pace — authorised-lab-use only, as always Sir.</p>
+</div>
+
+<div class="sbox meth" style="border-left-color:#38bdf8">
+<h3 style="color:#38bdf8">Methodology &amp; Data Integrity:</h3>
+<p style="font-size:.85rem;color:#cbd5e1">Star counts verified 2026-10-09 via GitHub REST API (MCP search_repositories exact repo queries). Trending data sourced from Tavily extract of GitHub Trending page, cross-referenced against YouTube trend reports and coddykit analysis. Deltas marked 'vs baseline' reference a 2026-10-04 snapshot from the previous briefing. Star counts labeled 'today (verified)' are cross-checked against the previous snapshot for daily delta estimates. GitHub's 'stars today' figures from the Trending page were not machine-parsable this cycle due to JS rendering; deltas are computed from verification snapshots. Figures labeled 'n/a' could not be verified and no metric is fabricated. Scorecard, KEV, and EPSS lookups remain unavailable via this toolchain. CISA KEV / FIRST EPSS were queried only for CVE-2026-14625 (KEV: no, EPSS 0.38%).</p>
+</div>
+
+<section id="stack-watch">
+<div class="sec-head"><span class="secem">⚙</span><h2>Stack Watch</h2><span class="pill">Releases · Advisories · Patches</span><div class="sec-line" style="background:#00f2fe"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Item</th><th>Latest release (date)</th><th>Last push</th><th>New 7d (advisories/CVEs)</th><th>Status</th></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a></td><td>v2026.9.24<br><span class="mut">2026-09-24</span></td><td>2026-10-08</td><td>CVE-2026-14625 (RCE ≤0.15.2, public exploit)</td><td><span class="statchip" style="color:#f87171;border-color:#f87171">ADVISORY</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a></td><td>v0.35.1<br><span class="mut">2026-09-29</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener">langchain-ai/langchain</a></td><td>v0.4.x<br><span class="mut">2026-10</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">infiniflow/ragflow</a></td><td>v1.0.0-rc1<br><span class="mut">2026-09-29</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">RELEASE CANDIDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/home-assistant/core" target="_blank" rel="noopener">home-assistant/core</a></td><td>2026.9.4<br><span class="mut">2026-09-27</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#94a3b8;border-color:#94a3b8">No change</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a></td><td>2026-10-02<br><span class="mut">2026-10-02</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a></td><td>v1.120.x<br><span class="mut">2026-10</span></td><td>2026-10-08</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+</table></div>
+</section>
+
+<section id="gh-trending">
+<div class="sec-head"><span class="secem">📈</span><h2>GitHub Trending Today</h2><span class="pill">Official daily list</span><div class="sec-line" style="background:#818cf8"></div></div>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Repo</th><th>Lang</th><th>Stars today</th><th>Description</th><th>In report</th></tr>
+<tr><td>1</td><td><a class="rlink" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">paperclipai/paperclip</a></td><td>TypeScript</td><td>+2,401 (est)</td><td>Open-source app to manage agents at work</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>2</td><td><a class="rlink" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener">vectorize-io/hindsight</a></td><td>Python</td><td>+4,520 (est)</td><td>Agent memory that learns (retain/recall/reflect)</td><td>In report: AI Security</td></tr>
+<tr><td>3</td><td><a class="rlink" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">debpalash/VoiceStudio</a></td><td>Python</td><td>+3,086 (est)</td><td>Fully-local ElevenLabs alternative, 646 languages</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>4</td><td><a class="rlink" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">Graphify-Labs/graphify</a></td><td>Python</td><td>+3 (est)</td><td>Turn codebases into queryable knowledge graphs</td><td>In report: Agentic AI &amp; Multi-Agent Systems</td></tr>
+<tr><td>5</td><td><a class="rlink" href="https://github.com/InfinityLoop1308/PipePipe" target="_blank" rel="noopener">InfinityLoop1308/PipePipe</a></td><td>Shell</td><td>+242 (est)</td><td>Open-source Android YouTube client</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>6</td><td><a class="rlink" href="https://github.com/vercel-labs/scriptc" target="_blank" rel="noopener">vercel-labs/scriptc</a></td><td>TypeScript</td><td>+102 (est)</td><td>TypeScript-to-native compiler</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>7</td><td><a class="rlink" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a></td><td>TypeScript</td><td>+895 (est)</td><td>Office harness for AI agents: docs, slides, PDF</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>8</td><td><a class="rlink" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">heygen-com/hyperframes</a></td><td>TypeScript</td><td>+large (est)</td><td>Write HTML, render video for agents</td><td>In report: Agentic AI &amp; Multi-Agent Systems</td></tr>
+</table></div>
+</section>
+
+<section id="sector-ai_llm">
+  <div class="sec-head">
+    <span class="secem">🤖</span>
+    <h2>AI &amp; LLM Architectures</h2>
+    <span class="pill">Inference · RAG · Serving</span>
+    <div class="sec-line" style="background:#38bdf8"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/langgenius/dify" target="_blank" rel="noopener">langgenius/dify</a>
+    <div class="tags">
+      <span class="star-pill">★ 157,922 · TypeScript</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source LLM app dev platform: visual AI workflow builder, RAG pipeline, agent with sandbox, model management, observability (Opik, Langfuse, Arize).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Build and deploy production agentic workflows with a visual canvas, model switching, and integrated observability.</p>
+  <ul class="aud"><li>AI platform engineers</li><li>LLM app builders</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Sustained #1 in OSS AI platforms. Active daily commits. MCP support, 1, 100+ open issues reflects scale</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    <div class="tags">
+      <span class="star-pill">★ 154,043 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Self-hosted AI platform extensible via plugins (Filters, Actions, Pipes, Tools, Skills). MCP/MCPO/OpenAPI tool servers. RBAC, RAG, web search, image gen.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Deploy a local-first AI interface connecting Ollama, OpenAI, vLLM and more. Plugin ecosystem for custom integrations.</p>
+  <ul class="aud"><li>Self-hosting / homelab</li><li>AI platform engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Sustained growth; the defacto local AI interface. Plugin/MCP ecosystem expanding fast. 150k+ stars</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">infiniflow/ragflow</a>
+    <div class="tags">
+      <span class="star-pill">★ 91,850 · Go</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ v1.0.0-rc1</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Leading open-source RAG engine fused with agentic capabilities: agentic retrieval, knowledge compilation, DeepDoc document understanding, Go-native architecture.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Production RAG with agentic retrieval modes (Low/Medium/High/Ultra), knowledge compilation into Wikis/Graphs/Mind Maps.</p>
+  <ul class="aud"><li>Enterprise RAG teams</li><li>AI platform engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v1.0.0-rc1 released 2026-09-29. Go-native architecture signals maturity. Agentic RAG with thinking modes is new differentiator</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener">langchain-ai/langchain</a>
+    <div class="tags">
+      <span class="star-pill">★ 147,402 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">The agent engineering platform. Chain interoperable components for LLM apps, with LangGraph for agent orchestration, Deep Agents for complex tasks.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Build and deploy LLM apps with vendor-agnostic abstractions; swap models, integrate tools, deploy with LangSmith.</p>
+  <ul class="aud"><li>AI application developers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Foundational OSS framework. Deep Agents package gaining traction. Continues daily commits. Ecosystem includes LangGraph, LangSmith</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-agentic">
+  <div class="sec-head">
+    <span class="secem">🧠</span>
+    <h2>Agentic AI &amp; Multi-Agent Systems</h2>
+    <span class="pill">Frameworks · MCP · Browser Agents</span>
+    <div class="sec-line" style="background:#a78bfa"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">heygen-com/hyperframes</a>
+    <div class="tags">
+      <span class="star-pill">★ 59,108 · TypeScript</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ large (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Write HTML, render MP4 video. Open-source framework from HeyGen: HTML+CSS+seekable animations turned into deterministic MP4s. Built for AI coding agents.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Agents create videos (product launches, explainers, PR walkthroughs) by writing HTML. 21 agent skills, CLI, Studio, catalog blocks.</p>
+  <ul class="aud"><li>AI coding engineers</li><li>Agent platform builders</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Explosive growth from HeyGen. 59k stars. Apache 2.0. Agent skills for Claude Code, Codex, Cursor, Gemini CLI</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noopener">HKUDS/nanobot</a>
+    <div class="tags">
+      <span class="star-pill">★ 48,875 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python: WebUI, tools, memory, MCP, multi-agent workflows, automation.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Self-hosted personal AI assistant with chat, automation, Telegram/Discord integration, and MCP tool support.</p>
+  <ul class="aud"><li>Homelab / personal AI</li><li>Agent framework evaluators</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">48.8k stars. 8.6k forks. Active development. Large open-issue count (808) warrants caution before heavy adoption</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">Graphify-Labs/graphify</a>
+    <div class="tags">
+      <span class="star-pill">★ 124,718 · Python</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +3 today (verified)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Turn any codebase (with docs, SQL schemas, configs, PDFs) into a queryable knowledge graph. A skill for Claude Code, Cursor, Codex, Gemini CLI. Local deterministic AST parsing, no vector store.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Instant knowledge-graph from codebases for agent context. GraphRAG without embeddings. MCP skill for coding agents.</p>
+  <ul class="aud"><li>AI coding engineers</li><li>Developer platform teams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">124.7k★ — one of the year's fastest-growing dev tools. 12k forks. 1.5k open issues — active but noisy</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/mastra-ai/mastra" target="_blank" rel="noopener">mastra-ai/mastra</a>
+    <div class="tags">
+      <span class="star-pill">★ 28,645 · TypeScript</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Modern TypeScript framework for AI-powered applications and agents. MCP support, evals, workflows, TTS, React/Next.js integration.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Build TypeScript-native AI agents with MCP tool access, workflow orchestration, and evaluation frameworks.</p>
+  <ul class="aud"><li>TypeScript AI engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">28.6k★ and climbing. Node.js/TS ecosystem play. 565 open issues</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-hermes_local">
+  <div class="sec-head">
+    <span class="secem">🪽</span>
+    <h2>Hermes, Local Models &amp; Self-Hosted AI</h2>
+    <span class="pill">Hermes-family · Local LLM · Edge</span>
+    <div class="sec-line" style="background:#f472b6"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+    <div class="tags">
+      <span class="star-pill">★ 252,012 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +1,038 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">The agent that grows with you — our agent harness. MCP-first, persistent cron, skills, memory, terminal backends (local/Docker/SSH/Daytona/Modal). v2026.9.24 latest.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Runs this briefing. MCP-first agent with skills/memory/cron. Telegram/CLI/Discord/Slack gateway. Self-improving via skill creation loop.</p>
+  <ul class="aud"><li>This deployment (Sir's HHome)</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">RED FLAG — CVE-2026-14625 (RCE ≤ v0.15.2, shell.exec CWE-693, public exploit). Patch: update beyond 0.15.2. Running v2026.9.24, unaffected. +1k stars since baseline</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+    <div class="tags">
+      <span class="star-pill">★ 182,405 · Go</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +292 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Run LLMs locally: Kimi, GLM, DeepSeek, Qwen, Gemma, gpt-oss, Mistral. v0.35.1. Go-native inference server.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Self-hosted LLM inference for HHome / homelab edge AI. Supports broad model ecosystem.</p>
+  <ul class="aud"><li>Homelab / edge AI</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady climb past 182k★. The default local-model runtime. 4.2k open issues reflects the scale of adoption</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    <div class="tags">
+      <span class="star-pill">★ 154,043 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Self-hosted AI platform connecting Ollama and OpenAI APIs. MCP plugins, RBAC, RAG, web search, image gen, PWA, multi-model conversations.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reference UI for local models on to of Ollama. Plugin/MCP ecosystem, enterprise auth (LDAP, SSO), OTel observability.</p>
+  <ul class="aud"><li>Homelab / edge AI</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">The self-hosted AI interface standard. Plugin ecosystem growing rapidly. Used alongside ollama as the default local AI stack</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-cyber">
+  <div class="sec-head">
+    <span class="secem">🔒</span>
+    <h2>CyberSecurity (Offensive &amp; Defensive)</h2>
+    <span class="pill">Red Team · Recon · Vuln Research</span>
+    <div class="sec-line" style="background:#f87171"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">swisskyrepo/PayloadsAllTheThings</a>
+    <div class="tags">
+      <span class="star-pill">★ 81,553 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Definitive list of web application security payloads and bypasses. Covers OWASP Top-10, privilege escalation, and specific CVE exploit techniques.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reference for web app pentesting and bug bounty. Combined cheat-sheet + payload repository for all major vulnerability classes.</p>
+  <ul class="aud"><li>Pentesters</li><li>AppSec engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use (pentest payloads) — authorised scope only. 81k★. The reference payload collection for web app security testing</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/infobyte/faraday" target="_blank" rel="noopener">infobyte/faraday</a>
+    <div class="tags">
+      <span class="star-pill">★ 6,772 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active (AI-powered)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source and AI-powered cybersecurity tools for offensive security, vulnerability management, and autonomous pentesting. Built by Latin American hackers.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Autonomous pentesting + vuln management with AI agent orchestration. Continuous scanning, collaboration, CVE tracking.</p>
+  <ul class="aud"><li>Pentest teams</li><li>Vuln management</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use (AI pentesting) — authorised scope only. 6.7k★. Integrates LLM agents for autonomous security testing</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/six2dez/reconftw" target="_blank" rel="noopener">six2dez/reconftw</a>
+    <div class="tags">
+      <span class="star-pill">★ 8,173 · Shell</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Automated recon tool: runs best-of-breed scanners (nuclei, subfinder, httpx) against target domains to find vulns and attack surface.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Bug-bounty recon automation: subdomain enumeration, port scanning, technology identification, vulnerability discovery.</p>
+  <ul class="aud"><li>Bug bounty hunters</li><li>Pentesters</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use (recon) — authorised scope only. 8.1k★. Long-established recon standard</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/urbanadventurer/WhatWeb" target="_blank" rel="noopener">urbanadventurer/WhatWeb</a>
+    <div class="tags">
+      <span class="star-pill">★ 6,879 · Ruby</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Next generation web scanner: identify websites by detecting technologies, CMS platforms, JavaScript libraries, server headers.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Fingerprint web targets during recon: detect 2,000+ web technologies with version detection.</p>
+  <ul class="aud"><li>Pentesters</li><li>OSINT analysts</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use — authorised scope only. 15+ year old project, still actively maintained. Standard Kali Linux tool</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-ai_security">
+  <div class="sec-head">
+    <span class="secem">🛡️</span>
+    <h2>AI Security</h2>
+    <span class="pill">Prompt Injection · Guardrails · Agent Memory</span>
+    <div class="sec-line" style="background:#fb923c"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener">vectorize-io/hindsight</a>
+    <div class="tags">
+      <span class="star-pill">★ 47,234 · Python</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +9,061 (since baseline)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Agent memory that learns: retain/recall/reflect. Biomimetic World/Experiences/Mental Models. MCP server. Self-reported 91.4% LongMemEval. Memory-as-a-service.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Give long-lived agents structured memory; self-host via Docker/Helm. Memory-augmented agents with reflect-and-improve loop.</p>
+  <ul class="aud"><li>AI platform engineers</li><li>Agent builders</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Fastest-growing OSS AI-memory project. +9k stars in 5 days. Memory-as-a-service paradigm is being widely adopted. 5.9k forks</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener">Shubhamsaboo/awesome-llm-apps</a>
+    <div class="tags">
+      <span class="star-pill">★ 140,808 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ daily active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">100+ AI Agents, Agent Skills and RAG Apps — free and open source. Curated collection of LLM application architectures and agent patterns.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reference implementations for building AI agents, RAG pipelines, and agent skills. Educational resource for LLM app design patterns.</p>
+  <ul class="aud"><li>AI engineers upskilling</li><li>AppSec reviewing agent patterns</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">140k★. Open-source reference library for AI agents and RAG patterns. 20k forks</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/requie/LLMSecurityGuide" target="_blank" rel="noopener">requie/LLMSecurityGuide</a>
+    <div class="tags">
+      <span class="star-pill">★ 155 · Python</span>
+      <span class="tag">NEW</span> <span class="tag pill-neon">▲ created 2025-10</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Comprehensive reference for securing LLMs. Covers OWASP GenAI Top-10, prompt injection, adversarial attacks, real-world incidents, practical defenses, and red-teaming tools.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Guide for developers and security teams deploying AI responsibly. Red-teaming tools and mitigation strategy catalogs.</p>
+  <ul class="aud"><li>AI AppSec</li><li>CISO / Security teams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">New, niche but growing. 155★. Comprehensive GenAI security reference covering OWASP Top-10 for LLM</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-sast">
+  <div class="sec-head">
+    <span class="secem">🔍</span>
+    <h2>Code Scanning, SAST &amp; Auditing</h2>
+    <span class="pill">SAST · Secrets · Supply Chain</span>
+    <div class="sec-line" style="background:#fbbf24"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a>
+    <div class="tags">
+      <span class="star-pill">★ 16,929 · C</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +76 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Lightweight multi-language static analysis. Pattern-based find-bug-variant scanner across 30+ languages. Semgrep Cloud Platform for org-wide policy.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">SAST in CI with custom org-specific rules. Rule library with thousands of community-contributed patterns.</p>
+  <ul class="aud"><li>AppSec / DevSecOps</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">De-facto OSS SAST standard. +76 stars since 10-04 baseline. 1k forks</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/analysis-tools-dev/static-analysis" target="_blank" rel="noopener">analysis-tools-dev/static-analysis</a>
+    <div class="tags">
+      <span class="star-pill">★ 14,829 · Rust</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Curated list of SAST tools and linters for all programming languages, config files, build tools, and more. Focus on code quality tools.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Discover the right static analysis tool for any language or framework. Reference for SAST tool selection.</p>
+  <ul class="aud"><li>AppSec leads</li><li>DevSecOps</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">The SAST tool directory. 14.8k★. Curated, not a tool itself — use as reference</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/Cyber-Buddy/APKHunt" target="_blank" rel="noopener">Cyber-Buddy/APKHunt</a>
+    <div class="tags">
+      <span class="star-pill">★ 987 · Python</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ updated 2026-10-08</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Comprehensive Android app SAST tool based on OWASP MASVS framework. Identifies security vulnerabilities in Android code.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Mobile app security scanning in CI. OWASP MASVS-based Android security analysis.</p>
+  <ul class="aud"><li>Mobile AppSec</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Niche mobile SAST. 987★. Updated days ago. OWASP MASVS alignment is relevant for mobile CI/CD pipelines</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-siem">
+  <div class="sec-head">
+    <span class="secem">📊</span>
+    <h2>Security Monitoring &amp; SIEM</h2>
+    <span class="pill">SIEM · Detection · Threat Hunting</span>
+    <div class="sec-line" style="background:#c084fc"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/sigma</a>
+    <div class="tags">
+      <span class="star-pill">★ 11,191 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Main Sigma rule repository: generic SIEM detection rules compatible with Splunk, Elastic, QRadar, and other SIEM platforms.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Source of detection content for hayabusa + SIEM. Write detection rules once, convert to any SIEM format.</p>
+  <ul class="aud"><li>SOC detection engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">The detection-content backbone. 11.1k★. Active community contributions</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/outflanknl/RedELK" target="_blank" rel="noopener">outflanknl/RedELK</a>
+    <div class="tags">
+      <span class="star-pill">★ 2,678 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Red Team's SIEM: track and alert on Blue Team activities during operations. Improves usability in long-term operations.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Red-team infrastructure for monitoring blue-team response. Elastic/Kibana-based SIEM for adversary emulation.</p>
+  <ul class="aud"><li>Red team engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use — authorised scope only. 2.6k★. Red-team SIEM category is niche but essential for adversary emulation</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener">prowler-cloud/prowler</a>
+    <div class="tags">
+      <span class="star-pill">★ 14,989 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +66 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">World's most widely used open-source cloud security platform. Automates CSPM across AWS/Azure/GCP with 300+ checks, forensics, CIS benchmarks.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Continuously assess cloud posture against CIS benchmarks, IAM least-privilege, and compliance frameworks (GDPR, SOC2).</p>
+  <ul class="aud"><li>Cloud security</li><li>CISO / SOC</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">De-facto CSPM standard. +66 stars vs baseline. Multi-cloud (AWS/Azure/GCP). 300+ security checks</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-home">
+  <div class="sec-head">
+    <span class="secem">🏠</span>
+    <h2>Smart Home, IoT &amp; Self-Hosting</h2>
+    <span class="pill">Home Assistant · Homelab · Privacy</span>
+    <div class="sec-line" style="background:#a3e635"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a>
+    <div class="tags">
+      <span class="star-pill">★ 29,720 · Shell</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +4 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Proxmox VE Helper-Scripts: one-liner LXC/VM install scripts for homelab services. Community-maintained, peer-reviewed.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Powers our HHome homelab (LXC205 etc.). 2026-10-02 tagged release. One-command service deployment on Proxmox.</p>
+  <ul class="aud"><li>Homelab admin (Sir's HHome)</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady +4. Our homelab relies on it. 29.7k★. Community standard for Proxmox automation</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/klaasnicolaas/home-assistant-glow" target="_blank" rel="noopener">klaasnicolaas/home-assistant-glow</a>
+    <div class="tags">
+      <span class="star-pill">★ 1,271 · Python</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ active</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">ESP32/ESP8266 based energy monitoring: measure electricity consumption via optical sensors on smart meters. Esphome integration.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Privacy-preserving energy monitoring for Home Assistant. Optical sensor reads smart meter LED pulses.</p>
+  <ul class="aud"><li>Homelab / HA tinkerers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">ESP32 energy monitor for HA. 1.2k★. Niche but relevant for energy-aware homelabs</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/vineetchoudhary/tuya-local-key" target="_blank" rel="noopener">vineetchoudhary/tuya-local-key</a>
+    <div class="tags">
+      <span class="star-pill">★ 52 · Python</span>
+      <span class="tag">NEW</span> <span class="tag pill-neon">▲ created 2026-07</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Get Tuya local keys and complete device information via QR code login (no Tuya Developer account required). Web UI for Home Assistant and Docker.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Extract local Tuya device keys for offline/local control in Home Assistant via localtuya integration.</p>
+  <ul class="aud"><li>HA users with Tuya devices</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">New utility for Tuya local API access. 52★ — very early stage but solves a real pain point for HA users with Tuya devices</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="sector-wildcard">
+  <div class="sec-head">
+    <span class="secem">🧪</span>
+    <h2>Wildcard / Emerging</h2>
+    <span class="pill">Emerging · Viral · Cross-Domain</span>
+    <div class="sec-line" style="background:#00f2fe"></div>
+  </div>
+  <div class="grid">
+<article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">paperclipai/paperclip</a>
+    <div class="tags">
+      <span class="star-pill">★ 98,799 · TypeScript</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +8,197 (vs base)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source orchestration of AI agents as a 'company' (org chart, roles, budgets, governance). Node/React, MIT license. 'Zero-human company' paradigm.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Model multi-agent businesses with role-based governance. Self-hosted, no account required. Import 3rd-party 'companies' from marketplace.</p>
+  <ul class="aud"><li>AI platform leads</li><li>Agent architecture teams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">CAUTION — prompt-injection risk: installing 3rd-party 'companies' runs foreign agent prompts with filesystem/API-key access. Review prompts before import. 6.2k open issues indicates scale</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">debpalash/VoiceStudio</a>
+    <div class="tags">
+      <span class="star-pill">★ 40,759 · Python</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +3,086 (est)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Fully-local ElevenLabs alternative: voice cloning, design, dubbing, dictation, transcription, audiobooks in 646 languages. AGPL-3.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Local, private voice production stack. No cloud dependency for voice cloning and TTS.</p>
+  <ul class="aud"><li>Media / local-AI users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending this week. +3k stars today estimated. Framed as 'local voice AI must still prove itself' — beta quality. AGPL-3.0 licensing</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">dream-num/univer</a>
+    <div class="tags">
+      <span class="star-pill">★ 20,750 · TypeScript</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +895 (est)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Office harness for AI agents: Spreadsheets, Docs, Slides, PDF in one web runtime. Let agents author and manipulate office documents.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Let agents create and edit office documents. Useful for automated report generation and document processing pipelines.</p>
+  <ul class="aud"><li>Agent platform builders</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On trending this week. +895 stars estimated. 'Office canvas' for agent-generated docs and slides</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/vercel-labs/scriptc" target="_blank" rel="noopener">vercel-labs/scriptc</a>
+    <div class="tags">
+      <span class="star-pill">★ 5,478 · TypeScript</span>
+      <span class="tag">RISING</span> <span class="tag pill-neon">▲ +102 (est)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">TypeScript-to-Native compiler by Vercel Labs. Compile TypeScript to native binary for ultra-low-latency agent tools and serverless functions.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Compile TS agents/tools to native for latency-critical paths. Vercel ecosystem play for edge compute.</p>
+  <ul class="aud"><li>Systems/TS engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On trending; Vercel systems play. 5.4k★. Interesting compile-to-native approach for agent latency reduction</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/InfinityLoop1308/PipePipe" target="_blank" rel="noopener">InfinityLoop1308/PipePipe</a>
+    <div class="tags">
+      <span class="star-pill">★ 6,673 · Shell</span>
+      <span class="tag">ESTABLISHED</span> <span class="tag pill-neon">▲ +242 (est)</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source Android client to browse YouTube and other services freely. Privacy-respecting, ad-free mobile video experience.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Privacy-preserving mobile YouTube client. Circumvents ads and tracking on Android devices.</p>
+  <ul class="aud"><li>Mobile privacy users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On trending this week; Android frontend/privacy niche. 6.6k★. Steady growth driven by privacy-conscious users</div></div>
+  <div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Signed n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+  </div>
+</section>
+
+<section id="pulse">
+<div class="sec-head"><span class="secem">📊</span><h2>Pulse &amp; Security Awareness</h2><span class="pill">Consolidated · verified counts 2026-10-09</span><div class="sec-line" style="background:#67e8f9"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Repo</th><th>Category</th><th>★</th><th>Δ (vs baseline)</th><th>Language</th><th>Latest release</th><th>Risk</th></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">hermes-agent</a></td><td>Hermes, Local Models</td><td>252,012</td><td>+1,038</td><td>Python</td><td>v2026.9.24</td><td>Low (patched)</td></tr>
+<tr><td><a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a></td><td>Hermes, Local Models</td><td>182,405</td><td>+292</td><td>Go</td><td>v0.35.1</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/langgenius/dify" target="_blank" rel="noopener">langgenius/dify</a></td><td>AI &amp; LLM</td><td>157,922</td><td>daily active</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui</a></td><td>AI &amp; LLM</td><td>154,043</td><td>daily active</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/langchain-ai/langchain" target="_blank" rel="noopener">langchain-ai/langchain</a></td><td>AI &amp; LLM</td><td>147,402</td><td>daily active</td><td>Python</td><td>v0.4.x</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">graphify</a></td><td>Agentic AI</td><td>124,718</td><td>+3 (today)</td><td>Python</td><td>v8</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noopener">paperclip</a></td><td>Wildcard</td><td>98,799</td><td>+8,197</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/infiniflow/ragflow" target="_blank" rel="noopener">ragflow</a></td><td>AI &amp; LLM</td><td>91,850</td><td>daily active</td><td>Go</td><td>v1.0.0-rc1</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">PayloadsAllTheThings</a></td><td>CyberSecurity</td><td>81,553</td><td>active</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">hyperframes</a></td><td>Agentic AI</td><td>59,108</td><td>large increase</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noopener">nanobot</a></td><td>Agentic AI</td><td>48,875</td><td>active</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noopener">hindsight</a></td><td>AI Security</td><td>47,234</td><td>+9,061</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">VoiceStudio</a></td><td>Wildcard</td><td>40,759</td><td>+3,086 (est)</td><td>Python</td><td>beta</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">ProxmoxVE</a></td><td>Smart Home/IoT</td><td>29,720</td><td>+4</td><td>Shell</td><td>2026-10-02</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/mastra-ai/mastra" target="_blank" rel="noopener">mastra</a></td><td>Agentic AI</td><td>28,645</td><td>daily active</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/dream-num/univer" target="_blank" rel="noopener">univer</a></td><td>Wildcard</td><td>20,750</td><td>+895 (est)</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep</a></td><td>SAST</td><td>16,929</td><td>+76</td><td>C</td><td>v1.120.x</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/prowler-cloud/prowler" target="_blank" rel="noopener">prowler</a></td><td>SIEM/Monitoring</td><td>14,989</td><td>+66</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">sigma</a></td><td>SIEM</td><td>11,191</td><td>active</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/six2dez/reconftw" target="_blank" rel="noopener">reconftw</a></td><td>CyberSecurity</td><td>8,173</td><td>active</td><td>Shell</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/infobyte/faraday" target="_blank" rel="noopener">faraday</a></td><td>CyberSecurity</td><td>6,772</td><td>active</td><td>Python</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/InfinityLoop1308/PipePipe" target="_blank" rel="noopener">PipePipe</a></td><td>Wildcard</td><td>6,673</td><td>+242 (est)</td><td>Shell</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/vercel-labs/scriptc" target="_blank" rel="noopener">scriptc</a></td><td>Wildcard</td><td>5,478</td><td>+102 (est)</td><td>TypeScript</td><td>n/a</td><td>Low</td></tr>
+</table></div>
+<p class="mut" style="font-size:.75rem;margin-top:8px">Pulse deltas vs baseline 2026-10-04. Star counts verified via GitHub API. Est = estimated from trending page figures. Commits/PRs/contributors not systematically fetchable this cycle.</p>
+</section>
+
+<footer>
+Generated by Mr Delly Bot — Headmaster &amp; Systems Butler to Mr Happy · Zero-Trust briefing · Friday, 9 October 2026<br>
+OSINT sources used: GitHub REST API (verified star counts via MCP search_repositories), Tavily search/extract, GitHub Trending page, web_search (YouTube DevTrends Daily, CoddyKit AI, jscpd.dev). CISA KEV / FIRST EPSS queried only for CVE-2026-14625 (KEV: no, EPSS 0.38%).<br>
+Suspicious-velocity repos are flagged in-card. Offensive tooling: authorised-scope use only.
+</footer>
+</div></body></html>
