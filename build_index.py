@@ -70,6 +70,11 @@ index_content = f'''<!DOCTYPE html>
     padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px;
   }}
   .btn:hover {{ border-color: var(--neon); }}
+  .btn-coffee {{
+    background: #ffd700; color: #000; border: 1px solid #d4a500;
+    padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 13px; text-decoration: none;
+  }}
+  .btn-coffee:hover {{ background: #f5c400; border-color: #b8860b; }}
   select {{
     background: var(--bg); color: var(--link); border: 1px solid var(--line); 
     padding: 8px 16px; border-radius: 8px; cursor: pointer; outline: none; font-size: 13px;
@@ -83,10 +88,13 @@ index_content = f'''<!DOCTYPE html>
   <!-- Minimal Top Navigation -->
   <div class="top-bar">
     <button class="btn" onclick="loadLatest()">🏠 Home (Latest)</button>
-    <select id="historySelect" onchange="loadReport(this.value)">
-      <option value="">📂 View History...</option>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://buymeacoffee.com/happycode0" target="_blank" class="btn-coffee">☕ BuyMeCoffee</a>
+      <select id="historySelect" onchange="loadReport(this.value)">
+        <option value="">📂 View History...</option>
 {options_html}
-    </select>
+      </select>
+    </div>
   </div>
   
   <!-- Content Window (Defaults to the newest report) -->
