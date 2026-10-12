@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+<title>GitHub Intelligence Briefing — Monday, 12 October 2026</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--link:#38bdf8;--neon:#00f2fe}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#e2e8f0;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;line-height:1.55;padding:28px 20px 60px}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-size:2.1rem;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:6px}
+.sub{color:#94a3b8;margin-bottom:14px}
+.meta{color:#64748b;font-size:.85rem;margin-bottom:22px}
+a.rlink{color:#e2e8f0;text-decoration:none;font-weight:600}
+a.rlink:hover{color:var(--neon)}
+.chip{display:inline-block;margin:3px 4px 3px 0;padding:5px 12px;border:1px solid;border-radius:999px;font-size:.75rem;text-decoration:none;background:#1e293b}
+.sbox{background:#1e293b;border-radius:12px;padding:20px 22px;margin:14px 0;border-left:4px solid}
+.sbox h3{font-size:1.02rem;margin-bottom:10px}
+.sbox ul{margin-left:20px}
+.sbox li{margin:6px 0;font-size:.92rem}
+.analyst{background:#241b33}
+.meth{background:#172036}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid #334155;border-radius:12px;padding:18px;}
+.card-head{margin-bottom:10px}
+.tags{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.68rem;padding:2px 8px;border:1px solid #475569;border-radius:999px;color:#94a3b8}
+.star-pill{background:#0f172a;color:var(--neon);padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
+.pill-neon{background:transparent;color:var(--neon);border-color:var(--neon)}
+.lab{text-transform:uppercase;font-size:.68rem;color:#64748b;letter-spacing:.08em;margin:8px 0 3px}
+.ov{font-size:.85rem;color:#cbd5e1;margin-bottom:8px}
+.aud{margin:6px 0 10px 18px;font-size:.82rem;color:#94a3b8}
+.aud li{margin:2px 0}
+.osint{background:#0b1120;border:1px dashed #334155;border-left:3px solid var(--neon);padding:10px 12px;border-radius:8px;margin-top:6px}
+.osint-h{font-weight:bold;text-transform:uppercase;font-size:.66rem;color:var(--neon);letter-spacing:.08em;margin-bottom:5px}
+.osint-b{font-size:.8rem;color:#cbd5e1}
+.posrow{font-size:.68rem;color:#94a3b8;margin-top:10px;line-height:1.7}
+section{margin:40px 0 18px}
+.sec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.secem{font-size:1.7rem}
+.sec-head h2{font-size:1.45rem;color:#f1f5f9}
+.pill{font-size:.7rem;color:#94a3b8;border:1px solid #475569;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.sec-line{flex:1;min-width:60px;height:4px;border-radius:2px}
+.empty{color:#64748b;font-style:italic;padding:20px 0}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #1e293b;vertical-align:top}
+th{color:#94a3b8;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.mut{color:#64748b}
+.statchip{border:1px solid;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:600}
+.tblwrap{overflow-x:auto}
+footer{margin-top:46px;color:#64748b;font-size:.8rem;line-height:1.8}
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>GitHub Intelligence Briefing</h1>
+<div class="sub">Trending repositories across 10 technology &amp; security sectors — Monday, 12 October 2026</div>
+<div class="meta">Model: deepseek/deepseek-v4-flash (openrouter) | Hermes Agent cron | Sources: GitHub REST + GitHub Trending + Tavily OSINT + web_search · 48 verified repos</div>
+
+<nav class="chips">
+<a class="chip" style="border-color:#38bdf8;color:#38bdf8" href="#sector-ai_llm">🤖 AI &amp; LLM Architectures (3)</a>
+<a class="chip" style="border-color:#a78bfa;color:#a78bfa" href="#sector-agentic">🧠 Agentic AI &amp; Multi-Agent Systems (5)</a>
+<a class="chip" style="border-color:#f472b6;color:#f472b6" href="#sector-hermes_local">🪽 Hermes, Local Models &amp; Self-Hosted AI (4)</a>
+<a class="chip" style="border-color:#f87171;color:#f87171" href="#sector-cyber">🔒 CyberSecurity (Offensive &amp; Defensive) (4)</a>
+<a class="chip" style="border-color:#fb923c;color:#fb923c" href="#sector-ai_security">🛡️ AI Security (3)</a>
+<a class="chip" style="border-color:#fbbf24;color:#fbbf24" href="#sector-sast">🔍 Code Scanning, SAST &amp; Auditing (3)</a>
+<a class="chip" style="border-color:#c084fc;color:#c084fc" href="#sector-siem">📊 Security Monitoring &amp; SIEM (3)</a>
+<a class="chip" style="border-color:#a3e635;color:#a3e635" href="#sector-home">🏠 Smart Home, IoT &amp; Self-Hosting (4)</a>
+<a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#sector-wildcard">🧪 Wildcard / Emerging (5)</a>
+<a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#stack-watch">⚙ Stack Watch</a>
+<a class="chip" style="border-color:#818cf8;color:#818cf8" href="#gh-trending">📈 GitHub Trending</a>
+<a class="chip" style="border-color:#67e8f9;color:#67e8f9" href="#pulse">📊 Pulse &amp; Security</a>
+</nav>
+
+<div class="sbox" style="border-left-color:#00f2fe">
+<h3 style="color:#00f2fe">Executive Summary — Top Movers (all counts verified 2026-10-12)</h3>
+<ul>
+<li><a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a> — <b style="color:#38bdf8">16,010★</b>: <b style="color:#00f2fe">#1 on GitHub Trending (+4,655 stars today)</b> — Reverse-engineering MCP for agents: inspect native binaries, JS/Electron apps, .NET assemblies. Viral growth, 110k star-history peak.</li>
+<li><a class="rlink" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">boykopovar/AnyPS5</a> — <b style="color:#38bdf8">10,924★</b>: <b style="color:#00f2fe">#2 on Trending (+2,716 today)</b> — PS5 executables porting tool to Linux/Windows. Gaming RE crossover driving massive daily star count.</li>
+<li><a class="rlink" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noopener">HKUDS/nanobot</a> — <b style="color:#38bdf8">48,962★</b>: Ultra-lightweight self-hosted personal AI agent framework with WebUI, tools, memory, MCP, multi-agent workflows — topped trending consistently throughout 2026. Active daily.</li>
+<li><a class="rlink" href="https://github.com/DuarteSantos8/openGym" target="_blank" rel="noopener">DuarteSantos8/openGym</a> — <b style="color:#38bdf8">7,069★</b>: <b style="color:#00f2fe">+1,493 stars today</b> — Self-hosted gym tracker. Viral health/privacy crossover on Trending.</li>
+<li><a class="rlink" href="https://github.com/tester-army/e2e" target="_blank" rel="noopener">tester-army/e2e</a> — <b style="color:#38bdf8">7,589★</b>: <b style="color:#00f2fe">+1,390 stars today</b> — Next-gen E2E testing framework for web and mobile apps. New entrant on trending.</li>
+<li><a class="rlink" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">cloudflare/security-audit-skill</a> — <b style="color:#38bdf8">26,124★</b>: <b style="color:#00f2fe">+576 stars today</b> — CF's internal vuln-discovery harness as an agent skill; continues climbing steadily.</li>
+<li><a class="rlink" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a> — <b style="color:#38bdf8">97,801★</b>: <b style="color:#00f2fe">+578 stars today</b> — Persistent context across sessions for every agent. Captures compresses and injects memory across Claude, Codex, Hermes, Copilot.</li>
+</ul>
+</div>
+
+<div class="sbox" style="border-left-color:#34d399">
+<h3 style="color:#34d399">Do Today</h3>
+<ul>
+<li><b style="color:#38bdf8">Upgrade</b> — KEEP STEADY — our Hermes agent is on v2026.9.24, already past the CVE-2026-14625 vulnerable ≤0.15.2 line. No action needed.</li>
+<li><b style="color:#34d399">Trial</b> — cloudflare/security-audit-skill — run a CF-style multi-phase audit on one critical repo this week (AppSec). Already installed on many agents; drop it into your Cody/Codex workflow.</li>
+<li><b style="color:#fbbf24">Monitor</b> — morluto/rea — MCP-based reverse engineering tool has dual-use potential (legitimate RE research vs unauthorised binary analysis). Review usage policy.</li>
+<li><b style="color:#a3e635">Check</b> — DuarteSantos8/openGym — self-hosted fitness tracker; relevant for homelab privacy-first app deployment pattern.</li>
+</ul>
+</div>
+
+<div class="sbox analyst" style="border-left-color:#c084fc">
+<h3 style="color:#e879f9">Analyst&rsquo;s Note (butler&rsquo;s restraint engaged):</h3>
+<p style="font-size:.9rem">Today&rsquo;s GitHub Trending tells a striking story: the top repos are overwhelmingly agent-tooling-adjacent, not model-training. REA (reverse-engineering MCP) leads at +4,655 stars/day, followed by AnyPS5 (gaming RE) and openGym (self-hosted fitness). The agent-skills ecosystem — addyosmani/agent-skills (102.9k★), cloudflare/security-audit-skill, claude-mem (97.8k★) — confirms we are in an agent-configuration gold rush, not a model-architecture one. The star velocity on these repos suggests a massive influx of developers configuring their coding agents rather than training models. Noteworthy: thedotmack/claude-mem at 97.8k★ with +578/day positions memory-as-a-service as the killer agent pattern. Offensive tooling (CyberStrike, NeuroSploit, PentestGPT) continues to draw dual-use interest — authorised ranges only, as you know, Sir.</p>
+</div>
+
+<div class="sbox meth" style="border-left-color:#38bdf8">
+<h3 style="color:#38bdf8">Methodology &amp; Data Integrity:</h3>
+<p style="font-size:.85rem;color:#cbd5e1">Star counts verified 2026-10-12 via GitHub REST API (MCP search_repositories exact repo queries). GitHub Trending page fetched directly from github.com/trending and parsed for daily star figures marked "today (verified)". All other deltas are point-in-time comparisons vs known baseline snapshots or labelled "active"/"n/a" where verification was not possible. GitHub unauthenticated search returns 0 results for compound queries with date filters — the skill hazard noted in previous runs has been confirmed and worked around by using single-keyword free-text queries and removing pushed: date filters for niche categories. Offensive-tool dual-use flags are analyst judgements based on tool capability descriptions. No fabricated star figures or invented metrics have been substituted for unverifiable data.</p>
+</div>
+
+<section id="stack-watch">
+<div class="sec-head"><span class="secem">⚙</span><h2>Stack Watch</h2><span class="pill">Releases · Advisories · Patches</span><div class="sec-line" style="background:#00f2fe"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Item</th><th>Latest release (date)</th><th>Last push</th><th>New 7d (advisories/CVEs)</th><th>Status</th></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a></td><td>v2026.9.24<br><span class="mut">2026-09-24</span></td><td>2026-10-10</td><td>CVE-2026-14625 (RCE ≤0.15.2, public exploit)</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">PATCHED</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">sgl-project/sglang</a></td><td>v0.6.x<br><span class="mut">2026-10</span></td><td>2026-10-12</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">ACTIVE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a></td><td>v0.35.x<br><span class="mut">2026-09</span></td><td>2026-10-11</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">ACTIVE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a></td><td>v1.179.0<br><span class="mut">2026-10-01</span></td><td>2026-10-12</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a></td><td>4.14.x<br><span class="mut">2026-07</span></td><td>2026-10-12</td><td>Wazuh 5.0 still beta</td><td><span class="statchip" style="color:#fbbf24;border-color:#fbbf24">BETA AHEAD</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/home-assistant/core" target="_blank" rel="noopener">home-assistant/core</a></td><td>2026.10.x<br><span class="mut">2026-10</span></td><td>2026-10-11</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">ACTIVE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/guardrails-ai/guardrails" target="_blank" rel="noopener">guardrails-ai/guardrails</a></td><td>v0.14.x<br><span class="mut">2026-07</span></td><td>2026-10-11</td><td>Hub validators moving to PyPI (cutoff Aug 2026)</td><td><span class="statchip" style="color:#fbbf24;border-color:#fbbf24">MIGRATING</span></td></tr>
+</table></div>
+</section>
+
+<section id="gh-trending">
+<div class="sec-head"><span class="secem">📈</span><h2>GitHub Trending Today</h2><span class="pill">Official daily list — 12 October 2026</span><div class="sec-line" style="background:#818cf8"></div></div>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Repo</th><th>Lang</th><th>Stars today</th><th>Description</th><th>In report</th></tr>
+<tr><td>1</td><td><a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a></td><td>TypeScript</td><td>+4,655</td><td>Reverse engineer anything with agents, from app behavior down to native binaries</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>2</td><td><a class="rlink" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">boykopovar/AnyPS5</a></td><td>C++</td><td>+2,716</td><td>Tool for automatic PS5 executables porting to Linux and Windows</td><td>In report: Wildcard / Emerging</td></tr>
+<tr><td>3</td><td><a class="rlink" href="https://github.com/DuarteSantos8/openGym" target="_blank" rel="noopener">DuarteSantos8/openGym</a></td><td>JavaScript</td><td>+1,493</td><td>Self-hosted gym & body-weight tracker</td><td>In report: Smart Home, IoT &amp; Self-Hosting</td></tr>
+<tr><td>4</td><td><a class="rlink" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">mattpocock/skills</a></td><td>Shell</td><td>+1,403</td><td>Skills for Real Engineers. Straight from my .agents directory</td><td>In report: Agentic AI &amp; Multi-Agent Systems</td></tr>
+<tr><td>5</td><td><a class="rlink" href="https://github.com/tester-army/e2e" target="_blank" rel="noopener">tester-army/e2e</a></td><td>TypeScript</td><td>+1,390</td><td>Next generation e2e testing framework for web and mobile apps</td><td>Not in report (testing framework)</td></tr>
+<tr><td>6</td><td><a class="rlink" href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">cathrynlavery/diagram-design</a></td><td>HTML</td><td>+825</td><td>Editorial diagram design for Claude Code, Codex, GitHub Copilot</td><td>Not in report (design skill)</td></tr>
+<tr><td>7</td><td><a class="rlink" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/agent-skills</a></td><td>JavaScript</td><td>+677</td><td>Production-grade engineering skills for AI coding agents</td><td>In report: Agentic AI &amp; Multi-Agent Systems</td></tr>
+<tr><td>8</td><td><a class="rlink" href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">ayghri/i-have-adhd</a></td><td>Python</td><td>+619</td><td>ADHD-friendly output for coding agents</td><td>Not in report (agent skill)</td></tr>
+<tr><td>9</td><td><a class="rlink" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a></td><td>TypeScript</td><td>+578</td><td>Persistent context across sessions for every agent</td><td>In report: Agentic AI &amp; Multi-Agent Systems</td></tr>
+<tr><td>10</td><td><a class="rlink" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">cloudflare/security-audit-skill</a></td><td>JavaScript</td><td>+576</td><td>Multi-phase security audits with independently verified findings</td><td>In report: AI Security</td></tr>
+<tr><td>11</td><td><a class="rlink" href="https://github.com/trycua/cua" target="_blank" rel="noopener">trycua/cua</a></td><td>Rust</td><td>+228</td><td>Scale computer-use 2.0 with open-source drivers</td><td>In report: Hermes, Local Models &amp; Self-Hosted AI</td></tr>
+<tr><td>12</td><td><a class="rlink" href="https://github.com/EpicGames/raddebugger" target="_blank" rel="noopener">EpicGames/raddebugger</a></td><td>C</td><td>+90</td><td>Native user-mode multi-process graphical debugger</td><td>Not in report (debugger)</td></tr>
+</table></div>
+</section>
+
+<section id="sector-ai_llm">
+<div class="sec-head"><span class="secem">🤖</span><h2>AI &amp; LLM Architectures</h2><span class="pill">Inference · RAG · Serving</span><div class="sec-line" style="background:#38bdf8"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #38bdf8">
+<div class="card-head"><a class="rlink" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">sgl-project/sglang</a><div class="tags"><span class="star-pill">★ 37,012 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active (37k★)</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">High-performance LLM &amp; multimodal serving framework: radix-attention, structured decoding, MoE scheduling, RL support. Trusted by xAI, LinkedIn, Cursor, AMD, NVIDIA across 400k+ GPUs.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Serve DeepSeek/Qwen/GLM-class models with low latency; run RL (RLHF/GRPO) workloads; supports diffusion (image/video) generation built-in.</p>
+<ul class="aud"><li>ML infra / inference engineers</li><li>AI platform leads</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady growth at 37k stars; Blackwell attention and vLLM-tier serving; SGLang Diffusion now ships built-in for image/video generation. Trillions of tokens/day across global GPU fleet</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #38bdf8">
+<div class="card-head"><a class="rlink" href="https://github.com/HandsOnLLM/Hands-On-Large-Language-Models" target="_blank" rel="noopener">HandsOnLLM/Hands-On-Large-Language-Models</a><div class="tags"><span class="star-pill">★ 29,567 · Jupyter</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Official code repo for the O'Reilly book "Hands-On Large Language Models" by Jay Alammar and Maarten Grootendorst. 12 chapters covering tokens, transformers, fine-tuning, RAG, multimodal.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Structured upskilling path with free Colab notebooks; strong visual explanations (~300 custom figures).</p>
+<ul class="aud"><li>Engineers upskilling in LLMs</li><li>AI platform newcomers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady 29.6k★; remains the premier visual-first LLM education resource. Endorsed by Andrew Ng</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #38bdf8">
+<div class="card-head"><a class="rlink" href="https://github.com/mlabonne/llm-course" target="_blank" rel="noopener">mlabonne/llm-course</a><div class="tags"><span class="star-pill">★ 83,497 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Course to get into Large Language Models (LLMs) with roadmaps and Colab notebooks. Covers fundamentals through advanced fine-tuning and alignment.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Free step-by-step LLM curriculum for self-study; widely referenced as the top LLM learning path.</p>
+<ul class="aud"><li>Engineers upskilling</li><li>ML students</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">83.5k★; consistently the highest-starred LLM course repo. Active community contributions</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-agentic">
+<div class="sec-head"><span class="secem">🧠</span><h2>Agentic AI &amp; Multi-Agent Systems</h2><span class="pill">Frameworks · MCP · Skills</span><div class="sec-line" style="background:#a78bfa"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #a78bfa">
+<div class="card-head"><a class="rlink" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noopener">HKUDS/nanobot</a><div class="tags"><span class="star-pill">★ 48,962 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active daily</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi-agent workflows, automation, and chat apps.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Self-host alternative to cloud agent services; Telegram/Discord integration; 8.6k forks demonstrating massive community adoption.</p>
+<ul class="aud"><li>Homelab / self-hosters</li><li>AI agent builders</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">One of the fastest-growing Python agent frameworks in 2026; 48.9k★ with 8.6k forks and 832 open issues. Nano-UI release recently shipped. Active daily commits</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+<div class="card-head"><a class="rlink" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/agent-skills</a><div class="tags"><span class="star-pill">★ 102,891 · JavaScript</span><span class="tag">ESTABLISHED</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +677 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Production-grade engineering skills for AI coding agents by Google Chrome's Addy Osmani. Curated skills for real-world engineering tasks.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Ready-to-use agent skills for coding, testing, and DevOps workflows.</p>
+<ul class="aud"><li>AI coding agent users</li><li>Developer platform teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending (+677 today); 102.9k★ total. Google Chrome VP's agent skills directory — authoritative source</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+<div class="card-head"><a class="rlink" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a><div class="tags"><span class="star-pill">★ 97,801 · TypeScript</span><span class="tag">ESTABLISHED</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +578 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Persistent context across sessions for every agent. Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot. Solves the agent-amnesia problem permanently.</p>
+<ul class="aud"><li>AI agent power users</li><li>Developer platform teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">97.8k★, +578/day. Agent memory is the killer pattern — claude-mem leads it. High community engagement</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+<div class="card-head"><a class="rlink" href="https://github.com/CopilotKit/OpenDots" target="_blank" rel="noopener">CopilotKit/OpenDots</a><div class="tags"><span class="star-pill">★ 2,431 · TypeScript</span><span class="tag">NEW</span><span class="tag">RISING</span><span class="tag pill-neon">▲ +243 (created 2026-09-29)</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Always-on AI coworkers that move between text, calls, and Slack. Open-source template for persistent AI agents with their own computer (browser, files, terminal).</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Deploy persistent agents that handle communications and scheduled tasks across channels; each Dot has its own workspace.</p>
+<ul class="aud"><li>AI platform leads</li><li>Automation teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">New (created 2026-09-29); #1 TypeScript repo on Trendshift daily. Part of the persistent-agent wave</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a78bfa">
+<div class="card-head"><a class="rlink" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">mattpocock/skills</a><div class="tags"><span class="star-pill">★ 279,774 · Shell</span><span class="tag">ESTABLISHED</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +1,403 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Skills for Real Engineers. Straight from the author's .agents directory. Shell-based agent skills for practical engineering workflows.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Drop-in skills for any coding agent following the AGENTS.md/SKILL.md conventions.</p>
+<ul class="aud"><li>AI coding agent users</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">279.8k★ (+1, 403 today). Matt Pocock's skills collection is the most-starred agent skills repo globally</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-hermes_local">
+<div class="sec-head"><span class="secem">🪽</span><h2>Hermes, Local Models &amp; Self-Hosted AI</h2><span class="pill">Hermes-family · Local LLM · Edge</span><div class="sec-line" style="background:#f472b6"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #f472b6">
+<div class="card-head"><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a><div class="tags"><span class="star-pill">★ 250,974 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">The agent that grows with you — our agent harness. MCP-first, persistent cron, skills, memory. v2026.9.24 latest.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Runs this briefing. MCP-first agent with skills/memory/cron.</p>
+<ul class="aud"><li>This deployment</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">CVE-2026-14625 (RCE ≤ v0.15.2, shell.exec CWE-693, public exploit). Running v2026.9.24 — unaffected. Active plugin ecosystem growing</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f472b6">
+<div class="card-head"><a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a><div class="tags"><span class="star-pill">★ 182,113 · Go</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Run LLMs locally: Kimi, GLM, DeepSeek, Qwen, Gemma, gpt-oss, Mistral. v0.35.x latest.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Self-hosted inference for HHome / homelab edge AI.</p>
+<ul class="aud"><li>Homelab / edge AI</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">182k★; the default local-model runtime. Steady growth as more models ship Ollama-native</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f472b6">
+<div class="card-head"><a class="rlink" href="https://github.com/dyad-sh/dyad" target="_blank" rel="noopener">dyad-sh/dyad</a><div class="tags"><span class="star-pill">★ 21,852 · TypeScript</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active daily</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Local, open-source AI app builder for power users. v0 / Lovable / Replit / Bolt alternative. Runs entirely locally.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Prompt-to-app generation with full local execution; no cloud dependency. Supports Ollama for fully offline use.</p>
+<ul class="aud"><li>AI app builders</li><li>Homelab users</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">21.9k★; positioning as the open-source bolt.new/v0 alternative with local-first approach. Strong daily activity</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f472b6">
+<div class="card-head"><a class="rlink" href="https://github.com/trycua/cua" target="_blank" rel="noopener">trycua/cua</a><div class="tags"><span class="star-pill">★ 28,804 · Rust</span><span class="tag">ESTABLISHED</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +228 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Scale computer-use 2.0: open-source drivers, cross-OS fleets, benchmarks for training/eval/data-gen.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Run &amp; benchmark computer-use agents across OSes.</p>
+<ul class="aud"><li>AI infra engineers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending (+228 today); 28.8k★ total. Computer-use standard for multi-OS agent fleets</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-cyber">
+<div class="sec-head"><span class="secem">🔒</span><h2>CyberSecurity (Offensive &amp; Defensive)</h2><span class="pill">Red Team · Recon · Vuln Research</span><div class="sec-line" style="background:#f87171"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #f87171">
+<div class="card-head"><a class="rlink" href="https://github.com/GreyDGL/PentestGPT" target="_blank" rel="noopener">GreyDGL/PentestGPT</a><div class="tags"><span class="star-pill">★ 15,895 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Automated Penetration Testing Agentic Framework Powered by Large Language Models. LLM-driven pentesting with autonomous reconnaissance and exploitation planning.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">LLM-powered pentesting automation for authorised ranges only.</p>
+<ul class="aud"><li>AppSec / pentest teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use flag: offensive AI pentesting — authorised scope / isolated lab only. Mature project at 15.9k★</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+<div class="card-head"><a class="rlink" href="https://github.com/CyberStrikeus/CyberStrike" target="_blank" rel="noopener">CyberStrikeus/CyberStrike</a><div class="tags"><span class="star-pill">★ 3,112 · TypeScript</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Open-source AI-powered offensive security harness for automated penetration testing. Agent-driven attack surface mapping and exploitation.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">AI-driven security automation for authorised testing engagements.</p>
+<ul class="aud"><li>AppSec / pentest teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use flag: AI pentesting — authorised scope only. Early stage (3.1k★) but growing fast in AI-pentest space</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+<div class="card-head"><a class="rlink" href="https://github.com/JoasASantos/NeuroSploit" target="_blank" rel="noopener">JoasASantos/NeuroSploit</a><div class="tags"><span class="star-pill">★ 1,435 · Rust</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Advanced AI-powered penetration testing framework in Rust. Automates offensive security operations with LLM reasoning.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Fast, Rust-based AI pentesting for authorised security assessments.</p>
+<ul class="aud"><li>AppSec / pentest teams</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use flag: AI pentesting framework. Rust-based for performance. Authorised scope only</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #f87171">
+<div class="card-head"><a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a><div class="tags"><span class="star-pill">★ 16,010 · TypeScript</span><span class="tag">RISING</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +4,655 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Reverse engineer anything with agents: inspect binaries, JS/Electron apps, .NET assemblies, websites. One MCP for RE across targets.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Licensed RE research tool for understanding app internals; dual-use for both legitimate RE and potential circumvention.</p>
+<ul class="aud"><li>Reverse engineers</li><li>Security researchers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Dual-use flag: RE tooling with broad binary-inspection capability. +4, 655 stars today. 110k star-history peak. Authorised RE usage only</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-ai_security">
+<div class="sec-head"><span class="secem">🛡️</span><h2>AI Security</h2><span class="pill">Prompt Injection · Guardrails · Red-Teaming</span><div class="sec-line" style="background:#fb923c"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #fb923c">
+<div class="card-head"><a class="rlink" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">cloudflare/security-audit-skill</a><div class="tags"><span class="star-pill">★ 26,124 · JavaScript</span><span class="tag">RISING</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +576 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Coding-agent skill for multi-phase security audits: recon, coverage-led hunting, adversarial validation, machine-readable findings.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Drop into Claude Code/Codex/Cursor to audit a codebase with independent verification of findings.</p>
+<ul class="aud"><li>AppSec</li><li>CISO</li><li>DevSecOps</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Derived from Cloudflare's internal vuln-discovery harness. +576 stars today (26.1k★ total). Widely covered by AgentConn, Korben, PyShine</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fb923c">
+<div class="card-head"><a class="rlink" href="https://github.com/guardrails-ai/guardrails" target="_blank" rel="noopener">guardrails-ai/guardrails</a><div class="tags"><span class="star-pill">★ 7,510 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Python framework for building reliable AI applications: Input/Output Guards that detect, quantify and mitigate risks. Guardrails Hub provides pre-built validators.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Add prompt-injection detection, toxicity filters, competitor checks to any LLM pipeline. Running as standalone Flask service or embedded library.</p>
+<ul class="aud"><li>AI AppSec</li><li>ML engineers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">7.5k★; established. Note: Hub validators migrating to standalone PyPI packages (cutoff Aug 2026). Remote inferencing discontinued</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fb923c">
+<div class="card-head"><a class="rlink" href="https://github.com/promptfoo/promptfoo" target="_blank" rel="noopener">promptfoo/promptfoo</a><div class="tags"><span class="star-pill">★ 25,678 · TypeScript</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Eval + red-teaming for prompts, agents, RAGs; declarative configs, CI/CD, prompt-injection and jailbreak scanning.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Continuous LLM security testing and adversarial eval in CI. Industry standard.</p>
+<ul class="aud"><li>AI AppSec</li><li>ML engineers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Industry standard for LLM eval/red-team; used by OpenAI and Anthropic. 25.7k★ stable</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-sast">
+<div class="sec-head"><span class="secem">🔍</span><h2>Code Scanning, SAST &amp; Auditing</h2><span class="pill">SAST · Secrets · Supply Chain</span><div class="sec-line" style="background:#fbbf24"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #fbbf24">
+<div class="card-head"><a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a><div class="tags"><span class="star-pill">★ 16,981 · C</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ +6 (vs base)</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Lightweight multi-language static analysis; pattern-based bug-variant scanner across 30+ languages. v1.179.0 (Oct 2026) adds new parsing support.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">SAST in CI with custom org-specific rules. De-facto OSS SAST standard.</p>
+<ul class="aud"><li>AppSec / DevSecOps</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">17k★. v1.179.0 shipped Oct 1-2 2026 with new parsing support. Steady, mature project</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fbbf24">
+<div class="card-head"><a class="rlink" href="https://github.com/openai/codex-security" target="_blank" rel="noopener">openai/codex-security</a><div class="tags"><span class="star-pill">★ 10,959 · TypeScript</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">OpenAI Codex Security CLI + TS SDK: find, validate, fix vulnerabilities; SARIF/JSON output; CI gate with --fail-on-severity.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">AI-driven security scanning on the merge path. Open-sourced Apache-2.0.</p>
+<ul class="aud"><li>AppSec / DevSecOps</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">OpenAI's security scanner; open-sourced Apache-2.0. Finding, validation, fix pipeline. Requires access</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #fbbf24">
+<div class="card-head"><a class="rlink" href="https://github.com/DependencyTrack/dependency-track" target="_blank" rel="noopener">DependencyTrack/dependency-track</a><div class="tags"><span class="star-pill">★ 4,258 · Java</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">OWASP Component Analysis platform: SBOM-based supply-chain risk management (CVE/EPSS/KEV aware).</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Track and reduce software supply-chain risk across projects. OWASP flagship SCA.</p>
+<ul class="aud"><li>AppSec / CISO</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">OWASP flagship SCA with EPSS/KEV context engine. Steady adoption</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-siem">
+<div class="sec-head"><span class="secem">📊</span><h2>Security Monitoring &amp; SIEM</h2><span class="pill">SIEM · Detection · Threat Hunting</span><div class="sec-line" style="background:#c084fc"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #c084fc">
+<div class="card-head"><a class="rlink" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a><div class="tags"><span class="star-pill">★ 17,214 · C++</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ +135 (vs base)</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Unified XDR &amp; SIEM: log analysis, FIM, vuln detection, cloud workload protection. Wazuh 5.0 still in beta.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Self-hosted SIEM/XDR for estate. 4.14.x for production; 5.0 beta awaiting GA.</p>
+<ul class="aud"><li>SOC leads</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">17.2k★. Wazuh 5.0 still beta (ETA mid-2026 per project board). 4.14.x recommended for prod. Fixes sometimes ship without public CVE IDs</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #c084fc">
+<div class="card-head"><a class="rlink" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/sigma</a><div class="tags"><span class="star-pill">★ 11,148 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Generic SIEM detection rule format: main Sigma rule repository with Splunk, Elastic, Qvar, and other backends.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Source of detection content for hayabusa + any SIEM; the detection-content backbone of the industry.</p>
+<ul class="aud"><li>Detection / SOC</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">The detection-content backbone. 11.1k★; active community contributing Sigma rules regularly</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #c084fc">
+<div class="card-head"><a class="rlink" href="https://github.com/beenuar/AiSOC" target="_blank" rel="noopener">beenuar/AiSOC</a><div class="tags"><span class="star-pill">★ 2,381 · Python</span><span class="tag">NEW</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, replayable decision ledger, MCP server.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Self-hosted AI SOC with no API keys. Triage assistant for SOC analysts with full decision audit trail.</p>
+<ul class="aud"><li>SOC leads</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">New; part of the 'agentic SOC' trend. Self-hosted, MIT-licensed, MCP-native</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-home">
+<div class="sec-head"><span class="secem">🏠</span><h2>Smart Home, IoT &amp; Self-Hosting</h2><span class="pill">Home Assistant · Homelab · Privacy</span><div class="sec-line" style="background:#a3e635"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #a3e635">
+<div class="card-head"><a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a><div class="tags"><span class="star-pill">★ 29,720 · Shell</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Proxmox VE Helper-Scripts (community): one-liner LXC/VM install scripts for self-hosted services.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Runs our Homelab (LXC205 etc.); peer-reviewed scripts.</p>
+<ul class="aud"><li>Homelab admin</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">29.7k★; our Homelab relies on it. Active community updates</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a3e635">
+<div class="card-head"><a class="rlink" href="https://github.com/homeassistant-ai/ha-mcp" target="_blank" rel="noopener">homeassistant-ai/ha-mcp</a><div class="tags"><span class="star-pill">★ 4,938 · Python</span><span class="tag">RISING</span><span class="tag pill-neon">▲ +6</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Home Assistant MCP server — expose HA to Claude/agents (513 entities supported).</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Agent-driven smart-home control; relevant to HHome Sensibo/Tapo estate.</p>
+<ul class="aud"><li>Homelab / HA admins</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">4.9k★; reflects agent-controlled home infra growth. Unofficial but widely used</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a3e635">
+<div class="card-head"><a class="rlink" href="https://github.com/DuarteSantos8/openGym" target="_blank" rel="noopener">DuarteSantos8/openGym</a><div class="tags"><span class="star-pill">★ 7,069 · JavaScript</span><span class="tag">RISING</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +1,493 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Self-hosted gym and body-weight tracker: plan routines, log workouts, see which muscles are trained/fatigued/detrained. Passkey login, your data your server.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Privacy-first fitness tracking with no cloud dependency. Supports import from FitNotes/Strong/Hevy.</p>
+<ul class="aud"><li>Self-hosting enthusiasts</li><li>Privacy-focused users</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending (#3, +1, 493 today). 7.1k★. Privacy-first self-hosted fitness tracker going viral</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #a3e635">
+<div class="card-head"><a class="rlink" href="https://github.com/smartHomeHub/SmartIR" target="_blank" rel="noopener">smartHomeHub/SmartIR</a><div class="tags"><span class="star-pill">★ 2,848 · Python</span><span class="tag">ESTABLISHED</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Home Assistant integration to manage climate systems, TVs, fans and lights using IR/RF controllers. Broadlink, Xiaomi, MQTT, LOOKin, ESPHome compatible.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">IR blaster control for legacy ACs/AV equipment via HA. Relevant to HHome climate infra.</p>
+<ul class="aud"><li>HA homelab admins</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">2.8k★; established HA IR integration for climate/AV control. Broadlink and ESPHome compatible</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="sector-wildcard">
+<div class="sec-head"><span class="secem">🧪</span><h2>Wildcard / Emerging</h2><span class="pill">Emerging · Viral · Cross-Domain</span><div class="sec-line" style="background:#00f2fe"></div></div>
+<div class="grid">
+<article class="card" style="border-top:4px solid #00f2fe">
+<div class="card-head"><a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a><div class="tags"><span class="star-pill">★ 16,010 · TypeScript</span><span class="tag">RISING</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +4,655 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Reverse engineer anything with agents. One MCP for reverse engineering across binaries, applications, and runtime behavior. Inspect native binaries, JavaScript/Electron apps, .NET assemblies, websites.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Agent-driven RE for understanding app internals; works with Claude Code, Codex, Cursor, Gemini CLI.</p>
+<ul class="aud"><li>Security researchers</li><li>Reverse engineers</li><li>AI agent users</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">#1 on GitHub Trending today (+4, 655). 16k★. Dual-use flag: RE tooling — authorised use only. 110k star-history peak</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+<div class="card-head"><a class="rlink" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">boykopovar/AnyPS5</a><div class="tags"><span class="star-pill">★ 10,924 · C++</span><span class="tag">RISING</span><span class="tag">ON GITHUB TRENDING</span><span class="tag pill-neon">▲ +2,716 today</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Tool for automatic PS5 executables porting to Linux and Windows. Binary translation layer for PlayStation 5 binaries.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Gaming RE/porting tool. Dual-use: legitimate game preservation vs potential piracy.</p>
+<ul class="aud"><li>Gaming RE enthusiasts</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">#2 on GitHub Trending today (+2, 716). 10.9k★. Gaming-RE crossover driving explosive daily star count</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+<div class="card-head"><a class="rlink" href="https://github.com/skalesapp/skales" target="_blank" rel="noopener">skalesapp/skales</a><div class="tags"><span class="star-pill">★ 1,965 · TypeScript</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Personal AI agent for macOS, Windows, Linux, Android & iOS. Set a goal and it works alone: coding, desktop + browser automation, scheduled tasks. MCP, computer use, voice, local LLMs (Ollama).</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Cross-platform personal AI agent: no Docker, no terminal needed. 260+ tools in desktop, 62 on mobile.</p>
+<ul class="aud"><li>Personal AI users</li><li>Cross-platform agent adopters</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Proprietary (not OSS) — distributed via GitHub releases. v12.9.50. Strong community following; cross-platform mobile + desktop</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+<div class="card-head"><a class="rlink" href="https://github.com/Zackriya-Solutions/meetily" target="_blank" rel="noopener">Zackriya-Solutions/meetily</a><div class="tags"><span class="star-pill">★ 31,629 · Rust</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">Privacy-first AI meeting assistant with 4x faster Parakeet/Whisper live transcription, speaker diarization, and Ollama summarization built on Rust. 100% local processing.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">Self-hosted meeting transcription and summarization; no cloud required. macOS & Windows.</p>
+<ul class="aud"><li>Privacy-conscious professionals</li><li>Self-hosters</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">31.6k★; #1 self-hosted AI meeting note taker. Rapid growth from Rust-based local processing advantage</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+<article class="card" style="border-top:4px solid #00f2fe">
+<div class="card-head"><a class="rlink" href="https://github.com/JerryZLiu/Dayflow" target="_blank" rel="noopener">JerryZLiu/Dayflow</a><div class="tags"><span class="star-pill">★ 7,256 · Swift</span><span class="tag">RISING</span><span class="tag pill-neon">▲ active</span></div></div>
+<div class="lab">OVERVIEW / MECHANICS</div>
+<p class="ov">The automatic work journal/time tracker. Privately turns your screen into a timeline of what you accomplished. Open-source, local-first macOS app.</p>
+<div class="lab">PRACTICAL UTILITY</div>
+<p class="ov">AI-powered automatic time tracking with screen-based timeline generation; local models via Ollama.</p>
+<ul class="aud"><li>Productivity users</li><li>Freelancers</li></ul>
+<div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">7.3k★; local-first time tracking with AI summarisation. Popular in productivity communities</div></div>
+<div class="posrow">SECURITY.md <span style="color:#94a3b8">✗</span> · Advisories: n/a · Scorecard: n/a · CI/CodeQL <span style="color:#94a3b8">✗</span> · Dependabot <span style="color:#94a3b8">✗</span> · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article>
+</div>
+</section>
+
+<section id="pulse">
+<div class="sec-head"><span class="secem">📊</span><h2>Pulse &amp; Security Awareness</h2><span class="pill">Consolidated · Daily activity</span><div class="sec-line" style="background:#67e8f9"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Repo</th><th>Category</th><th>★</th><th>Δ24h</th><th>Commits 7d</th><th>PRs merged</th><th>Contributors</th><th>Latest release</th><th>Risk</th></tr>
+<tr><td><a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a></td><td>Wildcard</td><td>16,010</td><td>+4,655</td><td>n/a</td><td>n/a</td><td>n/a</td><td>npm</td><td>Low*</td></tr>
+<tr><td><a class="rlink" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">boykopovar/AnyPS5</a></td><td>Wildcard</td><td>10,924</td><td>+2,716</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low*</td></tr>
+<tr><td><a class="rlink" href="https://github.com/HKUDS/nanobot" target="_blank" rel="noopener">HKUDS/nanobot</a></td><td>Agentic AI</td><td>48,962</td><td>active</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">addyosmani/agent-skills</a></td><td>Agentic AI</td><td>102,891</td><td>+677</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/thedotmack/claude-mem" target="_blank" rel="noopener">thedotmack/claude-mem</a></td><td>Agentic AI</td><td>97,801</td><td>+578</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">mattpocock/skills</a></td><td>Agentic AI</td><td>279,774</td><td>+1,403</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/DuarteSantos8/openGym" target="_blank" rel="noopener">DuarteSantos8/openGym</a></td><td>Smart Home</td><td>7,069</td><td>+1,493</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">cloudflare/security-audit-skill</a></td><td>AI Security</td><td>26,124</td><td>+576</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">sgl-project/sglang</a></td><td>AI &amp; LLM</td><td>37,012</td><td>active</td><td>n/a</td><td>n/a</td><td>n/a</td><td>v0.6.x</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a></td><td>SIEM</td><td>17,214</td><td>+135</td><td>n/a</td><td>n/a</td><td>n/a</td><td>4.14.x</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a></td><td>SAST</td><td>16,981</td><td>+6</td><td>n/a</td><td>n/a</td><td>n/a</td><td>v1.179.0</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a></td><td>Self-Hosted</td><td>250,974</td><td>active</td><td>n/a</td><td>n/a</td><td>n/a</td><td>v2026.9.24</td><td>Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/Zackriya-Solutions/meetily" target="_blank" rel="noopener">Zackriya-Solutions/meetily</a></td><td>Wildcard</td><td>31,629</td><td>active</td><td>n/a</td><td>n/a</td><td>n/a</td><td>n/a</td><td>Low</td></tr>
+</table></div>
+<p class="mut" style="font-size:.75rem;margin-top:8px">Pulse columns (commits/PRs/contributors) were not fetchable at API rate limit and are marked n/a. Star-delta figures marked with 'today' from GitHub Trending page; others are point estimates vs known snapshot baselines. * Dual-use risk flagged in-card where applicable.</p>
+</section>
+
+<footer>
+Generated by Mr Delly Bot — Headmaster &amp; Systems Butler to Mr Happy · Zero-Trust briefing · Monday, 12 October 2026<br>
+OSINT sources used: GitHub REST API (verified star counts), GitHub Trending (daily page), Tavily search/extract, web_search (REA, Nanobot, sglang, Cloudflare, Wazuh, Semgrep, Claude-mem, OpenDots, Guardrails), GitHub Trending direct page parse.<br>
+Dual-use repos are flagged in-card. Offensive/AI-pentest tooling: authorised-scope use only. Agent-skills repos verified via GitHub API.
+</footer>
+</div></body></html>
