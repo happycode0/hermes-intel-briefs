@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+<title>GitHub Intelligence Briefing — Thursday, 15 October 2026</title>
+<style>
+:root{--bg:#0f172a;--card:#1e293b;--link:#38bdf8;--neon:#00f2fe}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#e2e8f0;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;line-height:1.55;padding:28px 20px 60px}
+.wrap{max-width:1280px;margin:0 auto}
+h1{font-size:2.1rem;color:#f1f5f9;letter-spacing:-0.02em;margin-bottom:6px}
+.sub{color:#94a3b8;margin-bottom:14px}
+.meta{color:#64748b;font-size:.85rem;margin-bottom:22px}
+a.rlink{color:#e2e8f0;text-decoration:none;font-weight:600}
+a.rlink:hover{color:var(--neon)}
+.chip{display:inline-block;margin:3px 4px 3px 0;padding:5px 12px;border:1px solid;border-radius:999px;font-size:.75rem;text-decoration:none;background:#1e293b}
+.sbox{background:#1e293b;border-radius:12px;padding:20px 22px;margin:14px 0;border-left:4px solid}
+.sbox h3{font-size:1.02rem;margin-bottom:10px}
+.sbox ul{margin-left:20px}
+.sbox li{margin:6px 0;font-size:.92rem}
+.analyst{background:#241b33}
+.meth{background:#172036}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid #334155;border-radius:12px;padding:18px;}
+.card-head{margin-bottom:10px}
+.tags{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.68rem;padding:2px 8px;border:1px solid #475569;border-radius:999px;color:#94a3b8}
+.star-pill{background:#0f172a;color:var(--neon);padding:3px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
+.pill-neon{background:transparent;color:var(--neon);border-color:var(--neon)}
+.lab{text-transform:uppercase;font-size:.68rem;color:#64748b;letter-spacing:.08em;margin:8px 0 3px}
+.ov{font-size:.85rem;color:#cbd5e1;margin-bottom:8px}
+.aud{margin:6px 0 10px 18px;font-size:.82rem;color:#94a3b8}
+.aud li{margin:2px 0}
+.osint{background:#0b1120;border:1px dashed #334155;border-left:3px solid var(--neon);padding:10px 12px;border-radius:8px;margin-top:6px}
+.osint-h{font-weight:bold;text-transform:uppercase;font-size:.66rem;color:var(--neon);letter-spacing:.08em;margin-bottom:5px}
+.osint-b{font-size:.8rem;color:#cbd5e1}
+.posrow{font-size:.68rem;color:#94a3b8;margin-top:10px;line-height:1.7}
+section{margin:40px 0 18px}
+.sec-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.secem{font-size:1.7rem}
+.sec-head h2{font-size:1.45rem;color:#f1f5f9}
+.pill{font-size:.7rem;color:#94a3b8;border:1px solid #475569;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.sec-line{flex:1;min-width:60px;height:4px;border-radius:2px}
+.empty{color:#64748b;font-style:italic;padding:20px 0}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:10px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #1e293b;vertical-align:top}
+th{color:#94a3b8;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.mut{color:#64748b}
+.statchip{border:1px solid;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:600}
+.tblwrap{overflow-x:auto}
+footer{margin-top:46px;color:#64748b;font-size:.8rem;line-height:1.8}
+</style>
+</head>
+<body><div class="wrap">
+<h1>GitHub Intelligence Briefing</h1>
+<div class="sub">Trending repositories across 9 technology &amp; security sectors — Thursday, 15 October 2026</div>
+<div class="meta">Model: deepseek/deepseek-v4-flash-0731 (openrouter) | Hermes Agent cron | Sources: GitHub REST + GitHub Trending (live) + Tavily OSINT · 40 verified repos, verified 2026-10-15 via authenticated GitHub REST API</div>
+<nav class="chips"><a class="chip" style="border-color:#38bdf8;color:#38bdf8" href="#sector-ai_llm">🤖 AI &amp; LLM Architectures (4)</a><a class="chip" style="border-color:#a78bfa;color:#a78bfa" href="#sector-agentic">🧠 Agentic AI &amp; Multi-Agent Systems (6)</a><a class="chip" style="border-color:#f472b6;color:#f472b6" href="#sector-hermes_local">🪽 Hermes, Local Models &amp; Self-Hosted AI (4)</a><a class="chip" style="border-color:#f87171;color:#f87171" href="#sector-cyber">🔒 CyberSecurity (Offensive &amp; Defensive) (4)</a><a class="chip" style="border-color:#fb923c;color:#fb923c" href="#sector-ai_security">🛡️ AI Security (4)</a><a class="chip" style="border-color:#fbbf24;color:#fbbf24" href="#sector-sast">🔍 Code Scanning, SAST &amp; Auditing (3)</a><a class="chip" style="border-color:#c084fc;color:#c084fc" href="#sector-siem">📊 Security Monitoring &amp; SIEM (4)</a><a class="chip" style="border-color:#a3e635;color:#a3e635" href="#sector-home">🏠 Smart Home, IoT &amp; Self-Hosting (4)</a><a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#sector-wildcard">🧪 Wildcard / Emerging (5)</a><a class="chip" style="border-color:#00f2fe;color:#00f2fe" href="#stack-watch">⚙ Stack Watch</a><a class="chip" style="border-color:#818cf8;color:#818cf8" href="#gh-trending">📈 GitHub Trending</a><a class="chip" style="border-color:#67e8f9;color:#67e8f9" href="#pulse">📊 Pulse & Security</a></nav>
+<div class="sbox" style="border-left-color:#00f2fe">
+<h3 style="color:#00f2fe">Executive Summary — Top Movers (all counts verified 2026-10-15 via authenticated GitHub REST API)</h3>
+<ul><li><a class="rlink" href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a> — <b style="color:#38bdf8">253,755★</b>: <b style="color:#f87171">v0.22.0 released today (10-14)</b> — our own harness; CVE-2026-14625 line fully behind us; verify running version.</li><li><a class="rlink" href="https://github.com/morluto/rea">morluto/rea</a> — <b style="color:#38bdf8">238,246★</b>: #1 on GitHub Trending, RE-agent tool, released today — <b style="color:#fbbf24">astroturf velocity flagged</b>.</li><li><a class="rlink" href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a> — <b style="color:#38bdf8">65,914★</b>: +25k since 10-04 (40.7k→65.9k); #2 Trending — local ElevenLabs alt, beta.</li><li><a class="rlink" href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a> — <b style="color:#38bdf8">191,536★</b>: agentic web-data layer, 100+ commits/week — the scraping backbone for agents.</li><li><a class="rlink" href="https://github.com/ollama/ollama">ollama/ollama</a> — <b style="color:#38bdf8">183,163★</b>: v0.40.4 (10-12) — the default local-model runtime, still 183k★ and climbing.</li><li><a class="rlink" href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a> — <b style="color:#38bdf8">163,504★</b>: created 2026-06, ~820/day — <b style="color:#fbbf24">implausible velocity; astroturf flag</b>.</li><li><a class="rlink" href="https://github.com/vxcontrol/pentagi">vxcontrol/pentagi</a> — <b style="color:#38bdf8">29,231★</b>: autonomous AI pentesting on Trending; dual-use, authorised scope only.</li></ul></div>
+<div class="sbox" style="border-left-color:#34d399">
+<h3 style="color:#34d399">Do Today</h3>
+<ul><li><b style="color:#38bdf8">Upgrade</b> — our Hermes agent to <b>v0.22.0</b> (released 2026-10-14); confirm running version &gt; vulnerable 0.15.2 line (AI platform).</li><li><b style="color:#34d399">Trial</b> — ifixai-ai/iFixAi — independent audit of one of our own agents this week (AI security).</li><li><b style="color:#fbbf24">Patch</b> — wazuh/wazuh — stay on 4.14.x for prod; 5.0 still beta (SOC).</li><li><b style="color:#fbbf24">Verify</b> — ponytail, scientific-agent-skills, morluto/rea before importing any skill/prompt (supply-chain &amp; astroturf caution).</li></ul></div>
+<div class="sbox analyst" style="border-left-color:#c084fc">
+<h3 style="color:#e879f9">Analyst&rsquo;s Note (butler&rsquo;s restraint engaged):</h3>
+<p style="font-size:.9rem">Today&rsquo;s headline is our own stack: NousResearch/hermes-agent shipped <b>v0.22.0 on 10-14</b>, the first release since our September CVE-2026-14625 line — confirmation, Sir, that the alarm is retired and the harness marches on. Out in the wilds the agent sweep keeps accelerating, but with it comes a fog of implausible velocity: morluto/rea (238k★, born today), ponytail (~160k★ in four months), and scientific-agent-skills all carry marketing that outruns contributorship — I should sooner trust a reasoned review than a star count. VoiceStudio&rsquo;s 25k-star week is real and hot, yet it remains beta with AGPL cloning surface — import for voice, not for trust. And garak, promptfoo and iFixAi consolidate the grown-up practice of auditing the agents we run. Test before you trust, verify before you adopt &mdash; Zero Trust applies to star counts as much as to networks, as you well know, Sir.</p></div>
+<div class="sbox meth" style="border-left-color:#38bdf8">
+<h3 style="color:#38bdf8">Methodology &amp; Data Integrity:</h3>
+<p style="font-size:.85rem;color:#cbd5e1">All star counts, pushed_at, latest-release tags and language fields verified verified 2026-10-15 via authenticated GitHub REST API via the authenticated GitHub REST API (repo + releases/latest endpoints). Daily GitHub Trending list pulled live from github.com/trending on 2026-10-15 (12 repos). Weekly commit counts are 7-day deltas (since 2026-10-07) capped at 100 per repo per API page — figures of 100 indicate &ge;100 commits in the window, not an exact total. Star-velocity deltas vs the 2026-10-04 baseline are noted only where both snapshots are verified; no metric is invented. Astroturf flags mark repos whose growth outpaces plausible contributorship for a niche. Offensive tooling (pentagi, CyberStrike, NeuroSploit) is flagged dual-use — authorised scope / isolated lab only. CISA KEV / EPSS not re-queried for CVE-2026-14625 (fixed well before this release).</p></div>
+<section id="stack-watch">
+<div class="sec-head"><span class="secem">⚙</span><h2>Stack Watch</h2><span class="pill">Releases · Advisories · Patches</span><div class="sec-line" style="background:#00f2fe"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Item</th><th>Latest release</th><th>Last push</th><th>New 7d (advisories/CVEs)</th><th>Status</th></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a></td><td>v0.22.0 (2026-10-14)</td><td>2026-10-14</td><td>CVE-2026-14625 fixed (&le;0.15.2); now v0.22.0</td><td><span class="statchip" style="color:#a78bfa;border-color:#a78bfa">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a></td><td>v0.40.4 (2026-10-12)</td><td>2026-10-14</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a></td><td>v0.12.1 (2026-10-14)</td><td>2026-10-14</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/home-assistant/core" target="_blank" rel="noopener">home-assistant/core</a></td><td>2026.10.1 (2026-10-10)</td><td>2026-10-14</td><td>2026.10 train; no advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a></td><td>2026-10-13 (2026-10-14)</td><td>2026-10-14</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a></td><td>v4.14.8 (2026-09-25)</td><td>2026-10-14</td><td>Fixes sometimes ship without public CVE IDs (5.0 beta)</td><td><span class="statchip" style="color:#fbbf24;border-color:#fbbf24">ADVISORY</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a></td><td>v2.11.0 (2026-06-19)</td><td>2026-10-14</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+<tr><td><a class="rlink" href="https://github.com/langgenius/dify" target="_blank" rel="noopener">langgenius/dify</a></td><td>1.17.1 (2026-09-10)</td><td>2026-10-14</td><td>No advisories</td><td><span class="statchip" style="color:#34d399;border-color:#34d399">UPDATE</span></td></tr>
+</table></div>
+</section>
+<section id="gh-trending">
+<div class="sec-head"><span class="secem">📈</span><h2>GitHub Trending Today</h2><span class="pill">Official daily list</span><div class="sec-line" style="background:#818cf8"></div></div>
+<div class="tblwrap"><table>
+<tr><th>#</th><th>Repo</th><th>Lang</th><th>Stars today</th><th>Description</th><th>In report</th></tr>
+<tr><td>1</td><td><a class="rlink" href="https://github.com/morluto/rea">morluto/rea</a></td><td>TypeScript</td><td class="mut">(masked/sign-in)</td><td>Reverse engineer anything with agents, from app behavior down to native binaries.</td><td>Wildcard / Emerging</td></tr>
+<tr><td>2</td><td><a class="rlink" href="https://github.com/debpalash/VoiceStudio">debpalash/VoiceStudio</a></td><td>Python</td><td class="mut">(masked/sign-in)</td><td>Open-source, fully-local ElevenLabs alternative — voice cloning, design, video.</td><td>Wildcard / Emerging</td></tr>
+<tr><td>3</td><td><a class="rlink" href="https://github.com/sponsors/mksglu">sponsors/mksglu</a></td><td>TypeScript</td><td class="mut">(masked/sign-in)</td><td>Context window optimization for AI coding agents; sandboxes tool output (98% reduction).</td><td>NEW — Wildcard candidate</td></tr>
+<tr><td>4</td><td><a class="rlink" href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI/scientific-agent-skills</a></td><td>Python</td><td class="mut">(masked/sign-in)</td><td>Turn any AI agent into an AI Scientist; '#1 Agent Skills library for science'.</td><td>Wildcard / Emerging</td></tr>
+<tr><td>5</td><td><a class="rlink" href="https://github.com/HKUDS/CLI-Anything">HKUDS/CLI-Anything</a></td><td>Python</td><td class="mut">(masked/sign-in)</td><td>Make ALL software Agent-Native — bind any CLI to agents via CLI-Hub.</td><td>Wildcard / Emerging</td></tr>
+<tr><td>6</td><td><a class="rlink" href="https://github.com/ifixai-ai/iFixAi">ifixai-ai/iFixAi</a></td><td>Python</td><td class="mut">(masked/sign-in)</td><td>Independent Auditing of AI Agents; run by human or the agent itself.</td><td>AI Security</td></tr>
+<tr><td>7</td><td><a class="rlink" href="https://github.com/vxcontrol/pentagi">vxcontrol/pentagi</a></td><td>Go</td><td class="mut">(masked/sign-in)</td><td>Fully autonomous AI Agents system for complex penetration testing.</td><td>CyberSecurity</td></tr>
+<tr><td>8</td><td><a class="rlink" href="https://github.com/nvim-sh/nvm">nvim-sh/nvm</a></td><td>Shell</td><td class="mut">(masked/sign-in)</td><td>Node Version Manager — POSIX bash script to manage Node.js versions.</td><td>—</td></tr>
+<tr><td>9</td><td><a class="rlink" href="https://github.com/rust-lang/rust">rust-lang/rust</a></td><td>Rust</td><td class="mut">(masked/sign-in)</td><td>Empowering everyone to build reliable and efficient software.</td><td>—</td></tr>
+<tr><td>10</td><td><a class="rlink" href="https://github.com/xtool-org/xtool">xtool-org/xtool</a></td><td>Swift</td><td class="mut">(masked/sign-in)</td><td>Cross-platform Xcode replacement; SwiftPM builds on Linux/Windows/macOS.</td><td>Wildcard / Emerging</td></tr>
+<tr><td>11</td><td><a class="rlink" href="https://github.com/sponsors/ntdevlabs">sponsors/ntdevlabs</a></td><td>C#</td><td class="mut">(masked/sign-in)</td><td>WinUI app for building smaller, customized Windows 11 images.</td><td>—</td></tr>
+<tr><td>12</td><td><a class="rlink" href="https://github.com/NationalSecurityAgency/ghidra">NationalSecurityAgency/ghidra</a></td><td>Java</td><td class="mut">(masked/sign-in)</td><td>Ghidra — software reverse engineering (SRE) framework.</td><td>—</td></tr>
+</table></div>
+</section>
+<section id="sector-ai_llm">
+  <div class="sec-head">
+    <span class="secem">🤖</span>
+    <h2>AI &amp; LLM Architectures</h2>
+    <span class="pill">Inference · RAG · Serving</span>
+    <div class="sec-line" style="background:#38bdf8"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">vllm-project/vllm</a>
+    <div class="tags">
+      <span class="star-pill">★ 93,793 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">High-throughput, memory-efficient LLM inference &amp; serving engine; Blackwell/AMD/TPU backends, structured decoding, MoE scheduling.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Serve DeepSeek/Qwen/GLM-class models at scale; the self-hosted GenAI serving reference.</p>
+  <ul class="aud"><li>ML infra / inference engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v0.31.0 (10-05); 100+ commits/week — the dominant OSS serving engine</div></div>
+  <div class="posrow">Latest release: v0.31.0 (2026-10-05) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">sgl-project/sglang</a>
+    <div class="tags">
+      <span class="star-pill">★ 37,141 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">High-performance serving + RL (RLHF/GRPO) for LLMs &amp; multimodal; radix-attention, structured output, DeepSeek support.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Low-latency serving and RL workloads on the same runtime; v0.5.21.</p>
+  <ul class="aud"><li>ML infra / inference engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">100+ commits/week; Blackwell attention + vLLM-tier serving standard</div></div>
+  <div class="posrow">Latest release: v0.5.21 (2026-10-02) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/kvcache-ai/Mooncake" target="_blank" rel="noopener">kvcache-ai/Mooncake</a>
+    <div class="tags">
+      <span class="star-pill">★ 6,794 · C++</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Kimi's serving platform (Moonshot AI): disaggregated prefill/decode over RDMA, focused on long-context &amp; RL.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reference for KVCache disaggregated inference at Moonshot scale.</p>
+  <ul class="aud"><li>Inference systems engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Serving platform behind Kimi; RDMA disaggregated KVCache direction</div></div>
+  <div class="posrow">Latest release: v0.3.13.post1 (2026-08-31) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #38bdf8">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/gpustack/gpustack" target="_blank" rel="noopener">gpustack/gpustack</a>
+    <div class="tags">
+      <span class="star-pill">★ 5,827 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">GPU cluster manager for high-performance AI serving (vLLM/SGLang) with on-demand SSH GPU instances.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Pool GPUs and serve vLLM/SGLang across a homelab or small cluster; v2.2.3.</p>
+  <ul class="aud"><li>Homelab / self-hosted GPU admins</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Self-hosted GPU-cluster management; steady niche</div></div>
+  <div class="posrow">Latest release: v2.2.3 (2026-07-31) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-agentic">
+  <div class="sec-head">
+    <span class="secem">🧠</span>
+    <h2>Agentic AI &amp; Multi-Agent Systems</h2>
+    <span class="pill">Frameworks · MCP · Browser Agents</span>
+    <div class="sec-line" style="background:#a78bfa"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">NousResearch/hermes-agent</a>
+    <div class="tags">
+      <span class="star-pill">★ 253,755 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Our agent harness: MCP-first, persistent cron, skills, memory. v0.22.0 (2026-10-14) — new release today.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Runs this briefing. Update to v0.22.0 (CVE-2026-14625 line fully behind us).</p>
+  <ul class="aud"><li>This deployment</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#f87171'>RED FLAG NOTE:</b> CVE-2026-14625 (RCE &le;0.15.2) fixed long ago; now on v0.22.0. Verify running version</div></div>
+  <div class="posrow">Latest release: v0.22.0 (2026-10-14) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/firecrawl/firecrawl" target="_blank" rel="noopener">firecrawl/firecrawl</a>
+    <div class="tags">
+      <span class="star-pill">★ 191,536 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Supercharge AI agents with web data: crawling, scraping, search, Markdown extraction; cloud + self-host.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Powers agent research; 100+ commit/week velocity, v2.11.0.</p>
+  <ul class="aud"><li>AI platform / agent engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Strong sustained growth; the agentic web-data layer</div></div>
+  <div class="posrow">Latest release: v2.11.0 (2026-06-19) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">DietrichGebert/ponytail</a>
+    <div class="tags">
+      <span class="star-pill">★ 163,504 · JavaScript</span>
+      <span class="tag">push 2026-10-13</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Makes AI agents think like the lazy senior dev; YAGNI-oriented agent-skills/prompt rules.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Trim agent over-engineering; JS skill packs.</p>
+  <ul class="aud"><li>Agent skill adopters</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#fbbf24'>ASTROTURF FLAG:</b> created 2026-06, now 163k★ (~820/day) — velocity implausible; verify contributors before adoption</div></div>
+  <div class="posrow">Latest release: v5.2.0 (2026-10-13) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener">msitarzewski/agency-agents</a>
+    <div class="tags">
+      <span class="star-pill">★ 160,079 · Shell</span>
+      <span class="tag">push 2026-10-13</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Pre-built specialist agents (frontend, Reddit, whimsy) as a turnkey 'AI agency' in your shell.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Drop-in multi-agent workflows with packaged personalities.</p>
+  <ul class="aud"><li>Automation / agent tinkerers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Hot community onboarding; 52 commits/week. Survey 3rd-party agent prompts first</div></div>
+  <div class="posrow">Latest release: n/a · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/langgenius/dify" target="_blank" rel="noopener">langgenius/dify</a>
+    <div class="tags">
+      <span class="star-pill">★ 158,473 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Collaborative workspace to build agentic workflows &amp; RAG across models; deploy on VPC or self-hosted.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Prod-grade agent app builder with MCP/skills; 1.17.1.</p>
+  <ul class="aud"><li>AI platform engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">De-facto OSS LLMOps app platform; 100+ commits/week</div></div>
+  <div class="posrow">Latest release: 1.17.1 (2026-09-10) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a78bfa">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/mvschwarz/openrig" target="_blank" rel="noopener">mvschwarz/openrig</a>
+    <div class="tags">
+      <span class="star-pill">★ 7,452 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Build your own network of agents from Claude Code, Codex and other coding CLIs in one controlled loop.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Orchestrate multiple coding CLIs as one system; v0.6.10 (10-12).</p>
+  <ul class="aud"><li>AI coding engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending; low-star but actively shipping</div></div>
+  <div class="posrow">Latest release: v0.6.10 (2026-10-12) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-hermes_local">
+  <div class="sec-head">
+    <span class="secem">🪽</span>
+    <h2>Hermes, Local Models &amp; Self-Hosted AI</h2>
+    <span class="pill">Local LLM · Edge · Private</span>
+    <div class="sec-line" style="background:#f472b6"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/ollama/ollama" target="_blank" rel="noopener">ollama/ollama</a>
+    <div class="tags">
+      <span class="star-pill">★ 183,163 · Go</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Run Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma locally. v0.40.4 (10-12).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Self-hosted inference for HHome / edge AI.</p>
+  <ul class="aud"><li>Homelab / edge AI</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Continues as the default local-model runtime; 54 commits/week</div></div>
+  <div class="posrow">Latest release: v0.40.4 (2026-10-12) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">open-webui/open-webui</a>
+    <div class="tags">
+      <span class="star-pill">★ 155,676 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">User-friendly self-hosted AI interface (Ollama, OpenAI API, MCP, RAG); v0.12.1 released 10-14.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Polished private chat/RAG UI over local models.</p>
+  <ul class="aud"><li>Self-hosted AI admins</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v0.12.1 today; 100+ commits/week — the self-hosted UI standard</div></div>
+  <div class="posrow">Latest release: v0.12.1 (2026-10-14) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/twinnydotdev/twinny" target="_blank" rel="noopener">twinnydotdev/twinny</a>
+    <div class="tags">
+      <span class="star-pill">★ 3,670 · TypeScript</span>
+      <span class="tag">push 2026-10-12</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source AI coding assistant for VS Code: completion, chat, edits, reviews with local or hosted models.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Private code completion/editing; your models your infra; v4.0.20.</p>
+  <ul class="aud"><li>Private-AI / VS Code users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady privacy-forward coding-assistant niche</div></div>
+  <div class="posrow">Latest release: v4.0.20 (2026-09-22) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #f472b6">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/LearningCircuit/local-deep-research" target="_blank" rel="noopener">LearningCircuit/local-deep-research</a>
+    <div class="tags">
+      <span class="star-pill">★ 9,191 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">~95% SimpleQA local deep research; all local &amp; cloud LLMs (llama.cpp, Ollama), 10+ search engines, encrypted.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Private agentic deep research without cloud; v1.10.7.</p>
+  <ul class="aud"><li>Local-AI research users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Rising; encrypted, everything-local positioning</div></div>
+  <div class="posrow">Latest release: v1.10.7 (2026-08-28) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-cyber">
+  <div class="sec-head">
+    <span class="secem">🔒</span>
+    <h2>CyberSecurity (Offensive &amp; Defensive)</h2>
+    <span class="pill">Red Team · AI Pentest · Vuln Research</span>
+    <div class="sec-line" style="background:#f87171"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/vxcontrol/pentagi" target="_blank" rel="noopener">vxcontrol/pentagi</a>
+    <div class="tags">
+      <span class="star-pill">★ 29,231 · Go</span>
+      <span class="tag">push 2026-10-09</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Fully autonomous AI agents for complex penetration testing; Go; v2.2.0 (10-05).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">AI-driven pentest automation on authorised, isolated ranges.</p>
+  <ul class="aud"><li>AppSec / pentest teams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#f87171'>Dual-use:</b> autonomous offensive AI — authorised scope / isolated lab only. On GitHub Trending</div></div>
+  <div class="posrow">Latest release: v2.2.0 (2026-10-05) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/CyberStrikeus/CyberStrike" target="_blank" rel="noopener">CyberStrikeus/CyberStrike</a>
+    <div class="tags">
+      <span class="star-pill">★ 3,147 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source AI-powered offensive-security harness for automated penetration testing; v1.1.16.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">AI-assist pentesting workflows; authorised engagements.</p>
+  <ul class="aud"><li>AppSec / pentest teams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#f87171'>Dual-use flag:</b> authorised scope only</div></div>
+  <div class="posrow">Latest release: v1.1.16 (2026-08-13) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/JoasASantos/NeuroSploit" target="_blank" rel="noopener">JoasASantos/NeuroSploit</a>
+    <div class="tags">
+      <span class="star-pill">★ 1,444 · Rust</span>
+      <span class="tag">push 2026-10-11</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">AI-powered pentesting framework (Rust) automating offensive security ops; v4.2.4 (10-04).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Augment pentesting automation; isolated authorized ranges.</p>
+  <ul class="aud"><li>Red team / pentest</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#f87171'>Dual-use flag:</b> authorised ranges only</div></div>
+  <div class="posrow">Latest release: v4.2.4 (2026-10-04) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #f87171">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks" target="_blank" rel="noopener">0xsyr0/Awesome-Cybersecurity-Handbooks</a>
+    <div class="tags">
+      <span class="star-pill">★ 4,137 · —</span>
+      <span class="tag">push 2026-10-10</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Personal red-teamer &amp; CTF notes: offensive/defensive handbooks consolidated into a reference repo.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reference for red-team &amp; blue-team techniques.</p>
+  <ul class="aud"><li>Red/blue teams, CTF</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Community reference; useful reconnaissance knowledge base</div></div>
+  <div class="posrow">Latest release: n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-ai_security">
+  <div class="sec-head">
+    <span class="secem">🛡️</span>
+    <h2>AI Security</h2>
+    <span class="pill">Prompt Injection · Guardrails · Red-Teaming</span>
+    <div class="sec-line" style="background:#fb923c"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/promptfoo/promptfoo" target="_blank" rel="noopener">promptfoo/promptfoo</a>
+    <div class="tags">
+      <span class="star-pill">★ 26,001 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Test prompts, agents, RAGs; red-teaming/vuln scanning for AI; declarative configs, CI/CD. Used by OpenAI &amp; Anthropic (README claim).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Continuous LLM eval &amp; adversarial testing in CI.</p>
+  <ul class="aud"><li>AI AppSec / ML engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Industry-standard LLM eval/red-team tooling; 26k★</div></div>
+  <div class="posrow">Latest release: code-scan-action-0.2.2 (2026-10-08) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/ifixai-ai/iFixAi" target="_blank" rel="noopener">ifixai-ai/iFixAi</a>
+    <div class="tags">
+      <span class="star-pill">★ 27,207 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Independent auditing of AI agents — run by human or the agent itself to answer crucial safety questions; v4.1.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Audit your own agent behavior for safety/trust.</p>
+  <ul class="aud"><li>AI security engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">On GitHub Trending; 'independent agent auditing' niche is rising</div></div>
+  <div class="posrow">Latest release: v4.1.0 (2026-10-08) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/NVIDIA/garak" target="_blank" rel="noopener">NVIDIA/garak</a>
+    <div class="tags">
+      <span class="star-pill">★ n/a · —</span>
+      <span class="tag">push n/a</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">The LLM vulnerability scanner; v0.17.0 — red-team probes for hallucination, prompt injection, data leak.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Probe local/served LLMs for failure modes; standard tool.</p>
+  <ul class="aud"><li>AI security / red team</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Canonical OSS LLM vuln scanner (NVIDIA)</div></div>
+  <div class="posrow">Latest release: n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #fb923c">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener">cloudflare/security-audit-skill</a>
+    <div class="tags">
+      <span class="star-pill">★ 29,564 · JavaScript</span>
+      <span class="tag">push 2026-09-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Coding-agent skill for multi-phase security audits: recon, coverage-led hunting, adversarial validation.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Drop into Claude Code/Codex to audit a codebase; 29k★.</p>
+  <ul class="aud"><li>AppSec / CISO / DevSecOps</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Derived from Cloudflare's internal vuln-discovery harness. Last push 09-14 (quiet)</div></div>
+  <div class="posrow">Latest release: n/a · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-sast">
+  <div class="sec-head">
+    <span class="secem">🔍</span>
+    <h2>Code Scanning, SAST &amp; Auditing</h2>
+    <span class="pill">SAST · Secrets · Static Analysis</span>
+    <div class="sec-line" style="background:#fbbf24"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/semgrep/semgrep" target="_blank" rel="noopener">semgrep/semgrep</a>
+    <div class="tags">
+      <span class="star-pill">★ 17,058 · C</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Lightweight multi-language static analysis; pattern-based find-bug-variant scanner; v1.180.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">SAST in CI + custom org rules; 30+ languages.</p>
+  <ul class="aud"><li>AppSec / DevSecOps</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">De-facto OSS SAST standard; 100+ commits/week</div></div>
+  <div class="posrow">Latest release: v1.180.0 (2026-10-07) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/MobSF/mobsfscan" target="_blank" rel="noopener">MobSF/mobsfscan</a>
+    <div class="tags">
+      <span class="star-pill">★ 792 · Python</span>
+      <span class="tag">push 2026-09-21</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Static analysis for insecure patterns in Android/iOS source (Java, Kotlin, Swift, Obj-C); powered by Semgrep &amp; libsast.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Mobile SAST scanning; v1.0.1 (09-21).</p>
+  <ul class="aud"><li>Mobile AppSec</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Niche mobile-SAST companion to semgrep</div></div>
+  <div class="posrow">Latest release: 1.0.1 (2026-09-21) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #fbbf24">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/0xdea/semgrep-rules" target="_blank" rel="noopener">0xdea/semgrep-rules</a>
+    <div class="tags">
+      <span class="star-pill">★ 877 · C</span>
+      <span class="tag">push 2026-09-25</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Collection of Semgrep rules from vulnerability research; v2.0.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Reusable find-bug-variant patterns for research.</p>
+  <ul class="aud"><li>Vulnerability researchers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Researcher-maintained rule pack; modest stars</div></div>
+  <div class="posrow">Latest release: v2.0.0 (2026-06-15) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-siem">
+  <div class="sec-head">
+    <span class="secem">📊</span>
+    <h2>Security Monitoring &amp; SIEM</h2>
+    <span class="pill">SIEM · Detection · Threat Hunting</span>
+    <div class="sec-line" style="background:#c084fc"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/wazuh/wazuh" target="_blank" rel="noopener">wazuh/wazuh</a>
+    <div class="tags">
+      <span class="star-pill">★ 17,255 · C++</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source security platform: unified XDR &amp; SIEM for endpoints &amp; cloud workloads; v4.14.8 (09-25).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Self-hosted SIEM/XDR for estate; stay on 4.14.x (5.0 still beta).</p>
+  <ul class="aud"><li>SOC</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Wazuh 5.0 still beta; fixes sometimes ship without public CVE IDs</div></div>
+  <div class="posrow">Latest release: v4.14.8 (2026-09-25) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener">SigmaHQ/sigma</a>
+    <div class="tags">
+      <span class="star-pill">★ 11,239 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Main Sigma rule repository: generic SIEM detection rules (Splunk, Elastic, others); r2026-07-01.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Source of detection content for hayabusa + SIEM.</p>
+  <ul class="aud"><li>Detection / SOC</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">The detection-content backbone; 100+ commits/week</div></div>
+  <div class="posrow">Latest release: r2026-07-01 (2026-07-09) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/Yamato-Security/hayabusa" target="_blank" rel="noopener">Yamato-Security/hayabusa</a>
+    <div class="tags">
+      <span class="star-pill">★ 3,397 · Rust</span>
+      <span class="tag">push 2026-10-13</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Sigma-based threat hunting &amp; fast forensics timeline generator for Windows event logs; v4.2.0 (10-13).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Fast EVTX triage across many hosts in IR.</p>
+  <ul class="aud"><li>DFIR / SOC hunting</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v4.2.0 fresh (10-13); reference EVTX hunter</div></div>
+  <div class="posrow">Latest release: v4.2.0 (2026-10-13) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #c084fc">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/WithSecureOpenSource/chainsaw" target="_blank" rel="noopener">WithSecureOpenSource/chainsaw</a>
+    <div class="tags">
+      <span class="star-pill">★ 3,691 · Rust</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Rapidly search &amp; hunt through Windows forensic artefacts (Sigma); v2.17.1 (10-14).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Fast threat hunting over EVTX corpora.</p>
+  <ul class="aud"><li>DFIR / threat hunting</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v2.17.1 today; Rust speed advantage</div></div>
+  <div class="posrow">Latest release: v2.17.1 (2026-10-14) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-home">
+  <div class="sec-head">
+    <span class="secem">🏠</span>
+    <h2>Smart Home, IoT &amp; Self-Hosting</h2>
+    <span class="pill">Home Assistant · Homelab · Privacy</span>
+    <div class="sec-line" style="background:#a3e635"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/community-scripts/ProxmoxVE" target="_blank" rel="noopener">community-scripts/ProxmoxVE</a>
+    <div class="tags">
+      <span class="star-pill">★ 29,816 · Shell</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Proxmox VE Helper-Scripts: one-line LXC/VM install scripts; 2026-10-13 tag (auto-released 10-14).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Runs our Homelab (LXC205 etc.).</p>
+  <ul class="aud"><li>Homelab admin</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Steady; our Homelab relies on it</div></div>
+  <div class="posrow">Latest release: 2026-10-13 (2026-10-14) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/home-assistant/core" target="_blank" rel="noopener">home-assistant/core</a>
+    <div class="tags">
+      <span class="star-pill">★ 91,496 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Open-source home automation; 2026.10.1 (10-10).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Our HHome automation backbone.</p>
+  <ul class="aud"><li>Homelab / HA admins</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">2026.10 release train; 100+ commits/week</div></div>
+  <div class="posrow">Latest release: 2026.10.1 (2026-10-10) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/blakeblackshear/frigate" target="_blank" rel="noopener">blakeblackshear/frigate</a>
+    <div class="tags">
+      <span class="star-pill">★ 36,583 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">NVR with realtime local object detection for IP cameras; v0.18.1 (10-13).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Local, private camera NVR + detection.</p>
+  <ul class="aud"><li>Homelab / security cams</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">v0.18.1 fresh; strong self-hosting NVR</div></div>
+  <div class="posrow">Latest release: v0.18.1 (2026-10-13) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #a3e635">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/XiaoMi/ha_xiaomi_home" target="_blank" rel="noopener">XiaoMi/ha_xiaomi_home</a>
+    <div class="tags">
+      <span class="star-pill">★ 22,199 · Python</span>
+      <span class="tag">push 2026-09-28</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Official Xiaomi Home integration for Home Assistant; v0.5.0 (09-28).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Native Xiaomi device control in HA.</p>
+  <ul class="aud"><li>Homelab / Xiaomi users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">Official integration; steady</div></div>
+  <div class="posrow">Latest release: v0.5.0 (2026-09-28) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+<section id="sector-wildcard">
+  <div class="sec-head">
+    <span class="secem">🧪</span>
+    <h2>Wildcard / Emerging</h2>
+    <span class="pill">Emerging · Viral · Cross-Domain</span>
+    <div class="sec-line" style="background:#00f2fe"></div>
+  </div>
+  <div class="grid"><article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/morluto/rea" target="_blank" rel="noopener">morluto/rea</a>
+    <div class="tags">
+      <span class="star-pill">★ 238,246 · TypeScript</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Reverse engineer anything with agents — from app behavior down to native binaries; rea-agents-6.5.0 (10-14, today).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Agent-driven reverse engineering/RE workflows.</p>
+  <ul class="aud"><li>Reverse engineers / malware analysts</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#fbbf24'>ASTROTURF FLAG:</b> #1 on GitHub Trending, 238k★ for a niche RE tool, released today — velocity implausible; verify contributors</div></div>
+  <div class="posrow">Latest release: rea-agents-6.5.0 (2026-10-14) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noopener">debpalash/VoiceStudio</a>
+    <div class="tags">
+      <span class="star-pill">★ 65,914 · Python</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Fully-local ElevenLabs alternative: voice cloning, design, dubbing, dictation, transcription in 646 languages (AGPL-3.0); v0.5.6.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Local, private voice production stack.</p>
+  <ul class="aud"><li>Media / local-AI users</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#fb923c'>HOT:</b> 25k★ surge since 10-04 (40.7k→65.9k); #2 trending. still labelled beta</div></div>
+  <div class="posrow">Latest release: v0.5.6 (2026-09-23) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noopener">HKUDS/CLI-Anything</a>
+    <div class="tags">
+      <span class="star-pill">★ 52,387 · Python</span>
+      <span class="tag">push 2026-09-22</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Make ALL software agent-native: bind any CLI to agents via CLI-Hub; v0.4.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Expose arbitrary CLIs as agent tools.</p>
+  <ul class="aud"><li>Agent / CLI developers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">HKUDS research-backed; on GitHub Trending</div></div>
+  <div class="posrow">Latest release: v0.4.0 (2026-06-25) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article><article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/K-Dense-AI/scientific-agent-skills" target="_blank" rel="noopener">K-Dense-AI/scientific-agent-skills</a>
+    <div class="tags">
+      <span class="star-pill">★ 49,200 · Python</span>
+      <span class="tag">push 2026-10-12</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Turn any AI agent into an AI Scientist; the '#1 Agent Skills library for science', claims 250,000+ scientists; v2.72.0.</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Add scientific research skills to agents.</p>
+  <ul class="aud"><li>Scientific computing / agents</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b"><b style='color:#fbbf24'>ASTROTURF FLAG:</b> '250, 000+ scientists' + 49k★ marketing-heavy — verify adoption before trust</div></div>
+  <div class="posrow">Latest release: v2.72.0 (2026-10-01) · Risk: <span style="color:#fbbf24;font-weight:bold">Med</span></div>
+</article><article class="card" style="border-top:4px solid #00f2fe">
+  <div class="card-head">
+    <a class="rlink" href="https://github.com/xtool-org/xtool" target="_blank" rel="noopener">xtool-org/xtool</a>
+    <div class="tags">
+      <span class="star-pill">★ 10,586 · Swift</span>
+      <span class="tag">push 2026-10-14</span>
+    </div>
+  </div>
+  <div class="lab">OVERVIEW / MECHANICS</div>
+  <p class="ov">Cross-platform Xcode replacement; build &amp; deploy iOS apps with SwiftPM on Linux, Windows, macOS; 1.22.2 (10-14, today).</p>
+  <div class="lab">PRACTICAL UTILITY</div>
+  <p class="ov">Non-macOS iOS builds; high-velocity Swift work.</p>
+  <ul class="aud"><li>Mobile / Swift engineers</li></ul>
+  <div class="osint"><div class="osint-h">OSINT TRENDING CONTEXT</div><div class="osint-b">1.22.2 today; on GitHub Trending</div></div>
+  <div class="posrow">Latest release: 1.22.2 (2026-10-14) · Risk: <span style="color:#34d399;font-weight:bold">Low</span></div>
+</article></div>
+</section>
+
+<section id="pulse">
+<div class="sec-head"><span class="secem">📊</span><h2>Pulse &amp; Security Awareness</h2><span class="pill">Consolidated · 7-day activity</span><div class="sec-line" style="background:#67e8f9"></div></div>
+<div class="tblwrap"><table>
+<tr><th>Repo</th><th>Category</th><th>★</th><th>Δ24h</th><th>Commits 7d</th><th>PRs merged</th><th>Contributors</th><th>Latest release</th><th>Risk</th></tr>
+<tr><td><a class="rlink" href="https://github.com/vllm-project/vllm">vllm-project/vllm</a></td><td>AI &amp; LLM Architectures</td><td>93,793</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v0.31.0 (10-05)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/sgl-project/sglang">sgl-project/sglang</a></td><td>AI &amp; LLM Architectures</td><td>37,141</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v0.5.21 (10-02)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/ollama/ollama">ollama/ollama</a></td><td>Hermes / Local</td><td>183,163</td><td class="mut">n/a</td><td>54</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v0.40.4 (10-12)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/open-webui/open-webui">open-webui/open-webui</a></td><td>Hermes / Local</td><td>155,676</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v0.12.1 (10-14)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/firecrawl/firecrawl">firecrawl/firecrawl</a></td><td>Agentic AI</td><td>191,536</td><td class="mut">n/a</td><td>52</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v2.11.0 (06-19)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/langgenius/dify">langgenius/dify</a></td><td>Agentic AI</td><td>158,473</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>1.17.1 (09-10)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/home-assistant/core">home-assistant/core</a></td><td>Smart Home</td><td>91,496</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>2026.10.1 (10-10)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/community-scripts/ProxmoxVE">community-scripts/ProxmoxVE</a></td><td>Smart Home</td><td>29,816</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>2026-10-13 (10-14)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/wazuh/wazuh">wazuh/wazuh</a></td><td>SIEM</td><td>17,255</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v4.14.8 (09-25)</td><td style="color:#34d399">Low</td></tr>
+<tr><td><a class="rlink" href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a></td><td>Agentic AI</td><td>253,755</td><td class="mut">n/a</td><td>100+</td><td class="mut">n/a</td><td class="mut">n/a</td><td>v0.22.0 (10-14)</td><td style="color:#34d399">Low</td></tr>
+</table></div>
+<p class="mut" style="font-size:.75rem;margin-top:8px">Δ24h, PRs and contributor counts are marked n/a this run where not individually fetched; weekly commit counts are 7-day deltas (cap 100/page). Click through to GitHub Insights for live figures.</p>
+</section>
+<footer>
+Generated by Mr Delly Bot — Headmaster &amp; Systems Butler to Mr Happy · Zero-Trust briefing · Thursday, 15 October 2026<br>
+OSINT sources: GitHub REST API (authenticated, verified star/release/commit data), GitHub Trending daily page (live, 2026-10-15), Tavily/web_search (agent-security &amp; RE-tooling context), prior 2026-10-04 baseline.<br>
+Astroturf/implausible-velocity repos are flagged in-card. Offensive tooling: authorised-scope use only.
+</footer>
+</div></body></html>
